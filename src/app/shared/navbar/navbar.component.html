@@ -1,0 +1,42 @@
+<header class="o-header">
+  <div class="o-logo">
+    <a class="o-logo__anchor" [routerLink]="['home']">
+      <img class="o-logo__img" [src]="logo" alt="Sinapsis" width="178" height="54">
+    </a>
+  </div>
+  <nav class="o-nav">
+    <ul class="o-nav__menu">
+      <li class="o-nav__item">
+        <a [routerLink]="['home']">Inicio</a>
+      </li>
+      <li class="o-nav__item">
+        <a [routerLink]="['home']">Servicios</a>
+      </li>
+      <li class="o-nav__item">
+        <a [routerLink]="['home']">Nosotros</a>
+      </li>
+      <li class="o-nav__item">
+        <a [routerLink]="['home']">Portfolio</a>
+      </li>
+      <li class="o-nav__item">
+        <a [routerLink]="['home']">Blog</a>
+      </li>
+      <li class="o-nav__item">
+        <a [routerLink]="['home']">Trabaja con nosotros</a>
+      </li>
+    </ul>
+  </nav>
+  <div>Contactanos</div>
+  <div class="o-language">
+    <ul class="o-language__options">
+      <li class="o-language__option">
+        <img class="o-language__flag" [src]="flagEng" alt="flag english">
+        <span class="o-language__">English</span>
+      </li>
+      <li class="o-language__option">
+        <img class="o-language__flag" [src]="flagEng" alt="flag spanish">
+        <span class="o-language__">Español</span>
+      </li>
+    </ul>
+  </div>
+</header>
