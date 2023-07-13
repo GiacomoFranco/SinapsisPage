@@ -1,0 +1,33 @@
+// Styles for header and navbar
+
+.o-header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.o-logo{
+
+  &logo__img{
+    width: 100%;
+  }
+
+}
+
+.o-nav{
+
+  &__menu {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    list-style: none;
+    padding: 0px;
+  }
+
+  &__menu{
+    text-transform: uppercase;
+  }
+
+}
+
+
