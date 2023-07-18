@@ -1,9 +1,41 @@
+
+/** css reset**/
+body {
+  margin: 0;
+}
+
+//import styles
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+*{
+  font-family: 'Inter', sans-serif;
+}
+
+/** Colors */
+$main-color :  #121212;
+$second-color: #FFFFFF;
+
+
+
 // Styles for header and navbar
 
 .o-header {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  box-shadow: 0px 4px 28px 0px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  width: 100vw;
+  top: 0px;
+  left: 0;
+  z-index: 1;
+  background: $second-color;
+
+  &__content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 90%;
+    margin: auto;
+  }
 }
 
 .o-logo{
@@ -18,16 +50,27 @@
 
   &__menu {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 17px;
     list-style: none;
     padding: 0px;
-  }
-
-  &__menu{
+    margin: 20px 0px;
     text-transform: uppercase;
   }
 
+  &__item{
+
+    &-anchor{
+      text-decoration: none;
+      color: $main-color;
+      font-weight: 700;
+      font-size: 14px;
+    }
+  }
+
 }
+
+
 
 
