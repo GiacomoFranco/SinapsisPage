@@ -10,23 +10,21 @@ import { MenuService } from 'src/app/services/menu.service';
 export class NavbarComponent {
   logo = '../../../assets/img/logo.png'
   flagEng = '../../../assets/img/english.png'
-  navRouters:Menus[] = []
+
+  @Input() navRouters: Menus[] = [{
+    title: '',
+    url: '',
+    slug: ''
+  }]
 
   constructor(
     private MenuService : MenuService
   ) { }
 
   ngOnInit(): void{
-    this.MenuService.getMenu()
-      .subscribe(data => {
-        this.navRouters = data
+    this.MenuService.getMenu().then(response => {
+      this.navRouters = response.data
     })
-  }
-
-  @Input() navReouters: Menus = {
-    title: '',
-    url: '',
-    slug: ''
   }
 
 }
