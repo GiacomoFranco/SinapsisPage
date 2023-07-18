@@ -10,11 +10,13 @@
     <nav class="o-nav">
       <ul class="o-nav__menu">
         <li class="o-nav__item" *ngFor="let navMenu of navRouters">
-          <a class="o-nav__item-anchor" [routerLink]="[navMenu.slug]">{{navMenu.title}}</a>
+          <a class="o-nav__item-anchor" [routerLink]="[navMenu.slug]"
+            [routerLinkActive]="'active'">{{navMenu.title}}</a>
         </li>
       </ul>
     </nav>
-    <div>Contactanos</div>
+
+    <div class="test">Contactanos</div>
 
     <div class="o-language">
       <select class="o-lang-select">
