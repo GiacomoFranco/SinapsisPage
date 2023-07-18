@@ -1,0 +1,37 @@
+.btn-sinapsis {
+  background: #7042ef;
+  color: #fff;
+  border: 2px solid #7042ef;
+  padding: 10px 30px;
+  border-radius: 3px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  display: inline-block;
+  border-radius: 50px;
+  font-size: 20px;
+  transition: 0.8s;
+  cursor: pointer;
+
+  &:hover {
+    color: #7042ef;
+  }
+}
+
+.btn-sinapsis::before {
+  content: "";
+  position: absolute;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: #7042ef;
+  z-index: -1;
+  transition: all 0.8s ease;
+  top: 0;
+}
+
+.btn-sinapsis:hover::before {
+  left: 0;
+  top: 0;
+  background-color: #fff;
+}
