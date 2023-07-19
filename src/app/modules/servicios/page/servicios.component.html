@@ -1,3 +1,27 @@
-<main class="container mt-5">
-    <p>servicios works!</p>
+<main>
+  <article>
+    <div class="text-center info_content">
+      <p>Trabajamos todos nuestros desarrollos con</p>
+      <h1>Metodologías <b>Scrum y kanban.</b></h1>
+    </div>
+    <section class="section-slider mt-5">
+      <div class="swiper-container" id="swiper-content">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide" *ngFor="let item of sliderItems">
+            <div class="card-item text-center">
+              <img [src]="item.img" alt="" />
+              <p class="title_item">{{ item.title }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+      <div class="container d-flex justify-content-end mt-3">
+        <p class="mb-0 me-3 parr_slide">
+          Desliza para conocer todos los servicios
+        </p>
+        <img src="../../../../assets/icons/arrangehorizontal.svg" alt="" />
+      </div>
+    </section>
+  </article>
 </main>
