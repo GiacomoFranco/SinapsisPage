@@ -77,6 +77,35 @@
   }
 }
 
+.section-software {
+  margin-top: 100px;
+
+  h2 {
+    color: #1a1a1b;
+    text-align: center;
+    font-family: "Inter";
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+
+    b {
+      font-weight: 700;
+    }
+  }
+
+  p {
+    margin-top: 20px;
+    color: #1a1a1b;
+    text-align: center;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+  }
+}
+
 .swiper-wrapper {
   transition-timing-function: linear;
 }
