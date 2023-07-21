@@ -1,27 +1,70 @@
 <main>
-  <article>
-    <div class="text-center info_content">
-      <p>Trabajamos todos nuestros desarrollos con</p>
-      <h1>Metodologías <b>Scrum y kanban.</b></h1>
-    </div>
-    <section class="section-slider mt-5">
-      <div class="swiper-container" id="swiper-content">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide" *ngFor="let item of sliderItems">
-            <div class="card-item text-center">
-              <img [src]="item.img" alt="" />
-              <p class="title_item">{{ item.title }}</p>
-            </div>
+  <div class="text-center info_content">
+    <p>Trabajamos todos nuestros desarrollos con</p>
+    <h1>Metodologías <b>Scrum y kanban.</b></h1>
+  </div>
+  <section class="section-slider mt-5">
+    <div class="swiper-container" id="swiper-content">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" *ngFor="let item of sliderItems">
+          <div class="card-item text-center">
+            <img [src]="item.img" alt="" />
+            <p class="title_item">{{ item.title }}</p>
           </div>
         </div>
-        <div class="swiper-pagination"></div>
       </div>
-      <div class="container d-flex justify-content-end mt-3">
-        <p class="mb-0 me-3 parr_slide">
-          Desliza para conocer todos los servicios
-        </p>
-        <img src="../../../../assets/icons/arrangehorizontal.svg" alt="" />
-      </div>
-    </section>
-  </article>
+      <div class="swiper-pagination"></div>
+    </div>
+    <div class="container d-flex justify-content-end mt-3">
+      <p class="mb-0 me-3 parr_slide">
+        Desliza para conocer todos los servicios
+      </p>
+      <img src="../../../../assets/icons/arrangehorizontal.svg" alt="" />
+    </div>
+  </section>
+  <section class="section-software">
+    <div class="mt-5 text-center container">
+      <h2>Desarrollo de <b>software a la medida.</b></h2>
+      <p>
+        En SINAPSIS nos especializamos en desplegar servicios bajo metodologías
+        de desarrollo de soware que enfatizan la agilidad y la adaptabilidad,
+        que responden a las necesidades y el entorno cambiante de su negocio.
+      </p>
+      <p>Nuestro equipo de desarrollo está capacitado para entenderlo, ayudándole
+        a convertir un reto empresarial en una aplicación moderna a la medida de
+        soluciones altamente robustas, que le permita operar de manera más
+        rentable y eficiente; incluyen aplicaciones financieras, soware
+        contable, inventarios, aplicaciones de nómina, sistemas de producción y
+        manufactura, entre otras.</p>
+      <p>En SINAPSIS somos orgullosamente Microso Partner Network.</p>
+    </div>
+    <ng-lottie
+      [options]="options"
+      (animationCreated)="animationCreated($event)"
+    ></ng-lottie>
+    <div class="container">
+      <p>
+        Lorem ipsum dolor sit amet. Ea cumque nemo ab laudantium corporis sed
+        earum ratione eos dolores saepe et quos tempora aut autem maiores ea
+        magni doloremque. Et velit dolores in placeat voluptas et culpa nulla
+        aut galisum odit. In perferendis temporibus ut nulla illo ut placeat
+        debitis vel commodi voluptates qui dicta asperiores rem laboriosam
+        impedit.
+      </p>
+      <p>
+        Sed magni aperiam eos totam excepturi aut voluptatibus quos id quisquam
+        voluptas ut harum accusantium et quaerat esse vel veritatis possimus.
+        Qui quia aperiam est necessitatibus quidem nam velit sint est magnam
+        corporis aut soluta delectus a vitae autem aut dicta facere. Vel
+        mollitia labore qui doloribus facilis et quia aperiam et iure
+        consequatur? Sit nostrum sunt non beatae ipsam nam sunt similique est
+        dolor doloribus vel dicta quasi et nostrum facilis. Sed expedita
+        mollitia et iure eaque qui ipsam debitis.
+      </p>
+      <p>
+        Ab adipisci reprehenderit est maxime dolore non labore consequuntur rem
+        aperiam consectetur et illum quia sed veritatis distinctio ut quas enim.
+      </p>
+    </div>
+  </section>
 </main>
