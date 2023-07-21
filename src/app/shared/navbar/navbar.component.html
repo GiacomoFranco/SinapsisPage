@@ -1,6 +1,7 @@
 <header class="o-header">
 
   <div class="o-header__content">
+
     <div class="o-logo">
       <a class="o-logo__anchor" [routerLink]="['home']">
         <img class="o-logo__img" [src]="logo" alt="Sinapsis" width="178" height="54">
@@ -16,9 +17,11 @@
       </ul>
     </nav>
 
-    <div class="test">Contactanos</div>
+    <div class="o-nav__btn-sinapsis">
+      <app-button-sinapsis [name_button]="'Contáctanos'"></app-button-sinapsis>
+    </div>
 
-    <div class="o-language">
+    <div class="o-lang">
       <select class="o-lang-select">
         <option class="o-lang-select__option" value="es">
           <img class="o-lang-select__img" [src]="flagEng" width="50px">
