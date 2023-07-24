@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, OnInit, HostListener } from '@angular/core';
+import { Component, AfterViewInit, OnInit, HostListener, ElementRef  } from '@angular/core';
 import sliderData from 'src/app/core/slider.mock';
 import { Slider } from 'src/app/models/slide.model';
 import Swiper from 'swiper';
@@ -22,6 +22,8 @@ export class ServiciosComponent implements AfterViewInit, OnInit {
   animationItem: AnimationItem | undefined;
 
   swiper: Swiper | undefined;
+
+  constructor(private elementRef: ElementRef){}
 
   ngOnInit(): void {
     this.sliderItems = sliderData;

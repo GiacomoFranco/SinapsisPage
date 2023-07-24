@@ -147,9 +147,52 @@
 
     .mobile {
       width: 545px;
-      height: 960px;
       position: relative;
       margin-left: 10px;
+    }
+
+    .phone {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 100px;
+
+      .cell {
+        width: 410px;
+        height: 840px;
+        animation: Float 1.2s ease-in-out infinite alternate-reverse;
+        transition: all 0.3s ease;
+      }
+
+      .shad {
+        width: 200px;
+        animation: Expand 1.2s ease-in-out infinite alternate-reverse;
+        transition: all 0.3s ease;
+      }
+    }
+
+    @keyframes Float {
+      0% {
+        transform: translateY(-10px);
+      }
+
+      100% {
+        transform: translateY(-30px);
+      }
+    }
+
+    @keyframes Expand {
+      0% {
+        width: 400px;
+        opacity: 1;
+      }
+
+      100% {
+        width: 500px;
+        opacity: 0.8;
+      }
     }
 
     .item_service {
@@ -188,7 +231,7 @@
     }
 
     .computer {
-      height: 760px;
+      height: 725px;
     }
   }
 }
@@ -201,5 +244,64 @@
   .icon {
     width: 45px;
     height: 45px;
+  }
+
+  h3 {
+    color: #fff;
+  }
+
+  .title-statistics {
+    height: 65px;
+  }
+
+  p {
+    color: #fff;
+  }
+}
+
+.work-us {
+  width: 100%;
+  height: 845px;
+  display: grid;
+  place-items: center;
+  place-content: center;
+  position: relative;
+
+  .bg-work {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    filter: brightness(0.1);
+  }
+
+  .content {
+    width: 474px;
+    display: grid;
+    text-align: center;
+    position: relative;
+
+    img {
+      position: absolute;
+      right: -65px;
+      bottom: 120px;
+    }
+
+    h2 {
+      color: #fff;
+      position: relative;
+    }
+
+    a {
+      text-align: center;
+      position: relative;
+      margin-top: 25px;
+      color: #fff;
+      font-family: 'Inter';
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      text-decoration-line: underline;
+    }
   }
 }
