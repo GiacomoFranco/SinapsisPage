@@ -1,9 +1,9 @@
 <main>
   <div class="text-center info_content">
-    <p>Trabajamos todos nuestros desarrollos con</p>
+    <span>Trabajamos todos nuestros desarrollos con</span>
     <h1>Metodologías <b>Scrum y kanban.</b></h1>
   </div>
-  <section class="section-slider mt-5">
+  <section class="section-slider mt-5" *ngIf="!isMobile">
     <div class="swiper-container" id="swiper-content">
       <div class="swiper-wrapper">
         <div class="swiper-slide" *ngFor="let item of sliderItems">
@@ -22,27 +22,39 @@
       <img src="../../../../assets/icons/arrangehorizontal.svg" alt="" />
     </div>
   </section>
-  <section class="section-software">
+  <section class="grid-mobile" *ngIf="isMobile">
+    <div class="row d-flex justify-content-center align-items-center">
+      <div class="col-6 item-mobile" *ngFor="let item of sliderItems">
+        <img [src]="item.img" alt="" />
+        <p>{{ item.title }}</p>
+      </div>
+    </div>
+  </section>
+  <section class="section-software pb-5">
     <div class="mt-5 text-center container">
       <h2>Desarrollo de <b>software a la medida.</b></h2>
-      <p>
+      <p class="mt-4">
         En SINAPSIS nos especializamos en desplegar servicios bajo metodologías
         de desarrollo de soware que enfatizan la agilidad y la adaptabilidad,
         que responden a las necesidades y el entorno cambiante de su negocio.
       </p>
-      <p>Nuestro equipo de desarrollo está capacitado para entenderlo, ayudándole
+      <p>
+        Nuestro equipo de desarrollo está capacitado para entenderlo, ayudándole
         a convertir un reto empresarial en una aplicación moderna a la medida de
         soluciones altamente robustas, que le permita operar de manera más
         rentable y eficiente; incluyen aplicaciones financieras, soware
         contable, inventarios, aplicaciones de nómina, sistemas de producción y
-        manufactura, entre otras.</p>
-      <p>En SINAPSIS somos orgullosamente Microso Partner Network.</p>
+        manufactura, entre otras.
+      </p>
+      <p class="mt-4">
+        En SINAPSIS somos orgullosamente Microso Partner Network.
+      </p>
     </div>
     <ng-lottie
       [options]="options"
       (animationCreated)="animationCreated($event)"
     ></ng-lottie>
-    <div class="container">
+    <div class="container info-software">
       <p>
         Lorem ipsum dolor sit amet. Ea cumque nemo ab laudantium corporis sed
         earum ratione eos dolores saepe et quos tempora aut autem maiores ea
@@ -65,6 +77,119 @@
         Ab adipisci reprehenderit est maxime dolore non labore consequuntur rem
         aperiam consectetur et illum quia sed veritatis distinctio ut quas enim.
       </p>
+    </div>
+  </section>
+  <section class="other-service my-5">
+    <div class="section-service-mobile">
+      <div class="container h-100">
+        <div class="row h-100 position-relative">
+          <div class="col-md-6 col-12 h-100">
+            <img
+              class="logo-sinapsis"
+              src="../../../../assets/img/logo.svg"
+              alt=""
+            />
+            <img class="mobile" src="../../../../assets/img/movil.svg" alt="" />
+          </div>
+          <div class="col-md-6 col-12 item_service h-100">
+            <h2>Lorem ipsum is simply text of the printing</h2>
+            <p>
+              Lorem ipsum is simple texto of the printing and typesetting
+              industry. lorem ipsum has been the Lorem ipsum is simple texto of
+              the printing and typesetting industry. lorem ipsum has been the
+              Lorem ipsum is simple texto of the printing and typesetting
+              industry. Lorem ipsum is simple texto of the printing and
+              typesetting industry.
+            </p>
+            <app-button-sinapsis
+              [name_button]="'Lorem ipsum is simple'"
+            ></app-button-sinapsis>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="other-service-pc">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-12 items-pc mt">
+            <h2>Lorem ipsum is simply</h2>
+            <p class="mt-3">
+              Lorem ipsum is simple texto of the printing and typesetting
+              industry. lorem ipsum has been the Lorem ipsum is simple texto of
+              the printing and typesetting industry. lorem ipsum has been the
+              Lorem ipsum is simple texto of the printing and typesetting
+              industry. Lorem ipsum is simple texto of the printing and
+              typesetting industry.
+            </p>
+            <app-button-sinapsis
+              [name_button]="'Lorem ipsum is simple'"
+            ></app-button-sinapsis>
+          </div>
+          <div
+            class="col-md-6 col-12 d-flex justify-content-center align-items-end"
+          >
+            <img
+              class="computer"
+              src="../../../../assets/img/computer.png"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="statistics">
+    <div class="container h-100">
+      <div class="row h-100">
+        <div class="col-md-4 d-flex justify-content-center align-items-center h-100">
+          <div class="d-flex">
+            <img class="icon" src="../../../../assets/icons/user.svg" />
+            <div class="content-statistics">
+              <p class="m-0">+100</p>
+              <p class="m-0">Clientes satisfechos con este servicio</p>
+              <p class="m-0">
+                Lorem ipsum is simple texto of the printing and typesetting
+                industry. lorem ipsum has been the Lorem ipsum is simple texto of
+                the printing and typesetting industry. lorem ipsum has been the
+                Lorem ipsum is simple texto of the printing and typesetting
+                industry.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 d-flex justify-content-center align-items-center h-100">
+          <div class="d-flex">
+            <img class="icon" src="../../../../assets/icons/cup.svg" />
+            <div class="content-statistics">
+              <p class="m-0">+100</p>
+              <p class="m-0">Proyectos</p>
+              <p class="m-0">
+                Lorem ipsum is simple texto of the printing and typesetting
+                industry. lorem ipsum has been the Lorem ipsum is simple texto of
+                the printing and typesetting industry. lorem ipsum has been the
+                Lorem ipsum is simple texto of the printing and typesetting
+                industry.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 d-flex justify-content-center align-items-center h-100">
+          <div class="d-flex">
+            <img class="icon" src="../../../../assets/icons/bank.svg" />
+            <div class="content-statistics">
+              <p class="m-0">+100</p>
+              <p class="m-0">Empresas</p>
+              <p class="m-0">
+                Lorem ipsum is simple texto of the printing and typesetting
+                industry. lorem ipsum has been the Lorem ipsum is simple texto of
+                the printing and typesetting industry. lorem ipsum has been the
+                Lorem ipsum is simple texto of the printing and typesetting
+                industry.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 </main>
