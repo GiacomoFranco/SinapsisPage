@@ -1,4 +1,4 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, OnInit, HostListener } from '@angular/core';
 import sliderData from 'src/app/core/slider.mock';
 import { Slider } from 'src/app/models/slide.model';
 import Swiper from 'swiper';
@@ -10,29 +10,37 @@ import { AnimationOptions } from 'ngx-lottie';
   templateUrl: './servicios.component.html',
   styleUrls: ['./servicios.component.scss']
 })
-export class ServiciosComponent implements AfterViewInit {
+export class ServiciosComponent implements AfterViewInit, OnInit {
 
   sliderItems: Slider[] = []
   options: AnimationOptions = {
     path: '/assets/Animation/animation_pc.json',
   };
   isAnimationPlaying = true;
+  isMobile = false;
 
   animationItem: AnimationItem | undefined;
 
-  isSmallScreen = false;
-  isMediumScreen = false;
-  isLargeScreen = false;
   swiper: Swiper | undefined;
 
-  ngAfterViewInit(): void {
+  ngOnInit(): void {
     this.sliderItems = sliderData;
-    this.initSwiper();
     const animationOptions: AnimationOptions = {
       path: '/assets/Animation/animation_pc.json',
-      autoplay: true
+      autoplay: false,
+      renderer: "svg"
     };
     this.options = animationOptions;
+    this.checkWindowSize();
+  }
+
+  ngAfterViewInit(): void {
+    this.initSwiper();
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    this.checkWindowSize();
   }
 
   initSwiper() {
@@ -50,16 +58,17 @@ export class ServiciosComponent implements AfterViewInit {
         1000: {
           slidesPerView: 3
         },
-        550: {
+        600: {
           slidesPerView: 2
-        },
-        100: {
-          slidesPerView: 1
         }
       },
       speed: 3000,
     });
     this.swiper.autoplay.start()
+  }
+
+  checkWindowSize() {
+    this.isMobile = window.innerWidth < 600;
   }
 
   animationCreated(animationItem: AnimationItem): void {
