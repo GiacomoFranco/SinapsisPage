@@ -139,7 +139,7 @@
     background: linear-gradient(180deg, #11161a 0%, #171b1f 100%);
 
     .logo-sinapsis {
-      width: 613px;
+      width: 565px;
       height: 600px;
       position: absolute;
       bottom: -100px;
@@ -157,10 +157,9 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      margin-bottom: 100px;
 
       .cell {
-        width: 410px;
+        width: 335px;
         height: 840px;
         animation: Float 1.2s ease-in-out infinite alternate-reverse;
         transition: all 0.3s ease;
@@ -210,6 +209,46 @@
         color: #fff;
         font-style: normal;
       }
+    }
+
+    
+  }
+
+  @media screen and (max-width: 1200px) {
+
+    h2{
+      width: 100% !important;
+    }
+
+    p{
+      width: 100% !important;
+    }
+
+    .section-service-mobile{
+      height: auto;
+      .content-mobile{
+        flex-direction: column-reverse;
+
+        .item_service{
+          margin-top: 80px;
+          text-align: center;
+        }
+
+        .item-mobile{
+          width: 100%;
+
+          .phone{
+            transform: translateY(100px);
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 750px) {
+    .section-service-mobile .logo-sinapsis{
+      width: 100%;
+      bottom: -170px;
     }
   }
 
@@ -272,6 +311,7 @@
     height: 100%;
     position: absolute;
     filter: brightness(0.1);
+    object-fit: cover;
   }
 
   .content {
