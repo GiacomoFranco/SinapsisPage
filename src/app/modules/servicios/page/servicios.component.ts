@@ -1,9 +1,12 @@
-import { Component, AfterViewInit, OnInit, HostListener, ElementRef  } from '@angular/core';
+import { Component, AfterViewInit, OnInit, HostListener, ElementRef } from '@angular/core';
 import sliderData from 'src/app/core/slider.mock';
 import { Slider } from 'src/app/models/slide.model';
 import Swiper from 'swiper';
 import { AnimationItem } from 'lottie-web';
 import { AnimationOptions } from 'ngx-lottie';
+import ScrollReveal from 'scrollreveal';
+import Lottie from 'lottie-web';
+
 
 @Component({
   selector: 'app-servicios',
@@ -13,27 +16,56 @@ import { AnimationOptions } from 'ngx-lottie';
 export class ServiciosComponent implements AfterViewInit, OnInit {
 
   sliderItems: Slider[] = []
-  options: AnimationOptions = {
-    path: '/assets/Animation/animation_pc.json',
-  };
+  // options: AnimationOptions = {
+  //   path: '/assets/Animation/animation_pc.json',
+  // };
+
   isAnimationPlaying = true;
   isMobile = false;
+
 
   animationItem: AnimationItem | undefined;
 
   swiper: Swiper | undefined;
 
+  private animation: AnimationItem | any
+  width = 1200
+  height = 800
+  container_id = '#lotti-container'
+
   constructor(private elementRef: ElementRef){}
 
   ngOnInit(): void {
+    
     this.sliderItems = sliderData;
-    const animationOptions: AnimationOptions = {
+
+    // const animationOptions: AnimationOptions = {
+    //   path: '/assets/Animation/animation_pc.json',
+    //   autoplay: true,
+    //   renderer: "svg",
+    //   loop: false
+    // };
+    // this.options = animationOptions;
+
+    this.animation = Lottie.loadAnimation({
+      container: this.elementRef.nativeElement.querySelector(this.container_id),
+      renderer: 'svg',
       path: '/assets/Animation/animation_pc.json',
       autoplay: false,
-      renderer: "svg"
-    };
-    this.options = animationOptions;
+      loop: true
+    })
+    this.handleScroll()
     this.checkWindowSize();
+
+    const sr = ScrollReveal();
+
+    sr.reveal('.scroll-reveal-statistics', {
+      duration: 3000,
+      origin: 'left',
+      distance: '100px',
+      delay: 400,
+      easing: 'ease-out'
+    });
   }
 
   ngAfterViewInit(): void {
@@ -64,7 +96,7 @@ export class ServiciosComponent implements AfterViewInit, OnInit {
           slidesPerView: 2
         }
       },
-      speed: 3000,
+      speed: 10000,
     });
     this.swiper.autoplay.start()
   }
@@ -74,5 +106,31 @@ export class ServiciosComponent implements AfterViewInit, OnInit {
   }
 
   animationCreated(animationItem: AnimationItem): void {
+
+  }
+
+  private elementInView(){
+    const rec = this.elementRef.nativeElement.getBoundingClientRect();
+    return (
+      rec.top >= 0 && 
+      rec.left >= 0 &&
+      rec.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+      rec.right <= (window.innerWidth || document.documentElement.clientWidth)
+    )
+  }
+
+
+  @HostListener("scroll", [])
+  handleScroll(){
+    if(this.elementInView()){
+      this.animation.play()
+    }else{
+      this.animation.pause()
+    }
+  }
+
+  @HostListener("scroll", ['$event'])
+  onScrollMethod($event:Event){
+    console.log('Scrollsito')
   }
 }
