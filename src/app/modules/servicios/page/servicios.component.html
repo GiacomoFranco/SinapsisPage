@@ -19,7 +19,7 @@
       <p class="mb-0 me-3 parr_slide">
         Desliza para conocer todos los servicios
       </p>
-      <img src="../../../../assets/icons/arrangehorizontal.svg" alt="" />
+      <img src="/assets/icons/arrangehorizontal.svg" alt="" />
     </div>
   </section>
   <section class="grid-mobile" *ngIf="isMobile">
@@ -50,10 +50,11 @@
         En SINAPSIS somos orgullosamente Microso Partner Network.
       </p>
     </div>
-    <ng-lottie
-      [options]="options"
+    <!-- <ng-lottie
+      id="lotti-container"
       (animationCreated)="animationCreated($event)"
-    ></ng-lottie>
+    ></ng-lottie> -->
+    <div id="lotti-container" [style.width.px]="width" [style.height.px]="height"></div>
     <div class="container info-software">
       <p>
         Lorem ipsum dolor sit amet. Ea cumque nemo ab laudantium corporis sed
@@ -86,14 +87,9 @@
           <div class="col-md-6 col-12 h-100">
             <img class="logo-sinapsis" src="/assets/img/logo.svg" alt="" />
             <div class="phone">
-              <img class="cell" src="../../../../assets/img/cell.svg" alt="" />
-              <img
-                class="shad"
-                src="../../../../assets/img/shadow.svg"
-                alt=""
-              />
+              <img class="cell" src="/assets/img/cell.svg" alt="" />
+              <img class="shad" src="/assets/img/shadow.svg" alt="" />
             </div>
-            <!-- <img class="mobile" src="../../../../assets/img/movil.svg" alt="" /> -->
           </div>
           <div class="col-md-6 col-12 item_service h-100">
             <h2>Lorem ipsum is simply text of the printing</h2>
@@ -132,24 +128,20 @@
           <div
             class="col-md-6 col-12 d-flex justify-content-center align-items-end"
           >
-            <img
-              class="computer"
-              src="../../../../assets/img/computer.png"
-              alt=""
-            />
+            <img class="computer" src="/assets/img/computer.png" alt="" />
           </div>
         </div>
       </div>
     </div>
   </section>
   <section class="statistics">
-    <div class="container h-100">
+    <div class="container h-100 scroll-reveal-statistics">
       <div class="row h-100">
         <div
           class="col-md-4 d-flex justify-content-center align-items-center h-100"
         >
           <div class="d-flex">
-            <img class="icon" src="../../../../assets/icons/user.svg" />
+            <img class="icon" src="/assets/icons/user.svg" />
             <div class="content-statistics ms-3">
               <h3 class="m-0">+100</h3>
               <h3 class="m-0 title-statistics">
@@ -169,7 +161,7 @@
           class="col-md-4 d-flex justify-content-center align-items-center h-100"
         >
           <div class="d-flex">
-            <img class="icon" src="../../../../assets/icons/cup.svg" />
+            <img class="icon" src="/assets/icons/cup.svg" />
             <div class="content-statistics ms-3">
               <h3 class="m-0">+100</h3>
               <h3 class="m-0 title-statistics">Proyectos</h3>
@@ -187,7 +179,7 @@
           class="col-md-4 d-flex justify-content-center align-items-center h-100"
         >
           <div class="d-flex">
-            <img class="icon" src="../../../../assets/icons/bank.svg" />
+            <img class="icon" src="/assets/icons/bank.svg" />
             <div class="content-statistics ms-3">
               <h3 class="m-0">+100</h3>
               <h3 class="m-0 title-statistics">Empresas</h3>
@@ -205,7 +197,7 @@
     </div>
   </section>
   <section class="work-us">
-    <img class="bg-work" src="/assets/background/bg_contact.png" alt="">
+    <img class="bg-work" src="/assets/background/bg_contact.png" alt="" />
     <div class="content">
       <img src="/assets/icons/arrowdown.svg" alt="" />
       <h2>
