@@ -1,11 +1,11 @@
-import { Component, AfterViewInit, OnInit, HostListener, ElementRef } from '@angular/core';
-import sliderData from 'src/app/core/slider.mock';
+import { Component, OnInit, HostListener, ElementRef } from '@angular/core';
 import { Slider } from 'src/app/models/slide.model';
 import Swiper from 'swiper';
 import { AnimationItem } from 'lottie-web';
-import { AnimationOptions } from 'ngx-lottie';
 import ScrollReveal from 'scrollreveal';
 import Lottie from 'lottie-web';
+import { ServiciosService } from 'src/app/services/servicios.service';
+import sliderData from 'src/app/core/slider.mock';
 
 
 @Component({
@@ -13,7 +13,7 @@ import Lottie from 'lottie-web';
   templateUrl: './servicios.component.html',
   styleUrls: ['./servicios.component.scss']
 })
-export class ServiciosComponent implements AfterViewInit, OnInit {
+export class ServiciosComponent implements  OnInit {
 
   sliderItems: Slider[] = []
   // options: AnimationOptions = {
@@ -33,12 +33,9 @@ export class ServiciosComponent implements AfterViewInit, OnInit {
   height = 800
   container_id = '#lotti-container'
 
-  constructor(private elementRef: ElementRef){}
+  constructor(private elementRef: ElementRef, private service: ServiciosService){}
 
   ngOnInit(): void {
-    
-    this.sliderItems = sliderData;
-
     // const animationOptions: AnimationOptions = {
     //   path: '/assets/Animation/animation_pc.json',
     //   autoplay: true,
@@ -46,6 +43,14 @@ export class ServiciosComponent implements AfterViewInit, OnInit {
     //   loop: false
     // };
     // this.options = animationOptions;
+
+    this.service.getServicios().then((resp) => {
+      const {data} = resp;
+      this.sliderItems = data
+      this.initSwiper();
+    })
+
+    this.initSwiper();
 
     this.animation = Lottie.loadAnimation({
       container: this.elementRef.nativeElement.querySelector(this.container_id),
@@ -55,10 +60,8 @@ export class ServiciosComponent implements AfterViewInit, OnInit {
       loop: true
     })
     this.handleScroll()
-    this.checkWindowSize();
 
     const sr = ScrollReveal();
-
     sr.reveal('.scroll-reveal-statistics', {
       duration: 3000,
       origin: 'left',
@@ -66,21 +69,14 @@ export class ServiciosComponent implements AfterViewInit, OnInit {
       delay: 400,
       easing: 'ease-out'
     });
-  }
 
-  ngAfterViewInit(): void {
-    this.initSwiper();
-  }
-
-  @HostListener('window:resize', ['$event'])
-  onResize() {
     this.checkWindowSize();
   }
 
   initSwiper() {
     this.swiper = new Swiper('.swiper-container', {
+      loop:true,
       slidesPerView: 5,
-      loop: true,
       autoplay: {
         delay: 10,
         disableOnInteraction: false
@@ -89,20 +85,13 @@ export class ServiciosComponent implements AfterViewInit, OnInit {
         1200: {
           slidesPerView: 5
         },
-        1000: {
-          slidesPerView: 3
-        },
         600: {
-          slidesPerView: 2
+          slidesPerView: 3
         }
       },
       speed: 10000,
     });
     this.swiper.autoplay.start()
-  }
-
-  checkWindowSize() {
-    this.isMobile = window.innerWidth < 600;
   }
 
   animationCreated(animationItem: AnimationItem): void {
@@ -119,6 +108,14 @@ export class ServiciosComponent implements AfterViewInit, OnInit {
     )
   }
 
+  checkWindowSize() {
+    this.isMobile = window.innerWidth < 600;
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    this.checkWindowSize();
+  }
 
   @HostListener("scroll", [])
   handleScroll(){
@@ -127,10 +124,5 @@ export class ServiciosComponent implements AfterViewInit, OnInit {
     }else{
       this.animation.pause()
     }
-  }
-
-  @HostListener("scroll", ['$event'])
-  onScrollMethod($event:Event){
-    console.log('Scrollsito')
   }
 }

@@ -3,6 +3,7 @@
 
 //import styles
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import 'swiper/scss';
 
 *{
   font-family: 'Inter', sans-serif;
@@ -58,4 +59,23 @@ span {
   font-size: 15px;
   font-weight: 400;
   line-height: normal;
+}
+
+
+@media screen and (max-width: 767px){
+  h1 {
+    font-size: 35px;
+  }
+  h2 {
+    font-size: 26px;
+  }
+  h3 {
+    font-size: 18px;
+  }
+  h4 {
+    font-size: 16px;
+  }
+  p {
+    font-size: 14px;
+  }
 }

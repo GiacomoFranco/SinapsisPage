@@ -8,12 +8,11 @@
       <div class="swiper-wrapper">
         <div class="swiper-slide" *ngFor="let item of sliderItems">
           <div class="card-item text-center">
-            <img [src]="item.img" alt="" />
+            <img [src]="item.icon" alt="" />
             <p class="title_item">{{ item.title }}</p>
           </div>
         </div>
       </div>
-      <div class="swiper-pagination"></div>
     </div>
     <div class="container d-flex justify-content-end mt-3">
       <p class="mb-0 me-3 parr_slide">
@@ -25,7 +24,7 @@
   <section class="grid-mobile" *ngIf="isMobile">
     <div class="row d-flex justify-content-center align-items-center">
       <div class="col-6 item-mobile" *ngFor="let item of sliderItems">
-        <img [src]="item.img" alt="" />
+        <img [src]="item.icon" alt="" />
         <p>{{ item.title }}</p>
       </div>
     </div>
@@ -54,7 +53,7 @@
       id="lotti-container"
       (animationCreated)="animationCreated($event)"
     ></ng-lottie> -->
-    <div id="lotti-container" [style.width.px]="width" [style.height.px]="height"></div>
+    <!-- <div id="lotti-container" [style.width.px]="width" [style.height.px]="height"></div> -->
     <div class="container info-software">
       <p>
         Lorem ipsum dolor sit amet. Ea cumque nemo ab laudantium corporis sed
@@ -83,15 +82,15 @@
   <section class="other-service my-5">
     <div class="section-service-mobile">
       <div class="container h-100">
-        <div class="row h-100 position-relative">
-          <div class="col-md-6 col-12 h-100">
+        <div class="row h-100 position-relative content-mobile">
+          <div class="col-md-6 item-mobile h-100">
             <img class="logo-sinapsis" src="/assets/img/logo.svg" alt="" />
             <div class="phone">
               <img class="cell" src="/assets/img/cell.svg" alt="" />
               <img class="shad" src="/assets/img/shadow.svg" alt="" />
             </div>
           </div>
-          <div class="col-md-6 col-12 item_service h-100">
+          <div class="col-md-6 item-mobile item_service h-100">
             <h2>Lorem ipsum is simply text of the printing</h2>
             <p>
               Lorem ipsum is simple texto of the printing and typesetting
@@ -126,7 +125,7 @@
             ></app-button-sinapsis>
           </div>
           <div
-            class="col-md-6 col-12 d-flex justify-content-center align-items-end"
+            class="col-md-6 col-12 d-flex justify-content-center align-items-end position-relative"
           >
             <img class="computer" src="/assets/img/computer.png" alt="" />
           </div>
@@ -206,4 +205,5 @@
       <a href="">Botón</a>
     </div>
   </section>
+  <app-casos-de-exito/>
 </main>
