@@ -1,0 +1,77 @@
+.tecnologias--container {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    background-color: white;
+    padding: 0 400px 0 400px;
+    position: relative;
+
+    .tecnologias-title {
+        text-align: center;
+        width: 100%;
+        color: #1a1a1b;
+        font-family: Inter;
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    .tecnologias-desc {
+        text-align: center;
+        width: 100%;
+    }
+
+    .swiper {
+        padding-top: 80px;
+
+        .swiper-wrapper {
+            display: flex;
+            justify-content: center;
+
+            .logo--container {
+                width: 100px !important;
+                height: 80px !important;
+
+                .tecnologia-logo {
+                    width: 80px;
+                    height: 50px;
+                    object-fit: contain;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+
+                    &.anim {
+                        animation: Float 3s ease-in-out infinite alternate;
+                    }
+                }
+            }
+        }
+
+        .swiper-button-next {
+            margin-left: 50px;
+            color: #7042ef;
+
+            &::after {
+                font-size: 25px;
+            }
+        }
+
+        .swiper-button-prev {
+            color: #7042ef;
+
+            &::after {
+                font-size: 25px;
+            }
+        }
+    }
+}
+
+@keyframes Float {
+    0% {
+        transform: translateY(-10px) scale(1);
+    }
+
+    100% {
+        transform: translateY(-40px) scale(1.1);
+    }
+}

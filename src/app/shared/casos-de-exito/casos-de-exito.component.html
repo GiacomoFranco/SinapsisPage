@@ -1,0 +1,12 @@
+<div class="casos--container">
+    <p class="casos-title">Conocer algunos de nuestros cados de exito</p>
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            <div *ngFor="let caso of casosExito" class="swiper-slide logo--container">
+                <img class="caso-exito-logo" [src]="caso" alt="casos de exito">
+            </div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+</div>
