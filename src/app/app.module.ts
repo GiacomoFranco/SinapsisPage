@@ -21,7 +21,7 @@ import { SharedModule } from './shared/shared.module';
     HomeModule,
     ServiciosModule,
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
