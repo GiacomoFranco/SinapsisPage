@@ -1,1 +1,13 @@
-<p>nosotros works!</p>
+<main class="about-us">
+  <section class="slider-section">
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" *ngFor="let item of sliderImg">
+          <div class="card-item text-center">
+            <img class="img-slider" [src]="item.imagen" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
