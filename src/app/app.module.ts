@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 
 import { HomeModule } from './modules/home/home.module';
 import { ServiciosModule } from './modules/servicios/servicios.module';
+import { NosotrosModule } from './modules/nosotros/nosotros.module';
 
 import { SharedModule } from './shared/shared.module';
 
@@ -20,6 +21,7 @@ import { SharedModule } from './shared/shared.module';
     AppRoutingModule,
     HomeModule,
     ServiciosModule,
+    NosotrosModule,
     SharedModule,
     HttpClientModule,
   ],
