@@ -14,7 +14,6 @@ export class ServiciosService {
   })
 
   async getServicios(){
-    const response = await this.api.get('servicios')
-    return response
+    return await this.api.get('servicios')
   }
 }
