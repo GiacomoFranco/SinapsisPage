@@ -1,4 +1,52 @@
-.img-slider{
-    height: 521px;
-    object-fit: cover;
+.img-slider {
+  height: 521px;
+  object-fit: cover;
 }
+
+.history {
+  position: relative;
+
+  .logo-sinapsis {
+    position: absolute;
+    bottom: 0;
+    right: -580px;
+    z-index: -1;
+  }
+
+  .img-office {
+    width: 505px;
+    height: 768px;
+  }
+
+  .content-text-hystory {
+    width: 630px;
+    position: relative;
+
+    .ic-arrow {
+      width: 85px;
+      height: 85px;
+      position: absolute;
+      top: -70px;
+      left: -80px;
+    }
+  }
+}
+
+.icon-time{
+  width: 60px;
+  height: 60px;
+}
+
+.marker-time{
+  color: rgba(112, 66, 239, 1);
+  // margin-left: 20px;
+}
+
+.description-time{
+  width: 203px;
+  height: 90px;
+}
+
+
+
+
