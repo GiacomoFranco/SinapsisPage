@@ -10,4 +10,69 @@
       </div>
     </div>
   </section>
+  <section class="history container my-5">
+    <img class="logo-sinapsis" src="/assets/img/logo.svg" alt="" />
+    <div class="row d-flex justify-content-center align-items-center">
+      <div class="col-md-5 col-12">
+        <img
+          class="img-office"
+          src="/assets/nosotros/sinapsis-office.png"
+          alt=""
+        />
+      </div>
+      <div class="col-md-7 col-12 d-flex justify-content-end">
+        <div class="content-text-hystory">
+          <img class="ic-arrow" src="/assets/icons/arrowUp.svg" alt="" />
+          <h2>Nuestra historia</h2>
+          <p>
+            Lorem ipsum dolor sit amet. Ea cumque nemo ab laudantium corporis
+            sed earum ratione eos dolores saepe et quos tempora aut autem
+            maiores ea magni doloremque. Et velit dolores in placeat voluptas et
+            culpa nulla aut galisum odit. In perferendis temporibus ut nulla
+            illo ut placeat debitis vel commodi voluptates qui dicta asperiores
+            rem laboriosam impedit.
+          </p>
+          <p>
+            Sed magni aperiam eos totam excepturi aut voluptatibus quos id
+            quisquam voluptas ut harum accusantium et quaerat esse vel veritatis
+            possimus. Qui quia aperiam est necessitatibus quidem nam velit sint
+            est magnam corporis aut soluta delectus a vitae autem aut dicta
+            facere. Vel mollitia labore qui doloribus facilis et quia aperiam et
+            iure consequatur? Sit nostrum sunt non beatae ipsam nam sunt
+            similique est dolor doloribus vel dicta quasi et nostrum facilis.
+            Sed expedita mollitia et iure eaque qui ipsam debitis.
+          </p>
+          <p>
+            Ab adipisci reprehenderit est maxime dolore non labore consequuntur
+            rem aperiam consectetur et illum quia sed veritatis distinctio ut
+            quas enim.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="container">
+    <div class="flex flex-column gap-3">
+      <p-timeline [value]="timelineItems" layout="horizontal" align="top">
+        <ng-template pTemplate="opposite" let-event>
+          <div class="event-opposite">
+            <img class="icon-time" [src]="event.icon" alt="" />
+            <!-- Aquí puedes usar cualquier ícono de PrimeIcons -->
+          </div>
+        </ng-template>
+        <ng-template pTemplate="marker" let-event>
+          <span class="custom-marker shadow-2">
+            <i class="pi pi-circle-on marker-time"></i>
+          </span>
+        </ng-template>
+        <ng-template pTemplate="content" let-event>
+          <div class="event-content">
+            <p> {{ event.title }}</p>
+            <p class="description-time"> {{ event.description }}</p>
+            <p> {{ event.year }}</p>
+          </div>
+        </ng-template>
+      </p-timeline>
+    </div>
+  </section>
 </main>
