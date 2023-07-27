@@ -8,7 +8,7 @@ import { MenuService } from 'src/app/services/menu.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
-  logo = '../../../assets/img/logo.png'
+  logo = '../../../assets/img/logo.svg'
   flagEng = '../../../assets/img/english.png'
 
   @Input() navRouters: Menus[] = [{
