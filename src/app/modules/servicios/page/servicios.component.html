@@ -1,14 +1,14 @@
 <main>
-  <div class="text-center info_content">
-    <span>Trabajamos todos nuestros desarrollos con</span>
-    <h2>Metodologías <b>Scrum y kanban.</b></h2>
+  <div class="text-center mt-5">
+    <span class="text-center">Trabajamos todos nuestros desarrollos con</span>
+    <h2 class="h2-black">Metodologías <b>Scrum y kanban.</b></h2>
   </div>
   <section class="section-slider mt-5" *ngIf="!isMobile">
-    <div class="swiper-container" id="swiper-content">
+    <div class="swiper-container">
       <div class="swiper-wrapper">
         <div class="swiper-slide" *ngFor="let item of sliderItems">
           <div class="card-item text-center">
-            <img [src]="item.icon" alt="" />
+            <img class="icon-slider" [src]="item.icon" alt="" />
             <p class="title_item">{{ item.title }}</p>
           </div>
         </div>
@@ -24,14 +24,14 @@
   <section class="grid-mobile" *ngIf="isMobile">
     <div class="row d-flex justify-content-center align-items-center">
       <div class="col-6 item-mobile" *ngFor="let item of sliderItems">
-        <img [src]="item.icon" alt="" />
+        <img class="icon-slider" [src]="item.icon" alt="" />
         <p>{{ item.title }}</p>
       </div>
     </div>
   </section>
   <section class="section-software pb-5">
-    <div class="mt-5 text-center container">
-      <h2>Desarrollo de <b>software a la medida.</b></h2>
+    <div class="mt-5 text-center container scroll-software">
+      <h2 class="h2-black">Desarrollo de <b>software a la medida.</b></h2>
       <p class="mt-4">
         En SINAPSIS nos especializamos en desplegar servicios bajo metodologías
         de desarrollo de soware que enfatizan la agilidad y la adaptabilidad,
@@ -49,12 +49,12 @@
         En SINAPSIS somos orgullosamente Microso Partner Network.
       </p>
     </div>
-    <!-- <ng-lottie
-      id="lotti-container"
+    <ng-lottie
+      [options]="options"
       (animationCreated)="animationCreated($event)"
-    ></ng-lottie> -->
+    ></ng-lottie>
     <!-- <div id="lotti-container" [style.width.px]="width" [style.height.px]="height"></div> -->
-    <div class="container info-software">
+    <div class="container info-software scroll-software">
       <p>
         Lorem ipsum dolor sit amet. Ea cumque nemo ab laudantium corporis sed
         earum ratione eos dolores saepe et quos tempora aut autem maiores ea
@@ -79,10 +79,26 @@
       </p>
     </div>
   </section>
-  <section class="other-service my-5">
-    <div class="section-service-mobile">
+  <section class="mobile">
+    <div class="phone phone_mobile">
+      <img class="cell cell_mobile" src="/assets/img/cell.svg" alt="" />
+      <img class="shad shad_mobile" src="/assets/img/shadow.svg" alt="" />
+    </div>
+    <div class="w-100 text-center px-3 mt-4">
+      <h2>Lorem ipsum is simply text of the printing</h2>
+      <p>
+        Lorem ipsum is simple texto of the printing and typesetting industry.
+        lorem ipsum has been the Lorem ipsum is simple texto of the printing and
+        typesetting industry. lorem ipsum has been the Lorem ipsum is simple
+        texto of the printing and typesetting industry. Lorem ipsum is simple
+        texto of the printing and typesetting industry.
+      </p>
+    </div>
+  </section>
+  <section class="other-service my-5 ">
+    <div class="section-service-mobile desktop">
       <div class="container h-100">
-        <div class="row h-100 position-relative content-mobile">
+        <div class="row h-100 position-relative scroll-left">
           <div class="col-md-6 item-mobile h-100">
             <img class="logo-sinapsis" src="/assets/img/logo.svg" alt="" />
             <div class="phone">
@@ -107,25 +123,46 @@
         </div>
       </div>
     </div>
-    <div class="other-service-pc">
-      <div class="container">
+    <div class="container mobile">
+      <ng-lottie
+        [options]="options"
+        (animationCreated)="animationCreated($event)"
+      ></ng-lottie>
+      <div class="text-center w-100">
+        <h2 class="h2-black">Lorem ipsum is simply</h2>
+        <p class="mt-3">
+          Lorem ipsum is simple texto of the printing and typesetting industry.
+          lorem ipsum has been the Lorem ipsum is simple texto of the printing
+          and typesetting industry. lorem ipsum has been the Lorem ipsum is
+          simple texto of the printing and typesetting industry. Lorem ipsum is
+          simple texto of the printing and typesetting industry.
+        </p>
+        <app-button-sinapsis
+          [name_button]="'Lorem ipsum is simple'"
+        ></app-button-sinapsis>
+      </div>
+    </div>
+    <div class="other-service-pc desktop" >
+      <div class="scroll-right">
         <div class="row">
-          <div class="col-md-6 col-12 items-pc mt">
-            <h2>Lorem ipsum is simply</h2>
-            <p class="mt-3">
-              Lorem ipsum is simple texto of the printing and typesetting
-              industry. lorem ipsum has been the Lorem ipsum is simple texto of
-              the printing and typesetting industry. lorem ipsum has been the
-              Lorem ipsum is simple texto of the printing and typesetting
-              industry. Lorem ipsum is simple texto of the printing and
-              typesetting industry.
-            </p>
-            <app-button-sinapsis
-              [name_button]="'Lorem ipsum is simple'"
-            ></app-button-sinapsis>
+          <div class="col-md-6 col-12 other-item items-pc px-5">
+            <div class="w-100">
+              <h2 class="h2-black">Lorem ipsum is simply</h2>
+              <p class="mt-3">
+                Lorem ipsum is simple texto of the printing and typesetting
+                industry. lorem ipsum has been the Lorem ipsum is simple texto
+                of the printing and typesetting industry. lorem ipsum has been
+                the Lorem ipsum is simple texto of the printing and typesetting
+                industry. Lorem ipsum is simple texto of the printing and
+                typesetting industry.
+              </p>
+              <app-button-sinapsis
+                [name_button]="'Lorem ipsum is simple'"
+              ></app-button-sinapsis>
+            </div>
           </div>
           <div
-            class="col-md-6 col-12 d-flex justify-content-center align-items-end position-relative"
+            class="col-md-6 col-12 other-item d-flex justify-content-end align-items-end position-relative"
           >
             <img class="computer" src="/assets/img/computer.png" alt="" />
           </div>
@@ -134,10 +171,10 @@
     </div>
   </section>
   <section class="statistics">
-    <div class="container h-100 scroll-reveal-statistics">
-      <div class="row h-100">
+    <div class="container h-100 scroll-left">
+      <div class="row d-flex justify-content-center align-items-center w-100">
         <div
-          class="col-md-4 d-flex justify-content-center align-items-center h-100"
+          class="col-md-4 d-flex justify-content-center align-items-center h-100 item-statistics"
         >
           <div class="d-flex">
             <img class="icon" src="/assets/icons/user.svg" />
@@ -157,7 +194,7 @@
           </div>
         </div>
         <div
-          class="col-md-4 d-flex justify-content-center align-items-center h-100"
+          class="col-md-4 d-flex justify-content-center align-items-center h-100 item-statistics"
         >
           <div class="d-flex">
             <img class="icon" src="/assets/icons/cup.svg" />
@@ -175,7 +212,7 @@
           </div>
         </div>
         <div
-          class="col-md-4 d-flex justify-content-center align-items-center h-100"
+          class="col-md-4 d-flex justify-content-center align-items-center h-100 item-statistics"
         >
           <div class="d-flex">
             <img class="icon" src="/assets/icons/bank.svg" />
@@ -195,14 +232,15 @@
       </div>
     </div>
   </section>
-  <section class="work-us">
-    <img class="bg-work" src="/assets/background/bg_contact.png" alt="" />
-    <div class="content">
-      <img src="/assets/icons/arrowdown.svg" alt="" />
-      <h2>
-        Lorem ipsum is simple texto of the printing and typesetting industry.
-      </h2>
-      <a href="">Botón</a>
+  <section class="work-us parallax image-parallax">
+    <div class="info-contact">
+      <div class="content ">
+        <img src="/assets/icons/arrowdown.svg" alt="" />
+        <h2>
+          Lorem ipsum is simple texto of the printing and typesetting industry.
+        </h2>
+        <a href="/contacto">Botón</a>
+      </div>
     </div>
   </section>
   <app-casos-de-exito/>
