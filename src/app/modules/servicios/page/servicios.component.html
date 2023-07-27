@@ -4,7 +4,7 @@
     <h2 class="h2-black">Metodologías <b>Scrum y kanban.</b></h2>
   </div>
   <section class="section-slider mt-5" *ngIf="!isMobile">
-    <div class="swiper-container">
+    <div class="swiper swiper-initialized swiper-horizontal swiper-pointer-events">
       <div class="swiper-wrapper">
         <div class="swiper-slide" *ngFor="let item of sliderItems">
           <div class="card-item text-center">
@@ -98,7 +98,7 @@
   <section class="other-service my-5 ">
     <div class="section-service-mobile desktop">
       <div class="container h-100">
-        <div class="row h-100 position-relative scroll-left">
+        <div class="row content-mobile h-100 position-relative scroll-left">
           <div class="col-md-6 item-mobile h-100">
             <img class="logo-sinapsis" src="/assets/img/logo.svg" alt="" />
             <div class="phone">

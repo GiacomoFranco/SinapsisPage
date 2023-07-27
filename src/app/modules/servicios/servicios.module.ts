@@ -19,7 +19,7 @@ register();
   imports: [
     CommonModule,
     SharedModule,
-    LottieModule.forRoot({player: playerFactory})
+    LottieModule.forRoot({player: playerFactory}),
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
