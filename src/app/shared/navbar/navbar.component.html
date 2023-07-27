@@ -1,34 +1,49 @@
-<header class="o-header">
+<header class="o-header" [ngClass]="{'has-slim-nav':isScrolled}">
 
   <div class="o-header__content">
+
     <div class="o-logo">
       <a class="o-logo__anchor" [routerLink]="['home']">
         <img class="o-logo__img" [src]="logo" alt="Sinapsis" width="178" height="54">
       </a>
     </div>
 
-    <nav class="o-nav">
-      <ul class="o-nav__menu">
-        <li class="o-nav__item" *ngFor="let navMenu of navRouters">
-          <a class="o-nav__item-anchor" [routerLink]="[navMenu.slug]"
-            [routerLinkActive]="'active'">{{navMenu.title}}</a>
-        </li>
-      </ul>
-    </nav>
+    <div class="o-menu-mobile">
+      <div class="o-menu-mobile__content">
+        <span class="o-menu-mobile__lines o-menu-mobile--top"></span>
+        <span class="o-menu-mobile__lines o-menu-mobile--center"></span>
+        <span class="o-menu-mobile__lines o-menu-mobile--botom"></span>
+      </div>
+    </div>
 
-    <div class="test">Contactanos</div>
+    <div class="content-nav-options">
 
-    <div class="o-language">
-      <select class="o-lang-select">
-        <option class="o-lang-select__option" value="es">
-          <img class="o-lang-select__img" [src]="flagEng" width="50px">
-          <span class="o-lang-select__name">Español</span>
-        </option>
-        <option class="o-lang-select__option" value="en">
-          <img class="o-lang-select__img" [src]="flagEng">
-          <span class="o-lang-select__name">English</span>
-        </option>
-      </select>
+      <nav class="o-nav">
+        <ul class="o-nav__menu">
+          <li class="o-nav__item" *ngFor="let navMenu of navRouters">
+            <a class="o-nav__item-anchor" [routerLink]="[navMenu.slug]"
+              [routerLinkActive]="'active'">{{navMenu.title}}</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="o-nav__btn-sinapsis">
+        <app-button-sinapsis [name_button]="'Contáctanos'"></app-button-sinapsis>
+      </div>
+
+      <div class="o-lang">
+        <select class="o-lang-select">
+          <option class="o-lang-select__option" value="es">
+            <img class="o-lang-select__img" [src]="flagEng" width="50px">
+            <span class="o-lang-select__name">Español</span>
+          </option>
+          <option class="o-lang-select__option" value="en">
+            <img class="o-lang-select__img" [src]="flagEng">
+            <span class="o-lang-select__name">English</span>
+          </option>
+        </select>
+      </div>
+
     </div>
 
   </div>
