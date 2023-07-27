@@ -24,24 +24,63 @@ export class HomeComponent implements AfterViewInit {
     );
 
     const flip = Flip.from(state, {
-      absolute: true,
-      duration: 1,
       scale: true,
+      absolute: true,
+      duration: 3,
       ease: 'power3',
     });
 
-    ScrollTrigger.create({
-      trigger: '.banner-principal',
-      pin: '.banner-principal',
-      scrub: true,
-      start: 'top top',
-      end: '+=100% 70%',
-      markers: true,
-      animation: flip,
-      onEnter: () => {
-        console.log(flip);
-      },
-    });
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: '.banner-principal',
+          pin: '.banner-principal',
+          start: '1px top',
+          end: '+=100% 20%',
+          // markers: true,
+          scrub: true,
+          id: 'eda',
+        },
+      })
+      .add(flip)
+      .from('.phone-graphic', {
+        x: '-200',
+        opacity: 0,
+        duration: 0.9,
+      })
+      .from('.banner-principal__text-container', {
+        y: 200,
+        opacity: 0,
+        duration: 2,
+      });
+
+    // .add(flip)
+    // .from('.banner-principal__text-container', {
+    //   scrollTrigger: {
+    //     trigger: '.banner-principal',
+    //     pin: '.banner-principal',
+    //     // start: 'top 80%',
+    //     // end: '+=100% 10%',
+    //     start: '20% 20%',
+    //     end: '+=200% 20%',
+    //     markers: true,
+    //     scrub: true,
+    //     id: 'eda',
+    //   },
+    //   x: 200,
+    //   opacity: 0,
+    //   duration: 1,
+    // });
+
+    // ScrollTrigger.create({
+    //   trigger: '.banner-principal',
+    //   pin: '.banner-principal',
+    //   scrub: true,
+    //   start: 'top top',
+    //   end: '+=150% 70%',
+    //   markers: true,
+    //   animation: flip,
+    // });
   }
 
   ngAfterViewInit(): void {
