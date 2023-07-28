@@ -13,8 +13,8 @@ export class MenuService {
     baseURL: this.apiUrl,
   })
 
-  getMenu() {
-    return this.api.get(`menu/5`)
+  getMenu(id:number) {
+    return this.api.get(`menu/${id}`)
   }
 }
 

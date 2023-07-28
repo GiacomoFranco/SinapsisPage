@@ -32,16 +32,13 @@
       </div>
 
       <div class="o-lang">
-        <select class="o-lang-select">
-          <option class="o-lang-select__option" value="es">
-            <img class="o-lang-select__img" [src]="flagEng" width="50px">
-            <span class="o-lang-select__name">Español</span>
-          </option>
-          <option class="o-lang-select__option" value="en">
-            <img class="o-lang-select__img" [src]="flagEng">
-            <span class="o-lang-select__name">English</span>
-          </option>
-        </select>
+        <ul class="o-lang-select">
+          <li class="o-lang-select__option" *ngFor="let lang of langOPtions; let i = index" (click)="moveToTop(i)"
+            value={{lang.value}}>
+            <img class="o-lang-select__img" [src]="[lang.img]" width="20px">
+            <a class="o-nav__item-anchor" [routerLink]="[lang.value]">{{lang.lang}}</a>
+          </li>
+        </ul>
       </div>
 
     </div>

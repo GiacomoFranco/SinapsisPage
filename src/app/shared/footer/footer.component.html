@@ -1,0 +1,40 @@
+<footer class="o-footer">
+  <div class="o-footer-content">
+
+    <div class="group-text">
+      <h3 class="footer-title">Lorem Ipsum</h3>
+      <p class="footer-description">Lorem Ipsum is simply dummy text of the printing and typesetting</p>
+      <button class="c-call-to-action">Contáctanos</button>
+    </div>
+
+    <div class="o-footer__group-routes">
+
+      <div class="footer__logo-social">
+
+        <div class="o-logo">
+          <a class="o-logo__anchor" [routerLink]="['home']">
+            <img class="o-logo__img" [src]="logo" alt="Sinapsis" width="178" height="54">
+          </a>
+        </div>
+
+        redes sociales
+      </div>
+
+      <div class="footer-menu">
+        <nav class="o-nav-footer">
+          <ul class="o-nav-footer__menu">
+            <li class="o-nav-footer__item" *ngFor="let navMenu of navRouters">
+              <a class="o-nav-footer__item-anchor" [routerLink]="[navMenu.slug]"
+                [routerLinkActive]="'active'">{{navMenu.title}}</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+    </div>
+
+  </div>
+  <div class="o-footer-bottom">
+    <p class="o-footer-bottom__text">© 2023 Copyrights by <b>Sinapsis.com</b> </p>
+  </div>
+</footer>
