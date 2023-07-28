@@ -1,4 +1,4 @@
-import { Component, Input, HostListener, ElementRef, ViewChild} from '@angular/core';
+import { Component, Input, HostListener} from '@angular/core';
 import { Menus } from 'src/app/models/menu';
 import { MenuService } from 'src/app/services/menu.service';
 
@@ -11,7 +11,6 @@ export class NavbarComponent {
   logo = '../../../assets/img/logo.svg'
   flagEng = '../../../assets/img/english.png'
   isScrolled: boolean = false;
-  @ViewChild('.o-header', { static: true }) elementoClase: ElementRef;
 
   @Input() navRouters: Menus[] = [{
     title: '',
@@ -19,12 +18,17 @@ export class NavbarComponent {
     slug: ''
   }]
 
+  @Input() langOPtions = [
+    { value: 'es', lang: 'Español', img: this.flagEng },
+    { value: 'en', lang: 'English', img: this.flagEng}
+  ]
+
   constructor(
     private MenuService: MenuService,
   ) { }
 
   ngOnInit(): void {
-    this.MenuService.getMenu().then(response => {
+    this.MenuService.getMenu(5).then(response => {
       this.navRouters = response.data
     })
   }
@@ -42,6 +46,14 @@ export class NavbarComponent {
     this.detectScroll()
   }
 
+
+  moveToTop(index: number) {
+    if (index >= 0 && index < this.langOPtions.length) {
+      const selectedLang = this.langOPtions[index];
+      this.langOPtions.splice(index, 1);
+      this.langOPtions.unshift(selectedLang);
+    }
+  }
 
 
 

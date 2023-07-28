@@ -5,13 +5,15 @@ import { RouterModule } from '@angular/router';
 import { ButtonSinapsisComponent } from './button-sinapsis/button-sinapsis.component';
 import { CasosDeExitoComponent } from './casos-de-exito/casos-de-exito.component';
 import { TecnologiasComponent } from './tecnologias/tecnologias.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     NavbarComponent,
     ButtonSinapsisComponent,
     CasosDeExitoComponent,
-    TecnologiasComponent
+    TecnologiasComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +23,8 @@ import { TecnologiasComponent } from './tecnologias/tecnologias.component';
     NavbarComponent,
     ButtonSinapsisComponent,
     CasosDeExitoComponent,
-    TecnologiasComponent
+    TecnologiasComponent,
+    FooterComponent
   ]
 })
 export class SharedModule { }
