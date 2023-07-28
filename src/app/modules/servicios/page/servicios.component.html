@@ -4,7 +4,9 @@
     <h2 class="h2-black">Metodologías <b>Scrum y kanban.</b></h2>
   </div>
   <section class="section-slider mt-5" *ngIf="!isMobile">
-    <div class="swiper swiper-initialized swiper-horizontal swiper-pointer-events">
+    <div
+      class="swiper swiper-initialized swiper-horizontal swiper-pointer-events"
+    >
       <div class="swiper-wrapper">
         <div class="swiper-slide" *ngFor="let item of sliderItems">
           <div class="card-item text-center">
@@ -49,12 +51,15 @@
         En SINAPSIS somos orgullosamente Microso Partner Network.
       </p>
     </div>
-    <ng-lottie
-      [options]="options"
-      (animationCreated)="animationCreated($event)"
-    ></ng-lottie>
-    <!-- <div id="lotti-container" [style.width.px]="width" [style.height.px]="height"></div> -->
-    <div class="container info-software scroll-software">
+    <div class="content-animation">
+      <div #lottiContainer>
+        <ng-lottie
+          [options]="options"
+          (animationCreated)="animationCreated($event)"
+        ></ng-lottie>
+      </div>
+    </div>
+    <div class="container info-software scroll-software mt-5">
       <p>
         Lorem ipsum dolor sit amet. Ea cumque nemo ab laudantium corporis sed
         earum ratione eos dolores saepe et quos tempora aut autem maiores ea
@@ -95,7 +100,7 @@
       </p>
     </div>
   </section>
-  <section class="other-service my-5 ">
+  <section class="other-service my-5">
     <div class="section-service-mobile desktop">
       <div class="container h-100">
         <div class="row content-mobile h-100 position-relative scroll-left">
@@ -124,10 +129,10 @@
       </div>
     </div>
     <div class="container mobile">
-      <ng-lottie
+      <!-- <ng-lottie
         [options]="options"
         (animationCreated)="animationCreated($event)"
-      ></ng-lottie>
+      ></ng-lottie> -->
       <div class="text-center w-100">
         <h2 class="h2-black">Lorem ipsum is simply</h2>
         <p class="mt-3">
@@ -142,7 +147,7 @@
         ></app-button-sinapsis>
       </div>
     </div>
-    <div class="other-service-pc desktop" >
+    <div class="other-service-pc desktop">
       <div class="scroll-right">
         <div class="row">
           <div class="col-md-6 col-12 other-item items-pc px-5">
@@ -175,56 +180,17 @@
       <div class="row d-flex justify-content-center align-items-center w-100">
         <div
           class="col-md-4 d-flex justify-content-center align-items-center h-100 item-statistics"
+          *ngFor="let data of stadisticsData"
         >
           <div class="d-flex">
-            <img class="icon" src="/assets/icons/user.svg" />
+            <img class="icon" [src]="data.icon" />
             <div class="content-statistics ms-3">
-              <h3 class="m-0">+100</h3>
+              <h3 class="m-0">+{{data.numbers}}</h3>
               <h3 class="m-0 title-statistics">
-                Clientes satisfechos con este servicio
+                {{data.title}}
               </h3>
               <p class="m-0">
-                Lorem ipsum is simple texto of the printing and typesetting
-                industry. lorem ipsum has been the Lorem ipsum is simple texto
-                of the printing and typesetting industry. lorem ipsum has been
-                the Lorem ipsum is simple texto of the printing and typesetting
-                industry.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div
-          class="col-md-4 d-flex justify-content-center align-items-center h-100 item-statistics"
-        >
-          <div class="d-flex">
-            <img class="icon" src="/assets/icons/cup.svg" />
-            <div class="content-statistics ms-3">
-              <h3 class="m-0">+100</h3>
-              <h3 class="m-0 title-statistics">Proyectos</h3>
-              <p class="m-0">
-                Lorem ipsum is simple texto of the printing and typesetting
-                industry. lorem ipsum has been the Lorem ipsum is simple texto
-                of the printing and typesetting industry. lorem ipsum has been
-                the Lorem ipsum is simple texto of the printing and typesetting
-                industry.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div
-          class="col-md-4 d-flex justify-content-center align-items-center h-100 item-statistics"
-        >
-          <div class="d-flex">
-            <img class="icon" src="/assets/icons/bank.svg" />
-            <div class="content-statistics ms-3">
-              <h3 class="m-0">+100</h3>
-              <h3 class="m-0 title-statistics">Empresas</h3>
-              <p class="m-0">
-                Lorem ipsum is simple texto of the printing and typesetting
-                industry. lorem ipsum has been the Lorem ipsum is simple texto
-                of the printing and typesetting industry. lorem ipsum has been
-                the Lorem ipsum is simple texto of the printing and typesetting
-                industry.
+                {{data.description}}
               </p>
             </div>
           </div>
@@ -234,7 +200,7 @@
   </section>
   <section class="work-us parallax image-parallax">
     <div class="info-contact">
-      <div class="content ">
+      <div class="content">
         <img src="/assets/icons/arrowdown.svg" alt="" />
         <h2>
           Lorem ipsum is simple texto of the printing and typesetting industry.
@@ -243,5 +209,5 @@
       </div>
     </div>
   </section>
-  <app-casos-de-exito/>
+  <app-casos-de-exito />
 </main>
