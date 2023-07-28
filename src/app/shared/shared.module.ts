@@ -6,6 +6,7 @@ import { ButtonSinapsisComponent } from './button-sinapsis/button-sinapsis.compo
 import { CasosDeExitoComponent } from './casos-de-exito/casos-de-exito.component';
 import { TecnologiasComponent } from './tecnologias/tecnologias.component';
 import { FooterComponent } from './footer/footer.component';
+import { FaqComponent } from './faq/faq.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { FooterComponent } from './footer/footer.component';
     ButtonSinapsisComponent,
     CasosDeExitoComponent,
     TecnologiasComponent,
-    FooterComponent
+    FooterComponent,
+    FaqComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +26,8 @@ import { FooterComponent } from './footer/footer.component';
     ButtonSinapsisComponent,
     CasosDeExitoComponent,
     TecnologiasComponent,
-    FooterComponent
+    FooterComponent,
+    FaqComponent
   ]
 })
 export class SharedModule { }
