@@ -5,6 +5,8 @@ import Swiper from 'swiper';
 import ScrollReveal from 'scrollreveal';
 import { TimelineModel } from 'src/app/models/timeline.model';
 import { TimelineData } from 'src/app/core/timeline.mock';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 @Component({
   selector: 'app-nosotros',

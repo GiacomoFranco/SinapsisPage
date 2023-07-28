@@ -1,11 +1,13 @@
-import { Component, OnInit, AfterViewInit, HostListener, ElementRef } from '@angular/core';
+import { Component, OnInit, AfterViewInit, HostListener, ElementRef, ViewChild } from '@angular/core';
 import { Slider } from 'src/app/models/slide.model';
 import Swiper from 'swiper';
 import { AnimationItem } from 'lottie-web';
 import ScrollReveal from 'scrollreveal';
-import Lottie from 'lottie-web';
 import { ServiciosService } from 'src/app/services/servicios.service';
-import { AnimationOptions } from 'ngx-lottie';
+import { AnimationOptions, LottieComponent } from 'ngx-lottie';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { StadisticsModel } from '@app/models/stadistics.model';
 
 
 @Component({
@@ -16,33 +18,28 @@ import { AnimationOptions } from 'ngx-lottie';
 export class ServiciosComponent implements AfterViewInit, OnInit {
 
   sliderItems: Slider[] = []
-  options: AnimationOptions = {
-    path: '/assets/Animation/animation_pc.json',
-  };
+  stadisticsData: StadisticsModel[] = []
 
   isAnimationPlaying = true;
   isMobile = false;
 
-
-  animationItem: AnimationItem | undefined;
-
+  
   swiper: Swiper | undefined;
+  
+  private animation: AnimationItem | any;
+  
+  options: AnimationOptions = {
+    path: '/assets/Animation/animation_pc.json',
+    autoplay: false
+  };
+  animationItem: any;
 
-  private animation: AnimationItem | any
-  width = 1200
-  height = 800
-  container_id = '#lotti-container'
+  @ViewChild('lottiContainer', { static: true }) lottiContainer!: ElementRef<HTMLDivElement>;
 
-  constructor(private elementRef: ElementRef, private service: ServiciosService) { }
+  constructor(private service: ServiciosService) { }
+
 
   ngOnInit(): void {
-    const animationOptions: AnimationOptions = {
-      path: '/assets/Animation/animation_pc.json',
-      autoplay: true,
-      renderer: "svg",
-      loop: false
-    };
-    this.options = animationOptions;
 
     this.service.getServicios().then((resp) => {
       const { data } = resp;
@@ -67,18 +64,59 @@ export class ServiciosComponent implements AfterViewInit, OnInit {
     })
     this.initScrollReveal();
     this.checkWindowSize();
-    // this.animation = Lottie.loadAnimation({
-    //   container: this.elementRef.nativeElement.querySelector(this.container_id),
-    //   renderer: 'svg',
-    //   path: '/assets/Animation/animation_pc.json',
-    //   autoplay: false,
-    //   loop: true
-    // })
-    // this.handleScroll()
+    this.getStadistics();
   }
 
   ngAfterViewInit(): void {
+    gsap.registerPlugin(ScrollTrigger);
 
+    setTimeout(() => {
+      const lottieElement = this.lottiContainer.nativeElement;
+      const animation = this.animationItem;
+      let animationProgress = 0;
+
+      function updateAnimationProgress() {
+        if (animation) {
+          animation.goToAndStop(animation.totalFrames * animationProgress, true);
+        }
+      }
+
+      gsap.to(animation, {
+        time: animation.totalFrames / animation.frameRate,
+        repeat: -1,
+        ease: "ease",
+      })
+
+      ScrollTrigger.create({
+        trigger: lottieElement,
+        pin: '.content-animation',
+        start: 'top 50px',
+        end: () => `+=${lottieElement.clientHeight}`,
+        scrub: true,
+        onUpdate: self => {
+          animationProgress = self.progress;
+          if (animationProgress === 0) {
+            animationProgress = 1; // Establecerlo en el último frame de la animación
+          }
+          updateAnimationProgress();
+        }
+      });
+
+      updateAnimationProgress();
+    }, 1000);
+  }
+
+  animationCreated(animationItem: AnimationItem): void {
+    this.animationItem = animationItem
+  }
+
+  checkWindowSize() {
+    this.isMobile = window.innerWidth < 767;
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    this.checkWindowSize();
   }
 
   initScrollReveal() {
@@ -108,35 +146,10 @@ export class ServiciosComponent implements AfterViewInit, OnInit {
     });
   }
 
-  animationCreated(animationItem: AnimationItem): void {
-
-  }
-
-  private elementInView() {
-    const rec = this.elementRef.nativeElement.getBoundingClientRect();
-    return (
-      rec.top >= 0 &&
-      rec.left >= 0 &&
-      rec.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-      rec.right <= (window.innerWidth || document.documentElement.clientWidth)
-    )
-  }
-
-  checkWindowSize() {
-    this.isMobile = window.innerWidth < 767;
-  }
-
-  @HostListener('window:resize', ['$event'])
-  onResize() {
-    this.checkWindowSize();
-  }
-
-  @HostListener("scroll", [])
-  handleScroll() {
-    if (this.elementInView()) {
-      this.animation.play()
-    } else {
-      this.animation.pause()
-    }
+  getStadistics(){
+    this.service.getStadistics().then(response =>{
+      const {data} = response
+      this.stadisticsData = data.sectionStadistics;
+    })
   }
 }
