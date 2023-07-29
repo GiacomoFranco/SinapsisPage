@@ -1,0 +1,30 @@
+
+/** FAQ section */
+.c-faq{
+  background: var(--footerbackground);
+  padding: 50px 0px;
+
+  .c-faq-content{
+    max-width: 60%;
+    margin: auto;
+  }
+
+  &__title{
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+}
+
+.c-faq-accordion{
+  &__answers {
+    height: 100%;
+    overflow: hidden;
+    max-height: 1px;
+    max-height: 1000px;
+    transition: 0.35s ease-in-out;
+  }
+}
+
+
+
