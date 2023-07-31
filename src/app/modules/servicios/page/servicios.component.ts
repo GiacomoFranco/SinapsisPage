@@ -4,10 +4,10 @@ import Swiper from 'swiper';
 import { AnimationItem } from 'lottie-web';
 import ScrollReveal from 'scrollreveal';
 import { ServiciosService } from 'src/app/services/servicios.service';
-import { AnimationOptions, LottieComponent } from 'ngx-lottie';
+import { AnimationOptions } from 'ngx-lottie';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { StadisticsModel } from '@app/models/stadistics.model';
+import { ScrollTrigger } from 'gsap/all';
+import { servicePageData } from '@app/models/servicePage.model';
 
 
 @Component({
@@ -17,30 +17,125 @@ import { StadisticsModel } from '@app/models/stadistics.model';
 })
 export class ServiciosComponent implements AfterViewInit, OnInit {
 
+  @ViewChild('lottiContainer', { static: true }) lottiContainer!: ElementRef<HTMLDivElement>;
+
   sliderItems: Slider[] = []
-  stadisticsData: StadisticsModel[] = []
+  pageData: servicePageData = {
+    developSoftware: {
+      title: '',
+      description: '',
+      secondDescription: ''
+    },
+    phoneSection: {
+      title: '',
+      description: '',
+      urlBoton: ''
+    },
+    laptopSection: {
+      title: '',
+      description: '',
+      urlBoton: ''
+    },
+    SectionWorkWithUs: {
+      Title: '',
+      urlBoton: ''
+    },
+    sectionStadistics: [],
+  }
 
   isAnimationPlaying = true;
   isMobile = false;
 
-  
   swiper: Swiper | undefined;
-  
-  private animation: AnimationItem | any;
-  
+
   options: AnimationOptions = {
     path: '/assets/Animation/animation_pc.json',
     autoplay: false
   };
   animationItem: any;
 
-  @ViewChild('lottiContainer', { static: true }) lottiContainer!: ElementRef<HTMLDivElement>;
 
   constructor(private service: ServiciosService) { }
 
 
   ngOnInit(): void {
 
+    this.getPage()
+    this.getSlider();
+    this.initScrollReveal();
+    this.checkWindowSize();
+    this.getStadistics();
+  }
+
+  ngAfterViewInit(): void {
+    gsap.registerPlugin(ScrollTrigger);
+
+    setTimeout(() => {
+      const lottieElement = this.lottiContainer.nativeElement;
+      const animation = this.animationItem;
+      let animationProgress = 0;
+      let isScrollingUp = false;
+
+      function updateAnimationProgress() {
+        if (animation) {
+          const frame = Math.floor(animation.totalFrames * animationProgress);
+          animation.goToAndStop(frame, true);
+
+          if (isScrollingUp && frame === 0) {
+            animationProgress = 0;
+            updateAnimationProgress()
+          }
+        }
+      }
+
+      ScrollTrigger.create({
+        trigger: lottieElement,
+        pin: '.content-animation',
+        start: this.responsiveAnimation(),
+        end: () => `+=${lottieElement.clientHeight}`,
+        onUpdate: (self) => {
+          const progress = self.progress;
+          if (progress >= 0.99 && !isScrollingUp) {
+            animationProgress = 179 / animation.totalFrames;
+          } else {
+            animationProgress = progress;
+          }
+          updateAnimationProgress();
+        }
+      });
+
+
+      updateAnimationProgress();
+    }, 1000);
+  }
+
+  responsiveAnimation(): string {
+    let size = ''
+    if (window.innerWidth > 1024) {
+      size = '50px top';
+    }
+    if (window.innerWidth >= 767 && window.innerWidth <= 1024) {
+      size = '-200px top'
+    }
+    if (window.innerWidth < 767) {
+      size = '-400px top'
+    }
+    return size;
+  }
+
+  animationCreated(animationItem: AnimationItem): void {
+    this.animationItem = animationItem
+  }
+
+  getPage() {
+    this.service.getServicesPage().then((resp) => {
+      const {data} = resp;
+      this.pageData = data;
+      console.log("🚀", this.pageData)
+    })
+  }
+
+  getSlider() {
     this.service.getServicios().then((resp) => {
       const { data } = resp;
       this.sliderItems = data
@@ -62,61 +157,13 @@ export class ServiciosComponent implements AfterViewInit, OnInit {
         },
       });
     })
-    this.initScrollReveal();
-    this.checkWindowSize();
-    this.getStadistics();
   }
 
-  ngAfterViewInit(): void {
-    gsap.registerPlugin(ScrollTrigger);
-
-    setTimeout(() => {
-      const lottieElement = this.lottiContainer.nativeElement;
-      const animation = this.animationItem;
-      let animationProgress = 0;
-
-      function updateAnimationProgress() {
-        if (animation) {
-          animation.goToAndStop(animation.totalFrames * animationProgress, true);
-        }
-      }
-
-      gsap.to(animation, {
-        time: animation.totalFrames / animation.frameRate,
-        repeat: -1,
-        ease: "ease",
-      })
-
-      ScrollTrigger.create({
-        trigger: lottieElement,
-        pin: '.content-animation',
-        start: 'top 50px',
-        end: () => `+=${lottieElement.clientHeight}`,
-        scrub: true,
-        onUpdate: self => {
-          animationProgress = self.progress;
-          if (animationProgress === 0) {
-            animationProgress = 1; // Establecerlo en el último frame de la animación
-          }
-          updateAnimationProgress();
-        }
-      });
-
-      updateAnimationProgress();
-    }, 1000);
-  }
-
-  animationCreated(animationItem: AnimationItem): void {
-    this.animationItem = animationItem
-  }
-
-  checkWindowSize() {
-    this.isMobile = window.innerWidth < 767;
-  }
-
-  @HostListener('window:resize', ['$event'])
-  onResize() {
-    this.checkWindowSize();
+  getStadistics() {
+    // this.service.getStadistics().then(response => {
+    //   const { data } = response
+    //   this.stadisticsData = data.sectionStadistics;
+    // })
   }
 
   initScrollReveal() {
@@ -145,11 +192,12 @@ export class ServiciosComponent implements AfterViewInit, OnInit {
       easing: 'ease-out'
     });
   }
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    this.checkWindowSize();
+  }
 
-  getStadistics(){
-    this.service.getStadistics().then(response =>{
-      const {data} = response
-      this.stadisticsData = data.sectionStadistics;
-    })
+  checkWindowSize() {
+    this.isMobile = window.innerWidth < 767;
   }
 }
