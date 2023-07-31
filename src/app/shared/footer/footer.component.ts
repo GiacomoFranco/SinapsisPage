@@ -9,6 +9,10 @@ import { MenuService } from '@app/services/menu.service';
 })
 export class FooterComponent {
   logo = '../../../assets/img/logo.svg'
+  twitter = '../../assets/icons/social/twitter.svg'
+  facebook = '../../assets/icons/social/facebook.svg'
+  linkedin = '../../assets/icons/social/linkedin.svg'
+  instagram = '../../assets/icons/social/instagram.svg'
 
   @Input() navRouters: Menus[] = [{
     title: '',

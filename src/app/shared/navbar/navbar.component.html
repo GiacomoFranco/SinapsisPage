@@ -8,15 +8,15 @@
       </a>
     </div>
 
-    <div class="o-menu-mobile">
-      <div class="o-menu-mobile__content">
+    <div class="o-menu-mobile" (click)="responsiveMenu()">
+      <div class="o-menu-mobile__content" [ngClass]="{'has-mobile-transform':animationHamburger}">
         <span class="o-menu-mobile__lines o-menu-mobile--top"></span>
         <span class="o-menu-mobile__lines o-menu-mobile--center"></span>
-        <span class="o-menu-mobile__lines o-menu-mobile--botom"></span>
+        <span class="o-menu-mobile__lines o-menu-mobile--bottom"></span>
       </div>
     </div>
 
-    <div class="content-nav-options">
+    <div class="content-nav-options" [ngClass]="{'has-show-menu':showMenu}">
 
       <nav class="o-nav">
         <ul class="o-nav__menu">
