@@ -105,7 +105,10 @@
     align-items: center;
     justify-content: start;
     gap: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 4px;
+    background: white;
+    padding: 5px 11px;
+    border-radius: 5px;
     }
 
     &__name{
@@ -142,28 +145,115 @@
 }
 
 @media(max-width:780px){
+
   .o-header{
     &__content {
-      grid-template-columns: 100%;
+      grid-template-columns: 88% 10%;
+      height: 65px;
     }
-  }
-
-  .o-menu-mobile{
-    display: block;
-  }
-
-  .content-nav-options{
-    position: absolute;
-    left: 0px;
-    width: 100%;
-    top: 0;
-
   }
 
   .o-logo{
     &__img{
       width: 100%;
     }
+  }
+
+  .o-logo{
+      &__anchor{
+        width: 157px;
+        display: block;
+      }
+
+      &__img{
+        width: 100%;
+      }
+  }
+
+  .o-menu-mobile{
+    display: block;
+    position: relative;
+    height: 20px;
+
+    &__lines{
+      background: var(--main-color);
+      display: block;
+      height: 1px;
+      width: 30px;
+      border-radius: 5px;
+      position: absolute;
+    }
+
+    &--top{
+      top: 1px;
+      transition: 0.35s;
+    }
+
+    &--center{
+      top: 50%;
+      opacity: 1;
+      transition: 0.35s;
+    }
+
+    &--bottom{
+      bottom: 0;
+      transition: 0.35s;
+    }
+
+    /** Animation */
+    .has-mobile-transform &--top{
+      top: 50%;
+      transform: rotate(45deg);
+      transition: 0.35s;
+    }
+
+    .has-mobile-transform &--center{
+      top: 50%;
+      opacity: 0;
+      transition: 0.35s;
+    }
+
+    .has-mobile-transform &--bottom{
+      transform: rotate(-45deg);
+      bottom: 50%;
+      transition: 0.35s;
+    }
+
+  }
+
+  .content-nav-options{
+    grid-template-columns: 100%;
+    position: absolute;
+    top: 56px;
+    background: white;
+    width: 100%;
+    left: 0px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: 0.35s ease-out;
+  }
+
+  .has-show-menu{
+    max-height: 800px;
+    transition: 0.35s ease-in;
+    padding-bottom: 20px;
+  }
+
+
+  .o-nav__menu {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .o-lang{
+    &-select{
+      position: relative;
+
+      &__option{
+        justify-content: center;
+      }
+    }
+
   }
 
 }

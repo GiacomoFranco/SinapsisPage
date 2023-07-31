@@ -51,7 +51,7 @@
     &-anchor{
       text-decoration: none;
       color: var(--main-color);
-      font-size: 12px;
+      font-size: clamp(12px, 1vw, 0.8rem);
       font-variation-settings: 'wght' 700, 'slnt' 0;
       transition: 0.35s;
 
@@ -82,5 +82,17 @@
 
 }
 
+@media(max-width:780px){
+  .o-footer__group-routes{
+    grid-template-columns:1fr;
+  }
 
+  .o-social--instagram {
+    transform: translate(0px, 3px);
+  }
+
+  .o-nav-footer__menu{
+    gap: 4px 12px;
+  }
+}
 

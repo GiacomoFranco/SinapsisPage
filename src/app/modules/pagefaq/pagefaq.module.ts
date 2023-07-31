@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FaqPageComponent } from './page/faq.component';
-import { SharedModule } from 'primeng/api';
+import { PagefaqComponent } from './page/pagefaq.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
-    FaqPageComponent
+    PagefaqComponent,
   ],
   imports: [
     CommonModule,
     SharedModule
   ]
 })
-export class FAQModule { }
+export class PagefaqModule { }

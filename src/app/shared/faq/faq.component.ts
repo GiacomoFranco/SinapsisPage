@@ -16,6 +16,8 @@ export class FaqComponent {
     content: ''
   }]
 
+  @Input() numbers:number = 4;
+
   constructor(
     private CPTList: FaqServices,
   ) { }

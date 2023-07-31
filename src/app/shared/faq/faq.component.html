@@ -1,16 +1,8 @@
-<section class="c-faq">
-  <div class="c-faq-content">
-    <h2 class="c-faq__title">Lorem Ipsum is simply dummy</h2>
-
-    <div class="c-faq-accordion">
-      <div class="c-faq-accordion__question" *ngFor="let FAQ of FAQs.slice(0, 4)">
-        <div class="c-faq-accordion__click">
-          <h4 class="c-faq-accordion__title">{{FAQ.title}}</h4>
-        </div>
-        <div class="c-faq-accordion__answers" [innerHTML]="FAQ.content"></div>
-      </div>
+<div class="c-faq-accordion">
+  <div class="c-faq-accordion__question" *ngFor="let FAQ of FAQs.slice(0, numbers)">
+    <div class="c-faq-accordion__click">
+      <h4 class="c-faq-accordion__title">{{FAQ.title}}</h4>
     </div>
-    <app-button-sinapsis [url]="'/faq'" [name_button]="'saber más'"></app-button-sinapsis>
-
+    <div class="c-faq-accordion__answers" [innerHTML]="FAQ.content"></div>
   </div>
-</section>
+</div>

@@ -9,6 +9,8 @@ import { HomeModule } from './modules/home/home.module';
 import { ServiciosModule } from './modules/servicios/servicios.module';
 import { NosotrosModule } from './modules/nosotros/nosotros.module';
 
+import { PagefaqModule } from './modules/pagefaq/pagefaq.module';
+
 import { SharedModule } from './shared/shared.module';
 
 
@@ -22,6 +24,7 @@ import { SharedModule } from './shared/shared.module';
     HomeModule,
     ServiciosModule,
     NosotrosModule,
+    PagefaqModule,
     SharedModule,
     HttpClientModule,
   ],
