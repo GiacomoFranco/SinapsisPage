@@ -42,6 +42,7 @@
 
                     &.anim {
                         animation: Float 3s ease-in-out infinite alternate;
+                        transition: all .5s ease;
                     }
                 }
             }
