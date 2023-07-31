@@ -10,10 +10,10 @@ import Swiper from 'swiper';
 export class TecnologiasComponent implements OnInit, DoCheck {
   animIndex = 0
   animIndexCpy = -1
-  ngOnInit(): void {
-  }
   swiper: Swiper | any;
   tecnologias = Tecnologias;
+  ngOnInit(): void {
+  }
 
   ngDoCheck(): void {
     if (this.animIndex !== this.animIndexCpy && this.animIndex < this.tecnologias.length - 1) {

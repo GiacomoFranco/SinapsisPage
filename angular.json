@@ -30,6 +30,9 @@
               "src/assets"
             ],
             "styles": [
+              {
+                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+              },
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/swiper/swiper-bundle.css",
               "node_modules/primeng/resources/themes/saga-blue/theme.css",
@@ -100,6 +103,9 @@
               "src/assets"
             ],
             "styles": [
+              {
+                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+              },
               "src/styles.scss"
             ],
             "scripts": []
