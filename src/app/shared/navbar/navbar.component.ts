@@ -11,6 +11,8 @@ export class NavbarComponent {
   logo = '../../../assets/img/logo.svg'
   flagEng = '../../../assets/img/english.png'
   isScrolled: boolean = false;
+  showMenu: boolean = false;
+  animationHamburger: boolean = false;
 
   @Input() navRouters: Menus[] = [{
     title: '',
@@ -53,6 +55,11 @@ export class NavbarComponent {
       this.langOPtions.splice(index, 1);
       this.langOPtions.unshift(selectedLang);
     }
+  }
+
+  responsiveMenu() {
+    this.showMenu = !this.showMenu
+    this.animationHamburger = !this.animationHamburger
   }
 
 

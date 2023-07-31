@@ -119,3 +119,20 @@
   background-color: rgb(56, 56, 56);
 }
 
+
+/** FAQ **/
+.faq{
+  background: var(--footerbackground);
+  padding: 50px 0px;
+
+  &-content{
+    max-width: 60%;
+    margin: auto;
+  }
+
+  &__title{
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+}

@@ -1,0 +1,12 @@
+.c-faq-accordion{
+  &__answers {
+    height: 100%;
+    overflow: hidden;
+    max-height: 1px;
+    max-height: 1000px;
+    transition: 0.35s ease-in-out;
+  }
+}
+
+
+
