@@ -33,54 +33,22 @@
   </section>
   <section class="section-software pb-5">
     <div class="mt-5 text-center container scroll-software">
-      <h2 class="h2-black">Desarrollo de <b>software a la medida.</b></h2>
-      <p class="mt-4">
-        En SINAPSIS nos especializamos en desplegar servicios bajo metodologías
-        de desarrollo de soware que enfatizan la agilidad y la adaptabilidad,
-        que responden a las necesidades y el entorno cambiante de su negocio.
-      </p>
-      <p>
-        Nuestro equipo de desarrollo está capacitado para entenderlo, ayudándole
-        a convertir un reto empresarial en una aplicación moderna a la medida de
-        soluciones altamente robustas, que le permita operar de manera más
-        rentable y eficiente; incluyen aplicaciones financieras, soware
-        contable, inventarios, aplicaciones de nómina, sistemas de producción y
-        manufactura, entre otras.
-      </p>
-      <p class="mt-4">
-        En SINAPSIS somos orgullosamente Microso Partner Network.
-      </p>
+      <h2 class="h2-black">{{pageData.developSoftware.title}}</h2>
+      <p class="mt-4">{{pageData.developSoftware.description}}</p>
     </div>
-    <div class="content-animation">
-      <div #lottiContainer>
-        <ng-lottie
-          [options]="options"
-          (animationCreated)="animationCreated($event)"
-        ></ng-lottie>
+    <div class="w-100">
+      <div class="container d-flex justify-content-center align-items-center">
+        <div #lottiContainer>
+          <ng-lottie
+            [options]="options"
+            (animationCreated)="animationCreated($event)"
+          ></ng-lottie>
+        </div>
       </div>
     </div>
-    <div class="container info-software scroll-software mt-5">
+    <div class="container info-software mt-5">
       <p>
-        Lorem ipsum dolor sit amet. Ea cumque nemo ab laudantium corporis sed
-        earum ratione eos dolores saepe et quos tempora aut autem maiores ea
-        magni doloremque. Et velit dolores in placeat voluptas et culpa nulla
-        aut galisum odit. In perferendis temporibus ut nulla illo ut placeat
-        debitis vel commodi voluptates qui dicta asperiores rem laboriosam
-        impedit.
-      </p>
-      <p>
-        Sed magni aperiam eos totam excepturi aut voluptatibus quos id quisquam
-        voluptas ut harum accusantium et quaerat esse vel veritatis possimus.
-        Qui quia aperiam est necessitatibus quidem nam velit sint est magnam
-        corporis aut soluta delectus a vitae autem aut dicta facere. Vel
-        mollitia labore qui doloribus facilis et quia aperiam et iure
-        consequatur? Sit nostrum sunt non beatae ipsam nam sunt similique est
-        dolor doloribus vel dicta quasi et nostrum facilis. Sed expedita
-        mollitia et iure eaque qui ipsam debitis.
-      </p>
-      <p>
-        Ab adipisci reprehenderit est maxime dolore non labore consequuntur rem
-        aperiam consectetur et illum quia sed veritatis distinctio ut quas enim.
+        {{pageData.developSoftware.secondDescription}}
       </p>
     </div>
   </section>
@@ -90,13 +58,9 @@
       <img class="shad shad_mobile" src="/assets/img/shadow.svg" alt="" />
     </div>
     <div class="w-100 text-center px-3 mt-4">
-      <h2>Lorem ipsum is simply text of the printing</h2>
+      <h2>{{pageData.phoneSection.title}}</h2>
       <p>
-        Lorem ipsum is simple texto of the printing and typesetting industry.
-        lorem ipsum has been the Lorem ipsum is simple texto of the printing and
-        typesetting industry. lorem ipsum has been the Lorem ipsum is simple
-        texto of the printing and typesetting industry. Lorem ipsum is simple
-        texto of the printing and typesetting industry.
+        {{pageData.phoneSection.description}}
       </p>
     </div>
   </section>
@@ -112,38 +76,26 @@
             </div>
           </div>
           <div class="col-md-6 item-mobile item_service h-100">
-            <h2>Lorem ipsum is simply text of the printing</h2>
-            <p>
-              Lorem ipsum is simple texto of the printing and typesetting
-              industry. lorem ipsum has been the Lorem ipsum is simple texto of
-              the printing and typesetting industry. lorem ipsum has been the
-              Lorem ipsum is simple texto of the printing and typesetting
-              industry. Lorem ipsum is simple texto of the printing and
-              typesetting industry.
-            </p>
+            <h2>{{pageData.phoneSection.title}}</h2>
+            <p>{{pageData.phoneSection.description}}</p>
             <app-button-sinapsis
               [name_button]="'Lorem ipsum is simple'"
+              [url]="pageData.phoneSection.urlBoton"
             ></app-button-sinapsis>
           </div>
         </div>
       </div>
     </div>
     <div class="container mobile">
-      <!-- <ng-lottie
-        [options]="options"
-        (animationCreated)="animationCreated($event)"
-      ></ng-lottie> -->
+      <div class="container d-flex justify-content-center align-items-center w-100 p-5">
+        <img class="img_portatil" src="/assets/img/portatil.png" alt="">
+      </div>
       <div class="text-center w-100">
-        <h2 class="h2-black">Lorem ipsum is simply</h2>
-        <p class="mt-3">
-          Lorem ipsum is simple texto of the printing and typesetting industry.
-          lorem ipsum has been the Lorem ipsum is simple texto of the printing
-          and typesetting industry. lorem ipsum has been the Lorem ipsum is
-          simple texto of the printing and typesetting industry. Lorem ipsum is
-          simple texto of the printing and typesetting industry.
-        </p>
+        <h2 class="h2-black">{{pageData.laptopSection.title}}</h2>
+        <p class="mt-3">{{pageData.laptopSection.description}}</p>
         <app-button-sinapsis
           [name_button]="'Lorem ipsum is simple'"
+          [url]="pageData.laptopSection.urlBoton"
         ></app-button-sinapsis>
       </div>
     </div>
@@ -152,17 +104,11 @@
         <div class="row">
           <div class="col-md-6 col-12 other-item items-pc px-5">
             <div class="w-100">
-              <h2 class="h2-black">Lorem ipsum is simply</h2>
-              <p class="mt-3">
-                Lorem ipsum is simple texto of the printing and typesetting
-                industry. lorem ipsum has been the Lorem ipsum is simple texto
-                of the printing and typesetting industry. lorem ipsum has been
-                the Lorem ipsum is simple texto of the printing and typesetting
-                industry. Lorem ipsum is simple texto of the printing and
-                typesetting industry.
-              </p>
+              <h2 class="h2-black">{{pageData.laptopSection.title}}</h2>
+              <p class="mt-3">{{pageData.laptopSection.description}}</p>
               <app-button-sinapsis
                 [name_button]="'Lorem ipsum is simple'"
+                [url]="pageData.laptopSection.urlBoton"
               ></app-button-sinapsis>
             </div>
           </div>
@@ -180,17 +126,17 @@
       <div class="row d-flex justify-content-center align-items-center w-100">
         <div
           class="col-md-4 d-flex justify-content-center align-items-center h-100 item-statistics"
-          *ngFor="let data of stadisticsData"
+          *ngFor="let dataStadistics of pageData.sectionStadistics"
         >
           <div class="d-flex">
-            <img class="icon" [src]="data.icon" />
+            <img class="icon" [src]="dataStadistics.icon" />
             <div class="content-statistics ms-3">
-              <h3 class="m-0">+{{data.numbers}}</h3>
+              <h3 class="m-0">+{{ dataStadistics.numbers }}</h3>
               <h3 class="m-0 title-statistics">
-                {{data.title}}
+                {{ dataStadistics.title }}
               </h3>
               <p class="m-0">
-                {{data.description}}
+                {{ dataStadistics.description }}
               </p>
             </div>
           </div>
@@ -202,10 +148,8 @@
     <div class="info-contact">
       <div class="content">
         <img src="/assets/icons/arrowdown.svg" alt="" />
-        <h2>
-          Lorem ipsum is simple texto of the printing and typesetting industry.
-        </h2>
-        <a href="/contacto">Botón</a>
+        <h2>{{pageData.SectionWorkWithUs.Title}}</h2>
+        <a [href]="pageData.SectionWorkWithUs.urlBoton">Botón</a>
       </div>
     </div>
   </section>

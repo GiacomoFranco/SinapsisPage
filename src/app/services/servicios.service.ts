@@ -17,7 +17,7 @@ export class ServiciosService {
     return await this.api.get('servicios')
   }
 
-  async getStadistics(){
+  async getServicesPage(){
     return await this.api.get('pages/?slug=servicios')
   }
 }
