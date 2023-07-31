@@ -8,6 +8,7 @@ import { AnimationOptions } from 'ngx-lottie';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 import { servicePageData } from '@app/models/servicePage.model';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 
 
 @Component({
@@ -18,6 +19,26 @@ import { servicePageData } from '@app/models/servicePage.model';
 export class ServiciosComponent implements AfterViewInit, OnInit {
 
   @ViewChild('lottiContainer', { static: true }) lottiContainer!: ElementRef<HTMLDivElement>;
+
+  customOptions: OwlOptions = {
+    loop: true,
+    mouseDrag: true,
+    touchDrag: false,
+    pullDrag: false,
+    autoplay: true,
+    autoplayTimeout: 1000,
+    dots: false,
+    navSpeed: 2000,
+    autoplaySpeed: 1000,
+    responsive: {
+      1024: {
+        items: 5
+      },
+      767:{
+        items: 3
+      }
+    }
+  };
 
   sliderItems: Slider[] = []
   pageData: servicePageData = {
@@ -54,12 +75,13 @@ export class ServiciosComponent implements AfterViewInit, OnInit {
   };
   animationItem: any;
 
+  contadores = [{target: 100, value: 0}, {target: 1000, value: 0}, {target: 300, value: 0}]
+
 
   constructor(private service: ServiciosService) { }
 
 
   ngOnInit(): void {
-
     this.getPage()
     this.getSlider();
     this.initScrollReveal();
@@ -131,7 +153,19 @@ export class ServiciosComponent implements AfterViewInit, OnInit {
     this.service.getServicesPage().then((resp) => {
       const {data} = resp;
       this.pageData = data;
-      console.log("🚀", this.pageData)
+      this.pageData.sectionStadistics.forEach((element, i) => {
+        this.contadores[i].target = Number(element.numbers);
+      })
+      setInterval(() => {
+        this.contadores.forEach((counter) => {
+          const increment = counter.target / 400;
+          if (counter.value < counter.target) {
+            counter.value = Math.ceil(counter.value + increment);
+          } else {
+            counter.value = counter.target;
+          }
+        });
+      }, 0);
     })
   }
 
@@ -192,6 +226,7 @@ export class ServiciosComponent implements AfterViewInit, OnInit {
       easing: 'ease-out'
     });
   }
+
   @HostListener('window:resize', ['$event'])
   onResize() {
     this.checkWindowSize();
