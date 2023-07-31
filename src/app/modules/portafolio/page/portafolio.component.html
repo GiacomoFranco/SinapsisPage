@@ -1,1 +1,53 @@
-<p>portafolio works!</p>
+<div class="casos-port-container">
+  <h2 class="title">Explora nuestro portafolio</h2>
+  <p class="desc">
+    Lorem ipsum is simple text of the printing and typesetting industry.
+  </p>
+  <!-- <app-casos-de-exito></app-casos-de-exito> -->
+  <div class="casos--container">
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div
+          *ngFor="let caso of casosExito"
+          class="swiper-slide logo--container"
+        >
+          <img class="caso-exito-logo" [src]="caso" alt="casos de exito" />
+        </div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+  </div>
+
+  <div [id]="contentId">
+    <div *ngFor="let chase of grouped" class="cards-cont">
+      <div class="each-alone">{{ chase[0] }}</div>
+      <div class="pair-cont">
+        <div *ngFor="let item of chase.slice(1, 3)" class="each-pair">
+          {{ item }}
+        </div>
+      </div>
+    </div>
+    <div class="port-paginated">
+      <kendo-datapager
+        [attr.aria-controls]="contentId"
+        [total]="total"
+        [pageSize]="pageSize"
+        [info]="false"
+        [type]="'numeric'"
+        [previousNext]="false"
+        [pageSizeValues]="false"
+        [skip]="skip"
+        (pageChange)="onPageChange($event)"
+      >
+      </kendo-datapager>
+      <img
+        width="30"
+        height="30"
+        class="icon"
+        src="assets\icons\arrowright.svg"
+        alt=""
+      />
+    </div>
+  </div>
+</div>
