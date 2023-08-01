@@ -5,38 +5,77 @@ import Swiper from 'swiper';
 import ScrollReveal from 'scrollreveal';
 import { TimelineModel } from 'src/app/models/timeline.model';
 import { TimelineData } from 'src/app/core/timeline.mock';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
   selector: 'app-nosotros',
   templateUrl: './nosotros.component.html',
   styleUrls: ['./nosotros.component.scss']
 })
+
 export class NosotrosComponent implements OnInit {
   sliderImg: SliderAbout[] = []
   swiper: Swiper | undefined;
   timelineItems: TimelineModel[] = [];
+  customOptions: OwlOptions = {
+    loop: true,
+    mouseDrag: true,
+    touchDrag: false,
+    pullDrag: false,
+    autoplay: true,
+    autoplayTimeout: 10,
+    dots: false,
+    navSpeed: 10,
+    autoplaySpeed: 10000,
+    responsive: {
+      1024: {
+        items: 3
+      },
+      767: {
+        items: 2
+      }
+    }
+  };
+  isMobile = false;
+  timelineType = 'horizontal'
+  positionTimeline = 'top'
 
   constructor() {
   }
 
   ngOnInit(): void {
     this.timelineItems = TimelineData
-    
     this.sliderImg = sliderUsData
-    this.swiper = new Swiper('.swiper-container', {
-      loop: true,
-      slidesPerView: 3,
-    });
 
     const sr = ScrollReveal();
     sr.reveal('.history', {
-      delay: 600,
+      delay: 500,
       duration: 4000,
       origin: 'left',
-      distance: '100px',
-      easing: 'ease-out'
+      distance: '200px',
+      easing: 'ease-out',
     });
+
+    sr.reveal('.mision-vision', {
+      delay: 400,
+      duration: 2500,
+      origin: 'left',
+      distance: '500px',
+      easing: 'ease',
+    });
+
+    this.checkWindowSize();
+    this.timelineResponsive();
+  }
+
+  checkWindowSize() {
+    this.isMobile = window.innerWidth < 767;
+  }
+
+  timelineResponsive(){
+    if(window.innerWidth < 1024){
+      this.timelineType = 'vertical';
+      this.positionTimeline = 'alternate'
+    }
   }
 }
