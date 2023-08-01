@@ -26,10 +26,10 @@ export class ServiciosComponent implements AfterViewInit, OnInit {
     touchDrag: false,
     pullDrag: false,
     autoplay: true,
-    autoplayTimeout: 1000,
+    autoplayTimeout: 10,
     dots: false,
-    navSpeed: 2000,
-    autoplaySpeed: 1000,
+    navSpeed: 10,
+    autoplaySpeed: 10000,
     responsive: {
       1024: {
         items: 5
@@ -73,6 +73,7 @@ export class ServiciosComponent implements AfterViewInit, OnInit {
     path: '/assets/Animation/animation_pc.json',
     autoplay: false
   };
+  
   animationItem: any;
 
   contadores = [{target: 100, value: 0}, {target: 1000, value: 0}, {target: 300, value: 0}]
@@ -86,7 +87,6 @@ export class ServiciosComponent implements AfterViewInit, OnInit {
     this.getSlider();
     this.initScrollReveal();
     this.checkWindowSize();
-    this.getStadistics();
   }
 
   ngAfterViewInit(): void {
@@ -173,31 +173,7 @@ export class ServiciosComponent implements AfterViewInit, OnInit {
     this.service.getServicios().then((resp) => {
       const { data } = resp;
       this.sliderItems = data
-      this.swiper = new Swiper('.swiper-initialized', {
-        loop: true,
-        slidesPerView: 5,
-        autoplay: {
-          delay: 10,
-          disableOnInteraction: false
-        },
-        speed: 2000,
-        breakpoints: {
-          1200: {
-            slidesPerView: 5
-          },
-          767: {
-            slidesPerView: 3
-          }
-        },
-      });
     })
-  }
-
-  getStadistics() {
-    // this.service.getStadistics().then(response => {
-    //   const { data } = response
-    //   this.stadisticsData = data.sectionStadistics;
-    // })
   }
 
   initScrollReveal() {
@@ -207,7 +183,7 @@ export class ServiciosComponent implements AfterViewInit, OnInit {
       duration: 5000,
       origin: 'left',
       distance: '100px',
-      easing: 'ease-out'
+      easing: 'ease-out',
     });
 
     sr.reveal('.scroll-software', {
@@ -215,7 +191,7 @@ export class ServiciosComponent implements AfterViewInit, OnInit {
       origin: 'bottom',
       distance: '100px',
       delay: 600,
-      easing: 'ease-out'
+      easing: 'ease-out',
     });
 
     sr.reveal('.scroll-right', {
@@ -223,7 +199,7 @@ export class ServiciosComponent implements AfterViewInit, OnInit {
       duration: 4000,
       origin: 'right',
       distance: '100px',
-      easing: 'ease-out'
+      easing: 'ease-out',
     });
   }
 

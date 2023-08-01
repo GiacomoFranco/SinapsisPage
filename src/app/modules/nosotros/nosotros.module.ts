@@ -5,6 +5,7 @@ import {register} from 'swiper/element/bundle';
 
 import { TimelineModule } from "primeng/timeline";
 import { CardModule } from "primeng/card";
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 
 register()
@@ -15,7 +16,8 @@ register()
   imports: [
     CommonModule,
     TimelineModule,
-    CardModule
+    CardModule,
+    CarouselModule
   ]
 })
 export class NosotrosModule { }
