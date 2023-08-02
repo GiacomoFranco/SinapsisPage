@@ -5,5 +5,6 @@ export interface FaqInterface {
   thumbnail?: string
   slug?: string,
   content?:string,
-  fields?: boolean
+  fields?: boolean,
+  isActive?:boolean
 }
