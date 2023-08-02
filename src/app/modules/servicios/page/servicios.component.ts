@@ -41,6 +41,7 @@ export class ServiciosComponent implements AfterViewInit, OnInit {
   };
 
   sliderItems: Servicio[] = [];
+
   pageData: servicePageData = {
     developSoftware: {
       title: '',
@@ -66,8 +67,6 @@ export class ServiciosComponent implements AfterViewInit, OnInit {
 
   isAnimationPlaying = true;
   isMobile = false;
-
-  swiper: Swiper | undefined;
 
   options: AnimationOptions = {
     path: '/assets/Animation/animation_pc.json',
