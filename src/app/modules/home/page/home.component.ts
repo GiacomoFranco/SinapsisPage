@@ -9,6 +9,9 @@ import { Flip } from 'gsap/Flip';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Swiper from 'swiper';
 import { Proyecto } from '@app/models/proyect.model';
+import { OwlOptions } from 'ngx-owl-carousel-o';
+import { TestimoniosService } from '@app/services/testimonios.service';
+import { Testimonio } from '@app/models/testimonio.model';
 
 
 
@@ -37,12 +40,36 @@ export class HomeComponent implements AfterViewInit, DoCheck {
   constructor(
     private renderer2: Renderer2,
     private servicioService: ServiciosService,
-    private proyectosService: ProyectosService
+    private proyectosService: ProyectosService,
+    private testimoniosService: TestimoniosService
   ) {}
 
   projects: Proyecto[];
   project: Proyecto;
   projectBefore: Proyecto;
+
+  testimonios: Testimonio[];
+
+  customOptions: OwlOptions = {
+    loop: true,
+    mouseDrag: true,
+    touchDrag: false,
+    nav: false,
+    pullDrag: false,
+    margin: 20,
+    autoplay: true,
+    items: 3,
+    autoplayTimeout: 10,
+    dots: true,
+    // responsive: {
+    //   1024: {
+    //     items: 3,
+    //   },
+    //   767: {
+    //     items: 3,
+    //   },
+    // },
+  };
 
   ngDoCheck(): void {
     if (this.project !== this.projectBefore) {
@@ -99,7 +126,6 @@ export class HomeComponent implements AfterViewInit, DoCheck {
         opacity: 0,
         duration: 2,
       });
-
   }
 
   ngOnInit(): void {
@@ -112,6 +138,10 @@ export class HomeComponent implements AfterViewInit, DoCheck {
       this.project = this.projects[1];
       this.projectBefore = this.project;
     });
+
+    this.testimoniosService
+      .getTestimonios()
+      .then((resp) => (this.testimonios = resp.data));
 
     this.swiper = new Swiper('.swiper-container', {
       loop: true,
