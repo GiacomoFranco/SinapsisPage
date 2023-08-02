@@ -1,17 +1,14 @@
 <section #absoluteLaptop class="banner-principal">
-  <img #laptop class="laptop-graphic--absolute" src="/assets/img/portatil-home-mockup.svg" alt="why?">
-  <!-- <img class="laptop-graphic" src="/assets/img/portatil-home-mockup.svg" alt="why?"> -->
-  <article class="banner-principal__content">
-    <div class="banner-principal__text-container">
+  <img #laptop class="laptop-graphic--absolute" src="/assets/img/portatil-home-mockup.svg" alt="laptop">
+    <!-- <img class="laptop-graphic" src="/assets/img/portatil-home-mockup.svg" alt="why?"> -->
+  <article class="section__content">
+    <div class="section__text-container">
       <h1>Lorem ipsum is simply text of the printing</h1>
-      <p>Lorem ipsum is simple texto of the printing and typesetting industry. lorem ipsum has been the Lorem ipsum is
-        simple
-        texto of the printing and typesetting industry. lorem ipsum has been the Lorem ipsum is simple texto of the
-        printing and
-        typesetting industry. lorem ipsum has been the Lorem ipsum is simple texto of the printing and typesetting
-        industry.
-        lorem ipsum has been the</p>
-      <div class="banner-principal__actions">
+      <p>Lorem ipsum is simple texto of the printing and typesetting industry. lorem ipsum has been the Lorem ipsum is simple
+      texto of the printing and typesetting industry. lorem ipsum has been the Lorem ipsum is simple texto of the printing and
+      typesetting industry. lorem ipsum has been the Lorem ipsum is simple texto of the printing and typesetting industry.
+      lorem ipsum has been the</p>
+      <div class="section__actions">
         <app-button-sinapsis [name_button]="'Lorem ipsum is simple'"></app-button-sinapsis>
       </div>
     </div>
@@ -24,12 +21,103 @@
   </article>
 </section>
 <app-casos-de-exito></app-casos-de-exito>
-<section class="space">
-
+<section class="nuestros-servicios padding-container">
+  <article class="nuestros-servicios__graphics">
+    <div class="nuestros-servicios__title">
+      <img src="assets/icons/arrowdown-right.svg" alt="">
+      <h2>Nuestros <span class="servicios-span">servicios</span></h2>
+    </div>
+    <div class="nuestros-servicios__images-container">
+      <img src="assets\icons\purple-logo-icon.svg" alt="Logo Sinapsis" class="logo-icon">
+      <img class="team-work" src="assets\home\team-working.jpg" alt="Equipo de trabajo">
+    </div>
+  </article>
+  <article class="nuestros-servicios-grid">
+    <div *ngFor="let servicio of servicios" class="service">
+      <img class="service__icon" [src]="servicio.icon" alt="ícono Servicio">
+      <div class="service__content">
+        <h4>{{ servicio.title }}</h4>
+        <p>{{ servicio.description }}</p>
+      </div>
+    </div>
+    <app-button-sinapsis class="button" [name_button]="'Lorem ipsum is simple'"></app-button-sinapsis>
+  </article>
 </section>
-<!-- <div class="div-container a">a</div>
-<div class="div-container b">b</div>
-<div class="div-container c">c</div> -->
+<section class="nosotros padding-l">
+  <article class="section__content">
+    <div class="section__text-container">
+      <span class=".sup-title">Nosotros</span>
+      <h2>Lorem ipsum is simply text of the printing</h2>
+      <p>Lorem ipsum is simple texto of the printing and typesetting industry. lorem ipsum has been the Lorem ipsum is
+        simple
+        texto of the printing and typesetting industry. lorem ipsum has been the Lorem ipsum is simple texto of the
+        printing and
+        typesetting industry. lorem ipsum has been the Lorem ipsum is simple texto of the printing and typesetting
+        industry.
+        lorem ipsum has been the</p>
+      <div class="section__actions">
+        <app-button-sinapsis [name_button]="'Lorem ipsum is simple'"></app-button-sinapsis>
+      </div>
+    </div>
+  </article>
+  <article class="swiper-section">
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" *ngFor="let photo of sliderImg">
+          <div class="card-item text-center">
+            <img class="img-slider" [src]="photo.imagen" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+</section>
+<section class="trabaja-con-nosotros">
+  <article class="section__content section__content--white">
+    <div class="content__container padding-l">
+      <div class="section__text-container">
+        <span class=".sup-title">Trabaja con nosotros</span>
+        <h2>Lorem ipsum is simply text of the printing</h2>
+        <p>Lorem ipsum is simple texto of the printing and typesetting industry. lorem ipsum has been the Lorem ipsum is
+          simple
+          texto of the printing and typesetting industry. lorem ipsum has been the Lorem ipsum is simple texto of the
+          printing and
+          typesetting industry. lorem ipsum has been the Lorem ipsum is simple texto of the printing and typesetting
+          industry.
+          lorem ipsum has been the</p>
+      </div>
+    </div>
+    <div class="section__action">
+      <a class="redirect-button" href="#">Lorem ipsum is simply text of the printing</a>
+    </div>
+  </article>
+  <article class="trabaja-con-nosotros__graphic">
+    <img src="/assets/home/employee.png" alt="">
+  </article>
+</section>
+<app-tecnologias></app-tecnologias>
+<section class="proyectos-destacados">
+  <div class="proyectos-destacados__title-section">
+    <h2>Lorem ipsum is simply text of the printing</h2>
+  </div>
+  <article class="proyect">
+    <div class="proyect-preview">
+      <img src="assets\icons\white-logo-icon.svg" alt="Logo Sinapsis" class="logo-icon">
+      <app-proyect-laptop class="preview-image" [changeUrl]="project.general.screenshot ? project.general.screenshot : 'assets/home/preview-bancolombia.png'"></app-proyect-laptop>
+    </div>
+    <div class="proyect-content">
+      <img [src]="project.general.logo " alt="Logo del clientes" class="proyect-logo">
+      <div class="proyects-content__text-container">
+        <h3>{{ project ? project.title : 'Texto Dummy'  }}</h3>
+        <p>{{ project ? project.general.description : 'Lorem ipsum' }}</p>
+      </div>
+        <a routerLink="/projects/{{project.slug }}" class="action">Botón</a>
+    </div>
+  </article>
+  <div class="controller">
+    <button *ngFor="let slide of projects; let i = index"  (click)="selectProyect(i)" class="slide" [ngClass]="{'active': isActive(i)}" ></button>
+  </div>
+</section>
 <section class="faq">
   <div class="faq-content">
     <h2 class="faq__title">Lorem Ipsum is simply dummy</h2>
