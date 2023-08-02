@@ -40,6 +40,8 @@ export class NosotrosComponent implements OnInit {
   timelineType = 'horizontal'
   positionTimeline = 'top'
 
+  img_workout = "/assets/img/tablet.png"
+
   constructor() {
   }
 
@@ -56,10 +58,18 @@ export class NosotrosComponent implements OnInit {
       easing: 'ease-out',
     });
 
-    sr.reveal('.mision-vision', {
+    sr.reveal('.row-left', {
       delay: 400,
       duration: 2500,
       origin: 'left',
+      distance: '500px',
+      easing: 'ease',
+    });
+
+    sr.reveal('.row-right', {
+      delay: 400,
+      duration: 2500,
+      origin: 'rigth',
       distance: '500px',
       easing: 'ease',
     });
@@ -73,9 +83,10 @@ export class NosotrosComponent implements OnInit {
   }
 
   timelineResponsive(){
-    if(window.innerWidth < 1024){
+    if(window.innerWidth <= 1024){
       this.timelineType = 'vertical';
       this.positionTimeline = 'alternate'
+      this.img_workout = '/assets/img/tablet1.png'
     }
   }
 }
