@@ -1,0 +1,23 @@
+<main class="blog">
+  <div class="blog-content">
+
+    <div class="post-featured">
+      <h2 class="post-featured__title">Articulos destacados</h2>
+      <p class="post-featured__description">Lorem ipsum is simple texto of the printing and typesetting industry.</p>
+      <div class="post-featured__slider">
+        <p>slider cards</p>
+      </div>
+    </div>
+
+    <div class="post-list">
+      <h2 class="post-list__title">Articulos destacados</h2>
+      <p class="post-list__description">Lorem ipsum is simple texto of the printing and typesetting industry.</p>
+      <div class="post-list__content">
+        <div class="post-list__item" *ngFor="let post of postsArray">
+          <app-card-post></app-card-post>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>

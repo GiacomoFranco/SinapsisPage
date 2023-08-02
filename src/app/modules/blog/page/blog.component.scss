@@ -1,0 +1,12 @@
+.blog-content{
+  max-width: 90%;
+  margin: auto;
+}
+
+.post-list{
+  &__content{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 63px 93px;
+  }
+}
