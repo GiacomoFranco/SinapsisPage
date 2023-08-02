@@ -11,6 +11,8 @@
     font-size: 1.067rem;
     padding: 20px 0px 18px 0px;
     position: relative;
+    cursor: pointer;
+    transition: 0.35s;
 
     &::after{
       content: url(../../../assets/icons/arrow-down.svg);
@@ -31,6 +33,7 @@
   &__info{
     font-size: 1.067rem;
     padding-bottom: 25px;
+    max-width: 95%;
   }
 }
 
@@ -39,7 +42,7 @@
 .c-faq-question{
 
   &.has-show-accordion{
-    background-color:#F4F2FB;
+    background-color:#FCFCFC;
     transition: 0.35s;
   }
 

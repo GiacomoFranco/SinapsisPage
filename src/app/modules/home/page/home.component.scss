@@ -360,6 +360,7 @@
   }
 
 }
+
 /** FAQ **/
 .faq {
   background: var(--footerbackground);
@@ -379,4 +380,10 @@
       text-align: center;
   }
 
+}
+
+@media(max-width:780px){
+  .faq-content{
+    max-width: 95%;
+  }
 }
