@@ -14,6 +14,6 @@ export class FaqServices{
   })
 
   async getFAQ(){
-    return await this.api.get('cpt/?slug=faq')
+    return await this.api.get('cpt?slug=faq')
   }
 }
