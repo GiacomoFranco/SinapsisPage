@@ -32,15 +32,17 @@
       <img class="team-work" src="assets\home\team-working.jpg" alt="Equipo de trabajo">
     </div>
   </article>
-  <article class="nuestros-servicios-grid">
-    <div *ngFor="let servicio of servicios" class="service">
-      <img class="service__icon" [src]="servicio.icon" alt="ícono Servicio">
-      <div class="service__content">
-        <h4>{{ servicio.title }}</h4>
-        <p>{{ servicio.description }}</p>
+  <article class="nuestros-servicios__container">
+    <div class="nuestros-servicios-grid">
+      <div *ngFor="let servicio of servicios" class="service">
+        <img class="service__icon" [src]="servicio.icon" alt="ícono Servicio">
+        <div class="service__content">
+          <h4>{{ servicio.title }}</h4>
+          <p>{{ servicio.description }}</p>
+        </div>
       </div>
+      <app-button-sinapsis class="button" [name_button]="'Lorem ipsum is simple'"></app-button-sinapsis>
     </div>
-    <app-button-sinapsis class="button" [name_button]="'Lorem ipsum is simple'"></app-button-sinapsis>
   </article>
 </section>
 <section class="nosotros padding-l">
@@ -117,6 +119,46 @@
   <div class="controller">
     <button *ngFor="let slide of projects; let i = index"  (click)="selectProyect(i)" class="slide" [ngClass]="{'active': isActive(i)}" ></button>
   </div>
+</section>
+<section class="testimonios">
+  <article class="testimonios__title-section">
+    <div class="section-text-container">
+      <img class="graphic-logo-part" src="assets\icons\graphic-logo-part.svg" alt="Parte del logo">
+      <h3>Lorem ipsum is simply text of the printing</h3>
+      <p>Lorem ipsum is simple texto of the printing and typesetting industry. lorem ipsum has been the Lorem ipsum is
+        simple
+        texto of the printing and typesetting industry.</p>
+    </div>
+  </article>
+  <article class="testimonios__reviews">
+    <owl-carousel-o class="carrousel" [options]="customOptions">
+      <ng-container *ngFor="let testimonio of testimonios">
+        <ng-template carouselSlide>
+          <div class="testimonio">
+            <div class="testimonio__reviewer">
+              <div class="testimonio__photo">
+                <img [src]="testimonio.logoCompany" alt="logo-cliente">
+              </div>
+              <div class="testimonio__info">
+                <p class="testimonio__cliente">{{testimonio.title}}</p>
+                <span class="testimonio__persona">
+                  <p class="testimonio__nombre-persona"><span class="testimonio__cargo">{{testimonio.companyPosition}}</span> {{testimonio.testimonial}}</p>
+                </span>
+              </div>
+            </div>
+            <p class="testimonio__feedback" [innerHTML]="testimonio.comment"></p>
+            <div class="testimonio__ratings">
+              <span class="testimonio__stars">
+                <img src="assets\icons\star.svg" alt="Nivel del rating">
+                <!-- //TODO: LOGICA DE EL RATING -->
+              </span>
+              <p class="testimonio__rating-value">{{testimonio.score}}</p>
+            </div>
+          </div>
+        </ng-template>
+      </ng-container>
+    </owl-carousel-o>
+  </article>
 </section>
 <section class="faq">
   <div class="faq-content">

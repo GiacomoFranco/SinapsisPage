@@ -10,8 +10,18 @@
   flex-shrink: 3;
 
   .section__text-container {
-    max-width: 611px;
+    max-width: 646px;
+    min-width: 596px;
     padding: 20px;
+
+    h1 {
+      margin-bottom: 20px;
+      max-width: 585px;
+    }
+
+    p {
+      margin-bottom: 28px;
+    }
   }
 
 }
@@ -24,6 +34,7 @@
 .banner-principal {
   position: relative;
   display: flex;
+  flex-wrap: wrap-reverse;
   justify-content: space-around;
   height: calc(100vh - 64px);
 
@@ -76,7 +87,7 @@
   justify-content: space-around;
   align-items: center;
   gap: 70px;
-  min-height: 1050px;
+  min-height: 985px;
   padding: 0 116px;
   background-color: #FCFCFC;
 
@@ -122,33 +133,37 @@
 
   }
 
-  .nuestros-servicios-grid {
-    flex-grow: 1;
-    display: grid;
-    gap: 40px 42px;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 160px);
-    grid-template-areas:
-      'item1 item2 item3'
-      'item4 item5 item6'
-      'button item7 item8';
-    flex-basis: 998px;
-    padding: 100px 20px 20px 20px;
+  .nuestros-servicios__container {
+    display: flex;
 
-    .service {
-      display: flex;
-      flex-direction: row;
-      gap: 18px;
+      .nuestros-servicios-grid {
+          flex-grow: 1;
+          display: grid;
+          gap: 40px 42px;
+          grid-template-columns: repeat(3, 1fr);
+          grid-template-rows: repeat(3, 160px);
+          grid-template-areas:
+            'item1 item2 item3'
+            'item4 item5 item6'
+            'button item7 item8';
+          flex-basis: 998px;
+          padding: 100px 20px 20px 20px;
 
-      .service__icon {
-        height: 30px;
-      }
-    }
+          .service {
+            display: flex;
+            flex-direction: row;
+            gap: 18px;
 
-    .button {
-      grid-area: button;
-      justify-self: center;
-    }
+            .service__icon {
+              height: 30px;
+            }
+          }
+
+          .button {
+            grid-area: button;
+            justify-self: center;
+          }
+        }
   }
 }
 
@@ -326,40 +341,151 @@
     }
   }
 }
-@media (max-width: 1590px) {
-  .nuestros-servicios {
-    padding: 0 30px;
-    gap: 40px;
-  }
-}
 
-@media (max-width: 1440px) {
-  .nuestros-servicios {
-    padding: 0 30px;
-    gap: 40px;
+.testimonios {
+  min-height: 905px;
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+  align-items: center;
 
-    .nuestros-servicios-grid {
-      align-self: flex-end;
-      flex-grow: 1;
-      gap: 40px 42px;
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(5, 160px);
-      grid-template-areas:
-        'item1 item2'
-        'item3 item4'
-        'item5 item6'
-        'item7 item8'
-        'button item';
-      flex-basis: 998px;
-      padding: 100px 20px 20px 20px;
+  .testimonios__title-section {
+    flex-grow: 1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-      .button {
-        justify-self: start;
+    .section-text-container {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      max-width: 720px;
+      height: 100px;
+      text-align: center;
+
+
+      .graphic-logo-part {
+        position: absolute;
+        left: -80px;
+        top: -40px;
       }
+
     }
   }
 
+  .testimonios__reviews {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    width: 100%;
+
+    .carrousel {
+      flex-grow: 1;
+      height: 562px;
+      max-width: 1520px;
+
+      .testimonio {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border-radius: 24px;
+        border: 0.5px solid #B6B8DC;
+        background: #F8F8F8;
+        width: 450px;
+        height: 525px;
+        padding: 52px 37px 37px 37px;
+        margin: auto;
+
+        .testimonio__reviewer {
+          display: flex;
+          align-items: center;
+          margin-bottom: 10px;
+
+          .testimonio__photo {
+            width: 59px;
+            height: 59px;
+            border-radius: 50px;
+            border: 1px solid;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            margin-right: 40px;
+            // img{
+            //   width: 100%;
+            // }
+          }
+
+          .testimonio__info {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 0;
+
+            .testimonio__cliente {
+              margin-bottom: 0;
+            }
+
+            .testimonio__persona {
+              display: flex;
+              color: #8169F1;
+              font-family: Inter;
+              font-size: 15px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 17px;
+              text-transform: capitalize;
+
+              .testimonio__nombre-persona {
+                margin-bottom: 0;
+              }
+
+              .testimonio__cargo {
+                color: #6C757D;
+              }
+            }
+          }
+
+        }
+
+        .testimonio__ratings {
+          display: flex;
+
+          .testimonio__stars {
+            margin-right: 20px;
+
+            img {
+              height: 20px;
+              width: 20px;
+            }
+
+          }
+
+          .testimonio__rating-value {
+            width: 20px;
+          }
+
+        }
+      }
+    }
+
+  }
+
+
 }
+
+::ng-deep .owl-theme .owl-nav.disabled+.owl-dots {
+  margin-top: 40px;
+}
+
+::ng-deep .owl-theme .owl-dots .owl-dot.active span{
+  background-color: #7042EF;
+}
+
+
 /** FAQ **/
 .faq {
   background: var(--footerbackground);
@@ -377,6 +503,51 @@
 
   &__btn{
       text-align: center;
+  }
+
+}
+
+@media (max-width: 1590px) {
+  .nuestros-servicios {
+    padding: 0 30px;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 1440px) {
+  .nuestros-servicios {
+    padding: 0 30px;
+    gap: 40px;
+
+    .nuestros-servicios__graphics {
+      align-self: start;
+      margin-top: 70px;
+    }
+
+    .nuestros-servicios__container{
+      align-self: flex-end;
+
+      .nuestros-servicios-grid {
+        align-self: flex-end;
+        flex-grow: 1;
+        gap: 40px 42px;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(5, 160px);
+        grid-template-areas:
+          'item1 item2'
+          'item3 item4'
+          'item5 item6'
+          'item7 item8'
+          'button item';
+        flex-basis: 998px;
+        padding: 100px 20px 20px 20px;
+
+        .button {
+          justify-self: start;
+        }
+      }
+
+    }
   }
 
 }
