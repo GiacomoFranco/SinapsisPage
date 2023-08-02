@@ -1,5 +1,5 @@
-import { Slider } from '../models/slide.model';
-const sliderData: Slider[] = [
+import { Servicio } from '../models/servicio.model';
+const sliderData: Servicio[] = [
     {
         icon: '../../../../assets/img/item.svg',
         title: 'Desarrollo de Software a la medida'

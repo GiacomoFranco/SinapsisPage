@@ -5,7 +5,7 @@ import  axios  from 'axios';
 @Injectable({
   providedIn: 'root'
 })
-export class MenuService {
+export class ProyectosService {
 
   private apiUrl = environment.API_URL;
 
@@ -13,8 +13,8 @@ export class MenuService {
     baseURL: this.apiUrl,
   })
 
-  async getMenu(id:number) {
-    return this.api.get(`menu/${id}`)
+  async getProductosDestacados() {
+    return this.api.get(`cpt/?slug=casos-exito&_fields=title,general,slug`);
   }
 }
 
