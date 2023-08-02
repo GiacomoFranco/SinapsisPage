@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit, HostListener, ElementRef, ViewChild } from '@angular/core';
-import { Slider } from 'src/app/models/slide.model';
+import { Servicio } from '@app/models/servicio.model';
 import Swiper from 'swiper';
 import { AnimationItem } from 'lottie-web';
 import ScrollReveal from 'scrollreveal';
@@ -14,11 +14,11 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 @Component({
   selector: 'app-servicios',
   templateUrl: './servicios.component.html',
-  styleUrls: ['./servicios.component.scss']
+  styleUrls: ['./servicios.component.scss'],
 })
 export class ServiciosComponent implements AfterViewInit, OnInit {
-
-  @ViewChild('lottiContainer', { static: true }) lottiContainer!: ElementRef<HTMLDivElement>;
+  @ViewChild('lottiContainer', { static: true })
+  lottiContainer!: ElementRef<HTMLDivElement>;
 
   customOptions: OwlOptions = {
     loop: true,
@@ -26,43 +26,43 @@ export class ServiciosComponent implements AfterViewInit, OnInit {
     touchDrag: false,
     pullDrag: false,
     autoplay: true,
-    autoplayTimeout: 1000,
+    autoplayTimeout: 10,
     dots: false,
-    navSpeed: 2000,
-    autoplaySpeed: 1000,
+    navSpeed: 10,
+    autoplaySpeed: 10000,
     responsive: {
       1024: {
-        items: 5
+        items: 5,
       },
-      767:{
-        items: 3
-      }
-    }
+      767: {
+        items: 3,
+      },
+    },
   };
 
-  sliderItems: Slider[] = []
+  sliderItems: Servicio[] = [];
   pageData: servicePageData = {
     developSoftware: {
       title: '',
       description: '',
-      secondDescription: ''
+      secondDescription: '',
     },
     phoneSection: {
       title: '',
       description: '',
-      urlBoton: ''
+      urlBoton: '',
     },
     laptopSection: {
       title: '',
       description: '',
-      urlBoton: ''
+      urlBoton: '',
     },
     SectionWorkWithUs: {
       Title: '',
-      urlBoton: ''
+      urlBoton: '',
     },
     sectionStadistics: [],
-  }
+  };
 
   isAnimationPlaying = true;
   isMobile = false;
@@ -71,22 +71,24 @@ export class ServiciosComponent implements AfterViewInit, OnInit {
 
   options: AnimationOptions = {
     path: '/assets/Animation/animation_pc.json',
-    autoplay: false
+    autoplay: false,
   };
+
   animationItem: any;
 
-  contadores = [{target: 100, value: 0}, {target: 1000, value: 0}, {target: 300, value: 0}]
+  contadores = [
+    { target: 100, value: 0 },
+    { target: 1000, value: 0 },
+    { target: 300, value: 0 },
+  ];
 
-
-  constructor(private service: ServiciosService) { }
-
+  constructor(private service: ServiciosService) {}
 
   ngOnInit(): void {
-    this.getPage()
+    this.getPage();
     this.getSlider();
     this.initScrollReveal();
     this.checkWindowSize();
-    this.getStadistics();
   }
 
   ngAfterViewInit(): void {
@@ -105,7 +107,7 @@ export class ServiciosComponent implements AfterViewInit, OnInit {
 
           if (isScrollingUp && frame === 0) {
             animationProgress = 0;
-            updateAnimationProgress()
+            updateAnimationProgress();
           }
         }
       }
@@ -123,39 +125,38 @@ export class ServiciosComponent implements AfterViewInit, OnInit {
             animationProgress = progress;
           }
           updateAnimationProgress();
-        }
+        },
       });
-
 
       updateAnimationProgress();
     }, 1000);
   }
 
   responsiveAnimation(): string {
-    let size = ''
+    let size = '';
     if (window.innerWidth > 1024) {
       size = '50px top';
     }
     if (window.innerWidth >= 767 && window.innerWidth <= 1024) {
-      size = '-200px top'
+      size = '-200px top';
     }
     if (window.innerWidth < 767) {
-      size = '-400px top'
+      size = '-400px top';
     }
     return size;
   }
 
   animationCreated(animationItem: AnimationItem): void {
-    this.animationItem = animationItem
+    this.animationItem = animationItem;
   }
 
   getPage() {
     this.service.getServicesPage().then((resp) => {
-      const {data} = resp;
+      const { data } = resp;
       this.pageData = data;
       this.pageData.sectionStadistics.forEach((element, i) => {
         this.contadores[i].target = Number(element.numbers);
-      })
+      });
       setInterval(() => {
         this.contadores.forEach((counter) => {
           const increment = counter.target / 400;
@@ -166,38 +167,14 @@ export class ServiciosComponent implements AfterViewInit, OnInit {
           }
         });
       }, 0);
-    })
+    });
   }
 
   getSlider() {
     this.service.getServicios().then((resp) => {
       const { data } = resp;
-      this.sliderItems = data
-      this.swiper = new Swiper('.swiper-initialized', {
-        loop: true,
-        slidesPerView: 5,
-        autoplay: {
-          delay: 10,
-          disableOnInteraction: false
-        },
-        speed: 2000,
-        breakpoints: {
-          1200: {
-            slidesPerView: 5
-          },
-          767: {
-            slidesPerView: 3
-          }
-        },
-      });
-    })
-  }
-
-  getStadistics() {
-    // this.service.getStadistics().then(response => {
-    //   const { data } = response
-    //   this.stadisticsData = data.sectionStadistics;
-    // })
+      this.sliderItems = data;
+    });
   }
 
   initScrollReveal() {
@@ -207,7 +184,7 @@ export class ServiciosComponent implements AfterViewInit, OnInit {
       duration: 5000,
       origin: 'left',
       distance: '100px',
-      easing: 'ease-out'
+      easing: 'ease-out',
     });
 
     sr.reveal('.scroll-software', {
@@ -215,7 +192,7 @@ export class ServiciosComponent implements AfterViewInit, OnInit {
       origin: 'bottom',
       distance: '100px',
       delay: 600,
-      easing: 'ease-out'
+      easing: 'ease-out',
     });
 
     sr.reveal('.scroll-right', {
@@ -223,7 +200,7 @@ export class ServiciosComponent implements AfterViewInit, OnInit {
       duration: 4000,
       origin: 'right',
       distance: '100px',
-      easing: 'ease-out'
+      easing: 'ease-out',
     });
   }
 

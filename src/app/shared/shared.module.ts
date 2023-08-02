@@ -7,6 +7,7 @@ import { CasosDeExitoComponent } from './casos-de-exito/casos-de-exito.component
 import { TecnologiasComponent } from './tecnologias/tecnologias.component';
 import { FooterComponent } from './footer/footer.component';
 import { FaqComponent } from './faq/faq.component';
+import { ProyectLaptopComponent } from './proyect-laptop/proyect-laptop.component';
 
 @NgModule({
   declarations: [
@@ -15,19 +16,19 @@ import { FaqComponent } from './faq/faq.component';
     CasosDeExitoComponent,
     TecnologiasComponent,
     FooterComponent,
-    FaqComponent
+    FaqComponent,
+    ProyectLaptopComponent,
   ],
-  imports: [
-    CommonModule,
-    RouterModule
-  ],
+  imports: [CommonModule, RouterModule],
   exports: [
     NavbarComponent,
     ButtonSinapsisComponent,
     CasosDeExitoComponent,
     TecnologiasComponent,
     FooterComponent,
-    FaqComponent
-  ]
+    FaqComponent,
+    ProyectLaptopComponent,
+    RouterModule
+  ],
 })
-export class SharedModule { }
+export class SharedModule {}

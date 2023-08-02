@@ -3,23 +3,36 @@
   object-fit: cover;
 }
 
+.grid-image{
+  width: 100%;
+  padding: 0 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  .img-mobile{
+    width: auto;
+    height: 119px;
+  }
+}
+
 .history {
   position: relative;
 
   .logo-sinapsis {
     position: absolute;
     bottom: 0;
-    right: -580px;
+    right: -490px;
     z-index: -1;
   }
 
   .img-office {
-    width: 505px;
+    width: 100%;
     height: 768px;
   }
 
   .content-text-hystory {
-    width: 630px;
+    width: 90%;
     position: relative;
 
     .ic-arrow {
@@ -32,21 +45,128 @@
   }
 }
 
-.icon-time{
+.icon-time {
   width: 60px;
   height: 60px;
 }
 
-.marker-time{
+.marker-time {
   color: rgba(112, 66, 239, 1);
-  // margin-left: 20px;
 }
 
-.description-time{
+.content-text {
   width: 203px;
   height: 90px;
+  text-align: center;
 }
 
+.timeline {
+  width: 100%;
+  height: 500px;
 
+  .title-time {
+    width: 300px;
+    text-align: center;
+    margin: 0 auto;
+  }
 
+  p-timeline::ng-deep {
+    .p-timeline-horizontal {
+      transform: translateX(7.2%);
 
+      .p-timeline-event {
+        .p-timeline-event-opposite {
+          transform: translateX(-8%);
+        }
+
+        .p-timeline-event-content {
+          transform: translateX(-35%);
+        }
+      }
+    }
+  }
+}
+
+.mision-vision {
+  width: 100%;
+  height: 370px;
+  background: linear-gradient(180deg, #11161a 0%, #171b1f 100%);
+
+  .logo-transparent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .content-info {
+    width: 455px;
+    color: #fff;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .history {
+    .item-history {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .img-office {
+        width: 505px;
+      }
+    }
+
+    #text-content-history {
+      margin-top: 1.5rem;
+
+      .content-text-hystory {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+
+  .content-text {
+    width: 100%;
+    height: 180px;
+  }
+
+  .timeline {
+    height: auto;
+    .title-time {
+      margin-bottom: 50px;
+    }
+
+    p-timeline::ng-deep {
+      .p-timeline-event:nth-child(2n) {
+        color: #11161a;
+
+        .p-timeline-event-content {
+          color: #11161a;
+          display: flex;
+          justify-content: end;
+        }
+      }
+    }
+  }
+  .icon-time {
+    width: 60px;
+    height: 60px;
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .mision-vision{
+    height: auto;
+    padding: 30px 10px; 
+
+    .item-mision-vision{
+      margin-top: 20px;
+    }
+  }
+}

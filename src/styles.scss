@@ -17,6 +17,10 @@
   --footerbackground: linear-gradient(135deg, rgba(217, 217, 217, 0.22) 2.66%, rgba(217, 217, 217, 0.10) 100%);
 }
 
+html {
+  font-size: 15px;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -24,43 +28,46 @@ body {
 }
 
 h1 {
-  font-size: 45px;
+  font-size: 3rem;
   font-weight: 700;
   line-height: 52px;
 }
 
 h2 {
-  font-size: 35px;
+  font-size: 2.333rem;
   font-weight: 700;
   line-height: 37px;
 }
 
 h3 {
-  font-size: 25px;
+  font-size: 1.667rem;
   font-weight: 600;
   line-height: 28px;
 }
 
 h4 {
-  font-size: 18px;
+  font-size: 1.2rem;
   font-weight: 700;
   line-height: 24px;
 }
 
 p {
-  font-size: 16px;
+  font-size: 1.067rem;
   font-weight: 400;
   line-height: 24px;
 }
 
-span {
-  font-size: 15px;
+.sup-title {
+  font-size: 1rem;
   font-weight: 400;
   line-height: normal;
 }
 
-
 @media screen and (max-width: 767px){
+  html {
+    font-size: 14px;
+  }
+
   h1 {
     font-size: 35px;
   }
