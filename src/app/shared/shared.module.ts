@@ -8,6 +8,7 @@ import { TecnologiasComponent } from './tecnologias/tecnologias.component';
 import { FooterComponent } from './footer/footer.component';
 import { FaqComponent } from './faq/faq.component';
 import { ProyectLaptopComponent } from './proyect-laptop/proyect-laptop.component';
+import { RedesSocialesComponent } from './redes-sociales/redes-sociales.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ProyectLaptopComponent } from './proyect-laptop/proyect-laptop.componen
     FooterComponent,
     FaqComponent,
     ProyectLaptopComponent,
+    RedesSocialesComponent,
   ],
   imports: [CommonModule, RouterModule],
   exports: [
@@ -28,6 +30,7 @@ import { ProyectLaptopComponent } from './proyect-laptop/proyect-laptop.componen
     FooterComponent,
     FaqComponent,
     ProyectLaptopComponent,
+    RedesSocialesComponent,
     RouterModule
   ],
 })
