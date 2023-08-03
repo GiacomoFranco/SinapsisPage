@@ -1,5 +1,5 @@
 import { Component, Input, ViewContainerRef  } from '@angular/core';
-import { FaqInterface } from '@app/models/faq-model';
+import { FaqInterface } from '@app/models/faq.model';
 import { FaqServices } from '@app/services/faq.service';
 
 @Component({

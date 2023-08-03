@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { CardPost } from '@app/models/card-post';
+import { CardPost } from '@app/models/card-post.model';
 import { BlogPostService } from '@app/services/blogpost.service';
 
 @Component({
