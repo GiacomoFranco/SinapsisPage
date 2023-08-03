@@ -1,17 +1,17 @@
 <main class="about-us">
   <section class="slider-section">
     <owl-carousel-o [options]="customOptions" *ngIf="!isMobile">
-      <ng-container *ngFor="let slider of sliderImg">
+      <ng-container *ngFor="let slider of pageData.gallery">
         <ng-template carouselSlide>
-          <img class="img-slider" [src]="slider.imagen" alt="" />
+          <img class="img-slider" [src]="slider" alt="" />
         </ng-template>
       </ng-container>
     </owl-carousel-o>
     <div class="grid-image" *ngIf="isMobile">
       <img
         class="img-mobile"
-        *ngFor="let slider of sliderImg"
-        [src]="slider.imagen"
+        *ngFor="let slider of pageData.gallery"
+        [src]="slider"
         alt=""
       />
     </div>
@@ -26,11 +26,7 @@
     <div class="container">
       <div class="row d-flex justify-content-center align-items-center">
         <div class="col-md-5 col-12 item-history" *ngIf="!isMobile">
-          <img
-            class="img-office"
-            src="/assets/nosotros/sinapsis-office.png"
-            alt=""
-          />
+          <img class="img-office" [src]="pageData.ourHistory.imagen" alt="" />
         </div>
         <div
           class="col-md-7 col-12 d-flex justify-content-end item-history"
@@ -38,31 +34,8 @@
         >
           <div class="content-text-hystory">
             <img class="ic-arrow" src="/assets/icons/arrowUp.svg" alt="" />
-            <h2>Nuestra historia</h2>
-            <p>
-              Lorem ipsum dolor sit amet. Ea cumque nemo ab laudantium corporis
-              sed earum ratione eos dolores saepe et quos tempora aut autem
-              maiores ea magni doloremque. Et velit dolores in placeat voluptas
-              et culpa nulla aut galisum odit. In perferendis temporibus ut
-              nulla illo ut placeat debitis vel commodi voluptates qui dicta
-              asperiores rem laboriosam impedit.
-            </p>
-            <p>
-              Sed magni aperiam eos totam excepturi aut voluptatibus quos id
-              quisquam voluptas ut harum accusantium et quaerat esse vel
-              veritatis possimus. Qui quia aperiam est necessitatibus quidem nam
-              velit sint est magnam corporis aut soluta delectus a vitae autem
-              aut dicta facere. Vel mollitia labore qui doloribus facilis et
-              quia aperiam et iure consequatur? Sit nostrum sunt non beatae
-              ipsam nam sunt similique est dolor doloribus vel dicta quasi et
-              nostrum facilis. Sed expedita mollitia et iure eaque qui ipsam
-              debitis.
-            </p>
-            <p>
-              Ab adipisci reprehenderit est maxime dolore non labore
-              consequuntur rem aperiam consectetur et illum quia sed veritatis
-              distinctio ut quas enim.
-            </p>
+            <h2>{{ pageData.ourHistory.title }}</h2>
+            <p [innerHTML]="pageData.ourHistory.description"></p>
           </div>
         </div>
       </div>
@@ -70,12 +43,9 @@
   </section>
   <section class="timeline d-flex justify-content-center align-items-center">
     <div class="container">
-      <p class="title-time">
-        Lorem ipsum is simple texto of the printing and typesetting industry.
-        lorem ipsum has been the
-      </p>
+      <p class="title-time">{{pageData.timeLine.description}}</p>
       <p-timeline
-        [value]="timelineItems"
+        [value]="pageData.timeLine.data"
         [layout]="timelineType"
         [align]="positionTimeline"
       >
@@ -93,7 +63,7 @@
           <div class="event-content position-relative">
             <div class="content-text">
               <p>{{ event.title }}</p>
-              <p class="description-time">{{ event.description }}</p>
+              <p class="description-time" [innerHTML]="event.descripcion"></p>
               <p>{{ event.year }}</p>
             </div>
           </div>
@@ -109,31 +79,11 @@
     />
     <div class="row w-100 h-100 m-0 row-left">
       <div
-        class="col-12 col-md-6 d-flex justify-content-center align-items-center px-3 item-mision-vision"
+        class="col-12 col-md-6 d-flex justify-content-center align-items-center px-3 item-mision-vision" *ngFor="let data of pageData.misionVision"
       >
         <div class="content-info">
-          <h2>Misión</h2>
-          <p>
-            Lorem ipsum is simple texto of the printing and typesetting
-            industry. lorem ipsum has been the Lorem ipsum is simple texto of
-            the printing and typesetting industry. lorem ipsum has been the
-            Lorem ipsum is simple texto of the printing and typesetting
-            industry.
-          </p>
-        </div>
-      </div>
-      <div
-        class="col-12 col-md-6 d-flex justify-content-center align-items-center px-3 item-mision-vision"
-      >
-        <div class="content-info">
-          <h2>Visión</h2>
-          <p>
-            Lorem ipsum is simple texto of the printing and typesetting
-            industry. lorem ipsum has been the Lorem ipsum is simple texto of
-            the printing and typesetting industry. lorem ipsum has been the
-            Lorem ipsum is simple texto of the printing and typesetting
-            industry.
-          </p>
+          <h2>{{data.title}}</h2>
+          <p [innerHTML]="data.description"></p>
         </div>
       </div>
     </div>
@@ -144,31 +94,54 @@
         class="col-12 col-md-6 h-100 d-flex justify-content-center align-items-center item-workout"
       >
         <div class="content-info">
-          <h2>Lorem ipsum is simple</h2>
-          <p class="my-3">
-            Lorem ipsum is simple texto of the printing and typesetting
-            industry. lorem ipsum has been the Lorem ipsum is simple texto of
-            the printing and typesetting industry. lorem ipsum has been the
-            Lorem ipsum is simple texto of the printing and typesetting
-            industry. Lorem ipsum is simple texto of the printing and
-            typesetting industry. lorem ipsum has been the Lorem ipsum is simple
-            texto of the printing and typesetting industry. lorem ipsum has been
-            the Lorem ipsum is simple texto of the printing and typesetting
-            industry. Lorem ipsum is simple texto of the printing and
-            typesetting industry.
-          </p>
+          <h2>{{pageData.sectionDesign.title}}</h2>
+          <p class="my-3"[innerHTML]="pageData.sectionDesign.descripcion"></p>
           <app-button-sinapsis
             [name_button]="'Lorem ipsum is simple'"
+            [url]="pageData.sectionDesign.UrlBtn"
           ></app-button-sinapsis>
         </div>
       </div>
       <div
         class="col-12 col-md-6 h-100 d-flex justify-content-center align-items-center item-workout pe-0"
       >
-      <img class="tablet-img" [src]="img_workout" alt="">
-    </div>
+        <img class="tablet-img" [src]="pageData.sectionDesign.imagen" alt="" />
+      </div>
     </div>
   </section>
   <app-tecnologias></app-tecnologias>
+  <section class="work-team">
+    <div class="container">
+      <div class="content-team">
+        <div class="flip-card" *ngFor="let item of integrantesData">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img class="img-card" [src]="item.photo" alt="" />
+            </div>
+            <div class="flip-card-back">
+              <span class="font-card">{{ item.name }} {{ item.lastName }}</span>
+              <div class="cargo-content">
+                <span>{{ item.cargo }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-section">
+          <div class="p">Lorem ipsum</div>
+          <h4>
+            Lorem ipsum is simple texto of the printing and typesetting
+            industry.
+          </h4>
+        </div>
+        <div class="work-card">
+          <img class="arrow" src="/assets/icons/arrowdown.svg" alt="" />
+          <a href=""
+            >Lorem ipsum is simple texto of the printing and typesetting
+            industry.</a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
   <app-redes-sociales></app-redes-sociales>
 </main>
