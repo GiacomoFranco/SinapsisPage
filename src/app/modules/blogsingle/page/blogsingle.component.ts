@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BlogSingleInterface } from '@app/models/blogsingle.model';
 import { BlogSingleService } from '@app/services/blogSingle.service';
