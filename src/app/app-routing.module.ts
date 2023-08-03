@@ -6,6 +6,7 @@ import { NosotrosComponent } from './modules/nosotros/page/nosotros.component';
 import { PortafolioComponent } from './modules/portafolio/page/portafolio.component';
 import { PagefaqComponent } from './modules/pagefaq/page/pagefaq.component';
 import { BlogComponent } from './modules/blog/page/blog.component';
+import { BlogsingleComponent } from './modules/blogsingle/page/blogsingle.component';
 
 
 const routes: Routes = [
@@ -32,6 +33,10 @@ const routes: Routes = [
   {
     path: 'blog',
     component: BlogComponent
+  },
+  {
+    path: 'blog/:slug',
+    component: BlogsingleComponent
   },
   {
     path: '**',

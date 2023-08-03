@@ -8,6 +8,8 @@ import { TecnologiasComponent } from './tecnologias/tecnologias.component';
 import { FooterComponent } from './footer/footer.component';
 import { FaqComponent } from './faq/faq.component';
 import { ProyectLaptopComponent } from './proyect-laptop/proyect-laptop.component';
+import { RedesSocialesComponent } from './redes-sociales/redes-sociales.component';
+import { CardPostComponent } from './card-post/card-post.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { ProyectLaptopComponent } from './proyect-laptop/proyect-laptop.componen
     FooterComponent,
     FaqComponent,
     ProyectLaptopComponent,
+    RedesSocialesComponent,
+    CardPostComponent
   ],
   imports: [CommonModule, RouterModule],
   exports: [
@@ -28,7 +32,9 @@ import { ProyectLaptopComponent } from './proyect-laptop/proyect-laptop.componen
     FooterComponent,
     FaqComponent,
     ProyectLaptopComponent,
-    RouterModule
+    RouterModule,
+    RedesSocialesComponent,
+    CardPostComponent
   ],
 })
 export class SharedModule {}

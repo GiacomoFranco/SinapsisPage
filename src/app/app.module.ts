@@ -16,8 +16,7 @@ import { PortafolioModule } from './modules/portafolio/portafolio.module';
 import { PagerModule } from '@progress/kendo-angular-pager';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BlogModule } from './modules/blog/blog.module';
-
-
+import { BlogsingleModule } from './modules/blogsingle/blogsingle.module';
 
 
 @NgModule({
@@ -34,7 +33,8 @@ import { BlogModule } from './modules/blog/blog.module';
     PortafolioModule,
     PagerModule,
     BrowserAnimationsModule,
-    BlogModule
+    BlogModule,
+    BlogsingleModule
   ],
   providers: [],
   bootstrap: [AppComponent]
