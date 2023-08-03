@@ -1,1 +1,10 @@
-<p>Here load single post {{slug}}</p>
+<main class="single-post">
+  <div class="single-post__container">
+    <p>Volver</p>
+    <div class="post">
+      <h1 class="post__title">{{single.title}}</h1>
+      <img class="post__img" [src]="single.thumbnail" [alt]="single.title" width="450" height="250">
+      <div class="c-faq-question__info" [innerHTML]="single.content"></div>
+    </div>
+  </div>
+</main>
