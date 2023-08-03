@@ -9,6 +9,7 @@ import { FooterComponent } from './footer/footer.component';
 import { FaqComponent } from './faq/faq.component';
 import { ProyectLaptopComponent } from './proyect-laptop/proyect-laptop.component';
 import { RedesSocialesComponent } from './redes-sociales/redes-sociales.component';
+import { CardPostComponent } from './card-post/card-post.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { RedesSocialesComponent } from './redes-sociales/redes-sociales.componen
     FaqComponent,
     ProyectLaptopComponent,
     RedesSocialesComponent,
+    CardPostComponent
   ],
   imports: [CommonModule, RouterModule],
   exports: [
@@ -30,8 +32,9 @@ import { RedesSocialesComponent } from './redes-sociales/redes-sociales.componen
     FooterComponent,
     FaqComponent,
     ProyectLaptopComponent,
+    RouterModule,
     RedesSocialesComponent,
-    RouterModule
+    CardPostComponent
   ],
 })
 export class SharedModule {}

@@ -1,0 +1,16 @@
+<div class="c-card-post">
+  <a class="c-card-post__content" [routerLink]="[postInfo.slug]">
+    <img class="c-card-post__img" [src]="postInfo.featuredImg" alt="test" width="250" height="250"
+      [alt]="postInfo.title">
+    <div class="c-card-post__body">
+      <div class="c-card-post-label">
+        <span class="c-card-post-label__cat" *ngFor="let cat of postInfo.categories">
+          {{cat.name}}
+        </span>
+        <span class="c-card-post-label__date">{{postInfo.date}}</span>
+      </div>
+      <h3 class="c-card-post__title">{{postInfo.title}}</h3>
+      <p class="c-card-post__excerpt">{{postInfo.excerpt}}</p>
+    </div>
+  </a>
+</div>
