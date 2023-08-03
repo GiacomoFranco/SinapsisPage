@@ -2,6 +2,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BlogSingleInterface } from '@app/models/blogsingle.model';
 import { BlogSingleService } from '@app/services/blogSingle.service';
+//import "@wordpress/block-library/build-style/common.css";
+// import "@wordpress/block-library/build-style/style.css";
+// import "@wordpress/block-library/build-style/theme.css";
+
 
 @Component({
   selector: 'app-blogsingle',
