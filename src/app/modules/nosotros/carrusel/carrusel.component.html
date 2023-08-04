@@ -1,0 +1,17 @@
+<section class="slider-section">
+  <owl-carousel-o [options]="customOptions" *ngIf="!isMobile">
+    <ng-container *ngFor="let slider of pageData.gallery">
+      <ng-template carouselSlide>
+        <img class="img-slider" [src]="slider" alt="" />
+      </ng-template>
+    </ng-container>
+  </owl-carousel-o>
+  <div class="grid-image" *ngIf="isMobile">
+    <img
+      class="img-mobile"
+      *ngFor="let slider of pageData.gallery"
+      [src]="slider"
+      alt=""
+    />
+  </div>
+</section>

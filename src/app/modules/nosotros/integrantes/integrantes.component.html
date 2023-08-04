@@ -1,0 +1,32 @@
+<section class="work-team">
+  <div class="container">
+    <div class="content-team">
+      <div class="flip-card" *ngFor="let item of integrantesData">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img class="img-card" [src]="item.photo" alt="" />
+          </div>
+          <div class="flip-card-back">
+            <span class="font-card">{{ item.name }} {{ item.lastName }}</span>
+            <div class="cargo-content">
+              <span>{{ item.cargo }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-section">
+        <div class="p">Lorem ipsum</div>
+        <h4>
+          Lorem ipsum is simple texto of the printing and typesetting industry.
+        </h4>
+      </div>
+      <div class="work-card">
+        <img class="arrow" src="/assets/icons/arrowdown.svg" alt="" />
+        <a href=""
+          >Lorem ipsum is simple texto of the printing and typesetting
+          industry.</a
+        >
+      </div>
+    </div>
+  </div>
+</section>

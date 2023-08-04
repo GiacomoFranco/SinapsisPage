@@ -1,0 +1,17 @@
+.img-slider {
+  height: 521px;
+  object-fit: cover;
+}
+
+.grid-image {
+  width: 100%;
+  padding: 0 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  .img-mobile {
+    width: auto;
+    height: 119px;
+  }
+}
