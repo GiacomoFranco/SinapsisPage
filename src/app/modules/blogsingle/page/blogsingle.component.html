@@ -4,7 +4,7 @@
     <div class="post">
       <h1 class="post__title">{{single.title}}</h1>
       <img class="post__img" [src]="single.thumbnail" [alt]="single.title" width="450" height="250">
-      <div class="c-faq-question__info" [innerHTML]="single.content"></div>
+      <div class="post__content" [innerHTML]="single.content"></div>
     </div>
   </div>
 </main>

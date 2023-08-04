@@ -1,5 +1,8 @@
-/** Add gutemberg imported basic class **/
-.wp-block-columns {
-  display: flex;
-  flex-wrap: nowrap;
+.single-post{
+  &__container{
+    max-width: 90%;
+    margin: auto;
+  }
 }
+
+

@@ -9,8 +9,6 @@ import { BlogPostService } from '@app/services/blogpost.service';
 })
 export class BlogComponent {
 
-  postsArray: any[] = [1, 2, 3, 4, 5, 6];
-
   @Input() BlogPosts: CardPost[] = [{
     featuredImg: '',
     categories: '',
@@ -27,7 +25,6 @@ export class BlogComponent {
   ngOnInit(): void {
     this.postsList.getBlogPost().then(response => {
       this.BlogPosts = response.data
-      console.log(this.BlogPosts)
     })
   }
 
