@@ -6,6 +6,9 @@ import ScrollReveal from 'scrollreveal';
 import { TimelineModel } from 'src/app/models/timeline.model';
 import { TimelineData } from 'src/app/core/timeline.mock';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { IntegranteModel } from '@app/models/integrante.model';
+import { NosotrosService } from '@app/services/nosotros.service';
+import { nosotrosPage } from '@app/models/nosotrosPage.model';
 
 @Component({
   selector: 'app-nosotros',
@@ -42,13 +45,57 @@ export class NosotrosComponent implements OnInit {
 
   img_workout = "/assets/img/tablet.png"
 
-  constructor() {
+  integrantesData: IntegranteModel[] = [];
+
+  pageData: nosotrosPage = {
+    gallery: [],
+    ourHistory: {
+      imagen: '',
+      title: '',
+      description: ''
+    },
+    timeLine: {
+      description: '',
+      data: []
+    },
+    misionVision: [],
+    sectionDesign: {
+      imagen: '',
+      title: '',
+      descripcion: '',
+      UrlBtn: ''
+    }
+  }
+
+  constructor(private nosotrosService: NosotrosService) {
   }
 
   ngOnInit(): void {
     this.timelineItems = TimelineData
     this.sliderImg = sliderUsData
 
+    this.getIntegrantes();
+    this.initScrollReveal();
+    this.checkWindowSize();
+    this.timelineResponsive();
+    this.getPageData();
+  }
+
+  getPageData(){
+    this.nosotrosService.getNosotrosPage().then((response) =>{
+      const {data} = response
+      this.pageData = data;
+    })
+  }
+
+  getIntegrantes(){
+    this.nosotrosService.getIntegrantes().then((response) => {
+      const {data} = response;
+      this.integrantesData = data
+    })
+  }
+
+  initScrollReveal(){
     const sr = ScrollReveal();
     sr.reveal('.history', {
       delay: 500,
@@ -73,9 +120,6 @@ export class NosotrosComponent implements OnInit {
       distance: '500px',
       easing: 'ease',
     });
-
-    this.checkWindowSize();
-    this.timelineResponsive();
   }
 
   checkWindowSize() {
@@ -86,7 +130,7 @@ export class NosotrosComponent implements OnInit {
     if(window.innerWidth <= 1024){
       this.timelineType = 'vertical';
       this.positionTimeline = 'alternate'
-      this.img_workout = '/assets/img/tablet1.png'
+      this.pageData.sectionDesign.imagen = '/assets/img/tablet1.png'
     }
   }
 }
