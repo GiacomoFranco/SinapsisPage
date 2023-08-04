@@ -6,6 +6,10 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { LottieModule } from 'ngx-lottie';
 import player from 'lottie-web';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { SliderComponent } from './slider/slider.component';
+import { AnimacionPortatilComponent } from './animacion-portatil/animacion-portatil.component';
+import { OtrosServiciosComponent } from './otros-servicios/otros-servicios.component';
+import { EstadisticasComponent } from './estadisticas/estadisticas.component';
 
 export function playerFactory() {
   return player;
@@ -16,6 +20,10 @@ export function playerFactory() {
 @NgModule({
   declarations: [
     ServiciosComponent,
+    SliderComponent,
+    AnimacionPortatilComponent,
+    OtrosServiciosComponent,
+    EstadisticasComponent,
   ],
   imports: [
     CommonModule,
