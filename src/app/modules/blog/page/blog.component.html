@@ -5,7 +5,9 @@
       <h2 class="post-featured__title">Articulos destacados</h2>
       <p class="post-featured__description">Lorem ipsum is simple texto of the printing and typesetting industry.</p>
       <div class="post-featured__slider">
-        <p>slider cards</p>
+        <div class="post-featured__item" *ngFor="let post of BlogPosts.slice(0, 2)">
+          <app-card-post [postInfo]="post"></app-card-post>
+        </div>
       </div>
     </div>
 
@@ -18,6 +20,8 @@
         </div>
       </div>
     </div>
-
+    <div class="social-content">
+      <app-redes-sociales></app-redes-sociales>
+    </div>
   </div>
 </main>
