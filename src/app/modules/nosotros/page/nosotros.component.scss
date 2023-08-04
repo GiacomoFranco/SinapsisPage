@@ -1,21 +1,3 @@
-.img-slider {
-  height: 521px;
-  object-fit: cover;
-}
-
-.grid-image {
-  width: 100%;
-  padding: 0 10px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-
-  .img-mobile {
-    width: auto;
-    height: 119px;
-  }
-}
-
 .history {
   position: relative;
 
@@ -33,6 +15,7 @@
 
   .content-text-hystory {
     width: 90%;
+    height: 500px;
     position: relative;
 
     .ic-arrow {
@@ -42,66 +25,6 @@
       top: -70px;
       left: -80px;
     }
-  }
-}
-
-.icon-time {
-  width: 60px;
-  height: 60px;
-}
-
-.marker-time {
-  color: rgba(112, 66, 239, 1);
-}
-
-.content-text {
-  width: 203px;
-  height: 90px;
-  text-align: center;
-}
-
-.timeline {
-  width: 100%;
-  height: 500px;
-
-  .title-time {
-    width: 300px;
-    text-align: center;
-    margin: 0 auto;
-  }
-
-  p-timeline::ng-deep {
-    .p-timeline-horizontal {
-      transform: translateX(7.2%);
-
-      .p-timeline-event {
-        .p-timeline-event-opposite {
-          transform: translateX(-8%);
-        }
-
-        .p-timeline-event-content {
-          transform: translateX(-35%);
-        }
-      }
-    }
-  }
-}
-
-.mision-vision {
-  width: 100%;
-  height: 370px;
-  background: linear-gradient(180deg, #11161a 0%, #171b1f 100%);
-
-  .logo-transparent {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  .content-info {
-    width: 455px;
-    color: #fff;
   }
 }
 
@@ -116,106 +39,7 @@
   .tablet-img {
     width: 100%;
     height: 670px;
-  }
-}
-
-.work-team {
-  width: 100%;
-  margin: 40px 0;
-
-  .content-team {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 10px;
-
-    .flip-card {
-      background-color: transparent;
-      height: 240px;
-      perspective: 1000px;
-      border-radius: 5px;
-      cursor: pointer;
-
-      .flip-card-inner {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        text-align: center;
-        transition: transform 0.9s;
-        transform-style: preserve-3d;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        border-radius: 20px;
-
-        .flip-card-front,
-        .flip-card-back {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-        }
-
-        .flip-card-front {
-          background-color: #fff;
-          color: black;
-
-          .img-card {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-          }
-        }
-
-        .flip-card-back {
-          background-color: #fff;
-          color: black;
-          transform: rotateY(180deg);
-          display: grid;
-          place-content: center;
-          place-items: center;
-          padding: 0 15px;
-
-          .font-card{
-            font-weight: 700;
-          }
-        }
-      }
-    }
-
-    .flip-card:hover .flip-card-inner {
-      transform: rotateY(180deg);
-    }
-
-    .card-section {
-      grid-column: 5/7;
-      grid-row-start: 1;
-      display: grid;
-      place-content: center;
-      padding: 0 10px;
-    }
-
-    .work-card {
-      background-color: #7042ef;
-      grid-column: 4/7;
-      grid-row-start: 2;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: start;
-      padding-left: 50px;
-
-      .arrow {
-        position: absolute;
-        right: 0;
-        top: 0;
-      }
-
-      a {
-        width: 50%;
-        font-size: 25px;
-        color: #fff;
-      }
-    }
+    z-index: 5;
   }
 }
 
@@ -242,37 +66,6 @@
     }
   }
 
-  .content-text {
-    width: 100%;
-    height: 180px;
-  }
-
-  .timeline {
-    height: auto;
-    .title-time {
-      margin-bottom: 50px;
-    }
-
-    p-timeline::ng-deep {
-      .p-timeline-event:nth-child(2n) {
-        color: #11161a;
-
-        .p-timeline-event-content {
-          color: #11161a;
-          display: flex;
-          justify-content: end;
-        }
-      }
-    }
-  }
-  .icon-time {
-    width: 60px;
-    height: 60px;
-    position: relative;
-    top: 0;
-    left: 0;
-  }
-
   .workout {
     height: auto;
 
@@ -296,66 +89,13 @@
       }
     }
   }
-
-  .work-team{
-    .content-team {
-      grid-template-columns: repeat(4, 1fr);
-      .card-section {
-        grid-column: 3/5;
-      }
-    
-      .work-card {
-        grid-column: 2/5;
-      }
-    }
-  }
 }
 
 @media screen and (max-width: 767px) {
-  .mision-vision {
-    height: auto;
-    padding: 30px 10px;
-
-    .item-mision-vision {
-      margin-top: 20px;
-    }
-  }
-
   .workout {
     .tablet-img {
       width: 100% !important;
       height: 270px !important;
-    }
-  }
-
-  .work-team{
-    .content-team {
-      grid-template-columns: repeat(2, 1fr);
-      .card-section {
-        grid-column: 1/3;
-      }
-    
-      .work-card {
-        grid-column: 1/3;
-        grid-row-start: 7;
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 420px) {
-
-  .work-team{
-    .content-team {
-      grid-template-columns: repeat(1,1fr);
-      .card-section {
-        grid-column: 1/2;
-      }
-    
-      .work-card {
-        grid-column: 1/2;
-        grid-row-start: 10;
-      }
     }
   }
 }

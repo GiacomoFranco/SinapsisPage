@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, HostListener, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, AfterViewInit, HostListener, ElementRef, ViewChild, Renderer2 } from '@angular/core';
 import { Servicio } from '@app/models/servicio.model';
 import Swiper from 'swiper';
 import { AnimationItem } from 'lottie-web';
@@ -81,7 +81,7 @@ export class ServiciosComponent implements AfterViewInit, OnInit {
     { target: 300, value: 0 },
   ];
 
-  constructor(private service: ServiciosService) {}
+  constructor(private service: ServiciosService, private elementRef: ElementRef, private renderer: Renderer2) {}
 
   ngOnInit(): void {
     this.getPage();
@@ -156,16 +156,16 @@ export class ServiciosComponent implements AfterViewInit, OnInit {
       this.pageData.sectionStadistics.forEach((element, i) => {
         this.contadores[i].target = Number(element.numbers);
       });
-      setInterval(() => {
-        this.contadores.forEach((counter) => {
-          const increment = counter.target / 400;
-          if (counter.value < counter.target) {
-            counter.value = Math.ceil(counter.value + increment);
-          } else {
-            counter.value = counter.target;
-          }
-        });
-      }, 0);
+      // setInterval(() => {
+      //   this.contadores.forEach((counter) => {
+      //     const increment = counter.target / 400;
+      //     if (counter.value < counter.target) {
+      //       counter.value = Math.ceil(counter.value + increment);
+      //     } else {
+      //       counter.value = counter.target;
+      //     }
+      //   });
+      // }, 0);
     });
   }
 
@@ -210,5 +210,35 @@ export class ServiciosComponent implements AfterViewInit, OnInit {
 
   checkWindowSize() {
     this.isMobile = window.innerWidth < 767;
+  }
+
+  @HostListener('window:scroll', [])
+  onScroll(): void {
+    const element = this.elementRef.nativeElement.querySelector('#estadisticas');
+    const boundingClientRect = element.getBoundingClientRect();
+
+    // Verificar si la sección de estadísticas está al menos un 50% visible en el viewport
+    if (boundingClientRect.top < window.innerHeight * 0.5) {
+      this.activateCounters();
+    }
+  }
+
+  activateCounters(): void {
+    const interval = setInterval(() => {
+      let allCountersComplete = true;
+      this.contadores.forEach((counter) => {
+        const increment = counter.target / 500;
+        if (counter.value < counter.target) {
+          counter.value = Math.ceil(counter.value + increment);
+          allCountersComplete = false;
+        } else {
+          counter.value = counter.target;
+        }
+      });
+
+      if (allCountersComplete) {
+        clearInterval(interval);
+      }
+    }, 50);
   }
 }

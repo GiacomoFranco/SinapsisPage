@@ -1,0 +1,30 @@
+<section class="timeline d-flex justify-content-center align-items-center">
+  <div class="container">
+    <p class="title-time">{{ pageData.timeLine.description }}</p>
+    <p-timeline
+      [value]="pageData.timeLine.data"
+      [layout]="timelineType"
+      [align]="positionTimeline"
+    >
+      <ng-template pTemplate="opposite" let-event>
+        <div class="event-opposite position-relative">
+          <img class="icon-time" [src]="event.icon" alt="" />
+        </div>
+      </ng-template>
+      <ng-template pTemplate="marker" let-event>
+        <span class="custom-marker shadow-2">
+          <i class="pi pi-circle-on marker-time"></i>
+        </span>
+      </ng-template>
+      <ng-template pTemplate="content" let-event>
+        <div class="event-content position-relative">
+          <div class="content-text">
+            <p>{{ event.title }}</p>
+            <p class="description-time" [innerHTML]="event.descripcion"></p>
+            <p>{{ event.year }}</p>
+          </div>
+        </div>
+      </ng-template>
+    </p-timeline>
+  </div>
+</section>
