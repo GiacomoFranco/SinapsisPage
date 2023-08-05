@@ -1,13 +1,16 @@
 <section #absoluteLaptop class="banner-principal">
   <img #laptop class="laptop-graphic--absolute" src="/assets/img/portatil-home-mockup.svg" alt="laptop">
-    <!-- <img class="laptop-graphic" src="/assets/img/portatil-home-mockup.svg" alt="why?"> -->
+  <!-- <img class="laptop-graphic" src="/assets/img/portatil-home-mockup.svg" alt="why?"> -->
   <article class="section__content">
     <div class="section__text-container">
       <h1>Lorem ipsum is simply text of the printing</h1>
-      <p>Lorem ipsum is simple texto of the printing and typesetting industry. lorem ipsum has been the Lorem ipsum is simple
-      texto of the printing and typesetting industry. lorem ipsum has been the Lorem ipsum is simple texto of the printing and
-      typesetting industry. lorem ipsum has been the Lorem ipsum is simple texto of the printing and typesetting industry.
-      lorem ipsum has been the</p>
+      <p>Lorem ipsum is simple texto of the printing and typesetting industry. lorem ipsum has been the Lorem ipsum is
+        simple
+        texto of the printing and typesetting industry. lorem ipsum has been the Lorem ipsum is simple texto of the
+        printing and
+        typesetting industry. lorem ipsum has been the Lorem ipsum is simple texto of the printing and typesetting
+        industry.
+        lorem ipsum has been the</p>
       <div class="section__actions">
         <app-button-sinapsis [name_button]="'Lorem ipsum is simple'"></app-button-sinapsis>
       </div>
@@ -105,19 +108,21 @@
   <article class="proyect">
     <div class="proyect-preview">
       <img src="assets\icons\white-logo-icon.svg" alt="Logo Sinapsis" class="logo-icon">
-      <app-proyect-laptop class="preview-image" [changeUrl]="project.general.screenshot ? project.general.screenshot : 'assets/home/preview-bancolombia.png'"></app-proyect-laptop>
+      <app-proyect-laptop class="preview-image"
+        [changeUrl]="project.general.screenshot ? project.general.screenshot : 'assets/home/preview-bancolombia.png'"></app-proyect-laptop>
     </div>
     <div class="proyect-content">
       <img [src]="project.general.logo " alt="Logo del clientes" class="proyect-logo">
       <div class="proyects-content__text-container">
-        <h3>{{ project ? project.title : 'Texto Dummy'  }}</h3>
+        <h3>{{ project ? project.title : 'Texto Dummy' }}</h3>
         <p>{{ project ? project.general.description : 'Lorem ipsum' }}</p>
       </div>
-        <a routerLink="/projects/{{project.slug }}" class="action">Botón</a>
+      <a routerLink="/projects/{{project.slug }}" class="action">Botón</a>
     </div>
   </article>
   <div class="controller">
-    <button *ngFor="let slide of projects; let i = index"  (click)="selectProyect(i)" class="slide" [ngClass]="{'active': isActive(i)}" ></button>
+    <button *ngFor="let slide of projects; let i = index" (click)="selectProyect(i)" class="slide"
+      [ngClass]="{'active': isActive(i)}"></button>
   </div>
 </section>
 <section class="testimonios">
@@ -142,7 +147,8 @@
               <div class="testimonio__info">
                 <p class="testimonio__cliente">{{testimonio.title}}</p>
                 <span class="testimonio__persona">
-                  <p class="testimonio__nombre-persona"><span class="testimonio__cargo">{{testimonio.companyPosition}}</span> {{testimonio.testimonial}}</p>
+                  <p class="testimonio__nombre-persona"><span
+                      class="testimonio__cargo">{{testimonio.companyPosition}}</span> {{testimonio.testimonial}}</p>
                 </span>
               </div>
             </div>

@@ -1,25 +1,9 @@
 <main class="blog">
   <div class="blog-content">
 
-    <div class="post-featured">
-      <h2 class="post-featured__title">Articulos destacados</h2>
-      <p class="post-featured__description">Lorem ipsum is simple texto of the printing and typesetting industry.</p>
-      <div class="post-featured__slider">
-        <div class="post-featured__item" *ngFor="let post of BlogPosts.slice(0, 2)">
-          <app-card-post [postInfo]="post"></app-card-post>
-        </div>
-      </div>
-    </div>
+    <app-postcarrousel [BlogPosts]="BlogPosts"></app-postcarrousel>
+    <app-post-list></app-post-list>
 
-    <div class="post-list">
-      <h2 class="post-list__title">Más publicaciones</h2>
-      <p class="post-list__description">Lorem ipsum is simple texto of the printing and typesetting industry.</p>
-      <div class="post-list__content">
-        <div class="post-list__item" *ngFor="let post of BlogPosts">
-          <app-card-post [postInfo]="post"></app-card-post>
-        </div>
-      </div>
-    </div>
     <div class="social-content">
       <app-redes-sociales></app-redes-sociales>
     </div>
