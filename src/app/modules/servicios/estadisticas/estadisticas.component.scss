@@ -1,0 +1,30 @@
+.statistics {
+  width: 100%;
+  background: #7042ef;
+  .item-statistics {
+    margin: 50px 0;
+
+    .icon {
+      width: 45px;
+      height: 45px;
+    }
+
+    h3 {
+      color: #fff;
+    }
+
+    .title-statistics {
+      height: 65px;
+    }
+
+    p {
+      color: #fff;
+    }
+  }
+}
+
+@media screen and (min-width: 767px) and (max-width: 1023px) {
+  .item-statistics {
+    width: 50%;
+  }
+}

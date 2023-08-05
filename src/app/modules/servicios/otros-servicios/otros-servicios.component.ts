@@ -1,16 +1,15 @@
-import { Component, OnInit} from '@angular/core';
-import ScrollReveal from 'scrollreveal';
-import { ServiciosService } from 'src/app/services/servicios.service';
+import { Component, Input, HostListener, OnInit } from '@angular/core';
 import { servicePageData } from '@app/models/servicePage.model';
+import ScrollReveal from 'scrollreveal';
 
 @Component({
-  selector: 'app-servicios',
-  templateUrl: './servicios.component.html',
-  styleUrls: ['./servicios.component.scss'],
+  selector: 'app-otros-servicios',
+  templateUrl: './otros-servicios.component.html',
+  styleUrls: ['./otros-servicios.component.scss']
 })
-export class ServiciosComponent implements OnInit {
+export class OtrosServiciosComponent implements OnInit {
 
-  pageData: servicePageData = {
+  @Input() pageData: servicePageData = {
     developSoftware: {
       title: '',
       description: '',
@@ -32,31 +31,15 @@ export class ServiciosComponent implements OnInit {
     },
     sectionStadistics: [],
   };
-
-  constructor(private service: ServiciosService) { }
+  isMobile = false;
 
   ngOnInit(): void {
-    this.getPage();
-    this.initScrollReveal();
-  }
-
-  getPage() {
-    this.service.getServicesPage().then((resp) => {
-      const { data } = resp;
-      this.pageData = data;
-    });
+    this.checkWindowSize();
   }
 
   initScrollReveal() {
     const sr = ScrollReveal();
 
-    sr.reveal('.scroll-software', {
-      duration: 4000,
-      origin: 'bottom',
-      distance: '100px',
-      delay: 600,
-      easing: 'ease-out',
-    });
     sr.reveal('.scroll-left', {
       delay: 600,
       duration: 5000,
@@ -72,5 +55,13 @@ export class ServiciosComponent implements OnInit {
       distance: '100px',
       easing: 'ease-out',
     });
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    this.checkWindowSize();
+  }
+  checkWindowSize() {
+    this.isMobile = window.innerWidth < 767;
   }
 }

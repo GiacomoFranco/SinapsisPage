@@ -1,32 +1,24 @@
 <main class="about-us">
-  <section class="slider-section">
-    <owl-carousel-o [options]="customOptions" *ngIf="!isMobile">
-      <ng-container *ngFor="let slider of pageData.gallery">
-        <ng-template carouselSlide>
-          <img class="img-slider" [src]="slider" alt="" />
-        </ng-template>
-      </ng-container>
-    </owl-carousel-o>
-    <div class="grid-image" *ngIf="isMobile">
-      <img
-        class="img-mobile"
-        *ngFor="let slider of pageData.gallery"
-        [src]="slider"
-        alt=""
-      />
-    </div>
-  </section>
+  <app-carrusel [pageData]="pageData"></app-carrusel>
   <section class="history my-5">
-    <!-- <img
+    <img
       class="logo-sinapsis"
       src="/assets/img/logo_mark.svg"
       alt=""
       *ngIf="!isMobile"
-    /> -->
+    />
     <div class="container">
       <div class="row d-flex justify-content-center align-items-center">
-        <div class="col-md-5 col-12 item-history" *ngIf="!isMobile">
-          <img class="img-office" [src]="pageData.ourHistory.imagen" alt="" />
+        <div
+          class="col-md-5 col-12 item-history history-image"
+          *ngIf="!isMobile"
+        >
+          <img
+            *ngIf="pageData.ourHistory.imagen"
+            class="img-office"
+            [src]="pageData.ourHistory.imagen"
+            alt=""
+          />
         </div>
         <div
           class="col-md-7 col-12 d-flex justify-content-end item-history"
@@ -35,67 +27,22 @@
           <div class="content-text-hystory">
             <img class="ic-arrow" src="/assets/icons/arrowUp.svg" alt="" />
             <h2>{{ pageData.ourHistory.title }}</h2>
-            <p [innerHTML]="pageData.ourHistory.description"></p>
+            <p class="ourHistoryText"></p>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <section class="timeline d-flex justify-content-center align-items-center">
-    <div class="container">
-      <p class="title-time">{{pageData.timeLine.description}}</p>
-      <p-timeline
-        [value]="pageData.timeLine.data"
-        [layout]="timelineType"
-        [align]="positionTimeline"
-      >
-        <ng-template pTemplate="opposite" let-event>
-          <div class="event-opposite position-relative">
-            <img class="icon-time" [src]="event.icon" alt="" />
-          </div>
-        </ng-template>
-        <ng-template pTemplate="marker" let-event>
-          <span class="custom-marker shadow-2">
-            <i class="pi pi-circle-on marker-time"></i>
-          </span>
-        </ng-template>
-        <ng-template pTemplate="content" let-event>
-          <div class="event-content position-relative">
-            <div class="content-text">
-              <p>{{ event.title }}</p>
-              <p class="description-time" [innerHTML]="event.descripcion"></p>
-              <p>{{ event.year }}</p>
-            </div>
-          </div>
-        </ng-template>
-      </p-timeline>
-    </div>
-  </section>
-  <section class="mision-vision mt-3 position-relative">
-    <img
-      src="/assets/img/transparent-logo.svg"
-      class="logo-transparent"
-      alt=""
-    />
-    <div class="row w-100 h-100 m-0 row-left">
-      <div
-        class="col-12 col-md-6 d-flex justify-content-center align-items-center px-3 item-mision-vision" *ngFor="let data of pageData.misionVision"
-      >
-        <div class="content-info">
-          <h2>{{data.title}}</h2>
-          <p [innerHTML]="data.description"></p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <app-timeline [pageData]="pageData"></app-timeline>
+  <app-mision-vision [pageData]="pageData"></app-mision-vision>
   <section class="workout">
-    <div class="row w-100 h-100 m-0 workout-row row-right">
+    <div class="row w-100 h-100 m-0 workout-row">
       <div
-        class="col-12 col-md-6 h-100 d-flex justify-content-center align-items-center item-workout"
+        class="col-12 col-md-6 h-100 d-flex justify-content-center align-items-center item-workout row-left"
       >
         <div class="content-info">
-          <h2>{{pageData.sectionDesign.title}}</h2>
-          <p class="my-3"[innerHTML]="pageData.sectionDesign.descripcion"></p>
+          <h2>{{ pageData.sectionDesign.title }}</h2>
+          <p class="my-3" [innerHTML]="pageData.sectionDesign.descripcion"></p>
           <app-button-sinapsis
             [name_button]="'Lorem ipsum is simple'"
             [url]="pageData.sectionDesign.UrlBtn"
@@ -110,38 +57,6 @@
     </div>
   </section>
   <app-tecnologias></app-tecnologias>
-  <section class="work-team">
-    <div class="container">
-      <div class="content-team">
-        <div class="flip-card" *ngFor="let item of integrantesData">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <img class="img-card" [src]="item.photo" alt="" />
-            </div>
-            <div class="flip-card-back">
-              <span class="font-card">{{ item.name }} {{ item.lastName }}</span>
-              <div class="cargo-content">
-                <span>{{ item.cargo }}</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="card-section">
-          <div class="p">Lorem ipsum</div>
-          <h4>
-            Lorem ipsum is simple texto of the printing and typesetting
-            industry.
-          </h4>
-        </div>
-        <div class="work-card">
-          <img class="arrow" src="/assets/icons/arrowdown.svg" alt="" />
-          <a href=""
-            >Lorem ipsum is simple texto of the printing and typesetting
-            industry.</a
-          >
-        </div>
-      </div>
-    </div>
-  </section>
+  <app-integrantes></app-integrantes>
   <app-redes-sociales></app-redes-sociales>
 </main>
