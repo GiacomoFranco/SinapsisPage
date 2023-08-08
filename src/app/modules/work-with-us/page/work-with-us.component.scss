@@ -1,0 +1,206 @@
+.banner-principal {
+  width: 100%;
+  height: 80vh;
+  overflow: hidden;
+  position: relative;
+  background-image: url('/assets/workWithUs/portrait-employee.png');
+  background-position: center 60px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+
+  .section-content {
+    width: 100%;
+    min-height: 242px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .section-content__container{
+
+      max-width: 500px;
+
+      h1 {
+        color: white;
+        margin-bottom: 20px;
+      }
+
+      button {
+        display: flex;
+        justify-content: space-between;
+        border: none;
+        outline: none;
+        background: rgba(112, 66, 239, 0.90);
+        backdrop-filter: blur(0px);
+        padding: 22px;
+        text-align: start;
+        color: #FFF;
+        font-size: 16px;
+        font-weight: 700;
+        text-decoration-line: underline;
+        img {
+          height: 60px;
+          width: 60px;
+        }
+      }
+    }
+
+  }
+}
+
+.info-text {
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  min-height: 450px;
+
+  .section-content{
+    width: 100%;
+    margin-top: 40px;
+
+    .section-content__container{
+      max-width: 1160px;
+
+      h2 {
+        margin-bottom: 20px;
+      }
+
+    }
+
+  }
+
+  .logo-part-graphic{
+    height: 383px;
+    position: absolute;
+    right: -40px;
+    z-index: -1;
+  }
+}
+
+.beneficios {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 70px;
+  min-height: 735px;
+  margin-top: 60px;
+
+  .beneficios__graphics {
+    position: relative;
+    flex-basis: 440px;
+    flex-grow: 1;
+    overflow: hidden;
+
+    .beneficios__images-container {
+      position: relative;
+      display: flex;
+      justify-content: center;
+
+      .employee-image__container {
+        position: relative;
+        z-index: 1;
+        width: 500px;
+        height: 540px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .employee {
+          object-fit: contain;
+        }
+      }
+
+      .logo-icon {
+        position: absolute;
+        width: 700px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-55%, -50%);
+        z-index: 0;
+      }
+    }
+
+  }
+
+  .beneficios__container {
+    display: flex;
+    flex-direction: column;
+    max-width: 580px;
+
+    .beneficios__content {
+      margin-bottom: 35px;
+      width: 100%;
+
+      p {
+        margin-top: 20px;
+      }
+    }
+  }
+}
+
+.carateristicas {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  min-height: 500px;
+
+
+  .section-content {
+    display: flex;
+    justify-content: center;
+    flex-basis: 100%;
+  }
+}
+
+
+@media (max-width: 1590px) {
+  // .banner-principal {
+  //   padding: 0 20px;
+  // }
+  // .info-text{
+  //   padding: 0 20px;
+  // }
+}
+
+@media (max-width: 1400px) {
+  .beneficios {
+    justify-content: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
+
+    .beneficios__graphics {
+      .beneficios__images-container {
+
+        .employee-image__container {
+          z-index: 1;
+          max-width: 700px;
+          flex-grow: 1;
+          height: 540px;
+        }
+
+        .logo-icon{
+          transform: translate(-48%, -50%);
+        }
+      }
+    }
+  }
+
+
+}
+
+@media screen and (min-width: 763px) and (max-width: 1023px) {}
+
+@media screen and (max-width: 763px) {
+  .banner-principal {
+    .section-content{
+        text-align: center;
+
+    }
+  }
+}

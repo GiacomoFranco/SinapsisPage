@@ -15,6 +15,7 @@ import { SharedModule } from './shared/shared.module';
 import { PortafolioModule } from './modules/portafolio/portafolio.module';
 import { PagerModule } from '@progress/kendo-angular-pager';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { WorkWithUsModule } from './modules/work-with-us/work-with-us.module';
 import { BlogModule } from './modules/blog/blog.module';
 import { BlogsingleModule } from './modules/blogsingle/blogsingle.module';
 
@@ -33,10 +34,11 @@ import { BlogsingleModule } from './modules/blogsingle/blogsingle.module';
     PortafolioModule,
     PagerModule,
     BrowserAnimationsModule,
+    WorkWithUsModule,
     BlogModule,
     BlogsingleModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

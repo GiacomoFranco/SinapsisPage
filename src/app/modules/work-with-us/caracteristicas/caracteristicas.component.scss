@@ -1,0 +1,17 @@
+.section-content__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 900px;
+  min-height: 380px;
+  margin: 50px 0;
+
+  .caracterticas__cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+  }
+}
