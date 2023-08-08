@@ -1,0 +1,28 @@
+:host{
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.beneficios__perk {
+  display: flex;
+  gap: 13px;
+  flex-grow: 1;
+
+  img {
+    align-self: start;
+  }
+
+  .beneficios__text {
+    max-width: 140px;
+  }
+}
+
+@media (max-width: 767px){
+  .beneficios__perk {
+
+      .beneficios__text {
+        max-width: 100%;
+      }
+    }
+}
