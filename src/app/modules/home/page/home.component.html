@@ -121,8 +121,12 @@
     </div>
   </article>
   <div class="controller">
+<<<<<<< HEAD
     <button *ngFor="let slide of projects; let i = index" (click)="selectProyect(i)" class="slide"
       [ngClass]="{'active': isActive(i)}"></button>
+=======
+    <button *ngFor="let slide of projects; let i = index"  (click)="selectProyect(i)" class="slide" [ngClass]="{'active': isSlideActive(i)}" ></button>
+>>>>>>> a5afbf229c0213586ee00b1294b957f1bf82b6ab
   </div>
 </section>
 <section class="testimonios">
@@ -166,7 +170,75 @@
     </owl-carousel-o>
   </article>
 </section>
+<<<<<<< HEAD
 
+=======
+<section class="blog">
+  <article class="blog__title">
+    <div class="blog__title-container">
+      <img src="assets/icons/arrowdown-right.svg" alt="">
+      <h2>Explora <span class="servicios-span">nuestro Blog</span></h2>
+    </div>
+    <a href="#">Botón</a>
+  </article>
+  <article class="blog__posts">
+    <div class="post">
+      <div class="post__image">
+        <img src="assets/img/blog-image.png" alt="">
+      </div>
+      <div class="post__content">
+        <div class="post__info">
+          <p class="post__publication"><span class="post__state">New</span> Publicado hace 3 días</p>
+        </div>
+        <div class="post__text">
+          <h4>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h4>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of
+            the
+            printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            Lorem
+            Ipsum is simply dummy text of the printing and typesetting industry.</p>
+        </div>
+      </div>
+    </div>
+    <div class="post">
+      <div class="post__image">
+        <img src="assets/img/blog-image.png" alt="">
+      </div>
+      <div class="post__content">
+        <div class="post__info">
+          <p class="post__publication"><span class="post__state">New</span> Publicado hace 3 días</p>
+        </div>
+        <div class="post__text">
+          <h4>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h4>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of
+            the
+            printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            Lorem
+            Ipsum is simply dummy text of the printing and typesetting industry.</p>
+        </div>
+      </div>
+    </div>
+    <div class="post">
+      <div class="post__image">
+        <img src="assets/img/blog-image.png" alt="">
+      </div>
+      <div class="post__content">
+        <div class="post__info">
+          <p class="post__publication"><span class="post__state">New</span> Publicado hace 3 días</p>
+        </div>
+        <div class="post__text">
+          <h4>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h4>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of
+            the
+            printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            Lorem
+            Ipsum is simply dummy text of the printing and typesetting industry.</p>
+        </div>
+      </div>
+    </div>
+  </article>
+</section>
+>>>>>>> a5afbf229c0213586ee00b1294b957f1bf82b6ab
 <section class="faq">
   <div class="faq-content">
     <h2 class="faq__title">Lorem Ipsum is simply dummy</h2>

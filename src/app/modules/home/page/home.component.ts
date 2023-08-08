@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, Renderer2, ViewChild, DoCheck } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Renderer2, ViewChild, DoCheck, HostListener } from '@angular/core';
 import { Servicio } from '@app/models/servicio.model';
 import { SliderAbout } from '@app/models/sliderUs.model';
 import { ServiciosService } from '@app/services/servicios.service';
@@ -21,22 +21,6 @@ import { Testimonio } from '@app/models/testimonio.model';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements AfterViewInit, DoCheck {
-  @ViewChild('laptop') laptop: ElementRef<HTMLElement>;
-  @ViewChild('absoluteLaptop') absoluteLaptop: ElementRef<HTMLElement>;
-  @ViewChild('relativeLaptop') relativeLaptop: ElementRef<HTMLElement>;
-
-  servicios: Servicio[];
-  sliderImg: SliderAbout[] = sliderUsData;
-  swiper: Swiper;
-
-  manualSlideAnimation() {
-    gsap.fromTo(
-      '.proyect-content',
-      { x: 10, opacity: 0 },
-      { x: 0, opacity: 1, duration: 1 }
-    );
-  }
-
   constructor(
     private renderer2: Renderer2,
     private servicioService: ServiciosService,
@@ -44,51 +28,15 @@ export class HomeComponent implements AfterViewInit, DoCheck {
     private testimoniosService: TestimoniosService
   ) {}
 
-  projects: Proyecto[];
-  project: Proyecto;
-  projectBefore: Proyecto;
-
-  testimonios: Testimonio[];
-
-  customOptions: OwlOptions = {
-    loop: true,
-    mouseDrag: true,
-    touchDrag: false,
-    nav: false,
-    pullDrag: false,
-    margin: 20,
-    autoplay: true,
-    items: 3,
-    autoplayTimeout: 10,
-    dots: true,
-    // responsive: {
-    //   1024: {
-    //     items: 3,
-    //   },
-    //   767: {
-    //     items: 3,
-    //   },
-    // },
-  };
-
-  ngDoCheck(): void {
-    if (this.project !== this.projectBefore) {
-      this.projectBefore = this.project;
-      console.log('cambia');
-      this.manualSlideAnimation();
-    }
+  @ViewChild('laptop') laptop: ElementRef<HTMLElement>;
+  @ViewChild('absoluteLaptop') absoluteLaptop: ElementRef<HTMLElement>;
+  @ViewChild('relativeLaptop') relativeLaptop: ElementRef<HTMLElement>;
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    this.checkWindowSize();
   }
 
-  selectProyect(i: number) {
-    this.project = this.projects[i];
-  }
-
-  isActive(i: number): boolean {
-    let proyectIndex = this.projects.indexOf(this.project);
-    return proyectIndex === i;
-  }
-
-  bannerAnimations(): void {
+    bannerAnimations(): void {
     const state = Flip.getState(this.laptop.nativeElement);
 
     this.renderer2.appendChild(
@@ -116,16 +64,79 @@ export class HomeComponent implements AfterViewInit, DoCheck {
         },
       })
       .add(flip)
-      .from('.phone-graphic', {
-        x: '-200',
-        opacity: 0,
-        duration: 0.9,
-      })
+      .fromTo(
+        '.phone-graphic',
+        {
+          x: '-200',
+          opacity: 0,
+          zIndex: 19,
+          duration: 1.2,
+        },
+        { x: 0, opacity: 1, zIndex: 21 }
+      )
       .from('.section__text-container', {
         y: 200,
         opacity: 0,
         duration: 2,
       });
+  }
+
+  servicios: Servicio[];
+  sliderImg: SliderAbout[] = sliderUsData;
+  swiper: Swiper;
+  manualSlideAnimation() {
+    gsap.fromTo(
+      '.proyect-content',
+      { x: 10, opacity: 0 },
+      { x: 0, opacity: 1, duration: 1 }
+    );
+  }
+
+  isMobile: Boolean;
+  checkWindowSize() {
+    this.isMobile = window.innerWidth < 767;
+  }
+
+  projects: Proyecto[];
+  project: Proyecto;
+  projectBefore: Proyecto;
+  selectProyect(i: number) {
+    this.project = this.projects[i];
+  }
+
+  isSlideActive(i: number): boolean {
+    let proyectIndex = this.projects.indexOf(this.project);
+    return proyectIndex === i;
+  }
+
+  testimonios: Testimonio[];
+  customOptions: OwlOptions = {
+    loop: true,
+    mouseDrag: true,
+    touchDrag: false,
+    nav: false,
+    pullDrag: false,
+    margin: 20,
+    autoplay: true,
+    items: 3,
+    autoplayTimeout: 10,
+    dots: true,
+    // responsive: {
+    //   1024: {
+    //     items: 3,
+    //   },
+    //   767: {
+    //     items: 3,
+    //   },
+    // },
+  };
+
+  ngDoCheck(): void {
+    if (this.project !== this.projectBefore) {
+      this.projectBefore = this.project;
+      console.log('cambia');
+      this.manualSlideAnimation();
+    }
   }
 
   ngOnInit(): void {
