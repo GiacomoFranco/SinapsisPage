@@ -1,0 +1,29 @@
+.o-logo{
+
+  &__img {
+    width: 100%;
+    object-fit: cover;
+    transition: 0.35s ease-in-out;
+  }
+}
+
+@media(max-width:1200px){
+  .o-logo{
+    &__anchor{
+      width: 157px;
+      display: block;
+    }
+
+    &__img{
+      width: 100%;
+    }
+  }
+}
+
+
+
+/** animation */
+.is-xl-logo .o-logo__img{
+  width: 150%;
+  transition: 0.35s ease-in-out;
+}

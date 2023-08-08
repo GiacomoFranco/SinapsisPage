@@ -1,11 +1,12 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { Menus } from '@app/models/menu';
 import { MenuService } from '@app/services/menu.service';
 
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.scss']
+  styleUrls: ['./footer.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class FooterComponent {
   logo = '../../../assets/img/logo.svg'

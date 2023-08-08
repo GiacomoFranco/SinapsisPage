@@ -9,24 +9,4 @@ import { BlogPostService } from '@app/services/blogpost.service';
 })
 export class BlogComponent {
 
-  @Input() BlogPosts: CardPost[] = [{
-    featuredImg: '',
-    categories: '',
-    date: '',
-    title: '',
-    excerpt: '',
-    slug:''
-  }]
-
-  constructor(
-    private postsList: BlogPostService,
-  ) { }
-
-  ngOnInit(): void {
-    this.postsList.getBlogPost().then(response => {
-      this.BlogPosts = response.data
-    })
-  }
-
-
 }

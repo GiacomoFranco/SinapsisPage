@@ -1,0 +1,9 @@
+<div class="o-lang">
+  <ul class="o-lang-select">
+    <li class="o-lang-select__option" *ngFor="let lang of langOPtions; let i = index" (click)="moveToTop(i)"
+      value={{lang.value}}>
+      <img class="o-lang-select__img" [src]="[lang.img]" width="20px">
+      <a class="o-nav__item-anchor" [routerLink]="[lang.value]">{{lang.lang}}</a>
+    </li>
+  </ul>
+</div>

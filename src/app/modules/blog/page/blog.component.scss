@@ -4,22 +4,6 @@
   padding-top: 80px;
 }
 
-.post-featured__slider{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-  gap: 25px;
-}
-
-.post-list{
-  &__content{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 55px 54px;
-    margin-top: 35px;
-
-  }
-}
-
 .social-content{
   margin-top: 80px;
 }

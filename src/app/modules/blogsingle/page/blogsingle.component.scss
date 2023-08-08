@@ -1,8 +1,23 @@
-.single-post{
-  &__container{
+.single-post__container{
     max-width: 90%;
     margin: auto;
+}
+
+.post{
+
+  &__img {
+    width: 100%;
+    object-fit: cover;
+    min-height: 301px;
+  }
+
+  &__content{
+    margin-top: 50px;
   }
 }
+
+
+
+
 
 

@@ -63,6 +63,10 @@ p {
   line-height: normal;
 }
 
+a{
+  text-decoration: none;
+}
+
 @media screen and (max-width: 767px){
   html {
     font-size: 14px;

@@ -1,0 +1,28 @@
+<header class="o-header" [ngClass]="{'has-slim-nav':isScrolled}">
+
+  <div class="o-header__content">
+
+    <app-logo [hasSlimLogo]="!isScrolled"></app-logo>
+
+    <div class="o-menu-mobile" (click)="responsiveMenu()">
+      <div class="o-menu-mobile__content" [ngClass]="{'has-mobile-transform':animationHamburger}">
+        <span class="o-menu-mobile__lines o-menu-mobile--top"></span>
+        <span class="o-menu-mobile__lines o-menu-mobile--center"></span>
+        <span class="o-menu-mobile__lines o-menu-mobile--bottom"></span>
+      </div>
+    </div>
+
+    <div class="content-nav-options" [ngClass]="{'has-show-menu':showMenu}">
+
+      <app-navmenu></app-navmenu>
+
+      <div class="content-nav-options__btn-sinapsis">
+        <app-button-sinapsis [name_button]="'Contáctanos'"></app-button-sinapsis>
+      </div>
+
+      <app-lang-selector></app-lang-selector>
+
+    </div>
+
+  </div>
+</header>

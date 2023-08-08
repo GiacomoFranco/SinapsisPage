@@ -1,4 +1,4 @@
-import { Component, Input} from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BlogSingleInterface } from '@app/models/blogsingle.model';
 import { BlogSingleService } from '@app/services/blogSingle.service';
@@ -6,7 +6,8 @@ import { BlogSingleService } from '@app/services/blogSingle.service';
 @Component({
   selector: 'app-blogsingle',
   templateUrl: './blogsingle.component.html',
-  styleUrls: ['./blogsingle.component.scss']
+  styleUrls: ['./blogsingle.component.scss', './gutembergstyle.scss'],
+  encapsulation: ViewEncapsulation.ShadowDom
 })
 export class BlogsingleComponent{
   slug: string;
