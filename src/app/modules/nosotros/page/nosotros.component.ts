@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { sliderUsData } from 'src/app/core/sliderUs.mock';
-import { SliderAbout } from 'src/app/models/sliderUs.model';
-import Swiper from 'swiper';
+import { Component, OnInit} from '@angular/core';
 import ScrollReveal from 'scrollreveal';
-import { TimelineModel } from 'src/app/models/timeline.model';
-import { TimelineData } from 'src/app/core/timeline.mock';
-import { OwlOptions } from 'ngx-owl-carousel-o';
+import { NosotrosService } from '@app/services/nosotros.service';
+import { nosotrosPage } from '@app/models/nosotrosPage.model';
+import { gsap } from 'gsap';
+import { TextPlugin } from 'gsap/TextPlugin';
+
+gsap.registerPlugin(TextPlugin);
 
 @Component({
   selector: 'app-nosotros',
@@ -14,49 +14,63 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 })
 
 export class NosotrosComponent implements OnInit {
-  sliderImg: SliderAbout[] = []
-  swiper: Swiper | undefined;
-  timelineItems: TimelineModel[] = [];
-  customOptions: OwlOptions = {
-    loop: true,
-    mouseDrag: true,
-    touchDrag: false,
-    pullDrag: false,
-    autoplay: true,
-    autoplayTimeout: 10,
-    dots: false,
-    navSpeed: 10,
-    autoplaySpeed: 10000,
-    responsive: {
-      1024: {
-        items: 3
-      },
-      767: {
-        items: 2
-      }
-    }
-  };
-  isMobile = false;
-  timelineType = 'horizontal'
-  positionTimeline = 'top'
-
   img_workout = "/assets/img/tablet.png"
+  pageData: nosotrosPage = {
+    gallery: [],
+    ourHistory: {
+      imagen: '',
+      title: '',
+      description: ''
+    },
+    timeLine: {
+      description: '',
+      data: []
+    },
+    misionVision: [],
+    sectionDesign: {
+      imagen: '',
+      title: '',
+      descripcion: '',
+      UrlBtn: ''
+    }
+  }
+  isMobile = false;
 
-  constructor() {
+  constructor(private nosotrosService: NosotrosService) {
   }
 
   ngOnInit(): void {
-    this.timelineItems = TimelineData
-    this.sliderImg = sliderUsData
+    this.getPageData();
+    this.checkWindowSize();
+  }
 
+  async getPageData() {
+    await this.nosotrosService.getNosotrosPage().then((response) => {
+      const { data } = response
+      this.pageData = data;
+
+      const text = this.pageData.ourHistory.description;
+      this.animateTyping(text);
+      this.initScrollReveal();
+    })
+  }
+
+  animateTyping(text: string) {
+    gsap.fromTo(
+      '.ourHistoryText',
+      {
+        opacity: 1,
+      },
+      {
+        duration: 30,
+        text: text,
+        ease: 'power3',
+      }
+    );
+  }
+
+  initScrollReveal() {
     const sr = ScrollReveal();
-    sr.reveal('.history', {
-      delay: 500,
-      duration: 4000,
-      origin: 'left',
-      distance: '200px',
-      easing: 'ease-out',
-    });
 
     sr.reveal('.row-left', {
       delay: 400,
@@ -73,20 +87,10 @@ export class NosotrosComponent implements OnInit {
       distance: '500px',
       easing: 'ease',
     });
-
-    this.checkWindowSize();
-    this.timelineResponsive();
   }
 
   checkWindowSize() {
     this.isMobile = window.innerWidth < 767;
   }
 
-  timelineResponsive(){
-    if(window.innerWidth <= 1024){
-      this.timelineType = 'vertical';
-      this.positionTimeline = 'alternate'
-      this.img_workout = '/assets/img/tablet1.png'
-    }
-  }
 }

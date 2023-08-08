@@ -5,6 +5,7 @@ import { ServiciosComponent } from './modules/servicios/page/servicios.component
 import { NosotrosComponent } from './modules/nosotros/page/nosotros.component';
 import { PortafolioComponent } from './modules/portafolio/page/portafolio.component';
 import { PagefaqComponent } from './modules/pagefaq/page/pagefaq.component';
+import { WorkWithUsComponent } from './modules/work-with-us/page/work-with-us.component';
 import { BlogComponent } from './modules/blog/page/blog.component';
 import { BlogsingleComponent } from './modules/blogsingle/page/blogsingle.component';
 
@@ -29,6 +30,10 @@ const routes: Routes = [
   {
     path: 'faq',
     component: PagefaqComponent
+  },
+  {
+    path: 'trabaja-con-nosotros',
+    component: WorkWithUsComponent
   },
   {
     path: 'blog',
