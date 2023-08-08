@@ -1,7 +1,7 @@
 export interface CardPost {
   id?: number;
   title: string;
-  categories: any;
+  categories?: any;
   date: string;
   featuredImg?: string;
   excerpt?: string;

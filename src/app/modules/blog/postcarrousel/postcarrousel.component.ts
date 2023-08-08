@@ -1,13 +1,15 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { CardPost } from '@app/models/card-post.model';
+import { BlogPostFeaturedService } from '@app/services/blogPostFeatured.service';
 
 @Component({
   selector: 'app-postcarrousel',
   templateUrl: './postcarrousel.component.html',
-  styleUrls: ['./postcarrousel.component.scss']
+  styleUrls: ['./postcarrousel.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class PostcarrouselComponent {
-  @Input() BlogPosts: any[]
 
   customOptions: OwlOptions = {
     loop: true,
@@ -28,4 +30,23 @@ export class PostcarrouselComponent {
       }
     }
   };
+
+  @Input() BlogPosts: CardPost[] = [{
+    featuredImg: '',
+    categories: '',
+    date: '',
+    title: '',
+    excerpt: '',
+    slug:''
+  }]
+
+  constructor(
+    private postsList: BlogPostFeaturedService,
+  ) { }
+
+  ngOnInit(): void {
+    this.postsList.getBlogPostFeatured().then(response => {
+      this.BlogPosts = response.data
+    })
+  }
 }

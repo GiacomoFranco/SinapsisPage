@@ -32,42 +32,15 @@
   }
 }
 
+/** Footer logo */
+footer .o-logo__anchor{
+  margin: auto;
+}
+
+
 /** Footer menu */
-.o-nav-footer{
-
-  &__menu {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 17px;
-    list-style: none;
-    padding: 0px;
-    margin: 20px 0px;
-  }
-
-  &__item{
-
-    &-anchor{
-      text-decoration: none;
-      color: var(--main-color);
-      font-size: clamp(12px, 1vw, 0.8rem);
-      font-variation-settings: 'wght' 700, 'slnt' 0;
-      transition: 0.35s;
-
-      &:hover{
-        font-variation-settings: 'wght' 820, 'slnt' -2;
-        transition: 0.35s;
-      }
-    }
-
-  }
-
-  .active{
-    color: var(--third-color);
-    font-weight: 750;
-  }
-
+footer .footer-menu .o-nav__menu{
+  justify-content: center;
 }
 
 .o-social--instagram {
