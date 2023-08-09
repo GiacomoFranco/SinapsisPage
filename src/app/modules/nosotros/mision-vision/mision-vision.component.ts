@@ -1,7 +1,5 @@
 import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { nosotrosPage } from '@app/models/nosotrosPage.model';
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { gsap } from 'gsap';
 
 @Component({
   selector: 'app-mision-vision',
@@ -34,25 +32,25 @@ export class MisionVisionComponent implements OnInit, AfterViewInit{
   }
 
   ngAfterViewInit(): void {
-    this.animateMisionVision();
+    // this.animateMisionVision();
   }
 
-  animateMisionVision() {
-    gsap.registerPlugin(ScrollTrigger);
+  // animateMisionVision() {
+  //   gsap.registerPlugin(ScrollTrigger);
 
    
-    gsap.from(".mision-vision-row", {
-      x: "100%",
-      ease: 'expo',
-      duration: 5,
-      scrollTrigger: {
-        trigger: '.mision-vision-row',
-        start: this.getScreen(),
-        end: '+=200% center',
-      }
-    });
+  //   gsap.from(".mision-vision-row", {
+  //     x: "100%",
+  //     ease: 'expo',
+  //     duration: 5,
+  //     scrollTrigger: {
+  //       trigger: '.mision-vision-row',
+  //       start: this.getScreen(),
+  //       end: '+=200% center',
+  //     }
+  //   });
 
-  }
+  // }
 
   getScreen():string{
     let size = '';
