@@ -13,6 +13,7 @@ import { CardPostComponent } from './card-post/card-post.component';
 import { LogoComponent } from './header/logo/logo.component';
 import { NavmenuComponent } from './header/navmenu/navmenu.component';
 import { LangSelectorComponent } from './header/lang-selector/lang-selector.component';
+import { ArrowBackComponent } from './arrow-back/arrow-back.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { LangSelectorComponent } from './header/lang-selector/lang-selector.comp
     CardPostComponent,
     LogoComponent,
     NavmenuComponent,
-    LangSelectorComponent
+    LangSelectorComponent,
+    ArrowBackComponent
   ],
   imports: [CommonModule, RouterModule],
   exports: [
@@ -40,7 +42,11 @@ import { LangSelectorComponent } from './header/lang-selector/lang-selector.comp
     ProyectLaptopComponent,
     RouterModule,
     RedesSocialesComponent,
-    CardPostComponent
+    CardPostComponent,
+    LogoComponent,
+    NavmenuComponent,
+    LangSelectorComponent,
+    ArrowBackComponent
   ],
 })
 export class SharedModule {}
