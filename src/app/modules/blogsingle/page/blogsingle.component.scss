@@ -1,9 +1,16 @@
-.single-post__container{
-    max-width: 90%;
-    margin: auto;
+.single-post{
+
+  padding-top: 50px;
+
+  .single-post__container{
+      max-width: 90%;
+      margin: auto;
+  }
 }
 
+
 .post{
+  margin-top: 50px;
 
   &__img {
     width: 100%;

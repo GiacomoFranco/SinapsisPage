@@ -6,7 +6,7 @@ import { BlogSingleService } from '@app/services/blogSingle.service';
 @Component({
   selector: 'app-blogsingle',
   templateUrl: './blogsingle.component.html',
-  styleUrls: ['./blogsingle.component.scss', './gutembergstyle.scss'],
+  styleUrls: ['./blogsingle.component.scss', '../../../../assets/extra-styles/gutembergstyle.scss'],
   encapsulation: ViewEncapsulation.ShadowDom
 })
 export class BlogsingleComponent{
