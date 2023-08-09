@@ -1,11 +1,11 @@
-import { Component, OnInit} from '@angular/core';
-import ScrollReveal from 'scrollreveal';
+import { Component, OnInit } from '@angular/core';
 import { NosotrosService } from '@app/services/nosotros.service';
 import { nosotrosPage } from '@app/models/nosotrosPage.model';
 import { gsap } from 'gsap';
 import { TextPlugin } from 'gsap/TextPlugin';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-gsap.registerPlugin(TextPlugin);
+gsap.registerPlugin(TextPlugin, ScrollTrigger);
 
 @Component({
   selector: 'app-nosotros',
@@ -40,19 +40,21 @@ export class NosotrosComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getPageData();
+    this.getData();
     this.checkWindowSize();
   }
 
-  async getPageData() {
-    await this.nosotrosService.getNosotrosPage().then((response) => {
-      const { data } = response
-      this.pageData = data;
-
-      const text = this.pageData.ourHistory.description;
-      this.animateTyping(text);
-      this.initScrollReveal();
-    })
+  async getData(){
+    try {
+      this.nosotrosService.getNosotrosPage().then((response) => {
+        const { data } = response
+        this.pageData = data;
+        const text = this.pageData.ourHistory.description;
+        this.animateTyping(text);
+      })
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   animateTyping(text: string) {
@@ -67,26 +69,6 @@ export class NosotrosComponent implements OnInit {
         ease: 'power3',
       }
     );
-  }
-
-  initScrollReveal() {
-    const sr = ScrollReveal();
-
-    sr.reveal('.row-left', {
-      delay: 400,
-      duration: 2500,
-      origin: 'left',
-      distance: '500px',
-      easing: 'ease',
-    });
-
-    sr.reveal('.row-right', {
-      delay: 400,
-      duration: 2500,
-      origin: 'rigth',
-      distance: '500px',
-      easing: 'ease',
-    });
   }
 
   checkWindowSize() {

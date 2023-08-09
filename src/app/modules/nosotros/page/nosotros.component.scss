@@ -1,5 +1,6 @@
 .history {
   position: relative;
+  height: 800px;
 
   .logo-sinapsis {
     position: absolute;
@@ -28,23 +29,9 @@
   }
 }
 
-.workout {
-  width: 100%;
-  height: 860px;
-
-  .content-info {
-    width: 72%;
-  }
-
-  .tablet-img {
-    width: 100%;
-    height: 670px;
-    z-index: 5;
-  }
-}
-
 @media screen and (max-width: 1023px) {
   .history {
+    height: auto;
     .item-history {
       width: 100%;
       display: flex;
@@ -61,41 +48,15 @@
 
       .content-text-hystory {
         width: 100%;
+        height: 350px;
         text-align: center;
-      }
-    }
-  }
-
-  .workout {
-    height: auto;
-
-    .workout-row {
-      flex-direction: column-reverse;
-      padding: 40px;
-
-      .item-workout {
-        width: 100%;
-
-        .content-info {
-          width: 100%;
-          margin-top: 30px;
-          text-align: center;
-        }
-      }
-
-      .tablet-img {
-        width: 65%;
-        height: 420px;
       }
     }
   }
 }
 
 @media screen and (max-width: 767px) {
-  .workout {
-    .tablet-img {
-      width: 100% !important;
-      height: 270px !important;
-    }
+  .content-text-hystory {
+    height: 500px !important;
   }
 }

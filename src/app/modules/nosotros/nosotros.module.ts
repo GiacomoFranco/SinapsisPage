@@ -11,6 +11,7 @@ import { CarruselComponent } from './carrusel/carrusel.component';
 import { TimelineComponent } from './timeline/timeline.component';
 import { MisionVisionComponent } from './mision-vision/mision-vision.component';
 import { IntegrantesComponent } from './integrantes/integrantes.component';
+import { WorkoutComponent } from './workout/workout.component';
 
 
 register()
@@ -20,7 +21,8 @@ register()
     CarruselComponent,
     TimelineComponent,
     MisionVisionComponent,
-    IntegrantesComponent
+    IntegrantesComponent,
+    WorkoutComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,29 @@
+<div class="workout section-work-anim" #contentAbsolute>
+  <img
+    class="tablet-img"
+    #tablet
+    [src]="pageData.sectionDesign.imagen"
+    alt=""
+  />
+  <div class="container h-100">
+    <div class="row w-100 h-100 m-0 workout-row">
+      <div
+        class="col-12 col-md-6 h-100 d-flex justify-content-center align-items-center pe-0"
+      >
+        <div class="content-info content-text-anim">
+          <h2>{{ pageData.sectionDesign.title }}</h2>
+          <p class="my-3" [innerHTML]="pageData.sectionDesign.descripcion"></p>
+          <app-button-sinapsis
+            [name_button]="'Lorem ipsum is simple'"
+            [url]="pageData.sectionDesign.UrlBtn"
+          ></app-button-sinapsis>
+        </div>
+      </div>
+      <div
+        class="col-12 col-md-6 h-100 d-flex justify-content-center align-items-center item-workout pe-0"
+        #contentRelative
+      >
+      </div>
+    </div>
+  </div>
+</div>
