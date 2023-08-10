@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/sinapsis-web",
+            "outputPath": "dist/sinapsis-web/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": ["zone.js"],
@@ -99,6 +99,60 @@
             ],
             "scripts": []
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/sinapsis-web/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json",
+            "inlineStyleLanguage": "scss"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media"
+            },
+            "development": {
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false,
+              "vendorChunk": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "sinapsis-web:build:development",
+              "serverTarget": "sinapsis-web:server:development"
+            },
+            "production": {
+              "browserTarget": "sinapsis-web:build:production",
+              "serverTarget": "sinapsis-web:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "sinapsis-web:build:production",
+              "serverTarget": "sinapsis-web:server:production"
+            },
+            "development": {
+              "browserTarget": "sinapsis-web:build:development",
+              "serverTarget": "sinapsis-web:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }

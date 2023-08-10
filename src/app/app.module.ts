@@ -23,7 +23,7 @@ import { BlogsingleModule } from './modules/blogsingle/blogsingle.module';
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     HomeModule,
     ServiciosModule,
