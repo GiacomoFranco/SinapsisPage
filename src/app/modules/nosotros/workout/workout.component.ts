@@ -88,7 +88,7 @@ export class WorkoutComponent implements AfterViewInit, OnDestroy {
 
   ngOnDestroy(): void {
     if (this.animation) {
-      this.animation.kill(); // Stop the animation when the component is destroyed
+      this.animation.kill();
     }
   }
 }
