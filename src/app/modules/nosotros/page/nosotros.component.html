@@ -27,7 +27,7 @@
           <div class="content-text-hystory">
             <img class="ic-arrow" src="/assets/icons/arrowUp.svg" alt="" />
             <h2>{{ pageData.ourHistory.title }}</h2>
-            <p class="ourHistoryText"></p>
+            <p class="ourHistoryText">{{ pageData.ourHistory.description }}</p>
           </div>
         </div>
       </div>
@@ -36,7 +36,7 @@
   <app-timeline [pageData]="pageData"></app-timeline>
   <app-mision-vision [pageData]="pageData"></app-mision-vision>
   <app-workout [pageData]="pageData"></app-workout>
-  <app-tecnologias></app-tecnologias>
+  <!-- <app-tecnologias></app-tecnologias> -->
   <app-integrantes></app-integrantes>
   <app-redes-sociales></app-redes-sociales>
 </main>

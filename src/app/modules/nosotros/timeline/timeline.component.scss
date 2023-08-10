@@ -74,3 +74,13 @@
     }
   }
 }
+
+@media screen and (max-width: 420px) {
+  .timeline {
+    height: 1500px;
+
+    .content-text {
+      height: 250px;
+    }
+  }
+}

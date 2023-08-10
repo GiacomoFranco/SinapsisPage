@@ -49,26 +49,10 @@ export class NosotrosComponent implements OnInit {
       this.nosotrosService.getNosotrosPage().then((response) => {
         const { data } = response
         this.pageData = data;
-        const text = this.pageData.ourHistory.description;
-        this.animateTyping(text);
       })
     } catch (error) {
       console.error(error)
     }
-  }
-
-  animateTyping(text: string) {
-    gsap.fromTo(
-      '.ourHistoryText',
-      {
-        opacity: 1,
-      },
-      {
-        duration: 30,
-        text: text,
-        ease: 'power3',
-      }
-    );
   }
 
   checkWindowSize() {
