@@ -1,5 +1,5 @@
 <section class="other-service my-5">
-  <div class="mobile">
+  <div class="mobile" *ngIf="isMobile">
     <div class="phone phone_mobile">
       <img class="cell cell_mobile" src="/assets/img/cell.svg" alt="" />
       <img class="shad shad_mobile" src="/assets/img/shadow.svg" alt="" />
@@ -9,7 +9,7 @@
       <p [innerHTML]="pageData.phoneSection.description"></p>
     </div>
   </div>
-  <div class="section-service-mobile desktop">
+  <div class="section-service-mobile desktop" *ngIf="!isMobile">
     <div class="container h-100">
       <div class="row content-mobile h-100 position-relative scroll-left">
         <div class="col-md-6 item-mobile h-100">
@@ -30,7 +30,7 @@
       </div>
     </div>
   </div>
-  <div class="container mobile">
+  <div class="container mobile" *ngIf="isMobile">
     <div
       class="container d-flex justify-content-center align-items-center w-100 p-5"
     >
@@ -45,7 +45,7 @@
       ></app-button-sinapsis>
     </div>
   </div>
-  <div class="other-service-pc desktop">
+  <div class="other-service-pc desktop" *ngIf="!isMobile">
     <div class="scroll-right">
       <div class="row w-100 m-0">
         <div class="col-md-6 col-12 other-item items-pc px-5">

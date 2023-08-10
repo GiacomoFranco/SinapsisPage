@@ -124,6 +124,8 @@
       .work-card {
         grid-column: 1/3;
         grid-row-start: 7;
+        padding-top: 10px;
+        padding-bottom: 10px;
       }
     }
   }
@@ -140,6 +142,7 @@
       .work-card {
         grid-column: 1/2;
         grid-row-start: 10;
+        
       }
     }
   }

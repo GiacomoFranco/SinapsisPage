@@ -62,7 +62,7 @@ export class WorkoutComponent implements AfterViewInit, OnDestroy {
       .timeline({
         scrollTrigger: {
           trigger: '.workout',
-          start: '50px 20%',
+          start: this.responsiveAnim(),
           pin: '.workout',
           scrub: true,
         },
@@ -73,6 +73,17 @@ export class WorkoutComponent implements AfterViewInit, OnDestroy {
         opacity: 0,
         duration: 2,
       });
+  }
+
+  responsiveAnim():string{
+    let size = '';
+    if(window.innerWidth > 1024){
+      size = '-50px top';
+    }
+    if(window.innerWidth >= 767 && window.innerWidth <= 1024){
+      size = '-100px top';
+    }
+    return size;
   }
 
   ngOnDestroy(): void {

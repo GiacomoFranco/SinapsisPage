@@ -1,8 +1,4 @@
 .other-service {
-  
-  .mobile {
-    display: none;
-  }
 
   .phone_mobile {
     height: 500px !important;
@@ -189,14 +185,5 @@
         margin-top: 40px;
       }
     }
-  }
-}
-
-@media screen and (max-width: 767px) {
-  .mobile {
-    display: block;
-  }
-  .desktop {
-    display: none;
   }
 }

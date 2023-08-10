@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, ViewChild, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
 import { AnimationItem } from 'lottie-web';
 import { AnimationOptions } from 'ngx-lottie';
 import { gsap } from 'gsap';
@@ -10,7 +10,7 @@ gsap.registerPlugin(ScrollTrigger);
   templateUrl: './animacion-portatil.component.html',
   styleUrls: ['./animacion-portatil.component.scss']
 })
-export class AnimacionPortatilComponent implements AfterViewInit {
+export class AnimacionPortatilComponent implements AfterViewInit, OnDestroy {
 
   animationItem: any;
   @ViewChild('lottiContainer', { static: true })
@@ -81,6 +81,15 @@ export class AnimacionPortatilComponent implements AfterViewInit {
     if (window.innerWidth < 767) {
       size = '-400px top';
     }
+    if (window.innerWidth < 420) {
+      size = '-200px top';
+    }
     return size;
+  }
+
+  ngOnDestroy(): void {
+    if(this.animationItem){
+      this.animationItem.destroy();
+    }
   }
 }
