@@ -16,17 +16,35 @@ export class PostListComponent {
     date: '',
     title: '',
     excerpt: '',
-    slug:''
+    slug: '',
+    totalPages:1
   }]
+
+  paged:number = 1
+  perPage:number = 6
 
   constructor(
     private postsList: BlogPostService,
   ) { }
 
-  ngOnInit(): void {
-    this.postsList.getBlogPost().then(response => {
+  getPostData() {
+    this.postsList.getBlogPost(this.paged, this.perPage).then(response => {
       this.BlogPosts = response.data
     })
+  }
+
+  ngOnInit(): void {
+    this.getPostData()
+  }
+
+  nextPaged() {
+    this.paged += 1
+    this.getPostData()
+  }
+
+  prevPaged() {
+    this.paged -= 1
+    this.getPostData()
   }
 
 }

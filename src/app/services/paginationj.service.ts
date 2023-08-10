@@ -13,7 +13,7 @@ export class BlogPostService{
     baseURL: this.apiUrl
   })
 
-  async getBlogPost(paged: number, perPage: number) {
-    return await this.api.get(`cpt/?slug=post&paged=${paged}&per_page=${perPage}`)
+  async getPagination(slug:string, paged: number, perPage: number) {
+    return await this.api.get(`pagination/?slug=${slug}&paged=${paged}&per_page=${perPage}`)
   }
 }
