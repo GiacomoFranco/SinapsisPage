@@ -9,6 +9,7 @@ import { WorkWithUsComponent } from './modules/work-with-us/page/work-with-us.co
 import { BlogComponent } from './modules/blog/page/blog.component';
 import { BlogsingleComponent } from './modules/blogsingle/page/blogsingle.component';
 
+import { InternalProjectComponent } from './shared/internal-project/internal-project.component';
 
 const routes: Routes = [
   {
@@ -24,9 +25,9 @@ const routes: Routes = [
     component: NosotrosComponent
   },
   {
-    path: 'portafolio',
-    component: PortafolioComponent
+    path: 'portafolio', component: PortafolioComponent
   },
+  { path: "bancolombia", component: InternalProjectComponent },
   {
     path: 'faq',
     component: PagefaqComponent
