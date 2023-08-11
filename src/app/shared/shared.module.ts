@@ -15,6 +15,8 @@ import { NavmenuComponent } from './header/navmenu/navmenu.component';
 import { LangSelectorComponent } from './header/lang-selector/lang-selector.component';
 import { ArrowBackComponent } from './arrow-back/arrow-back.component';
 import { InternalProjectComponent } from './internal-project/internal-project.component';
+import { BlogModule } from '@app/modules/blog/blog.module';
+import { PostcarrouselComponent } from '@app/modules/blog/postcarrousel/postcarrousel.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,7 @@ import { InternalProjectComponent } from './internal-project/internal-project.co
     LogoComponent,
     NavmenuComponent,
     LangSelectorComponent,
-    ArrowBackComponent
+    ArrowBackComponent,
   ],
 })
 export class SharedModule { }
