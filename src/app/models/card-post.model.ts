@@ -6,4 +6,5 @@ export interface CardPost {
   featuredImg?: string;
   excerpt?: string;
   slug: string;
+  totalPages?:number
 }
