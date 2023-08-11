@@ -1,4 +1,4 @@
-<div class="c-card-post">
+<!-- <div class="c-card-post">
   <a class="c-card-post__content" [routerLink]="[postInfo.slug]">
     <img class="c-card-post__img" [src]="postInfo.featuredImg" alt="test" width="250" height="250"
       [alt]="postInfo.title">
@@ -11,6 +11,25 @@
       </div>
       <h3 class="c-card-post__title">{{postInfo.title}}</h3>
       <p class="c-card-post__excerpt">{{postInfo.excerpt}}</p>
+    </div>
+  </a>
+</div> -->
+
+<!-- ------------------------------------------------------------------------------------------------------------------- -->
+
+<div class="post">
+  <a [routerLink]="[postInfo.slug]">
+    <div class="post__image">
+      <img [src]="postInfo.featuredImg" [alt]="postInfo.title">
+    </div>
+    <div class="post__content">
+      <div class="post__info">
+        <p class="post__publication"><span class="post__state">New</span> {{postInfo.date}}</p>
+      </div>
+      <div class="post__text">
+        <h4>{{postInfo.title}}</h4>
+        <p>{{postInfo.excerpt}}</p>
+      </div>
     </div>
   </a>
 </div>

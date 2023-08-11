@@ -1,6 +1,16 @@
-.c-post-featured{
-  .c-card-post {
-    max-width: 90%;
-    margin: auto;
+:host{
+  background-color: aqua;
+}
+
+.c-post-featured {
+  // .c-card-post {
+  //   max-width: 90%;
+  //   margin: auto;
+  // }
+
+  .c-post-featured__slider {
+      .owl-stage {
+        min-height: 630px;
+      }
   }
 }

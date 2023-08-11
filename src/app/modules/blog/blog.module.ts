@@ -16,6 +16,7 @@ import { PostListComponent } from './post-list/post-list.component';
     CommonModule,
     SharedModule,
     CarouselModule
-  ]
+  ],
+  exports: [PostcarrouselComponent],
 })
 export class BlogModule { }

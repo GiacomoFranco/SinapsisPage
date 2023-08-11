@@ -17,16 +17,15 @@ export class PostcarrouselComponent {
     touchDrag: false,
     pullDrag: false,
     autoplay: true,
+    margin: 55,
     autoplayTimeout: 10,
+    items: 1,
     dots: true,
     navSpeed: 10,
     autoplaySpeed: 10000,
     responsive: {
-      1024: {
+      870: {
         items: 2
-      },
-      767: {
-        items: 1
       }
     }
   };

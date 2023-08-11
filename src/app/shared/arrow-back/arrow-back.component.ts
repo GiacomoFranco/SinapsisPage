@@ -7,8 +7,4 @@ import { Component } from '@angular/core';
 })
 export class ArrowBackComponent {
 
-  backPage() {
-    console.log('vamos atras')
-  }
-
 }

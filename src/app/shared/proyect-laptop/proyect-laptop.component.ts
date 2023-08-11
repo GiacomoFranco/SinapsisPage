@@ -11,8 +11,10 @@ export class ProyectLaptopComponent {
   urlImage: string = 'assets/home/preview-bancolombia.png';
 
   @Input()
-  set changeUrl(newImg:string){
-    this.urlImage = newImg;
+  set changeUrl(newImg:string | undefined){
+    if (newImg) {
+      this.urlImage = newImg;
+    }
 
     this.manualSlideAnimation()
   }
