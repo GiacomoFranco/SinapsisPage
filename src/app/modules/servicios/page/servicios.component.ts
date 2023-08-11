@@ -1,7 +1,8 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import ScrollReveal from 'scrollreveal';
 import { ServiciosService } from 'src/app/services/servicios.service';
 import { servicePageData } from '@app/models/servicePage.model';
+import { SeoService } from '@app/services/seo.service';
 
 @Component({
   selector: 'app-servicios',
@@ -33,11 +34,12 @@ export class ServiciosComponent implements OnInit {
     sectionStadistics: [],
   };
 
-  constructor(private service: ServiciosService) { }
+  constructor(private service: ServiciosService, private seoService: SeoService) { }
 
   ngOnInit(): void {
     this.getPage();
     this.initScrollReveal();
+    this.FlagsSeo();
   }
 
   getPage() {
@@ -72,5 +74,16 @@ export class ServiciosComponent implements OnInit {
       distance: '100px',
       easing: 'ease-out',
     });
+  }
+
+  FlagsSeo() {
+    this.seoService.generateFlags({
+      title: 'Servicios de Desarrollo de Software',
+      description: 'Nuestros servicios de desarrollo de software personalizados están diseñados para satisfacer las necesidades únicas de tu negocio. Ofrecemos soluciones de software de alta calidad para impulsar la eficiencia y la innovación.',
+      keywords: 'servicios de desarrollo de software, desarrollo de aplicaciones, soluciones de software, desarrollo personalizado, programación a medida, desarrollo de software a medida',
+      site_name: 'Sinapsis Innovation',
+      image: '',
+      slug_url: '/servicios',
+    })
   }
 }
