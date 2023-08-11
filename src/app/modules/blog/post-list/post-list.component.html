@@ -1,10 +1,10 @@
 <div class="c-post-list">
   <h2 class="c-post-list__title">Más publicaciones</h2>
   <p class="c-post-list__description">Lorem ipsum is simple texto of the printing and typesetting industry.</p>
-
   <div class="c-post-list__content">
-    <app-card-post *ngFor="let post of BlogPosts" [postInfo]="post"></app-card-post>
+    <div class="c-post-list__item" *ngFor="let post of BlogPosts">
+      <app-card-post [postInfo]="post"></app-card-post>
+    </div>
+    <app-pagination [PaginationData]="BlogPagination"></app-pagination>
   </div>
-</div>
-
 </div>

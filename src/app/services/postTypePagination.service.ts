@@ -5,7 +5,7 @@ import { environment } from 'src/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class BlogPostService{
+export class postTypeData {
 
   private apiUrl = environment.API_URL;
 
@@ -13,7 +13,8 @@ export class BlogPostService{
     baseURL: this.apiUrl
   })
 
-  async getPagination(slug:string, paged: number, perPage: number) {
-    return await this.api.get(`pagination/?slug=${slug}&paged=${paged}&per_page=${perPage}`)
+  async getPostTypeData( slug: string = 'post',currentPage: number = 1, perPage: number = 12) {
+    return await this.api.get(`pagination/?slug=${slug}&paged=${currentPage}&per_page=${perPage}`)
   }
+
 }

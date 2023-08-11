@@ -17,6 +17,7 @@ import { ArrowBackComponent } from './arrow-back/arrow-back.component';
 import { InternalProjectComponent } from './internal-project/internal-project.component';
 import { BlogModule } from '@app/modules/blog/blog.module';
 import { PostcarrouselComponent } from '@app/modules/blog/postcarrousel/postcarrousel.component';
+import { PaginationComponent } from './pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { PostcarrouselComponent } from '@app/modules/blog/postcarrousel/postcarr
     NavmenuComponent,
     LangSelectorComponent,
     ArrowBackComponent,
-    InternalProjectComponent
+    InternalProjectComponent,
+    PaginationComponent
   ],
   imports: [
     CommonModule,
@@ -54,6 +56,7 @@ import { PostcarrouselComponent } from '@app/modules/blog/postcarrousel/postcarr
     NavmenuComponent,
     LangSelectorComponent,
     ArrowBackComponent,
+    PaginationComponent
   ],
 })
 export class SharedModule { }
