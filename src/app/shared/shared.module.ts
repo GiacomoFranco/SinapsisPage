@@ -14,6 +14,7 @@ import { LogoComponent } from './header/logo/logo.component';
 import { NavmenuComponent } from './header/navmenu/navmenu.component';
 import { LangSelectorComponent } from './header/lang-selector/lang-selector.component';
 import { ArrowBackComponent } from './arrow-back/arrow-back.component';
+import { InternalProjectComponent } from './internal-project/internal-project.component';
 
 @NgModule({
   declarations: [
@@ -29,9 +30,13 @@ import { ArrowBackComponent } from './arrow-back/arrow-back.component';
     LogoComponent,
     NavmenuComponent,
     LangSelectorComponent,
-    ArrowBackComponent
+    ArrowBackComponent,
+    InternalProjectComponent
   ],
-  imports: [CommonModule, RouterModule],
+  imports: [
+    CommonModule,
+    RouterModule
+  ],
   exports: [
     headerComponent,
     ButtonSinapsisComponent,
@@ -49,4 +54,4 @@ import { ArrowBackComponent } from './arrow-back/arrow-back.component';
     ArrowBackComponent
   ],
 })
-export class SharedModule {}
+export class SharedModule { }

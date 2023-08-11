@@ -1,10 +1,162 @@
-export const CasosDeExito: string[] = [
-    "assets/casosDeExito/nutresa.png",
-    "assets/casosDeExito/sura.png",
-    "assets/casosDeExito/uber.png",
-    "assets/casosDeExito/bancolombia.png",
-    "assets/casosDeExito/euro.png",
-    "assets/casosDeExito/alcaldia.png",
-    "assets/casosDeExito/nacional.png",
-    "assets/casosDeExito/unilev.png",
+import { CasoExito } from '@app/models/casosExito.model';
+
+export const CasosDeExito: CasoExito[] = [
+    {
+        logo: 'assets/casosDeExito/nutresa.png',
+        title: '',
+        description: '',
+        screenshot: ''
+    },
+    {
+        logo: 'assets/casosDeExito/sura.png',
+        title: '',
+        description: '',
+        screenshot: ''
+    },
+    {
+        logo: 'assets/casosDeExito/bancolombia.png',
+        title: 'Lorem Ipsum is simply',
+        description: 'Lorem ipsum is simple texto of the printing and typesetting industry. lorem ipsum has been the Lorem ipsum is simple texto of the printing and typesetting industry. lorem ipsum has been the Lorem ipsum is simple texto of the printing and typesetting industry.',
+        screenshot: 'assets/screenshots/Bancolombia.png'
+    },
+    {
+        logo: 'assets/casosDeExito/euro.png',
+        title: '',
+        description: '',
+        screenshot: ''
+    },
+    {
+        logo: 'assets/casosDeExito/uber.png',
+        title: 'Lorem Ipsum is simply',
+        description: 'Lorem Ipsum is simply dummy text of the printing',
+        screenshot: 'assets/screenshots/Uber.png'
+    },
+    {
+        logo: 'assets/casosDeExito/alcaldia.png',
+        title: '',
+        description: '',
+        screenshot: ''
+    },
+    {
+        logo: 'assets/casosDeExito/nacional.png',
+        title: 'Lorem Ipsum is simply',
+        description: 'Lorem Ipsum is simply dummy text of the printing',
+        screenshot: 'assets/screenshots/Nacional.png'
+    },
+    {
+        logo: 'assets/casosDeExito/unilev.png',
+        title: '',
+        description: '',
+        screenshot: ''
+    }
+]
+export const CasosDeExitoScreens: CasoExito[] = [
+    {
+        logo: 'assets/casosDeExito/bancolombia.png',
+        title: 'Lorem Ipsum is simply',
+        description: 'Lorem ipsum is simple texto of the printing and typesetting industry. lorem ipsum has been the Lorem ipsum is simple texto of the printing and typesetting industry. lorem ipsum has been the Lorem ipsum is simple texto of the printing and typesetting industry.',
+        screenshot: 'assets/screenshots/Bancolombia.png'
+    },
+    {
+        logo: 'assets/casosDeExito/nacional.png',
+        title: 'Lorem Ipsum is simply',
+        description: 'Lorem Ipsum is simply dummy text of the printing',
+        screenshot: 'assets/screenshots/Nacional.png'
+    },
+    {
+        logo: 'assets/casosDeExito/uber.png',
+        title: 'Lorem Ipsum is simply',
+        description: 'Lorem Ipsum is simply dummy text of the printing',
+        screenshot: 'assets/screenshots/Uber.png'
+    },
+    {
+        logo: 'assets/casosDeExito/bancolombia.png',
+        title: 'Lorem Ipsum is simply',
+        description: 'Lorem ipsum is simple texto of the printing and typesetting industry. lorem ipsum has been the Lorem ipsum is simple texto of the printing and typesetting industry. lorem ipsum has been the Lorem ipsum is simple texto of the printing and typesetting industry.',
+        screenshot: 'assets/screenshots/Bancolombia.png'
+    },
+    {
+        logo: 'assets/casosDeExito/nacional.png',
+        title: 'Lorem Ipsum is simply',
+        description: 'Lorem Ipsum is simply dummy text of the printing',
+        screenshot: 'assets/screenshots/Nacional.png'
+    },
+    {
+        logo: 'assets/casosDeExito/uber.png',
+        title: 'Lorem Ipsum is simply',
+        description: 'Lorem Ipsum is simply dummy text of the printing',
+        screenshot: 'assets/screenshots/Uber.png'
+    },
+    {
+        logo: 'assets/casosDeExito/bancolombia.png',
+        title: 'Lorem Ipsum is simply',
+        description: 'Lorem ipsum is simple texto of the printing and typesetting industry. lorem ipsum has been the Lorem ipsum is simple texto of the printing and typesetting industry. lorem ipsum has been the Lorem ipsum is simple texto of the printing and typesetting industry.',
+        screenshot: 'assets/screenshots/Bancolombia.png'
+    },
+    {
+        logo: 'assets/casosDeExito/nacional.png',
+        title: 'Lorem Ipsum is simply',
+        description: 'Lorem Ipsum is simply dummy text of the printing',
+        screenshot: 'assets/screenshots/Nacional.png'
+    },
+    {
+        logo: 'assets/casosDeExito/uber.png',
+        title: 'Lorem Ipsum is simply',
+        description: 'Lorem Ipsum is simply dummy text of the printing',
+        screenshot: 'assets/screenshots/Uber.png'
+    },
+    {
+        logo: 'assets/casosDeExito/bancolombia.png',
+        title: 'Lorem Ipsum is simply',
+        description: 'Lorem ipsum is simple texto of the printing and typesetting industry. lorem ipsum has been the Lorem ipsum is simple texto of the printing and typesetting industry. lorem ipsum has been the Lorem ipsum is simple texto of the printing and typesetting industry.',
+        screenshot: 'assets/screenshots/Bancolombia.png'
+    },
+    {
+        logo: 'assets/casosDeExito/nacional.png',
+        title: 'Lorem Ipsum is simply',
+        description: 'Lorem Ipsum is simply dummy text of the printing',
+        screenshot: 'assets/screenshots/Nacional.png'
+    },
+    {
+        logo: 'assets/casosDeExito/uber.png',
+        title: 'Lorem Ipsum is simply',
+        description: 'Lorem Ipsum is simply dummy text of the printing',
+        screenshot: 'assets/screenshots/Uber.png'
+    },
+    {
+        logo: 'assets/casosDeExito/bancolombia.png',
+        title: 'Lorem Ipsum is simply',
+        description: 'Lorem ipsum is simple texto of the printing and typesetting industry. lorem ipsum has been the Lorem ipsum is simple texto of the printing and typesetting industry. lorem ipsum has been the Lorem ipsum is simple texto of the printing and typesetting industry.',
+        screenshot: 'assets/screenshots/Bancolombia.png'
+    },
+    {
+        logo: 'assets/casosDeExito/nacional.png',
+        title: 'Lorem Ipsum is simply',
+        description: 'Lorem Ipsum is simply dummy text of the printing',
+        screenshot: 'assets/screenshots/Nacional.png'
+    },
+    {
+        logo: 'assets/casosDeExito/uber.png',
+        title: 'Lorem Ipsum is simply',
+        description: 'Lorem Ipsum is simply dummy text of the printing',
+        screenshot: 'assets/screenshots/Uber.png'
+    },
+    {
+        logo: 'assets/casosDeExito/bancolombia.png',
+        title: 'Lorem Ipsum is simply',
+        description: 'Lorem ipsum is simple texto of the printing and typesetting industry. lorem ipsum has been the Lorem ipsum is simple texto of the printing and typesetting industry. lorem ipsum has been the Lorem ipsum is simple texto of the printing and typesetting industry.',
+        screenshot: 'assets/screenshots/Bancolombia.png'
+    },
+    {
+        logo: 'assets/casosDeExito/nacional.png',
+        title: 'Lorem Ipsum is simply',
+        description: 'Lorem Ipsum is simply dummy text of the printing',
+        screenshot: 'assets/screenshots/Nacional.png'
+    },
+    {
+        logo: 'assets/casosDeExito/uber.png',
+        title: 'Lorem Ipsum is simply',
+        description: 'Lorem Ipsum is simply dummy text of the printing',
+        screenshot: 'assets/screenshots/Uber.png'
+    },
 ]

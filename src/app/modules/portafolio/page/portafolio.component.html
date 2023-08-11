@@ -1,5 +1,5 @@
 <div class="casos-port-container">
-  <h2 class="title">Explora nuestro portafolio</h2>
+  <h3 class="title">Explora nuestro portafolio</h3>
   <p class="desc">
     Lorem ipsum is simple text of the printing and typesetting industry.
   </p>
@@ -11,7 +11,7 @@
           *ngFor="let caso of casosExito"
           class="swiper-slide logo--container"
         >
-          <img class="caso-exito-logo" [src]="caso" alt="casos de exito" />
+          <img class="caso-exito-logo" [src]="caso.logo" alt="casos de exito" />
         </div>
       </div>
       <div class="swiper-button-next"></div>
@@ -21,10 +21,46 @@
 
   <div [id]="contentId">
     <div *ngFor="let chase of grouped" class="cards-cont">
-      <div class="each-alone">{{ chase[0] }}</div>
+      <div class="each-alone container">
+        <div class="text">
+          <img [src]="chase[0].logo" alt="" />
+          <h4>{{ chase[0].title }}</h4>
+          <p>{{ chase[0].description }}</p>
+          <button class="view-more">
+            <a routerLink="bancolombia">Ver Más...</a>
+          </button>
+        </div>
+        <div class="screen">
+          <img [src]="chase[0].screenshot" alt="" />
+        </div>
+      </div>
       <div class="pair-cont">
-        <div *ngFor="let item of chase.slice(1, 3)" class="each-pair">
-          {{ item }}
+        <div
+          *ngFor="let item of chase.slice(1, 3); let i = index"
+          class="each-pair"
+        >
+          <div *ngIf="i === 0" class="left">
+            <img [src]="item.screenshot" alt="" />
+            <div class="text">
+              <img [src]="item.logo" alt="" />
+              <h4>{{ item.title }}</h4>
+              <p>{{ item.description }}</p>
+              <button class="view-more">
+                <a routerLink="bancolombia">Ver Más...</a>
+              </button>
+            </div>
+          </div>
+          <div *ngIf="i === 1" class="right">
+            <img [src]="item.screenshot" alt="" />
+            <div class="text">
+              <img [src]="item.logo" alt="" />
+              <h4>{{ item.title }}</h4>
+              <p>{{ item.description }}</p>
+              <button class="view-more">
+                <a routerLink="bancolombia">Ver Más...</a>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -44,9 +80,18 @@
       <img
         width="30"
         height="30"
-        class="icon"
+        class="icon-left"
         src="assets\icons\arrowright.svg"
         alt=""
+        (click)="pageWithArrow(skip, pageSize, 'left')"
+      />
+      <img
+        width="30"
+        height="30"
+        class="icon-right"
+        src="assets\icons\arrowright.svg"
+        alt=""
+        (click)="pageWithArrow(skip, pageSize, 'right')"
       />
     </div>
   </div>
