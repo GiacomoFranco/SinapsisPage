@@ -18,6 +18,7 @@ import { InternalProjectComponent } from './internal-project/internal-project.co
 import { BlogModule } from '@app/modules/blog/blog.module';
 import { PostcarrouselComponent } from '@app/modules/blog/postcarrousel/postcarrousel.component';
 import { PaginationComponent } from './pagination/pagination.component';
+import { PagerModule } from "@progress/kendo-angular-pager";
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { PaginationComponent } from './pagination/pagination.component';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    PagerModule
   ],
   exports: [
     headerComponent,
@@ -56,7 +58,7 @@ import { PaginationComponent } from './pagination/pagination.component';
     NavmenuComponent,
     LangSelectorComponent,
     ArrowBackComponent,
-    PaginationComponent
+    PaginationComponent,
   ],
 })
 export class SharedModule { }

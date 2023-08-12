@@ -1,6 +1,11 @@
 .c-pagination{
   margin-top: 25px;
-  display: flex;
-  justify-content: space-evenly;
   cursor: pointer;
+
+  &__list{
+    display: flex;
+    list-style: none;
+    padding: 0px;
+    gap: 16px;
+  }
 }

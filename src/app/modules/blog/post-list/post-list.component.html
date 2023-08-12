@@ -5,6 +5,6 @@
     <div class="c-post-list__item" *ngFor="let post of BlogPosts">
       <app-card-post [postInfo]="post"></app-card-post>
     </div>
-    <app-pagination [PaginationData]="BlogPagination"></app-pagination>
+    <app-pagination *ngIf="BlogPagination.totalItems != 0" [PaginationData]="BlogPagination"></app-pagination>
   </div>
 </div>

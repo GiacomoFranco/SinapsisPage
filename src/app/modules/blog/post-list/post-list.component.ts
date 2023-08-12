@@ -12,17 +12,17 @@ import { Pagination } from '@app/models/pagination.model';
 })
 export class PostListComponent {
 
+  paged:number = 1
+  currentPage:number = 1
+  perPage: number = 6
+
   @Input() BlogPosts = []
   @Input() BlogPagination: Pagination = {
     totalPages: 1,
     currentPage: 1,
-    perPage: 1,
-    totalItems: 1,
+    perPage: 6,
+    totalItems: 0,
   }
-
-  paged:number = 1
-  currentPage:number = 1
-  perPage: number = 6
 
   constructor(
     private postsList: postTypeData,
