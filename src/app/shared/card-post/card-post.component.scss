@@ -39,6 +39,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    img{
+      object-fit: contain;
+      width: auto;
+    }
   }
 
   .post__content {

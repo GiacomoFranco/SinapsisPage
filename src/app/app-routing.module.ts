@@ -14,7 +14,7 @@ import { InternalProjectComponent } from './shared/internal-project/internal-pro
 const routes: Routes = [
   {
     path: 'home',
-    component: HomeComponent
+    component: HomeComponent,
   },
   {
     path: 'servicios',
@@ -52,7 +52,8 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
-    initialNavigation: 'enabledBlocking'
+    initialNavigation: 'enabledBlocking',
+    scrollPositionRestoration: 'enabled'
 })],
   exports: [RouterModule]
 })

@@ -1,16 +1,15 @@
-:host{
-  background-color: aqua;
+:host {
+  width: 100%;
 }
 
 .c-post-featured {
-  // .c-card-post {
-  //   max-width: 90%;
-  //   margin: auto;
-  // }
 
   .c-post-featured__slider {
-      .owl-stage {
-        min-height: 630px;
+    ::ng-deep {
+
+      .owl-item {
+        margin-bottom: 10px;
       }
+    }
   }
 }
