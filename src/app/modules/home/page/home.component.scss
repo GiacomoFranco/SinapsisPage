@@ -508,6 +508,9 @@
       height: 562px;
       max-width: 1520px;
       width: 89%;
+      ::ng-deep .owl-carousel{
+        width: 101%;
+      }
 
       ::ng-deep .owl-stage {
         .owl-item {
@@ -729,14 +732,6 @@
   }
 }
 
-::ng-deep .owl-theme .owl-nav.disabled+.owl-dots {
-  margin-top: 40px;
-}
-
-::ng-deep .owl-theme .owl-dots .owl-dot.active span {
-  background-color: #7042EF;
-}
-
 /** FAQ **/
 .faq {
   background: var(--footerbackground);
@@ -853,6 +848,9 @@
   .proyectos-destacados {
     .proyectos-destacados__title-section {
       text-align: center;
+      h2 {
+        z-index: 1;
+      }
     }
 
     .proyect {
