@@ -1,14 +1,15 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Timeline, nosotrosPage } from '@app/models/nosotrosPage.model';
+import { Component, Input, AfterViewInit, ElementRef, QueryList, ViewChildren  } from '@angular/core';
+import { nosotrosPage } from '@app/models/nosotrosPage.model';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 
 @Component({
   selector: 'app-timeline',
   templateUrl: './timeline.component.html',
   styleUrls: ['./timeline.component.scss']
 })
-export class TimelineComponent implements OnInit{
-  timelineType = 'horizontal'
-  positionTimeline = 'top'
+export class TimelineComponent implements AfterViewInit {
 
   @Input() pageData: nosotrosPage = {
     gallery: [],
@@ -30,14 +31,39 @@ export class TimelineComponent implements OnInit{
     }
   }
 
-  ngOnInit(): void {
-    this.timelineResponsive();
+  @ViewChildren('containerText') containerTextElements: QueryList<ElementRef>;
+
+  ngAfterViewInit(): void {
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.to('.timeline-line', {
+      height: '100%',
+      scrollTrigger: {
+        trigger: '.timeline',
+        start: 'top center',
+        end: 'bottom center',
+        scrub: true,
+      }
+    });
+
+    this.containerTextElements.changes.subscribe(() => {
+      this.initTimelineAnimations();
+    });
   }
 
-  timelineResponsive() {
-    if (window.innerWidth <= 1024) {
-      this.timelineType = 'vertical';
-      this.positionTimeline = 'alternate'
-    }
+  initTimelineAnimations(): void {
+    this.containerTextElements.forEach((container, index) => {
+      gsap.from(container.nativeElement, {
+        opacity: 0,
+        y: 50,
+        duration: 0.1,
+        scrollTrigger: {
+          trigger: container.nativeElement,
+          start: 'top 80%',
+          end: 'bottom center',
+          scrub: true,
+        }
+      });
+    });
   }
 }
