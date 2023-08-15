@@ -3,4 +3,5 @@ export interface CasoExito {
     title: string;
     description: string;
     screenshot: string;
+    slug?: string;
 }

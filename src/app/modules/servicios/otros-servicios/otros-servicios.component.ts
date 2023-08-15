@@ -9,28 +9,7 @@ import ScrollReveal from 'scrollreveal';
 })
 export class OtrosServiciosComponent implements OnInit {
 
-  @Input() pageData: servicePageData = {
-    developSoftware: {
-      title: '',
-      description: '',
-      secondDescription: '',
-    },
-    phoneSection: {
-      title: '',
-      description: '',
-      urlBoton: '',
-    },
-    laptopSection: {
-      title: '',
-      description: '',
-      urlBoton: '',
-    },
-    SectionWorkWithUs: {
-      Title: '',
-      urlBoton: '',
-    },
-    sectionStadistics: [],
-  };
+  @Input() pageData: servicePageData;
   isMobile = false;
 
   ngOnInit(): void {

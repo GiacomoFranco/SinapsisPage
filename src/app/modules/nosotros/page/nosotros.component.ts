@@ -16,25 +16,7 @@ gsap.registerPlugin(TextPlugin, ScrollTrigger);
 
 export class NosotrosComponent implements OnInit {
   img_workout = "/assets/img/tablet.png"
-  pageData: nosotrosPage = {
-    gallery: [],
-    ourHistory: {
-      imagen: '',
-      title: '',
-      description: ''
-    },
-    timeLine: {
-      description: '',
-      data: []
-    },
-    misionVision: [],
-    sectionDesign: {
-      imagen: '',
-      title: '',
-      descripcion: '',
-      UrlBtn: ''
-    }
-  }
+  pageData: nosotrosPage;
   isMobile = false;
 
   constructor(private nosotrosService: NosotrosService, private seoService: SeoService) {

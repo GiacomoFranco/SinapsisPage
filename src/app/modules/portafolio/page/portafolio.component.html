@@ -27,7 +27,7 @@
           <h4>{{ chase[0].title }}</h4>
           <p>{{ chase[0].description }}</p>
           <button class="view-more">
-            <a routerLink="bancolombia">Ver Más...</a>
+            <a (click)="redirect(chase[0].slug)">Ver Más...</a>
           </button>
         </div>
         <div class="screen">
@@ -46,7 +46,7 @@
               <h4>{{ item.title }}</h4>
               <p>{{ item.description }}</p>
               <button class="view-more">
-                <a routerLink="bancolombia">Ver Más...</a>
+                <a (click)="redirect(item.slug)">Ver Más...</a>
               </button>
             </div>
           </div>
@@ -57,7 +57,7 @@
               <h4>{{ item.title }}</h4>
               <p>{{ item.description }}</p>
               <button class="view-more">
-                <a routerLink="bancolombia">Ver Más...</a>
+                <a (click)="redirect(item.slug)">Ver Más...</a>
               </button>
             </div>
           </div>

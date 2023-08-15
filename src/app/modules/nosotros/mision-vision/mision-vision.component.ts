@@ -9,25 +9,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
   styleUrls: ['./mision-vision.component.scss']
 })
 export class MisionVisionComponent implements OnInit, AfterViewInit{
-  @Input() pageData: nosotrosPage = {
-    gallery: [],
-    ourHistory: {
-      imagen: '',
-      title: '',
-      description: ''
-    },
-    timeLine: {
-      description: '',
-      data: []
-    },
-    misionVision: [],
-    sectionDesign: {
-      imagen: '',
-      title: '',
-      descripcion: '',
-      UrlBtn: ''
-    }
-  }
+  @Input() pageData: nosotrosPage;
 
   ngOnInit(): void {
     

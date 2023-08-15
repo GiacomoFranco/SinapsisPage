@@ -2,6 +2,7 @@ import { Component, OnInit, DoCheck } from '@angular/core';
 import { CasosDeExito, CasosDeExitoScreens } from '@app/core/casosDeExito.mock';
 import { PageChangeEvent } from '@progress/kendo-angular-pager';
 import Swiper from 'swiper';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-portafolio',
@@ -12,7 +13,6 @@ export class PortafolioComponent implements OnInit, DoCheck {
   swiper: Swiper | any;
   casosExito = CasosDeExito;
   casosExitoScreens = CasosDeExitoScreens;
-  data = ["Hola1", "Hola2", "Hola3", "Hola4", "Hola5", "Hola6", "Hola7", "Hola8", "Hola9", "Hola10", "Hola11", "Hola12", "Hola1", "Hola2", "Hola3", "Hola4", "Hola5", "Hola6", "Hola7", "Hola8", "Hola9", "Hola10", "Hola11", "Hola12"];
   grouped: any[] = []
   skip = 0;
   pageSize = 6;
@@ -20,6 +20,10 @@ export class PortafolioComponent implements OnInit, DoCheck {
   pagedChasescpy: any[] = this.pagedChases;
   total = this.casosExitoScreens.length;
   contentId = 'cards-cont';
+
+
+  constructor(private router: Router){}
+
   ngOnInit(): void {
     this.pageData();
   }
@@ -72,5 +76,9 @@ export class PortafolioComponent implements OnInit, DoCheck {
   }
   private pageData(): void {
     this.pagedChases = this.casosExitoScreens.slice(this.skip, this.skip + this.pageSize);
+  }
+
+  redirect(slug: string){
+    this.router.navigate([`portafolio/${slug}`])
   }
 }

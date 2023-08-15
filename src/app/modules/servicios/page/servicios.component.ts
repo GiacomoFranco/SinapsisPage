@@ -11,28 +11,7 @@ import { SeoService } from '@app/services/seo.service';
 })
 export class ServiciosComponent implements OnInit {
 
-  pageData: servicePageData = {
-    developSoftware: {
-      title: '',
-      description: '',
-      secondDescription: '',
-    },
-    phoneSection: {
-      title: '',
-      description: '',
-      urlBoton: '',
-    },
-    laptopSection: {
-      title: '',
-      description: '',
-      urlBoton: '',
-    },
-    SectionWorkWithUs: {
-      Title: '',
-      urlBoton: '',
-    },
-    sectionStadistics: [],
-  };
+  pageData: servicePageData;
 
   constructor(private service: ServiciosService, private seoService: SeoService) { }
 
