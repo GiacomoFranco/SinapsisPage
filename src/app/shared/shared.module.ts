@@ -18,6 +18,7 @@ import { InternalProjectComponent } from './internal-project/internal-project.co
 import { BlogModule } from '@app/modules/blog/blog.module';
 import { PostcarrouselComponent } from '@app/modules/blog/postcarrousel/postcarrousel.component';
 import { PaginationComponent } from './pagination/pagination.component';
+import { ProjectMobileComponent } from './project-mobile/project-mobile.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { PaginationComponent } from './pagination/pagination.component';
     LangSelectorComponent,
     ArrowBackComponent,
     InternalProjectComponent,
-    PaginationComponent
+    PaginationComponent,
+    ProjectMobileComponent
   ],
   imports: [
     CommonModule,
@@ -56,7 +58,8 @@ import { PaginationComponent } from './pagination/pagination.component';
     NavmenuComponent,
     LangSelectorComponent,
     ArrowBackComponent,
-    PaginationComponent
+    PaginationComponent,
+    ProjectMobileComponent
   ],
 })
 export class SharedModule { }
