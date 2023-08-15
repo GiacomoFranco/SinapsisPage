@@ -8,6 +8,7 @@ import { PagefaqComponent } from './modules/pagefaq/page/pagefaq.component';
 import { WorkWithUsComponent } from './modules/work-with-us/page/work-with-us.component';
 import { BlogComponent } from './modules/blog/page/blog.component';
 import { BlogsingleComponent } from './modules/blogsingle/page/blogsingle.component';
+import { PortafolioDetailComponent } from './modules/portafolio-detail/page/portafolio-detail.component';
 
 import { InternalProjectComponent } from './shared/internal-project/internal-project.component';
 
@@ -43,6 +44,10 @@ const routes: Routes = [
   {
     path: 'blog/:slug',
     component: BlogsingleComponent
+  },
+  {
+    path: 'portafolio/:slug',
+    component: PortafolioDetailComponent
   },
   {
     path: '**',

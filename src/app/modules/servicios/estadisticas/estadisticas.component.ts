@@ -8,28 +8,7 @@ import { servicePageData } from '@app/models/servicePage.model';
 })
 export class EstadisticasComponent implements OnInit{
 
-  @Input() pageData: servicePageData = {
-    developSoftware: {
-      title: '',
-      description: '',
-      secondDescription: '',
-    },
-    phoneSection: {
-      title: '',
-      description: '',
-      urlBoton: '',
-    },
-    laptopSection: {
-      title: '',
-      description: '',
-      urlBoton: '',
-    },
-    SectionWorkWithUs: {
-      Title: '',
-      urlBoton: '',
-    },
-    sectionStadistics: [],
-  };
+  @Input() pageData: servicePageData;
 
   contadores = [
     { target: 100, value: 0 },
