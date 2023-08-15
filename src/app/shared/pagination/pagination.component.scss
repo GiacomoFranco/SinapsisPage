@@ -1,6 +1,39 @@
-.c-pagination{
+.c-paginated {
   margin-top: 25px;
-  display: flex;
-  justify-content: space-evenly;
   cursor: pointer;
+
+  .k-pager::ng-deep {
+    width: 100%;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+    border: none;
+    margin: 20px 0;
+
+    kendo-datapager-numeric-buttons select {
+      display: none;
+    }
+
+    .k-pager-numbers {
+      height: 25px;
+      border: none;
+      display: flex;
+
+      button {
+        border: none;
+        background: transparent;
+        color: #c9c9c9;
+        font-weight: bold;
+        &.k-selected {
+          color: #003366;
+          border: none !important;
+        }
+      }
+      .k-button::before{
+        background-color: transparent !important;
+        border: none;
+      }
+    }
+  }
 }

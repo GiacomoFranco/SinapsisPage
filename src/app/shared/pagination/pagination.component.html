@@ -1,9 +1,5 @@
-<nav>
-  <ul>
-    <li class="c-pagination__left" *ngIf="NumberPrePage > 1"> <- </li>
-    <li *ngIf="NumberPrePage > 1">{{NumberPrePage}}</li>
-    <li>{{PaginationData.currentPage}}</li>
-    <li>{{NumbernextPage}}</li>
-    <li class="c-pagination__right">-></li>
-  </ul>
-</nav>
+<div class="c-paginated">
+  <kendo-datapager [total]="PaginationData.totalItems || 1" [pageSize]="this.PaginationData.perPage || 6" [skip]="skip"
+    [pageSizeValues]='false' [info]="info" [type]="type" [previousNext]="false" (pageChange)="onPageChange($event)">
+  </kendo-datapager>
+</div>

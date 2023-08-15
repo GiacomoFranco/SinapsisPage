@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Pagination } from '@app/models/pagination.model';
+import { PageChangeEvent, PagerType } from '@progress/kendo-angular-pager';
 
 @Component({
   selector: 'app-pagination',
@@ -12,20 +13,31 @@ export class PaginationComponent {
   @Input() PaginationData: Pagination = {
     totalPages: 1,
     currentPage: 1,
-    perPage: 1,
+    perPage: 12,
     totalItems: 1,
   }
 
-  NumberPrePage = this.PaginationData.currentPage ? this.PaginationData.currentPage - 1 : 0
-  NumbernextPage = this.PaginationData.currentPage ? this.PaginationData.currentPage + 1 : 2
-
-  goBack() {
-    console.log(this.PaginationData)
-  }
-
   ngOnInit(): void {
-    this.goBack()
+    //console.log(this.PaginationData)
   }
 
+  skip = 0;
+  type: PagerType = 'numeric'
+  info = false
+
+  onPageChange(e: PageChangeEvent): void {
+    let copyPaginationData = { ...this.PaginationData }
+
+    this.skip = e.skip;
+    copyPaginationData.perPage = e.take;
+    copyPaginationData.currentPage = Math.ceil(
+      ((this.skip)/(e.take))+1
+    );
+
+    this.updateData.emit(copyPaginationData)
+
+  }
+
+  @Output() updateData = new EventEmitter<Pagination>();
 
 }
