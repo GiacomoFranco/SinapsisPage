@@ -1,0 +1,20 @@
+.mobile{
+    width: 100%;
+    min-height: 700px;
+
+    .item-mobile{
+        position: relative;
+
+        .img-logo{
+            position: absolute;
+            z-index: -1;
+            left: -30px;
+            top: 90px;
+        }
+    }
+
+    .item-text-mobile{
+        display: grid;
+        place-items: center;
+    }
+}

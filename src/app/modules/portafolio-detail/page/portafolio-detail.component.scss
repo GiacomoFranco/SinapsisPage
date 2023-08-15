@@ -1,46 +1,32 @@
-.portafolio-detail{
-    width: 100%;
-    padding-top: 50px;
+.portafolio-detail {
+  width: 100%;
+  padding-top: 50px;
 
-    .firstSection{
-        width: 50%;
-        margin: auto;
-        display: grid;
-        place-content: center;
-        place-items: center;
-        text-align: center;
+  .firstSection {
+    width: 50%;
+    margin: auto;
+    display: grid;
+    place-content: center;
+    place-items: center;
+    text-align: center;
 
-        .img-logo{
-            max-width: 270px;
-            height: 70px;
-            object-fit: contain;
-        }
+    .img-logo {
+      max-width: 270px;
+      height: 70px;
+      object-fit: contain;
     }
+  }
 
-    .content-laptop{
-        width: 90%;
-        margin: 30px auto;
-        min-height: 730px;
-    }
+  .content-laptop {
+    width: 90%;
+    margin: 30px auto;
+    min-height: 730px;
+  }
 
-    .other-info{
-        width: 80%;
-        margin: 40px auto;
-        min-height: 350px;
-        padding: 30px 0;
-    }
-
-    .mobile{
-        width: 100%;
-        min-height: 700px;
-
-        .item-mobile{
-            position: relative;
-
-            .img-logo{
-                position: absolute;
-                z-index: -1;
-            }
-        }
-    }
+  .other-info {
+    width: 80%;
+    margin: 40px auto;
+    min-height: 350px;
+    padding: 30px 0;
+  }
 }
