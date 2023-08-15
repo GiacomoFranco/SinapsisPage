@@ -18,6 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WorkWithUsModule } from './modules/work-with-us/work-with-us.module';
 import { BlogModule } from './modules/blog/blog.module';
 import { BlogsingleModule } from './modules/blogsingle/blogsingle.module';
+import { PortafolioDetailModule } from './modules/portafolio-detail/portafolio-detail.module';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { BlogsingleModule } from './modules/blogsingle/blogsingle.module';
     BrowserAnimationsModule,
     WorkWithUsModule,
     BlogModule,
-    BlogsingleModule
+    BlogsingleModule,
+    PortafolioDetailModule
   ],
   providers: [],
   bootstrap: [AppComponent],
