@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, Renderer2, ViewChild, DoCheck, HostListener } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Renderer2, ViewChild, DoCheck, HostListener, OnDestroy } from '@angular/core';
 import { Servicio } from '@app/models/servicio.model';
 import { SliderAbout } from '@app/models/sliderUs.model';
 import { ServiciosService } from '@app/services/servicios.service';
@@ -11,8 +11,6 @@ import { Proyecto } from '@app/models/proyect.model';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { TestimoniosService } from '@app/services/testimonios.service';
 import { Testimonio } from '@app/models/testimonio.model';
-// import { CardPost } from '@app/models/card-post.model';
-// import { BlogPostFeaturedService } from '@app/services/blogPostFeatured.service';
 
 
 
@@ -21,16 +19,20 @@ import { Testimonio } from '@app/models/testimonio.model';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements AfterViewInit, DoCheck {
+export class HomeComponent implements AfterViewInit, DoCheck, OnDestroy {
   constructor(
     private renderer2: Renderer2,
     private servicioService: ServiciosService,
     private proyectosService: ProyectosService,
     private testimoniosService: TestimoniosService,
-    // private postsList: BlogPostFeaturedService,
   ) {
     gsap.registerPlugin(Flip, ScrollTrigger);
   }
+  ngOnDestroy(): void {
+    this.animation.reverse()
+  }
+
+  animation: any;
 
   @ViewChild('laptop') laptop: ElementRef<HTMLElement>;
   @ViewChild('absoluteLaptop') absoluteLaptop: ElementRef<HTMLElement>;
@@ -51,14 +53,13 @@ export class HomeComponent implements AfterViewInit, DoCheck {
       ease: 'power3',
     });
 
-    gsap
+    this.animation = gsap
       .timeline({
         scrollTrigger: {
           trigger: '.banner-principal',
           pin: '.banner-principal',
           start: '1px top',
           end: '+=100% 20%',
-          // markers: true,
           scrub: true,
           id: 'eda',
         },
@@ -69,7 +70,7 @@ export class HomeComponent implements AfterViewInit, DoCheck {
         {
           x: '-200',
           opacity: 0,
-          zIndex: 19,
+          zIndex: 9,
           duration: 1.2,
         },
         { x: 0, opacity: 1, zIndex: 21 }
@@ -195,37 +196,6 @@ export class HomeComponent implements AfterViewInit, DoCheck {
     return operation.toString();
   }
 
-  // blogOptions: OwlOptions = {
-  //   loop: true,
-  //   mouseDrag: true,
-  //   touchDrag: false,
-  //   pullDrag: false,
-  //   autoplay: true,
-  //   margin: 55,
-  //   autoplayTimeout: 10,
-  //   dots: true,
-  //   navSpeed: 10,
-  //   autoplaySpeed: 10000,
-  //   responsive: {
-  //     1024: {
-  //       items: 2,
-  //     },
-  //     767: {
-  //       items: 1,
-  //     },
-  //   },
-  // };
-  // BlogPosts: CardPost[] = [
-  //   {
-  //     featuredImg: '',
-  //     categories: '',
-  //     date: '',
-  //     title: '',
-  //     excerpt: '',
-  //     slug: '',
-  //   },
-  // ];
-
   ngDoCheck(): void {
     if (this.project !== this.projectBefore) {
       this.projectBefore = this.project;
@@ -250,10 +220,6 @@ export class HomeComponent implements AfterViewInit, DoCheck {
     this.testimoniosService
       .getTestimonios()
       .then((resp) => (this.testimonios = resp.data));
-
-    // this.postsList.getBlogPostFeatured().then((response) => {
-    //   this.BlogPosts = response.data;
-    // });
   }
 
   ngAfterViewInit(): void {

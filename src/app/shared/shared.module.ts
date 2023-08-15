@@ -53,6 +53,7 @@ import { PagerModule } from "@progress/kendo-angular-pager";
     FooterComponent,
     FaqComponent,
     ProyectLaptopComponent,
+    ProjectMobileComponent,
     RouterModule,
     RedesSocialesComponent,
     CardPostComponent,

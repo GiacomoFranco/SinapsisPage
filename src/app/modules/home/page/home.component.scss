@@ -35,13 +35,12 @@
 .banner-principal {
   position: relative;
   display: flex;
-  // flex-wrap: wrap-reverse;
   justify-content: space-around;
   height: calc(100vh - 64px);
 
   .laptop-graphic--absolute {
     position: absolute;
-    z-index: 20;
+    z-index: 9;
     width: 120vw;
     height: 170vh;
     top: -67px;
@@ -466,7 +465,6 @@
   min-height: 905px;
   display: flex;
   flex-direction: column;
-  // justify-content: center;
   align-items: center;
 
   .testimonios__title-section {
@@ -504,7 +502,6 @@
     width: 100%;
 
     .carrousel {
-      // flex-grow: 1;
       height: 562px;
       max-width: 1520px;
       width: 89%;
@@ -551,9 +548,6 @@
                 align-items: center;
                 overflow: hidden;
                 margin-right: 40px;
-                // img{
-                //   width: 100%;
-                // }
               }
 
               .testimonio__info {
