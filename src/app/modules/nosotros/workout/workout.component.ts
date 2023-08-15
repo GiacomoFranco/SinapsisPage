@@ -15,25 +15,7 @@ export class WorkoutComponent implements AfterViewInit, OnDestroy {
   @ViewChild('tablet') tablet: ElementRef<HTMLElement>;
   @ViewChild('contentRelative') contentRelative: ElementRef<HTMLElement>;
 
-  @Input() pageData: nosotrosPage = {
-    gallery: [],
-    ourHistory: {
-      imagen: '',
-      title: '',
-      description: ''
-    },
-    timeLine: {
-      description: '',
-      data: []
-    },
-    misionVision: [],
-    sectionDesign: {
-      imagen: '',
-      title: '',
-      descripcion: '',
-      UrlBtn: ''
-    }
-  }
+  @Input() pageData: nosotrosPage;
 
   animation: gsap.core.Tween;
 
