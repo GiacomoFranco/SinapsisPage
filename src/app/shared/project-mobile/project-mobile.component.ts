@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-project-mobile',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./project-mobile.component.scss']
 })
 export class ProjectMobileComponent {
-  url_image = 'https://admin-sinapsis.sinapsisdev.com/wp-content/uploads/2023/08/Vector.png'
+  @Input() url_image = ''
 }

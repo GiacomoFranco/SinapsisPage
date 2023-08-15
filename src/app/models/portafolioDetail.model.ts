@@ -14,7 +14,7 @@ export interface PortafolioDetail {
         description: string;
     }
     visualMobile: {
-        resourceMobile: string;
+        resourseMobile: string;
         title: string;
         description: string;
     }

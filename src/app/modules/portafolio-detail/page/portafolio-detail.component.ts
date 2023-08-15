@@ -10,7 +10,28 @@ import { PortafolioService } from '@app/services/portafolio.service';
 })
 export class PortafolioDetailComponent implements OnInit {
   slug = ''
-  dataPage: PortafolioDetail
+
+  dataPage: PortafolioDetail = {
+    title: '',
+    slug: '',
+    general: {
+        screenshot: '',
+        logo: '',
+        experience: '',
+        description: '',
+        urlProject: ''
+    },
+    visualProject: {
+        Resourselaptop: '',
+        title: '',
+        description: ''
+    },
+    visualMobile: {
+        resourseMobile: '',
+        title: '',
+        description: ''
+    }
+  }
 
   constructor(private route: ActivatedRoute, private portafolioService: PortafolioService){}
 
@@ -25,7 +46,7 @@ export class PortafolioDetailComponent implements OnInit {
     this.portafolioService.getDetail(this.slug).then(resp => {
       const {data} = resp
       this.dataPage = data
-      console.log('objeto', this.dataPage)
+      console.log(this.dataPage)
     })
   }
 }
