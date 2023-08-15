@@ -93,6 +93,7 @@
         width: 50%;
         font-size: 25px;
         color: #fff;
+        text-decoration: underline;
       }
     }
   }
@@ -142,7 +143,15 @@
       .work-card {
         grid-column: 1/2;
         grid-row-start: 10;
+        padding: 10px !important;
         
+        .arrow{
+          display: none;
+        }
+
+        a{
+          width: 100%;
+        }
       }
     }
   }

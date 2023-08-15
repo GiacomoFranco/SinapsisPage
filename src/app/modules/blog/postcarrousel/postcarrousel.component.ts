@@ -7,9 +7,13 @@ import { BlogPostFeaturedService } from '@app/services/blogPostFeatured.service'
   selector: 'app-postcarrousel',
   templateUrl: './postcarrousel.component.html',
   styleUrls: ['./postcarrousel.component.scss'],
-  encapsulation: ViewEncapsulation.None
 })
 export class PostcarrouselComponent {
+
+  @Input()
+  set setBreakpoint(breakpoint: number){
+    this.customOptions.responsive![breakpoint].items = 3;
+  }
 
   customOptions: OwlOptions = {
     loop: true,
@@ -24,7 +28,11 @@ export class PostcarrouselComponent {
     navSpeed: 10,
     autoplaySpeed: 10000,
     responsive: {
+      1400:{
+        items: 2
+      },
       870: {
+        margin: 20,
         items: 2
       }
     }

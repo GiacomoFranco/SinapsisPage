@@ -25,10 +25,12 @@ span {
 
   .info-software {
     p {
-      color: #1a1a1b;
-      text-align: start;
-      font-style: normal;
-      margin-bottom: 0;
+      p {
+        color: #1a1a1b;
+        text-align: start;
+        font-style: normal;
+        margin-bottom: 0;
+      }
     }
   }
 }
@@ -105,6 +107,21 @@ span {
         width: 75px;
         height: 75px;
         right: 15px !important;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1800px) {
+  .section-software {
+
+    .container{
+      max-width: 1480px;
+
+      p {
+        max-width: 1300px;
+        margin-left: auto;
+        margin-right: auto;
       }
     }
   }
