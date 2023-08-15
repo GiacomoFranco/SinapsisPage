@@ -1,5 +1,5 @@
-<div class="port-paginated">
+<div class="c-paginated">
   <kendo-datapager [total]="PaginationData.totalItems || 1" [pageSize]="this.PaginationData.perPage || 6" [skip]="skip"
-    (pageChange)="onPageChange($event)">
+    [pageSizeValues]='false' [info]="info" [type]="type" [previousNext]="false" (pageChange)="onPageChange($event)">
   </kendo-datapager>
 </div>
