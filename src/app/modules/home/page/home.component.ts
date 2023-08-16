@@ -24,20 +24,16 @@ export class HomeComponent implements AfterViewInit, DoCheck, OnDestroy {
     private renderer2: Renderer2,
     private servicioService: ServiciosService,
     private proyectosService: ProyectosService,
-    private testimoniosService: TestimoniosService,
+    private testimoniosService: TestimoniosService
   ) {
-    gsap.registerPlugin(Flip, ScrollTrigger);
-  }
-  ngOnDestroy(): void {
-    this.animation.reverse()
   }
 
-  animation: any;
 
   @ViewChild('laptop') laptop: ElementRef<HTMLElement>;
   @ViewChild('absoluteLaptop') absoluteLaptop: ElementRef<HTMLElement>;
   @ViewChild('relativeLaptop') relativeLaptop: ElementRef<HTMLElement>;
 
+  animation: GSAPAnimation | null;
   bannerAnimations(): void {
     const state = Flip.getState(this.laptop.nativeElement);
 
@@ -223,7 +219,14 @@ export class HomeComponent implements AfterViewInit, DoCheck, OnDestroy {
   }
 
   ngAfterViewInit(): void {
-    this.bannerAnimations();
+    this.bannerAnimations()
+
+    setTimeout(() => ScrollTrigger.refresh(), 1);
+  }
+
+  ngOnDestroy(): void {
+    this.animation!.kill()
+    this.animation = null;
   }
 
   @HostListener('window:resize', ['$event'])

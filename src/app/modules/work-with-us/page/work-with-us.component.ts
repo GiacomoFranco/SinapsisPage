@@ -1,5 +1,4 @@
-import { trigger } from '@angular/animations';
-import { AfterViewChecked, AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy } from '@angular/core';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -10,7 +9,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 })
 export class WorkWithUsComponent implements AfterViewInit, OnDestroy {
   constructor() {
-    gsap.registerPlugin(ScrollTrigger);
   }
 
   bannerAnimation: GSAPAnimation | null;

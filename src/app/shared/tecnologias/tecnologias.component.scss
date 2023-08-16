@@ -1,70 +1,58 @@
-.tecnologias--container {
-    margin-top: 100px;
-    margin-bottom: 100px;
-    background-color: white;
-    padding: 0 400px 0 400px;
-    position: relative;
+.tecnologias__section {
+  min-height: 481px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  position: relative;
+
+
+  .tecnologias__container {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
 
     .tecnologias-title {
-        text-align: center;
-        width: 100%;
-        color: #1a1a1b;
-        font-family: Inter;
-        font-size: 18px;
-        font-weight: 600;
-        margin-bottom: 10px;
+      text-align: center;
+      width: 100%;
+      color: #1a1a1b;
+      font-family: Inter;
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 10px;
     }
 
     .tecnologias-desc {
-        text-align: center;
-        width: 100%;
+      text-align: center;
+      width: 100%;
     }
 
-    .swiper {
-        padding-top: 80px;
+    .tecnologias__sec {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
 
-        .swiper-wrapper {
-            display: flex;
-            justify-content: center;
+      .tecnologia {
+        width: 100px !important;
+        height: 80px !important;
 
-            .logo--container {
-                width: 100px !important;
-                height: 80px !important;
+        .tecnologia-logo {
+          width: 80px;
+          height: 50px;
+          object-fit: contain;
 
-                .tecnologia-logo {
-                    width: 80px;
-                    height: 50px;
-                    object-fit: contain;
+          &:hover {
+            cursor: pointer;
+          }
 
-                    &:hover {
-                        cursor: pointer;
-                    }
-
-                    &.anim {
-                        animation: Float 3s ease-in-out infinite alternate;
-                        transition: all .5s ease;
-                    }
-                }
-            }
+          &.anim {
+            animation: Float 3s ease-in-out infinite alternate;
+            transition: all .5s ease;
+          }
         }
-
-        .swiper-button-next {
-            margin-left: 50px;
-            color: #7042ef;
-
-            &::after {
-                font-size: 25px;
-            }
-        }
-
-        .swiper-button-prev {
-            color: #7042ef;
-
-            &::after {
-                font-size: 25px;
-            }
-        }
+      }
     }
+  }
 }
 
 @keyframes Float {
