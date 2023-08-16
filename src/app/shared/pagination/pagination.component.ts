@@ -17,10 +17,6 @@ export class PaginationComponent {
     totalItems: 1,
   }
 
-  ngOnInit(): void {
-    //console.log(this.PaginationData)
-  }
-
   skip = 0;
   type: PagerType = 'numeric'
   info = false

@@ -43,7 +43,6 @@ export class FaqComponent {
   detectScroll():void {
 
     const getFAQAccordion = document.documentElement.querySelector('.c-faq')
-    console.log(getFAQAccordion)
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
 
   }
