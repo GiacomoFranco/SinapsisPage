@@ -11,8 +11,8 @@
     text-align: center;
 
     .img-logo {
-      max-width: 270px;
-      height: 70px;
+      max-width: 280px;
+      height: 110px;
       object-fit: contain;
     }
   }
@@ -29,4 +29,26 @@
     min-height: 350px;
     padding: 30px 0;
   }
+}
+
+@media screen and (max-width: 1023px) {
+  .firstSection{
+    width: 100% !important;
+  }
+
+  .content-laptop {
+    min-height: 400px !important;
+  }
+
+  .other-info {
+    width: 100% !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+
+  .content-laptop {
+    min-height: 200px !important;
+  }
+
 }
