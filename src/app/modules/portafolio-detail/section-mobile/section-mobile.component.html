@@ -1,24 +1,13 @@
 <section class="mobile">
-  <div class="row w-100">
-    <div class="col-md-6 col-12 item-mobile">
+  <div class="row w-100 m-0">
+    <div class="col-md-6 col-12 item-mobile mobile-col p-0">
       <img class="img-logo" src="assets/img/logo_mark.svg" alt="" />
       <app-project-mobile [url_image]="dataPage.visualMobile.resourseMobile"></app-project-mobile>
     </div>
-    <div class="col-md-6 col-12 item-text-mobile">
+    <div class="col-md-6 col-12 item-text-mobile mobile-col">
       <div class="content-text-mobile">
-        <h3>Lorem ipsum is simple.</h3>
-        <p>
-          Lorem ipsum is simple texto of the printing and typesetting industry.
-          lorem ipsum has been the Lorem ipsum is simple texto of the printing
-          and typesetting industry. lorem ipsum has been the Lorem ipsum is
-          simple texto of the printing and typesetting industry. Lorem ipsum is
-          simple texto of the printing and typesetting industry. lorem ipsum has
-          been the Lorem ipsum is simple texto of the printing and typesetting
-          industry. lorem ipsum has been the Lorem ipsum is simple texto of the
-          printing and typesetting industry. Lorem ipsum is simple texto of the
-          printing and typesetting industry.
-        </p>
-        <a href="">Botón</a>
+        <h3>{{dataPage.visualMobile.title}}</h3>
+        <p [innerHTML]="dataPage.visualMobile.description"></p>
       </div>
     </div>
   </div>
