@@ -1,30 +1,39 @@
 import { Component } from '@angular/core';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 import { CasosDeExito } from 'src/app/core/casosDeExito.mock';
 import Swiper from 'swiper';
 
 @Component({
   selector: 'app-casos-de-exito',
   templateUrl: './casos-de-exito.component.html',
-  styleUrls: ['./casos-de-exito.component.scss']
+  styleUrls: ['./casos-de-exito.component.scss'],
 })
 export class CasosDeExitoComponent {
-  swiper: Swiper | any;
   casosExito = CasosDeExito;
-  ngAfterViewInit() {
-    this.swiper = new Swiper('.swiper', {
-      slidesPerView: 6,
-      loop: true,
-      direction: this.getDirection(),
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      }
-    });
-  }
 
-  getDirection() {
-    let windowWidth = window.innerWidth;
-    let direction: "vertical" | "horizontal" = window.innerWidth <= 760 ? 'vertical' : 'horizontal';
-    return direction;
-  }
+
+  casosExitoOptions: OwlOptions = {
+    loop: true,
+    mouseDrag: true,
+    touchDrag: false,
+    nav: true,
+    pullDrag: false,
+    margin: 5,
+    autoplay: true,
+    items: 1,
+    autoHeight: false,
+    dots: false,
+    responsive: {
+      1250: {
+        items: 6,
+      },
+      840: {
+        items: 4,
+      },
+      522: {
+        items: 3
+      }
+
+    },
+  };
 }

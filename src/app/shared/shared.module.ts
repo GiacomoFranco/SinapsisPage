@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { headerComponent } from './header/header.component';
 import { RouterModule } from '@angular/router';
@@ -15,11 +15,10 @@ import { NavmenuComponent } from './header/navmenu/navmenu.component';
 import { LangSelectorComponent } from './header/lang-selector/lang-selector.component';
 import { ArrowBackComponent } from './arrow-back/arrow-back.component';
 import { InternalProjectComponent } from './internal-project/internal-project.component';
-import { BlogModule } from '@app/modules/blog/blog.module';
-import { PostcarrouselComponent } from '@app/modules/blog/postcarrousel/postcarrousel.component';
 import { PaginationComponent } from './pagination/pagination.component';
 import { ProjectMobileComponent } from './project-mobile/project-mobile.component';
 import { PagerModule } from "@progress/kendo-angular-pager";
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 @NgModule({
   declarations: [
@@ -38,13 +37,9 @@ import { PagerModule } from "@progress/kendo-angular-pager";
     ArrowBackComponent,
     InternalProjectComponent,
     PaginationComponent,
-    ProjectMobileComponent
+    ProjectMobileComponent,
   ],
-  imports: [
-    CommonModule,
-    RouterModule,
-    PagerModule
-  ],
+  imports: [CommonModule, RouterModule, PagerModule, CarouselModule],
   exports: [
     headerComponent,
     ButtonSinapsisComponent,
@@ -61,7 +56,8 @@ import { PagerModule } from "@progress/kendo-angular-pager";
     NavmenuComponent,
     LangSelectorComponent,
     ArrowBackComponent,
-    PaginationComponent
+    PaginationComponent,
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class SharedModule { }
+export class SharedModule {}

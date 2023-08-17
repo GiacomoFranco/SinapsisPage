@@ -1,12 +1,13 @@
 .casos--container {
-	margin-top: 100px;
-	margin-bottom: 100px;
-	background-color: white;
-	position: relative;
-	padding: 0 50px 0 50px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  background-color: white;
+  position: relative;
+  padding: 0 50px 0 50px;
 
 	.casos-title {
-		// position: absolute;
 		text-align: center;
 		width: 100%;
 		color: #1a1a1b;
@@ -15,50 +16,101 @@
 		font-weight: 600;
 	}
 
-	.swiper {
-		padding: 20px 130px 20px 130px;
+  .carrousel {
+    padding: 20px 130px 20px 130px;
 
-		.swiper-wrapper {
-			column-gap: 115px;
+      .logo--container {
+        width: 100px !important;
+        height: 80px !important;
+        margin: auto;
 
-			.logo--container {
-				width: 100px !important;
-				height: 80px !important;
+        .caso-exito-logo {
+          width: 100px;
+          height: 80px;
+          object-fit: contain;
+          filter: grayscale(1);
+          animation: zoomOut 0.3s ease-in-out forwards;
+          transition: all 0.3s ease;
 
-				.caso-exito-logo {
-					width: 100px;
-					height: 80px;
-					object-fit: contain;
-					filter: grayscale(1);
-					animation: zoomOut 0.3s ease-in-out forwards;
-					transition: all 0.3s ease;
+          &:hover {
+            cursor: pointer;
+            animation: zoomIn 0.5s ease-in-out forwards;
+            transition: all 0.3s ease;
+          }
+        }
+      }
 
-					&:hover {
-						cursor: pointer;
-						animation: zoomIn 0.5s ease-in-out forwards;
-						transition: all 0.3s ease;
-					}
-				}
-			}
-		}
+    .swiper-button-next {
+      margin-left: 50px;
+      color: #7042ef;
 
-		.swiper-button-next {
-			margin-left: 50px;
-			color: #7042ef;
+      &::after {
+        font-size: 25px;
+      }
+    }
 
-			&::after {
-				font-size: 25px;
-			}
-		}
+    .swiper-button-prev {
+      color: #7042ef;
 
-		.swiper-button-prev {
-			color: #7042ef;
+      &::after {
+        font-size: 25px;
+      }
+    }
 
-			&::after {
-				font-size: 25px;
-			}
-		}
-	}
+    ::ng-deep .owl-stage {
+      height: 140px;
+      display: flex;
+      align-items: center;
+    }
+
+    ::ng-deep .owl-theme .owl-nav {
+      display: flex;
+      justify-content: space-between;
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+      width: 100%;
+
+      .owl-next, .owl-prev{
+        font-size: 0px !important;
+        background-color: transparent;
+        width: 40px;
+        height: 40px;
+        background-image: url('/assets/tecnologias/controll.svg');
+        background-size: 40px;
+        cursor: pointer;
+        position: absolute;
+        transform: translate(-70px, -60%);
+        // transition: filter .3s ease-in;
+
+        &:hover{
+          filter: invert(48%) sepia(88%) saturate(6086%) hue-rotate(244deg) brightness(91%) contrast(106%);
+        }
+      }
+
+      .owl-next{
+        right: 0px;
+        transform: rotate(180deg) translate(-70px, 60%);
+      }
+    }
+  }
+}
+
+@media (max-width: 840px) {
+  .casos--container {
+    .carrousel {
+      padding: 20px 65px 20px 65px;
+    }
+  }
+}
+
+@media (max-width: 300px) {
+  .casos--container {
+    padding: 0 20px 0 20px !important;
+    .carrousel {
+      padding: 20px 20px 20px 20px;
+    }
+  }
 }
 
 @keyframes zoomOut {

@@ -50,6 +50,10 @@ export const CasosDeExito: CasoExito[] = [
         screenshot: ''
     }
 ]
+
+
+
+
 export const CasosDeExitoScreens: CasoExito[] = [
     {
         logo: 'assets/casosDeExito/bancolombia.png',
