@@ -5,7 +5,6 @@ import { gsap } from 'gsap';
 import { TextPlugin } from 'gsap/TextPlugin';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SeoService } from '@app/services/seo.service';
-
 gsap.registerPlugin(TextPlugin, ScrollTrigger);
 
 @Component({

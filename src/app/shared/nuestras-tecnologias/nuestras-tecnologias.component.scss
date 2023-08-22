@@ -1,0 +1,143 @@
+.tecnologies-comp {
+  width: 100%;
+  min-height: 700px;
+  padding: 60px 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .tecnologias-desc{
+    width: 50%;
+    margin: auto;
+  }
+
+  .content-icons{
+    width: 100%;
+    height: 500px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+
+    .content-items {
+      width: 60%;
+      height: 100%;
+      margin: auto;
+      position: absolute;
+  
+      img {
+        position: absolute;
+      }
+    }
+  
+    .layer-1 {
+      img{
+        height: 75px;
+        width: 90px;
+      }
+      img:nth-child(1) {
+        top: 32px;
+        left: 0;
+      }
+      img:nth-child(2) {
+        top: 30px;
+        right: 0;
+      }
+      img:nth-child(3) {
+        left: 0;
+        bottom: 63px;
+      }
+      img:nth-child(4) {
+        right: 0;
+        bottom: 12px;
+      }
+      img:nth-child(5) {
+        top: 50%;
+        left: 50%;
+      }
+    }
+  
+    .layer-2 {
+      img{
+        height: 60px;
+        width: 65px;
+      }
+      img:nth-child(1) {
+        top: 111px;
+        left: 152px;
+      }
+      img:nth-child(2) {
+        top: 123px;
+        right: 142px;
+      }
+      img:nth-child(3) {
+        top: 310px;
+        left: 168px;
+      }
+      img:nth-child(4) {
+        top: 358px;
+        right: 123px;
+      }
+      img:nth-child(5) {
+        bottom: 30px;
+        left: 500px;
+      }
+    }
+  
+    .layer-3 {
+      img{
+        height: 75px;
+        width: 60px;
+      }
+      img:nth-child(1) {
+        right: 200px;
+        top: 62px;
+      }
+      img:nth-child(2) {
+        left: 100px;
+        top: 200px;
+      }
+      img:nth-child(3) {
+        bottom: 50px;
+        left: 324px;
+      }
+      img:nth-child(4) {
+        top: 220px;
+        right: 478px;
+      }
+      img:nth-child(5) {
+        bottom: 165px;
+        right: 50px;
+      }
+    }
+  
+    .layer-4 {
+      img{
+        height: 85px;
+        width: 60px;
+      }
+      img:nth-child(1) {
+        left: 406px;
+        top: 38px;
+      }
+      img:nth-child(2) {
+        right: 464px;
+        top: 60px;
+      }
+      img:nth-child(3) {
+        top: 213px;
+        left: 550px;
+      }
+      img:nth-child(4) {
+        top: 144px;
+        right: 361px;
+      }
+      img:nth-child(5) {
+        bottom: 20px;
+        left: 180px;
+      }
+    }
+  }
+}

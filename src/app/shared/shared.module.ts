@@ -20,6 +20,7 @@ import { PostcarrouselComponent } from '@app/modules/blog/postcarrousel/postcarr
 import { PaginationComponent } from './pagination/pagination.component';
 import { ProjectMobileComponent } from './project-mobile/project-mobile.component';
 import { PagerModule } from "@progress/kendo-angular-pager";
+import { NuestrasTecnologiasComponent } from './nuestras-tecnologias/nuestras-tecnologias.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { PagerModule } from "@progress/kendo-angular-pager";
     ArrowBackComponent,
     InternalProjectComponent,
     PaginationComponent,
-    ProjectMobileComponent
+    ProjectMobileComponent,
+    NuestrasTecnologiasComponent
   ],
   imports: [
     CommonModule,
@@ -61,7 +63,8 @@ import { PagerModule } from "@progress/kendo-angular-pager";
     NavmenuComponent,
     LangSelectorComponent,
     ArrowBackComponent,
-    PaginationComponent
+    PaginationComponent,
+    NuestrasTecnologiasComponent
   ],
 })
 export class SharedModule { }
