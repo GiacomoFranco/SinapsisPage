@@ -25,14 +25,18 @@
 <section class="nuestros-servicios">
   <article class="nuestros-servicios__graphics">
     <div class="nuestros-servicios__title">
-      <h2><img src="assets/icons/arrowdown-right.svg" alt="">Nuestros <span class="servicios-span">servicios</span></h2>
+      <h2>
+        <img src="assets/icons/arrowdown-right.svg" alt="">Nuestros <span class="servicios-span">servicios</span>
+      </h2>
     </div>
     <div class="nuestros-servicios__images-container">
       <img src="assets\icons\purple-logo-icon.svg" alt="Logo Sinapsis" class="logo-icon">
-      <img class="team-work" src="assets\home\team-working.jpg" alt="Equipo de trabajo">
+      <div class="team-work-container">
+        <img class="team-work" src="assets\home\team-working.jpg" alt="Equipo de trabajo">
+      </div>
     </div>
   </article>
-  <article class="nuestros-servicios__container container">
+  <article class="nuestros-servicios__container container" appScrollReveal y="100" selectorClassAnimation="service" [isPending]="isPendingServicios">
     <div *ngIf="!isServiciosResponsive; else nuestrosServiciosMovile" class="nuestros-servicios-grid">
       <div *ngFor="let servicio of servicios" class="service">
         <img class="service__icon" [src]="servicio.icon" alt="ícono Servicio">
@@ -55,19 +59,21 @@
     </ng-template>
   </article>
 </section>
-<section class="nosotros">
+<section class="nosotros" appScrollReveal x="-100" selectorClassAnimation="nosotros-a">
   <article class="section__content">
     <div class="section__text-container">
-      <span class=".sup-title">Nosotros</span>
-      <h2>Lorem ipsum is simply text of the printing</h2>
-      <p>Lorem ipsum is simple texto of the printing and typesetting industry. lorem ipsum has been the Lorem ipsum is
+      <div class="nosotros-a">
+        <span class=".sup-title">Nosotros</span>
+        <h2>Lorem ipsum is simply text of the printing</h2>
+      </div>
+      <p class="nosotros-a">Lorem ipsum is simple texto of the printing and typesetting industry. lorem ipsum has been the Lorem ipsum is
         simple
         texto of the printing and typesetting industry. lorem ipsum has been the Lorem ipsum is simple texto of the
         printing and
         typesetting industry. lorem ipsum has been the Lorem ipsum is simple texto of the printing and typesetting
         industry.
         lorem ipsum has been the</p>
-      <div class="section__actions">
+      <div class="section__actions nosotros-a" >
         <app-button-sinapsis [name_button]="'Lorem ipsum is simple'"
           [url]="'trabaja-con-nosotros'"></app-button-sinapsis>
       </div>
@@ -83,13 +89,15 @@
     </ng-container>
   </owl-carousel-o>
 </section>
-<section *ngIf="!isWWUResponsive; else WWUMovile" class="trabaja-con-nosotros">
+<section *ngIf="!isWWUResponsive; else WWUMovile" class="trabaja-con-nosotros" appScrollReveal y="100" selectorClassAnimation="wwu-a">
   <article class="section__content section__content--white">
     <div class="content__container">
       <div class="section__text-container">
-        <span class=".sup-title">Trabaja con nosotros</span>
-        <h2>Lorem ipsum is simply text of the printing</h2>
-        <p>Lorem ipsum is simple texto of the printing and typesetting industry. lorem ipsum has been the Lorem ipsum is
+        <div class="wwu-a">
+          <span class=".sup-title">Trabaja con nosotros</span>
+          <h2>Lorem ipsum is simply text of the printing</h2>
+        </div>
+        <p class="wwu-a">Lorem ipsum is simple texto of the printing and typesetting industry. lorem ipsum has been the Lorem ipsum is
           simple
           texto of the printing and typesetting industry. lorem ipsum has been the Lorem ipsum is simple texto of the
           printing and
@@ -102,8 +110,8 @@
       <a class="redirect-button" href="#">Lorem ipsum is simply text of the printing</a>
     </div>
   </article>
-  <article class="trabaja-con-nosotros__graphic">
-    <img src="/assets/home/employee.png" alt="">
+  <article appParallax selectorClassAnimation="employee-wwu-a" class="trabaja-con-nosotros__graphic">
+    <img src="/assets/home/employee.png" alt="Empleada Sinapsis" class="employee-wwu-a">
   </article>
 </section>
 <ng-template #WWUMovile>
@@ -111,9 +119,11 @@
     <article class="section__content section__content--white">
       <div class="content__container">
         <div class="section__text-container">
-          <span class=".sup-title">Trabaja con nosotros</span>
-          <h2>Lorem ipsum is simply text of the printing</h2>
-          <p>Lorem ipsum is simple texto of the printing and typesetting industry. lorem ipsum has been the Lorem ipsum is
+          <div appScrollReveal y="100" selectorClassAnimation="wwu-a" class="wwu-a">
+            <span class=".sup-title">Trabaja con nosotros</span>
+            <h2>Lorem ipsum is simply text of the printing</h2>
+          </div>
+          <p class="wwu-a">Lorem ipsum is simple texto of the printing and typesetting industry. lorem ipsum has been the Lorem ipsum is
             simple
             texto of the printing and typesetting industry. lorem ipsum has been the Lorem ipsum is simple texto of the
             printing and
@@ -128,15 +138,15 @@
 </ng-template>
 <app-tecnologias></app-tecnologias>
 <section class="proyectos-destacados">
-  <div class="proyectos-destacados__title-section">
+  <div class="proyectos-destacados__title-section project-a" appScrollReveal y="100" selectorClassAnimation="project-a" [isPending]="isPendingProjects">
     <h2>Lorem ipsum is simply text of the printing</h2>
   </div>
   <article *ngIf="project" class="proyect container">
-    <div class="proyect-preview">
+    <div class="proyect-preview project-a">
       <img src="assets\icons\white-logo-icon.svg" alt="Logo Sinapsis" class="logo-icon">
       <app-proyect-laptop class="preview-image" [changeUrl]="project.general.screenshot"></app-proyect-laptop>
     </div>
-    <div class="proyect-content">
+    <div class="proyect-content project-a">
       <img [src]="project.general.logo" alt="Logo del clientes" class="proyect-logo">
       <div class="proyects-content__text-container">
         <h3>{{ project.title}}</h3>
@@ -151,7 +161,7 @@
   </div>
 </section>
 <section class="testimonios">
-  <article class="testimonios__title-section">
+  <article class="testimonios__title-section" appScrollReveal y="100">
     <div class="section-text-container">
       <img class="graphic-logo-part" src="assets\icons\graphic-logo-part.svg" alt="Parte del logo">
       <h3>Lorem ipsum is simply text of the printing</h3>
@@ -160,7 +170,7 @@
         texto of the printing and typesetting industry.</p>
     </div>
   </article>
-  <article class="testimonios__reviews">
+  <article class="testimonios__reviews" appScrollReveal y="100" [markers]="true" selectorClassAnimation="testimonio" [isPending]="isPendingTestimonios">
     <owl-carousel-o class="carrousel" [options]="testimonyOptions">
       <ng-container *ngFor="let testimonio of testimonios">
         <ng-template carouselSlide>
@@ -194,7 +204,7 @@
 </section>
 <section class="blog">
   <article class="blog__title">
-    <div class="blog__title-container">
+    <div class="blog__title-container" appScrollReveal x="-100">
       <img src="assets/icons/arrowdown-right.svg" alt="">
       <h2>Explora <span class="servicios-span">nuestro Blog</span></h2>
     </div>

@@ -119,10 +119,14 @@
     .nuestros-servicios__images-container {
       position: relative;
 
-      .team-work {
+      .team-work-container {
         position: relative;
         max-width: 440px;
         z-index: 1;
+        overflow: hidden;
+        img {
+          width: 100%;
+        }
       }
 
       .logo-icon {
@@ -256,6 +260,7 @@
 .trabaja-con-nosotros {
   display: flex;
   max-height: 834px;
+  min-height: 833px;
 
   .section__content {
     display: flex;

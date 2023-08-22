@@ -1,11 +1,13 @@
 <div class="tecnologias__section">
   <div class="container tecnologias__container">
-    <h4 class="tecnologias-title">Algunas de nuestras tecnologías.</h4>
-    <p class="tecnologias-desc">Lorem ipsum is simple texto of the printing and typesetting industry. lorem ipsum has
-        been the Lorem ipsum is simple texto of the printing and typesetting industry. lorem ipsum has been the Lorem
-        ipsum is simple texto of the printing and typesetting industry. lorem ipsum has been the Lorem ipsum is simple
-        texto of the printing and typesetting industry. lorem ipsum has been the</p>
-    <div class="tecnologias__sec">
+    <div appScrollReveal y="100" selectorClassAnimation="tecnologias-a">
+          <h4 class="tecnologias-title tecnologias-a">Algunas de nuestras tecnologías.</h4>
+          <p class="tecnologias-desc tecnologias-a">Lorem ipsum is simple texto of the printing and typesetting industry. lorem ipsum has
+              been the Lorem ipsum is simple texto of the printing and typesetting industry. lorem ipsum has been the Lorem
+              ipsum is simple texto of the printing and typesetting industry. lorem ipsum has been the Lorem ipsum is simple
+              texto of the printing and typesetting industry. lorem ipsum has been the</p>
+        </div>
+    <div class="tecnologias__sec tecnologias-a">
       <div *ngFor="let caso of tecnologias, let i=index" class="tecnologia">
         <img class="tecnologia-logo" [ngClass]="{'anim': i <= animIndex}" [src]="caso" alt="tecnologias">
       </div>

@@ -19,6 +19,8 @@ import { PaginationComponent } from './pagination/pagination.component';
 import { ProjectMobileComponent } from './project-mobile/project-mobile.component';
 import { PagerModule } from "@progress/kendo-angular-pager";
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { ScrollRevealDirective } from './directives/scroll-reveal.directive';
+import { ParallaxDirective } from './directives/parallax.directive';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,8 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     InternalProjectComponent,
     PaginationComponent,
     ProjectMobileComponent,
+    ScrollRevealDirective,
+    ParallaxDirective,
   ],
   imports: [CommonModule, RouterModule, PagerModule, CarouselModule],
   exports: [
@@ -57,6 +61,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     LangSelectorComponent,
     ArrowBackComponent,
     PaginationComponent,
+    ScrollRevealDirective,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

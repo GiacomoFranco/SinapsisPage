@@ -10,6 +10,8 @@ import { BlogPostFeaturedService } from '@app/services/blogPostFeatured.service'
 })
 export class PostcarrouselComponent {
 
+  isPending: boolean = true;
+
   @Input()
   set setBreakpoint(breakpoint: number){
     this.customOptions.responsive![breakpoint].items = 3;
@@ -54,6 +56,7 @@ export class PostcarrouselComponent {
   ngOnInit(): void {
     this.postsList.getBlogPostFeatured().then(response => {
       this.BlogPosts = response.data
+      this.isPending = false
     })
   }
 }
