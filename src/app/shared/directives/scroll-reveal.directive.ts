@@ -8,8 +8,6 @@ import { ScrollTrigger } from 'gsap/all';
 export class ScrollRevealDirective implements AfterViewInit
  {
   constructor(private element: ElementRef) {}
-
-  // @Input() duration = 1;
   @Input() x: number | string;
   @Input() y: number | string;
   @Input() selectorClassAnimation: string;
@@ -17,10 +15,8 @@ export class ScrollRevealDirective implements AfterViewInit
 
 
   @Input() set isPending(state: boolean){
-    console.log(state);
 
     if (!state) {
-      console.log('here');
 
       this.animation();
     }
@@ -53,7 +49,6 @@ export class ScrollRevealDirective implements AfterViewInit
 
   ngAfterViewInit(): void {
     if (!this.isPending) {
-      console.log('notAsync');
       this.animation();
     }
   }

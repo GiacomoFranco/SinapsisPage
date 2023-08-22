@@ -10,7 +10,6 @@ export class ParallaxDirective implements OnChanges {
 
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(this.from);
   }
 
   @Input() selectorClassAnimation: string;
