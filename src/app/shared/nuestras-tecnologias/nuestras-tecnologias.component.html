@@ -1,0 +1,27 @@
+<section class="tecnologies-comp">
+  <div class="container text-center">
+    <h4 class="tecnologias-title" (click)="refrescarAnim()">Algunas de nuestras tecnologías.</h4>
+    <p class="tecnologias-desc">
+      Lorem ipsum is simple texto of the printing and typesetting industry.
+      lorem ipsum has been the Lorem ipsum is simple texto of the printing and
+      typesetting industry. lorem ipsum has been the Lorem ipsum is simple texto
+      of the printing and typesetting industry. lorem ipsum has been the Lorem
+      ipsum is simple texto of the printing and typesetting industry. lorem
+      ipsum has been the
+    </p>
+    <div class="content-icons animacion-nuestras-tecnologias">
+      <div class="content-items layer-1">
+        <img *ngFor="let img of tecnoImg.slice(0, 5)" [src]="img" alt="" />
+      </div>
+      <div class="content-items layer-2">
+        <img *ngFor="let img of tecnoImg.slice(5, 10)" [src]="img" alt="" />
+      </div>
+      <div class="content-items layer-3">
+        <img *ngFor="let img of tecnoImg.slice(10, 15)" [src]="img" alt="" />
+      </div>
+      <div class="content-items layer-4">
+        <img *ngFor="let img of tecnoImg.slice(15, 20)" [src]="img" alt="" />
+      </div>
+    </div>
+  </div>
+</section>

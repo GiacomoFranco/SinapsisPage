@@ -18,6 +18,7 @@ import { InternalProjectComponent } from './internal-project/internal-project.co
 import { PaginationComponent } from './pagination/pagination.component';
 import { ProjectMobileComponent } from './project-mobile/project-mobile.component';
 import { PagerModule } from "@progress/kendo-angular-pager";
+import { NuestrasTecnologiasComponent } from './nuestras-tecnologias/nuestras-tecnologias.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { ScrollRevealDirective } from './directives/scroll-reveal.directive';
 import { ParallaxDirective } from './directives/parallax.directive';
@@ -40,6 +41,7 @@ import { ParallaxDirective } from './directives/parallax.directive';
     InternalProjectComponent,
     PaginationComponent,
     ProjectMobileComponent,
+    NuestrasTecnologiasComponent,
     ScrollRevealDirective,
     ParallaxDirective,
   ],
@@ -60,8 +62,7 @@ import { ParallaxDirective } from './directives/parallax.directive';
     NavmenuComponent,
     LangSelectorComponent,
     ArrowBackComponent,
-    PaginationComponent,
-    ScrollRevealDirective,
+    PaginationComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
