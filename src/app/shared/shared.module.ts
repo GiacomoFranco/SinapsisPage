@@ -62,7 +62,10 @@ import { ParallaxDirective } from './directives/parallax.directive';
     NavmenuComponent,
     LangSelectorComponent,
     ArrowBackComponent,
-    PaginationComponent
+    PaginationComponent,
+    NuestrasTecnologiasComponent,
+    ScrollRevealDirective,
+    ParallaxDirective
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
