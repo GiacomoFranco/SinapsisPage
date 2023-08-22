@@ -66,7 +66,7 @@ export class NosotrosComponent implements OnInit {
       title: 'Acerca de Nosotros',
       description: 'Descubre quiénes somos en Sinapsis. Somos un equipo de expertos en desarrollo de software comprometidos con la entrega de soluciones tecnológicas de vanguardia. Conoce nuestra historia, valores y visión de innovación.',
       keywords: 'nosotros, equipo de desarrollo de software, empresa de tecnología, expertos en desarrollo de software, historia de la empresa, visión y valores, innovación tecnológica',
-      site_name: 'Sinapsis Innovation',
+      site_name: 'Sinapsis',
       image: '',
       slug_url: '/nosotros',
     })

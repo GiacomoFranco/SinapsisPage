@@ -60,7 +60,7 @@ export class ServiciosComponent implements OnInit {
       title: 'Servicios de Desarrollo de Software',
       description: 'Nuestros servicios de desarrollo de software personalizados están diseñados para satisfacer las necesidades únicas de tu negocio. Ofrecemos soluciones de software de alta calidad para impulsar la eficiencia y la innovación.',
       keywords: 'servicios de desarrollo de software, desarrollo de aplicaciones, soluciones de software, desarrollo personalizado, programación a medida, desarrollo de software a medida',
-      site_name: 'Sinapsis Innovation',
+      site_name: 'Sinapsis',
       image: '',
       slug_url: '/servicios',
     })

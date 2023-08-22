@@ -4,6 +4,7 @@
 
   .firstSection {
     width: 50%;
+    height: 280px;
     margin: auto;
     display: grid;
     place-content: center;
@@ -11,22 +12,44 @@
     text-align: center;
 
     .img-logo {
-      max-width: 270px;
-      height: 70px;
+      max-width: 280px;
+      height: 110px;
       object-fit: contain;
     }
   }
 
   .content-laptop {
     width: 90%;
+    height: 730px;
     margin: 30px auto;
-    min-height: 730px;
   }
 
   .other-info {
     width: 80%;
     margin: 40px auto;
-    min-height: 350px;
+    min-height: 410px;
     padding: 30px 0;
   }
+}
+
+@media screen and (max-width: 1023px) {
+  .firstSection{
+    width: 100% !important;
+  }
+
+  .content-laptop {
+    height: 400px !important;
+  }
+
+  .other-info {
+    width: 100% !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+
+  .content-laptop {
+    height: 200px !important;
+  }
+
 }

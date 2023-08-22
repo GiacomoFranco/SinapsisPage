@@ -8,7 +8,7 @@ import { gsap } from 'gsap';
   styleUrls: ['./proyect-laptop.component.scss'],
 })
 export class ProyectLaptopComponent {
-  urlImage: string = 'assets/home/preview-bancolombia.png';
+  urlImage: string = '';
 
   @Input()
   set changeUrl(newImg:string | undefined){
