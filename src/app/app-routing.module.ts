@@ -11,6 +11,7 @@ import { BlogsingleComponent } from './modules/blogsingle/page/blogsingle.compon
 import { PortafolioDetailComponent } from './modules/portafolio-detail/page/portafolio-detail.component';
 
 import { InternalProjectComponent } from './shared/internal-project/internal-project.component';
+import { VacantesComponent } from './modules/vacantes/page/vacantes.component';
 
 const routes: Routes = [
   {
@@ -19,40 +20,49 @@ const routes: Routes = [
   },
   {
     path: 'servicios',
-    component: ServiciosComponent
+    component: ServiciosComponent,
   },
   {
     path: 'nosotros',
-    component: NosotrosComponent
+    component: NosotrosComponent,
   },
   {
-    path: 'portafolio', component: PortafolioComponent
+    path: 'portafolio',
+    component: PortafolioComponent,
   },
-  { path: "bancolombia", component: InternalProjectComponent },
+  { path: 'bancolombia', component: InternalProjectComponent },
   {
     path: 'faq',
-    component: PagefaqComponent
+    component: PagefaqComponent,
   },
   {
     path: 'trabaja-con-nosotros',
-    component: WorkWithUsComponent
+    component: WorkWithUsComponent,
+  },
+  {
+    path: 'trabaja-con-nosotros/vacantes',
+    component: VacantesComponent,
+    loadChildren: () =>
+      import('./modules/vacantes/vacantes.module').then(
+        (m) => m.VacantesModule
+      ),
   },
   {
     path: 'blog',
-    component: BlogComponent
+    component: BlogComponent,
   },
   {
     path: 'blog/:slug',
-    component: BlogsingleComponent
+    component: BlogsingleComponent,
   },
   {
     path: 'portafolio/:slug',
-    component: PortafolioDetailComponent
+    component: PortafolioDetailComponent,
   },
   {
     path: '**',
-    component: HomeComponent
-  }
+    component: HomeComponent,
+  },
 ];
 
 @NgModule({

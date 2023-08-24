@@ -19,6 +19,9 @@ import { WorkWithUsModule } from './modules/work-with-us/work-with-us.module';
 import { BlogModule } from './modules/blog/blog.module';
 import { BlogsingleModule } from './modules/blogsingle/blogsingle.module';
 import { PortafolioDetailModule } from './modules/portafolio-detail/portafolio-detail.module';
+import { GridModule } from '@progress/kendo-angular-grid';
+import { InputsModule } from '@progress/kendo-angular-inputs';
+import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 
 
 @NgModule({
@@ -38,7 +41,10 @@ import { PortafolioDetailModule } from './modules/portafolio-detail/portafolio-d
     WorkWithUsModule,
     BlogModule,
     BlogsingleModule,
-    PortafolioDetailModule
+    PortafolioDetailModule,
+    GridModule,
+    InputsModule,
+    DropDownsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

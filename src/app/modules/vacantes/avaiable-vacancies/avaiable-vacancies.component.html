@@ -1,0 +1,41 @@
+<kendo-textbox placeholder="Buscar trabajo" rounded="none" class="custom-rounded">
+</kendo-textbox>
+
+<div class="dropdown-filter">
+  <div class="dropdown-container" id="rol">
+    <kendo-dropdownlist id="rol" value="Rol" [data]="rol"></kendo-dropdownlist>
+    <kendo-dropdownlist id="equipo" value="Equipo" [data]="equipo"></kendo-dropdownlist>
+    <kendo-dropdownlist id="remoto" value="Remoto" [data]="remoto"></kendo-dropdownlist>
+  </div>
+</div>
+
+<kendo-grid [kendoGridBinding]="vacancies" [height]="393">
+  <kendo-grid-column
+    [headerClass]="'headerCustomClass'"
+    [class]="'cellCustomClass rolClass'"
+    field="rol"
+    title="Rol"[width]="210"
+    [minResizableWidth]="200"
+
+    ></kendo-grid-column>
+
+  <kendo-grid-column
+    [headerClass]="'headerCustomClass'"
+    [class]="'cellCustomClass'"
+    field="equipo"
+    title="Equipo"
+      title="Rol"[width]="210"
+    [minResizableWidth]="200"
+    ></kendo-grid-column>
+
+  <kendo-grid-column
+    [headerClass]="'headerCustomClass'"
+    [class]="'cellCustomClass '"
+    field="remoto"
+    title="Remoto"
+    title="Rol"[width]="210"
+    [minResizableWidth]="200"
+    ></kendo-grid-column>
+
+
+</kendo-grid>
