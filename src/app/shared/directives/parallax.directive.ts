@@ -1,16 +1,12 @@
-import { Directive, ElementRef, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Directive, ElementRef, Input } from '@angular/core';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 
 @Directive({
   selector: '[appParallax]',
 })
-export class ParallaxDirective implements OnChanges {
+export class ParallaxDirective {
   constructor(private element: ElementRef) {}
-
-
-  ngOnChanges(changes: SimpleChanges): void {
-  }
 
   @Input() selectorClassAnimation: string;
   @Input() from: {};
@@ -29,7 +25,7 @@ export class ParallaxDirective implements OnChanges {
           scrub: true,
         },
       })
-      .fromTo(this.selectorClassAnimation, { ...this.from }, { ...this.to });
+      .fromTo(`.${this.selectorClassAnimation}`, { ...this.from }, { ...this.to });
   }
 
 

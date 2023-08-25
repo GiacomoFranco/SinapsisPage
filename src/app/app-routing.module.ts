@@ -12,6 +12,7 @@ import { PortafolioDetailComponent } from './modules/portafolio-detail/page/port
 
 import { InternalProjectComponent } from './shared/internal-project/internal-project.component';
 import { VacantesComponent } from './modules/vacantes/page/vacantes.component';
+import { VacanteDetailComponent } from './modules/vacante-detail/page/vacante-detail.component';
 
 const routes: Routes = [
   {
@@ -45,6 +46,14 @@ const routes: Routes = [
     loadChildren: () =>
       import('./modules/vacantes/vacantes.module').then(
         (m) => m.VacantesModule
+      ),
+  },
+  {
+    path: 'trabaja-con-nosotros/vacantes/vacante',
+    component: VacanteDetailComponent,
+    loadChildren: () =>
+      import('./modules/vacante-detail/vacante-detail.module').then(
+        (m) => m.VacanteDetailModule
       ),
   },
   {
