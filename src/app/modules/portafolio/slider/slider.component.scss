@@ -1,0 +1,21 @@
+.slider {
+  width: 100%;
+  min-height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .img-slider {
+    width: 100px;
+    height: 80px;
+    object-fit: contain;
+    animation: zoomOut 0.3s ease-in-out forwards;
+    transition: all 0.3s ease;
+
+    &:hover {
+      cursor: pointer;
+      animation: zoomIn 0.5s ease-in-out forwards;
+      transition: all 0.3s ease;
+    }
+  }
+}

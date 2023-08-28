@@ -7,7 +7,7 @@
       <p class="mt-3">{{dataPage.general.description}}</p>
       <a [href]="dataPage.general.urlProject">{{dataPage.title}}</a>
     </section>
-    <app-tecnologias-portafolio></app-tecnologias-portafolio>
+    <app-tecnologias-portafolio [dataPage]="dataPage"></app-tecnologias-portafolio>
     <section class="content-laptop">
       <app-proyect-laptop
         [changeUrl]="dataPage.visualProject.Resourselaptop"

@@ -11,6 +11,7 @@ export class SectionMobileComponent {
   @Input() dataPage: PortafolioDetail = {
     title: '',
     slug: '',
+    category: [],
     general: {
         screenshot: '',
         logo: '',
