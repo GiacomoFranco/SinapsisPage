@@ -16,4 +16,12 @@ export class PortafolioService {
   async getDetail(slug: string){
     return await this.api.get(`single?post_type=casos-exito&slug=${slug}`)
   }
+
+  async getAll(){
+    return await this.api.get('cpt?slug=casos-exito&_fields=slug,general.logo')
+  }
+
+  async getPagePortafolio(paged:string, perPage: string){
+    return await this.api.get(`cpt-v2?slug=casos-exito&paged=${paged}&per_page=${perPage}`)
+  }
 }

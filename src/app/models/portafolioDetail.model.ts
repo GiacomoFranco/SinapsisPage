@@ -1,6 +1,7 @@
 export interface PortafolioDetail {
     title: string;
     slug: string;
+    category: category[],
     general: {
         screenshot: string;
         logo: string;
@@ -18,4 +19,9 @@ export interface PortafolioDetail {
         title: string;
         description: string;
     }
+}
+
+export interface category {
+    name: string;
+    imagen: string
 }

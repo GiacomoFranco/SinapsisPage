@@ -1,8 +1,8 @@
 import { Component, OnInit, DoCheck } from '@angular/core';
 import { CasosDeExito, CasosDeExitoScreens } from '@app/core/casosDeExito.mock';
 import { PageChangeEvent } from '@progress/kendo-angular-pager';
-import Swiper from 'swiper';
 import { Router } from '@angular/router';
+import { PortafolioService } from '@app/services/portafolio.service';
 
 @Component({
   selector: 'app-portafolio',
@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./portafolio.component.scss']
 })
 export class PortafolioComponent implements OnInit, DoCheck {
-  swiper: Swiper | any;
   casosExito = CasosDeExito;
   casosExitoScreens = CasosDeExitoScreens;
   grouped: any[] = []
@@ -22,10 +21,11 @@ export class PortafolioComponent implements OnInit, DoCheck {
   contentId = 'cards-cont';
 
 
-  constructor(private router: Router){}
+  constructor(private router: Router, private portafolioService: PortafolioService){}
 
   ngOnInit(): void {
     this.pageData();
+    this.getService();
   }
   ngDoCheck(): void {
     if (this.pagedChases !== this.pagedChasescpy) {
@@ -37,17 +37,14 @@ export class PortafolioComponent implements OnInit, DoCheck {
     }
   }
 
+  getService(){
+    this.portafolioService.getPagePortafolio('2', '6').then(resp => {
+      const {data} = resp;
+      console.log(data)
+    })
+  }
+
   ngAfterViewInit() {
-    this.swiper = new Swiper('.swiper', {
-      slidesPerView: 6,
-      loop: false,
-      autoplay: true,
-      direction: this.getDirection(),
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      }
-    });
   }
 
   getDirection() {

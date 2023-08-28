@@ -3,22 +3,7 @@
   <p class="desc">
     Lorem ipsum is simple text of the printing and typesetting industry.
   </p>
-  <!-- <app-casos-de-exito></app-casos-de-exito> -->
-  <div class="casos--container">
-    <div class="swiper">
-      <div class="swiper-wrapper">
-        <div
-          *ngFor="let caso of casosExito"
-          class="swiper-slide logo--container"
-        >
-          <img class="caso-exito-logo" [src]="caso.logo" alt="casos de exito" />
-        </div>
-      </div>
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-    </div>
-  </div>
-
+  <app-slider></app-slider>
   <div [id]="contentId">
     <div *ngFor="let chase of grouped" class="cards-cont">
       <div class="each-alone container">

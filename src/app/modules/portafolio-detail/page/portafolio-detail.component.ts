@@ -17,6 +17,7 @@ export class PortafolioDetailComponent implements OnInit, OnDestroy {
   dataPage: PortafolioDetail = {
     title: '',
     slug: '',
+    category: [],
     general: {
         screenshot: '',
         logo: '',
