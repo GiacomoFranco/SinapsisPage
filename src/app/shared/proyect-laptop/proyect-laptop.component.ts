@@ -9,21 +9,25 @@ import { gsap } from 'gsap';
 })
 export class ProyectLaptopComponent {
   urlImage: string = '';
+  animationExecuted: boolean = false;
 
   @Input()
-  set changeUrl(newImg:string | undefined){
+  set changeUrl(newImg: string | undefined) {
     if (newImg) {
       this.urlImage = newImg;
     }
 
-    this.manualSlideAnimation()
+    // if (!this.animationExecuted) {
+    //   this.manualSlideAnimation();
+    //   this.animationExecuted = true;
+    // }
   }
 
-  manualSlideAnimation() {
-    gsap.fromTo(
-      '.container-laptop-proyects',
-      { opacity: 0 },
-      { opacity: 1, duration: 1 }
-    );
-  }
+  // manualSlideAnimation() {
+  //   gsap.fromTo(
+  //     '.container-laptop-proyects',
+  //     { opacity: 0 },
+  //     { opacity: 1, duration: 1 }
+  //   );
+  // }
 }
