@@ -21,7 +21,7 @@ export class PortafolioService {
     return await this.api.get('cpt?slug=casos-exito&_fields=slug,general.logo')
   }
 
-  async getPagePortafolio(paged:string, perPage: string){
+  async getPagePortafolio(paged:number, perPage: number){
     return await this.api.get(`cpt-v2?slug=casos-exito&paged=${paged}&per_page=${perPage}`)
   }
 }

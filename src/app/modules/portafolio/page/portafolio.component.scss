@@ -1,167 +1,206 @@
 .casos-port-container {
-    margin-top: 3rem !important;
+  margin-top: 3rem !important;
 
-    .title {
-        text-align: center;
-    }
+  .title {
+    text-align: center;
+  }
 
-    .desc {
-        text-align: center;
-    }
+  .desc {
+    text-align: center;
+  }
 
-    #cards-cont {
-        width: 100%;
+  #cards-cont {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .cards-cont {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      row-gap: 50px;
+      padding-top: 100px;
+      border-top: 0.5px solid #b6b8dc;
+      border-bottom: 0.5px solid #b6b8dc;
+
+      .each-alone {
+        height: 370px;
         display: flex;
-        flex-direction: column;
         justify-content: center;
         align-items: center;
 
-        .cards-cont {
+        .text,
+        .screen {
+          width: 50%;
+        }
+      }
+
+      .img-logo{
+        max-height: 97px;
+        min-width: 65px;
+      }
+
+      .pair-cont {
+        display: flex;
+        border-top: 0.5px solid #b6b8dc;
+
+        .each-pair {
+          border-right: 0.5px solid #b6b8dc;
+          width: 50%;
+
+          .left {
             display: flex;
-            flex-direction: column;
+            z-index: 5;
             align-items: center;
-            row-gap: 50px;
-            padding-top: 100px;
-            border-top: 0.5px solid #B6B8DC;
-            border-bottom: 0.5px solid #B6B8DC;
+            padding: 10px;
+            position: relative;
+            height: 620px;
 
-            .view-more {
-                border: none;
-                background-color: transparent;
-                color: #7042EF;
+            .content-laptop {
+              width: 753px;
+              position: relative;
+              margin-left: -355px;
             }
 
-            .each-alone {
-                display: flex;
+            img {
+              transform: translateX(-5%);
             }
 
-            .pair-cont {
-                display: flex;
-                border-top: 0.5px solid #B6B8DC;
+            .text {
+              width: 50%;
+              position: relative;
 
-                .each-pair {
-                    border-right: 0.5px solid #B6B8DC;
-                    width: 50%;
-
-                    .left {
-                        display: flex;
-                        z-index: 5;
-                        align-items: center;
-                        padding: 80px 20px 80px 20px;
-
-                        img {
-                            transform: translateX(-5%);
-                        }
-                    }
-
-                    .right {
-                        display: flex;
-                        align-items: center;
-                        padding: 80px 20px 80px 20px;
-                    }
-                }
+              p {
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                -webkit-line-clamp: 1;
+              }
             }
+          }
+
+          .right {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            height: 620px;
+
+            .content-mobile {
+              width: 50%;
+              height: 475px;
+              transform: translateY(-105px);
+            }
+
+            .text {
+              width: 50%;
+
+              p {
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                -webkit-line-clamp: 1;
+              }
+            }
+          }
         }
+      }
+    }
+  }
+
+  .view-more {
+    border: none;
+    background-color: transparent;
+    color: #7042ef;
+  }
+
+  .content-movil {
+    width: 100%;
+
+    .item-data {
+      width: 100%;
+      min-height: 551px;
+      background-color: #f8f8f8;
+      display: grid;
+      place-items: center;
+      place-content: center;
+      padding: 20px;
+    }
+  }
+
+  .port-paginated {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+    margin-bottom: 100px;
+
+    .icon-left {
+      position: absolute;
+      transform: translateX(-300%) rotateY(180deg);
+
+      &:hover {
+        cursor: pointer;
+      }
     }
 
-    .port-paginated {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 80px;
-        margin-bottom: 100px;
+    .icon-right {
+      position: absolute;
+      transform: translateX(250%);
 
-        .icon-left {
-            position: absolute;
-            transform: translateX(-300%) rotateY(180deg);
+      &:hover {
+        cursor: pointer;
+      }
+    }
 
-            &:hover {
-                cursor: pointer;
-            }
+    .k-pager::ng-deep {
+      width: 100%;
+      justify-content: center;
+      border: none;
+      background-color: transparent;
+
+      .k-button {
+        &::after {
+          color: transparent;
+          background-color: transparent;
         }
 
-        .icon-right {
-            position: absolute;
-            transform: translateX(250%);
-
-            &:hover {
-                cursor: pointer;
-            }
+        &::before {
+          color: transparent;
+          background-color: transparent;
         }
 
-        .k-pager::ng-deep {
-            width: 100%;
-            justify-content: center;
-            border: none;
-            background-color: transparent;
-
-            .k-button {
-                &::after {
-                    color: transparent;
-                    background-color: transparent;
-                }
-
-                &::before {
-                    color: transparent;
-                    background-color: transparent;
-                }
-
-                &:active {
-                    color: transparent;
-                    background-color: transparent;
-                }
-
-                &:focus {
-                    color: transparent;
-                    background-color: transparent;
-                }
-
-                &.k-selected {
-                    color: transparent;
-
-                    .k-button-text {
-                        color: #7042EF;
-                        font-weight: 700;
-                        transform: scale(1.2);
-                        transition: all .1s ease;
-                    }
-                }
-
-                .k-button-text {
-                    font-weight: 600;
-                    color: #000;
-                    transition: all .1s ease;
-                }
-            }
+        &:active {
+          color: transparent;
+          background-color: transparent;
         }
-    }
-}
 
-@keyframes zoomOut {
-    0% {
-        transform: scale(1.3);
-    }
+        &:focus {
+          color: transparent;
+          background-color: transparent;
+        }
 
-    50% {
-        transform: scale(0.9);
-    }
+        &.k-selected {
+          color: transparent;
 
-    100% {
-        transform: scale(1);
-    }
-}
+          .k-button-text {
+            color: #7042ef;
+            font-weight: 700;
+            transform: scale(1.2);
+            transition: all 0.1s ease;
+          }
+        }
 
-@keyframes zoomIn {
-    0% {
-        transform: scale(1);
+        .k-button-text {
+          font-weight: 600;
+          color: #000;
+          transition: all 0.1s ease;
+        }
+      }
     }
-
-    50% {
-        transform: scale(0.8);
-    }
-
-    100% {
-        transform: scale(1.3);
-    }
+  }
 }
