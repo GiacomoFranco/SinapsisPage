@@ -42,7 +42,6 @@ export class PortafolioComponent implements OnInit, DoCheck {
       for (let i = 0; i < this.dataPage.length; i += 3) {
         this.grouped.push(this.dataPage.slice(i, i + 3));
       }
-      console.log(this.grouped)
     }
   }
 
@@ -62,6 +61,7 @@ export class PortafolioComponent implements OnInit, DoCheck {
       this.dataPage = data.post
       this.dataPagination = data.pagination
       this.pagedChases = this.dataPage.slice(this.skip, this.skip + this.pageSize);
+      console.log(this.dataPage)
     })
   }
 

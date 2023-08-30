@@ -6,7 +6,7 @@
   <app-slider></app-slider>
   <div [id]="contentId">
     <div *ngIf="!isMobile; else elsebloq">
-      <div *ngFor="let chase of grouped" class="cards-cont">
+      <div *ngFor="let chase of grouped; let i = index" class="cards-cont">
         <div class="each-alone container">
           <div class="text">
             <img class="img-logo" [src]="chase[0].general.logo" alt="" />
@@ -16,7 +16,7 @@
             </button>
           </div>
           <div class="screen">
-            <app-proyect-laptop [changeUrl]="chase[0].featuredImg"></app-proyect-laptop>
+            <app-proyect-laptop [changeUrl]="chase[0].general.screenshot" [idLaptop]="chase[0].id"></app-proyect-laptop>
           </div>
         </div>
         <div class="pair-cont">
@@ -26,7 +26,7 @@
           >
             <div *ngIf="i === 0" class="left">
               <div class="content-laptop">
-                <app-proyect-laptop [changeUrl]="item.featuredImg"></app-proyect-laptop>
+                <app-proyect-laptop [changeUrl]="item.general.screenshot" [idLaptop]="item.id"></app-proyect-laptop>
               </div>
               <div class="text">
                 <img class="img-logo" [src]="item.general.logo" alt="" />
@@ -38,7 +38,7 @@
             </div>
             <div *ngIf="i === 1" class="right">
               <div class="content-mobile">
-                <app-project-mobile [url_image]="item.featuredImg"></app-project-mobile>
+                <app-project-mobile [url_image]="item.general.screenshotMobile" [idPhone]="item.id"></app-project-mobile>
               </div>
               <div class="text">
                 <img class="img-logo" [src]="item.general.logo" alt="" />
@@ -61,10 +61,10 @@
           <button class="view-more" (click)="redirect(item.slug)">Más información</button>
           <div class="contentLaptoMobile mt-3">
             <ng-container *ngIf="i % 2 === 0; else mobileComponent">
-              <app-proyect-laptop [changeUrl]="item.featuredImg"></app-proyect-laptop>
+              <app-proyect-laptop [changeUrl]="item.general.screenshot" [idLaptop]="item.id"></app-proyect-laptop>
             </ng-container>
             <ng-template #mobileComponent>
-              <app-project-mobile [url_image]="item.featuredImg"></app-project-mobile>
+              <app-project-mobile [url_image]="item.general.screenshotMobile" [idPhone]="item.id"></app-project-mobile>
             </ng-template>
           </div>
         </div>

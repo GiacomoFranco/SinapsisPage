@@ -1,10 +1,11 @@
 export interface portafolioModel {
+    id: string;
     title: string;
     featuredImg: string;
     slug: string;
     general: {
         screenshot: string;
-        screenshotMobile: boolean;
+        screenshotMobile: string;
         logo: string;
         experience: string;
         description: string;

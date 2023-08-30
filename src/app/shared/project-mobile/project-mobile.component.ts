@@ -7,4 +7,14 @@ import { Component, Input } from '@angular/core';
 })
 export class ProjectMobileComponent {
   @Input() url_image = ''
+  @Input() id: string | number;
+
+  @Input() set idPhone(id: number | string){
+    this.id = "id_phone_"+ id
+  };
+  
+
+  changeId():string{
+    return `url(#${this.id})`
+  }
 }
