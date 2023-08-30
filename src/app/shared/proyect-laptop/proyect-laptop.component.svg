@@ -28,9 +28,9 @@
   <path
     d="M0 407.062C26.089 413.589 52.8823 416.88 79.7754 416.859H654.775C681.671 416.88 708.468 413.589 734.56 407.062H0.0361083H0Z"
     fill="url(#paint10_linear_1042_437)" />
-  <path class="container-laptop-proyects" d="M653.12 24.8853H87.4102V374.915H653.12V24.8853Z" fill="url(#img1)" />
+  <path class="container-laptop-proyects" d="M653.12 24.8853H87.4102V374.915H653.12V24.8853Z" [attr.fill]="changeId()" />
   <defs>
-    <pattern id="img1" patternUnits="userSpaceOnUse" width="567" height="351" x="87">
+    <pattern [id]="id" patternUnits="userSpaceOnUse" width="567" height="351" x="87">
       <image [attr.href]="urlImage" x="0" y="0" width="567" height="351" />
     </pattern>
     <radialGradient id="paint0_radial_1042_437" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"

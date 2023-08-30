@@ -9,7 +9,12 @@ import { gsap } from 'gsap';
 })
 export class ProyectLaptopComponent {
   urlImage: string = '';
-  animationExecuted: boolean = false;
+  id: string;
+  // animationExecuted: boolean = false;
+  @Input() set idLaptop(id: number | string){
+    this.id = "id_laptop_"+ id
+    console.log(this.id)
+  };
 
   @Input()
   set changeUrl(newImg: string | undefined) {
@@ -21,6 +26,10 @@ export class ProyectLaptopComponent {
     //   this.manualSlideAnimation();
     //   this.animationExecuted = true;
     // }
+  }
+
+  changeId():string{
+    return `url(#${this.id})`
   }
 
   // manualSlideAnimation() {
