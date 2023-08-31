@@ -20,7 +20,6 @@ export class ParallaxDirective {
         scrollTrigger: {
           trigger: this.element.nativeElement,
           start: '10% center',
-          markers: true,
           id: 'parallax',
           scrub: true,
         },

@@ -1,0 +1,240 @@
+:host {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.60);
+}
+
+::ng-deep {
+  .k-list-container {
+    overflow: hidden;
+    border-radius: 10px;
+
+    .k-list-content {
+      &::-webkit-scrollbar {
+        width: .3em;
+      }
+
+      &::-webkit-scrollbar-track {
+        background-color: transparent;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        border-radius: 24px;
+        background: #B6B8DC;
+      }
+
+      .k-selected {
+        background-color: #7042EF !important;
+      }
+
+      .k-focus {
+        background-color: #7042EF !important;
+      }
+
+      .k-list-optionlabel {
+        background-color: #7042EF !important;
+      }
+    }
+
+    .k-list {
+      .k-selected {
+          background-color: #7042EF !important;
+        }
+    }
+  }
+}
+
+.form-content--dragover {
+  outline: 2px dashed #7042EF;
+  border-radius: 10px;
+  z-index: 5;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #7042ef96;
+    background-image: url('/assets/vacante/pdfupload.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 65px;
+    z-index: 5;
+    border-radius: 20px;
+    color: white;
+    font-size: 20px;
+  }
+}
+
+.form-container {
+  position: relative;
+  width: 90%;
+  max-width: 750px;
+  background-color: white;
+  height: 90vh;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  .close-icon {
+    width: 20px;
+    cursor: pointer;
+    align-self: flex-end;
+  }
+
+  .form-content {
+    padding: 10px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    h3 {
+      text-align: center;
+      text-wrap: balance;
+    }
+
+    .form-wrapper {
+      width: 100%;
+      overflow-y: scroll;
+
+      &::-webkit-scrollbar {
+        height: .8em;
+        width: .5em;
+      }
+
+      &::-webkit-scrollbar-track {
+        background-color: transparent;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        border-radius: 24px;
+        background: #B6B8DC;
+      }
+
+
+      .form {
+        width: 90%;
+        // height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 20px;
+        margin: auto;
+
+        ::ng-deep .btn-sinapsis {
+          margin-bottom: 20px;
+        }
+
+        .label-form {
+          align-self: flex-start;
+          margin-bottom: 20px;
+          font-weight: 500;
+        }
+
+        .k-form-field {
+          width: 100%;
+          margin-bottom: 20px;
+
+          .k-form-field-checkbox-wrap {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+
+            .k-checkbox-label {
+              label {
+                cursor: pointer;
+              }
+            }
+          }
+
+          .textbox,
+          .k-picker {
+            border: none;
+            background: #D9D9D938;
+            color: #1A1A1B;
+            border-radius: 18px;
+            height: 50px;
+            width: 100%;
+            padding: 0 35px;
+
+            &::placeholder{
+              color: #B7B1B1;
+            }
+          }
+
+          .k-picker{
+            ::ng-deep .k-input-inner {
+                .k-input-value-text {
+                  color: #1A1A1B;
+                }
+              }
+          }
+
+          .k-upload {
+            border: none;
+            background-color: inherit;
+
+            ::ng-deep .k-dropzone {
+              flex-direction: column !important;
+              min-height: 100px;
+              // border: none;
+              // background-color: inherit;
+
+
+              .k-upload-button-wrap {
+
+                .k-upload-button {
+                  background-image: url('/assets/vacante/addcircle.svg');
+                  background-repeat: no-repeat;
+                  width: 50px;
+                  height: 50px;
+                  min-width: inherit;
+                  background-color: inherit;
+                  border: none;
+
+                  transition: scale .5s ease;
+
+                  &:hover {
+                    background-color: inherit;
+                    scale: 1.05;
+                    transition: scale .5s ease;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+      }
+    }
+  }
+}
+
+@media (max-width: 530px){
+  .form-container {
+    .form-content {
+      .form-wrapper {
+        .form {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
