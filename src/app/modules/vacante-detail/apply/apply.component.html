@@ -1,0 +1,71 @@
+<article class="form-container" kendoUploadDropZone="myZone">
+  <div class="form-content" [class.form-content--dragover]="draggingFile">
+    <img src="/assets/vacante/close.svg" alt="" class="close-icon" (click)="toggleModalState()">
+    <h3>Lorem ipsum is simply text of the printing and.</h3>
+    <article class="form-wrapper">
+      <form [formGroup]="form" class="form">
+
+
+        <label class="label-form">Datos</label>
+        <kendo-formfield showErrors="initial">
+          <input class="textbox" formControlName="fullName" placeholder="Nombre Completo" #fullName required>
+
+          <kendo-formerror>Este campo es requerido</kendo-formerror>
+        </kendo-formfield>
+        <kendo-formfield showErrors="initial">
+          <input class="textbox" formControlName="email" placeholder="Correo electrónico" #email required>
+
+          <kendo-formerror *ngIf="Email.errors?.['required'] && (Email.dirty || Email.touched )">Este campo es
+            requerido</kendo-formerror>
+          <kendo-formerror *ngIf="Email.errors?.['email'] && (Email.dirty || Email.touched )">Ingresa un correo electrónico válido</kendo-formerror>
+        </kendo-formfield>
+        <kendo-formfield showErrors="initial">
+          <input class="textbox" formControlName="telefono" placeholder="Teléfono" #telefono required type="tel">
+
+          <kendo-formerror *ngIf="Telefono.errors?.['required'] && (Telefono.dirty || Telefono.touched )">Este campo es
+            requerido</kendo-formerror>
+          <kendo-formerror *ngIf="Telefono.errors?.['pattern']">Ingresa un número de teléfono válido</kendo-formerror>
+
+
+          <!-- <kendo-formerror>Este campo es requerido</kendo-formerror> -->
+        </kendo-formfield>
+        <kendo-formfield showErrors="initial">
+
+          <kendo-dropdownlist #ubication isRequired="true" formControlName="ubication" [data]="ubications"
+            [defaultItem]="'Ubicación'">
+          </kendo-dropdownlist>
+          <kendo-formerror>Este campo es requerido</kendo-formerror>
+        </kendo-formfield>
+
+
+        <label class="label-form">Anexa tu Curriculum Vitae</label>
+        <kendo-formfield>
+          <kendo-fileselect #files formControlName="files" [multiple]="false" zoneId="myZone">
+            <kendo-fileselect-messages dropFilesHere="Agregar aqui tu curriculum" select="">
+            </kendo-fileselect-messages>
+          </kendo-fileselect>
+
+          <!-- <kendo-formerror *ngIf="form.controls.files.errors?.required && submitted">Error: Uploading files is
+              required</kendo-formerror> -->
+        </kendo-formfield>
+
+
+        <!-- <button type="submit" class="k-button k-primary" style="margin: 1em 0;">Submit</button> -->
+
+        <app-button-sinapsis name_button="Enviar y aplicar" [redirects]="false"></app-button-sinapsis>
+
+        <kendo-formfield showHints="initial">
+          <div class="k-form-field-checkbox-wrap">
+            <input kendoCheckBox id="terms" type="checkbox" formControlName="terms" />
+            <kendo-label class="k-checkbox-label" for="terms"
+              text="Lorem ipsum is simply Terminos y condiciones"></kendo-label>
+          </div>
+
+          <!-- <kendo-formhint>By checking this, you agree to our Terms&Conditions</kendo-formhint> -->
+          <kendo-formerror>Este campo es requerido</kendo-formerror>
+        </kendo-formfield>
+
+      </form>
+    </article>
+  </div>
+</article>

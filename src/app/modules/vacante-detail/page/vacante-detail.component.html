@@ -1,3 +1,4 @@
+<app-apply [hidden]="!applyModalState" (toggleEmit)="toggleModalState($event)" [applyModalState]="applyModalState"></app-apply>
 <app-arrow-back></app-arrow-back>
 <main class="vacante__container container">
   <div class="vacante__header">
@@ -19,7 +20,7 @@
     <article class="beneficios__content beneficios__perk" appScrollReveal y="50" duration=".6" stagger=".1" delay=".2" selectorClassAnimation="beneficios__perk">
       <div class="beneficios__card-container">
         <app-perks></app-perks>
-        <app-button-sinapsis [name_button]="'Aplicar a esta oferta'"></app-button-sinapsis>
+        <app-button-sinapsis [name_button]="'Aplicar a esta oferta'" [redirects]="false" (click)="toggleModalState()"></app-button-sinapsis>
       </div>
     </article>
   </div>

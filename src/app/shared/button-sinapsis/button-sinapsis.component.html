@@ -1,3 +1,8 @@
-<a [href]="url">
-    <button class="btn-sinapsis">{{name_button}}</button>
+<a [href]="url" *ngIf="redirects; else button">
+  <button class="btn-sinapsis">{{name_button}}</button>
 </a>
+
+<ng-template #button>
+  <button class="btn-sinapsis" >{{name_button}}</button>
+</ng-template>
+

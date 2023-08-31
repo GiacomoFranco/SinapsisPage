@@ -22,6 +22,7 @@ import { NuestrasTecnologiasComponent } from './nuestras-tecnologias/nuestras-te
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { ScrollRevealDirective } from './directives/scroll-reveal.directive';
 import { ParallaxDirective } from './directives/parallax.directive';
+import { RequiredValidator } from './directives/required.directive';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { ParallaxDirective } from './directives/parallax.directive';
     NuestrasTecnologiasComponent,
     ScrollRevealDirective,
     ParallaxDirective,
+    RequiredValidator,
   ],
   imports: [CommonModule, RouterModule, PagerModule, CarouselModule],
   exports: [
@@ -65,7 +67,7 @@ import { ParallaxDirective } from './directives/parallax.directive';
     PaginationComponent,
     NuestrasTecnologiasComponent,
     ScrollRevealDirective,
-    ParallaxDirective
+    ParallaxDirective,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
