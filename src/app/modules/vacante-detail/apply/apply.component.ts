@@ -77,7 +77,7 @@ export class ApplyComponent {
     return this.form.get('email') as FormControl;
   }
 
-  ubications: any[] = ['Medellín', 'Montería', 'Bogatá', 'Cáli'];
+  ubications: any[] = ['Medellín', 'Montería', 'Bogotá', 'Cali'];
 
   toggleModalState() {
     this.toggleEmit.emit(false);
