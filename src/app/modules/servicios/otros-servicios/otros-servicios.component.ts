@@ -37,9 +37,10 @@ export class OtrosServiciosComponent implements OnInit {
   }
 
   @HostListener('window:resize', ['$event'])
-  onResize() {
+  onResize(event: Event): void {
     this.checkWindowSize();
   }
+  
   checkWindowSize() {
     this.isMobile = window.innerWidth < 767;
   }
