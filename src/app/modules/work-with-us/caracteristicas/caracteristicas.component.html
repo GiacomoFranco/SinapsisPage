@@ -1,9 +1,20 @@
-<div class="section-content__container caracteristicas-a">
-  <h3 class="caracteristicas__title-a">Lorem ipsum</h3>
-  <div class="caracterticas__cards">
-    <app-caracteristica [icon]="'assets/workWithUs/trophy.svg'" [title]="'Lorem ipsum is'" [text]="'Lorem ipsum is simple texto of the printing and typesetting industry. lorem'"></app-caracteristica>
-    <app-caracteristica [icon]="'assets/workWithUs/graphic.svg'" [title]="'Lorem ipsum is'" [text]="'Lorem ipsum is simple texto of the printing and typesetting industry. lorem'"></app-caracteristica>
-    <app-caracteristica [icon]="'assets/workWithUs/feedback.svg'" [title]="'Lorem ipsum is'" [text]="'Lorem ipsum is simple texto of the printing and typesetting industry. lorem'"></app-caracteristica>
+<div class="section-content__container caracteristicas-a" [class.section-content__container--contacto]="isContacto">
+  <h3 class="caracteristicas__title-a">{{ title }}</h3>
+  <p *ngIf="isContacto">Lorem ipsum is simple texto of the printing and typesetting industry.</p>
+  <div class="caracterticas__cards" *ngIf="isContacto ; else workWithUs">
+    <app-caracteristica [isContacto]="isContacto" [icon]="'assets/contactanos/call.svg'" [title]="'Teléfono'" [text]="'500 000 0000'"></app-caracteristica>
+    <app-caracteristica [isContacto]="isContacto" [icon]="'assets/contactanos/location.svg'" [title]="'Medellín'" [text]="'Cr 00 #00 int 00'"></app-caracteristica>
+    <app-caracteristica [isContacto]="isContacto" [icon]="'assets/contactanos/instagram.svg'" [title]="'Instagram'" [text]="'@sinapsis'"></app-caracteristica>
   </div>
-  <app-button-sinapsis [url]="'trabaja-con-nosotros/vacantes'" [name_button]="'Lorem ipsum is simple'"></app-button-sinapsis>
+  <ng-template #workWithUs>
+      <div class="caracterticas__cards">
+        <app-caracteristica [icon]="'assets/workWithUs/trophy.svg'" [title]="'Lorem ipsum is'"
+          [text]="'Lorem ipsum is simple texto of the printing and typesetting industry. lorem'"></app-caracteristica>
+        <app-caracteristica [icon]="'assets/workWithUs/graphic.svg'" [title]="'Lorem ipsum is'"
+          [text]="'Lorem ipsum is simple texto of the printing and typesetting industry. lorem'"></app-caracteristica>
+        <app-caracteristica [icon]="'assets/workWithUs/feedback.svg'" [title]="'Lorem ipsum is'"
+          [text]="'Lorem ipsum is simple texto of the printing and typesetting industry. lorem'"></app-caracteristica>
+      </div>
+  </ng-template>
+  <app-button-sinapsis *ngIf="!isContacto" [url]="'trabaja-con-nosotros/vacantes'" [name_button]="'Lorem ipsum is simple'"></app-button-sinapsis>
 </div>

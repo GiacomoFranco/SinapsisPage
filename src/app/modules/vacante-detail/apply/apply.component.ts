@@ -1,8 +1,6 @@
 import { Component, EventEmitter, HostListener, Input, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { requiredValidatorLogic } from '@app/shared/directives/required.directive';
 import { Dragster } from '@matrx/dragster';
-// import { requiredValidatorLogic } from '/shared/directives/required.directive.ts';
 
 @Component({
   selector: 'app-apply',

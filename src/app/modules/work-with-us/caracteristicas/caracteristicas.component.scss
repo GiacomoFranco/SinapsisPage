@@ -1,3 +1,12 @@
+:host {
+  display: block;
+  display: flex;
+  justify-content: center;
+  padding: 75px 0 50px 0;
+  max-width: 90%;
+  margin: auto;
+}
+
 .section-content__container {
   display: flex;
   flex-direction: column;
@@ -6,6 +15,16 @@
   max-width: 900px;
   min-height: 380px;
   margin: 50px 0;
+
+  p {
+    text-align: center;
+    text-wrap: balance;
+  }
+
+  &.section-content__container--contacto {
+    min-height: inherit;
+    margin: 0;
+  }
 
   .caracterticas__cards {
     display: flex;

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-caracteristicas',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./caracteristicas.component.scss']
 })
 export class CaracteristicasComponent {
-
+  @Input() title: String = 'Lorem ipsum';
+  @Input() isContacto: Boolean;
 }

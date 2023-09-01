@@ -1,0 +1,183 @@
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+.contacto-formulario {
+  background-image: url('/assets/contactanos/fondo-abstracto-textura.png');
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .contacto-formulario-container {
+    padding: 70px 0;
+    max-width: 90%;
+    margin: auto;
+    display: flex;
+    flex-grow: 1;
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      flex-grow: 1;
+      gap: 20px;
+
+      .formulario_text__container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        max-width: 580px;
+        color: white;
+
+        p {
+          margin-top: 20px;
+        }
+      }
+
+      .form-wrapper {
+        width: 100%;
+        max-width: 660px;
+        min-width: 617px;
+
+        .form {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          padding: 20px;
+          margin: auto;
+
+          ::ng-deep .btn-sinapsis {
+            margin-bottom: 20px;
+          }
+
+          .k-form-field {
+            width: 100%;
+            margin-bottom: 20px;
+
+            .textbox {
+              border: 1px solid #FFF;
+              background: rgba(217, 217, 217, 0.22);
+              backdrop-filter: blur(16px);
+              color: #fff;
+              border-radius: 18px;
+              height: 50px;
+              width: 100%;
+              padding: 0 35px;
+
+              &::placeholder {
+                color: #B7B1B1;
+              }
+            }
+
+            .k-textarea {
+              border: 1px solid #FFF;
+              color: #fff;
+              border-radius: 18px;
+
+              background: rgba(217, 217, 217, 0.22);
+              backdrop-filter: blur(16px);
+
+              ::ng-deep .k-input-inner {
+                border: none;
+                padding: 0 35px;
+                height: 50px;
+                width: 100%;
+                padding: 15px 35px;
+                font-size: 1.067rem;
+                min-height: 200px;
+                max-height: 325px;
+
+                &::placeholder {
+                  color: #B7B1B1;
+
+                }
+              }
+            }
+
+            .k-picker {
+              ::ng-deep .k-input-inner {
+                .k-input-value-text {
+                  color: #fff;
+                }
+              }
+            }
+          }
+
+          .submit-container {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+
+            .k-form-field {
+              width: auto;
+
+              .k-form-field-checkbox-wrap {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                max-width: 400px;
+                gap: 10px;
+
+
+                .k-checkbox {
+
+                  &:checked {
+                    border-color: #7042ef;
+                    background-color: #7042ef;
+
+                    &:focus {
+                      box-shadow: 0 0 0 2px #7042ef4d;
+                    }
+                  }
+
+                }
+
+                .k-checkbox-label {
+                  font-family: Inter;
+                  color: #FFF;
+                  font-weight: 300;
+
+                  label {
+                    cursor: pointer;
+                  }
+                }
+              }
+            }
+          }
+
+        }
+      }
+
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .contacto-formulario {
+    .contacto-formulario-container {
+      .container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .formulario_text__container {
+          max-width: inherit;
+          text-align: center;
+          text-wrap: balance;
+
+          p {
+            margin-top: 20px;
+          }
+        }
+
+        .form-wrapper {
+          min-width: inherit;
+        }
+
+      }
+    }
+  }
+}
