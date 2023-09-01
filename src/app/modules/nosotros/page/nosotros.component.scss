@@ -1,13 +1,16 @@
 .history {
   position: relative;
   height: 800px;
+  overflow: hidden;
 
   .logo-sinapsis {
     position: absolute;
     bottom: 0;
-    right: 0;
-    transform: translateX(430px);
+    right: -64%; /* Mover la imagen fuera de la pantalla */
+    width: 50%; /* Asegurarse de que ocupe todo el ancho */
+    height: auto;
     z-index: -1;
+    transform: translateX(-50%);
   }
 
   .img-office {
@@ -60,6 +63,11 @@
 @media screen and (max-width: 767px) {
   .history {
     height: 500px;
+
+    .logo-sinapsis {
+      display: none;
+    }
+
     .content-text-hystory {
       height: 500px !important;
     }

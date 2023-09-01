@@ -1,5 +1,4 @@
-import { Component, OnInit, DoCheck } from '@angular/core';
-import { CasosDeExito, CasosDeExitoScreens } from '@app/core/casosDeExito.mock';
+import { Component, OnInit, DoCheck, HostListener } from '@angular/core';
 import { PageChangeEvent } from '@progress/kendo-angular-pager';
 import { Router } from '@angular/router';
 import { PortafolioService } from '@app/services/portafolio.service';
@@ -65,7 +64,12 @@ export class PortafolioComponent implements OnInit, DoCheck {
     })
   }
 
-  validateResponsive(){
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event): void {
+    this.validateResponsive();
+  }
+
+  validateResponsive() {
     this.isMobile = window.innerWidth < 767;
   }
 

@@ -5,9 +5,9 @@
   </div>
   <app-slider></app-slider>
   <section class="section-software pb-5">
-    <div class="mt-3 text-center container scroll-software">
-      <h2 class="h2-black">{{ pageData.developSoftware.title }}</h2>
-      <p [innerHTML]="pageData.developSoftware.description" class="mt-4"></p>
+    <div class="mt-3 text-center container" appScrollReveal selectorClassAnimation="desarrollo-a" y="100">
+      <h2 class="h2-black desarrollo-a">{{ pageData.developSoftware.title }}</h2>
+      <p [innerHTML]="pageData.developSoftware.description" class="mt-4 desarrollo-a"></p>
     </div>
     <app-animacion-portatil></app-animacion-portatil>
     <div class="container info-software text-center">

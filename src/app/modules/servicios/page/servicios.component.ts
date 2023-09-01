@@ -11,13 +11,33 @@ import { SeoService } from '@app/services/seo.service';
 })
 export class ServiciosComponent implements OnInit {
 
-  pageData: servicePageData;
+  pageData: servicePageData = {
+    developSoftware: {
+      title: '',
+      description: '',
+      secondDescription: ''
+    },
+    phoneSection: {
+      title: '',
+      description: '',
+      urlBoton: ''
+    },
+    laptopSection: {
+      title: '',
+      description: '',
+      urlBoton: ''
+    },
+    sectionStadistics: [],
+    SectionWorkWithUs: {
+      Title: '',
+      urlBoton: ''
+    },
+  };
 
   constructor(private service: ServiciosService, private seoService: SeoService) { }
 
   ngOnInit(): void {
     this.getPage();
-    this.initScrollReveal();
     this.FlagsSeo();
   }
 
@@ -25,33 +45,6 @@ export class ServiciosComponent implements OnInit {
     this.service.getServicesPage().then((resp) => {
       const { data } = resp;
       this.pageData = data;
-    });
-  }
-
-  initScrollReveal() {
-    const sr = ScrollReveal();
-
-    sr.reveal('.scroll-software', {
-      duration: 4000,
-      origin: 'bottom',
-      distance: '100px',
-      delay: 600,
-      easing: 'ease-out',
-    });
-    sr.reveal('.scroll-left', {
-      delay: 600,
-      duration: 5000,
-      origin: 'left',
-      distance: '100px',
-      easing: 'ease-out',
-    });
-
-    sr.reveal('.scroll-right', {
-      delay: 600,
-      duration: 4000,
-      origin: 'right',
-      distance: '100px',
-      easing: 'ease-out',
     });
   }
 

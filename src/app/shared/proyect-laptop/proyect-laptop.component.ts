@@ -10,10 +10,9 @@ import { gsap } from 'gsap';
 export class ProyectLaptopComponent {
   urlImage: string = '';
   id: string;
-  // animationExecuted: boolean = false;
+  animationExecuted: boolean = false;
   @Input() set idLaptop(id: number | string){
     this.id = "id_laptop_"+ id
-    console.log(this.id)
   };
 
   @Input()
@@ -22,21 +21,21 @@ export class ProyectLaptopComponent {
       this.urlImage = newImg;
     }
 
-    // if (!this.animationExecuted) {
-    //   this.manualSlideAnimation();
-    //   this.animationExecuted = true;
-    // }
+    if (!this.animationExecuted) {
+      this.manualSlideAnimation();
+      this.animationExecuted = true;
+    }
   }
 
   changeId():string{
     return `url(#${this.id})`
   }
 
-  // manualSlideAnimation() {
-  //   gsap.fromTo(
-  //     '.container-laptop-proyects',
-  //     { opacity: 0 },
-  //     { opacity: 1, duration: 1 }
-  //   );
-  // }
+  manualSlideAnimation() {
+    gsap.fromTo(
+      '.container-laptop-proyects',
+      { opacity: 0 },
+      { opacity: 1, duration: 1 }
+    );
+  }
 }
