@@ -9,4 +9,5 @@ export class CaracteristicaComponent {
   @Input() text: String;
   @Input() icon: String;
   @Input() title: String;
+  @Input() isContacto: Boolean;
 }

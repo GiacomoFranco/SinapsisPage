@@ -12,13 +12,27 @@
 .caracteristicas__card {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  // justify-content: space-between;
+  gap: 35px;
   max-width: 333px;
   min-width: 231px;
   min-height: 202px;
   padding: 0 30px;
   margin-top: 20px;
   text-align: center;
+
+  &.caracteristicas__card--contacto {
+      flex-direction: row;
+      max-width: inherit;
+      min-width: 285px;
+      min-height: inherit;
+
+      .caracteristicas__card-content {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+      }
+    }
 
   img {
     align-self: center;

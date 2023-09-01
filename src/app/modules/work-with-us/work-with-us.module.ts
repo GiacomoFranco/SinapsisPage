@@ -17,6 +17,6 @@ import { PerkComponent } from './perk/perk.component';
   ],
   imports: [CommonModule, SharedModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  exports: [PerksComponent],
+  exports: [PerksComponent, CaracteristicasComponent],
 })
 export class WorkWithUsModule {}

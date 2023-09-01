@@ -13,6 +13,7 @@ import { PortafolioDetailComponent } from './modules/portafolio-detail/page/port
 import { InternalProjectComponent } from './shared/internal-project/internal-project.component';
 import { VacantesComponent } from './modules/vacantes/page/vacantes.component';
 import { VacanteDetailComponent } from './modules/vacante-detail/page/vacante-detail.component';
+import { ContactanosComponent } from './modules/contactanos/page/contactanos.component';
 
 const routes: Routes = [
   {
@@ -67,6 +68,14 @@ const routes: Routes = [
   {
     path: 'portafolio/:slug',
     component: PortafolioDetailComponent,
+  },
+  {
+    path: 'contacto',
+    component: ContactanosComponent,
+    loadChildren: () =>
+      import('./modules/contactanos/contactanos.module').then(
+        (m) => m.ContactanosModule
+      ),
   },
   {
     path: '**',

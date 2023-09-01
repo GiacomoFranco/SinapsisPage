@@ -27,12 +27,11 @@
           <kendo-formerror *ngIf="Telefono.errors?.['pattern']">Ingresa un número de teléfono válido</kendo-formerror>
 
 
-          <!-- <kendo-formerror>Este campo es requerido</kendo-formerror> -->
         </kendo-formfield>
         <kendo-formfield showErrors="initial">
 
-          <kendo-dropdownlist #ubication isRequired="true" formControlName="ubication" [data]="ubications"
-            [defaultItem]="'Ubicación'" value="Tecnología">
+          <kendo-dropdownlist #ubication isRequired="true" formControlName="ubications" [data]="ubications"
+            [value]="'Ubicación'">
           </kendo-dropdownlist>
           <kendo-formerror>Este campo es requerido</kendo-formerror>
         </kendo-formfield>
