@@ -12,7 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UploadsModule } from '@progress/kendo-angular-upload';
 
 
-const routes: Routes = [{ path: 'vacante', component: VacanteDetailComponent }];
+const routes: Routes = [{ path: 'vacante:slug', component: VacanteDetailComponent }];
 
 @NgModule({
   declarations: [VacanteDetailComponent, ApplyComponent],

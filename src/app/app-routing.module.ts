@@ -50,7 +50,7 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'trabaja-con-nosotros/vacantes/vacante',
+    path: 'trabaja-con-nosotros/vacantes/vacante/:slug',
     component: VacanteDetailComponent,
     loadChildren: () =>
       import('./modules/vacante-detail/vacante-detail.module').then(

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import VacanciesMock from '@app/core/vacancies.mock';
+import { VacantesService } from '@app/services/vacantes.service';
 import { filterBy } from '@progress/kendo-data-query';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-avaiable-vacancies',
@@ -8,15 +10,38 @@ import { filterBy } from '@progress/kendo-data-query';
   styleUrls: ['./avaiable-vacancies.component.scss'],
 })
 export class AvaiableVacanciesComponent implements OnInit {
+  constructor(private vacantesService: VacantesService, private router: Router) {}
+
   ngOnInit(): void {
-    console.log(this.rol);
+    this.vacantesService.getVacancies().then((resp) => {
+      console.log(resp.data.post);
+
+      this.vacancies = resp.data.post;
+      console.log(this.vacancies);
+
+      this.vacanciesData = resp.data.post;
+
+      this.rol = this.vacanciesData.map((offer: any) => offer.title);
+      this.equipo = this.vacanciesData.map((offer: any) => offer.title);
+      this.remoto = this.vacanciesData.map((offer: any) => offer.title);
+      console.log(this.rol);
+    });
   }
 
-  vacancies = VacanciesMock;
-  rol = VacanciesMock.map((offer) => offer.rol);
-  equipo = VacanciesMock.map((offer) => offer.equipo)
-  remoto = VacanciesMock.map((offer) => offer.remoto)
+  vacancies: any[];
+  vacanciesData: any[];
+  rol: any;
+  equipo: any;
+  remoto: any;
 
+  gridUserSelectionChange(gridUser:any, selection:any) {
+    const selectedData = selection.dataItem.slug;
+    this.router.navigate([
+      'trabaja-con-nosotros/vacantes/vacante',
+      selectedData,
+    ]);
+
+  }
 
   public applyFilter(value: string): void {
     console.log(value);
@@ -28,7 +53,7 @@ export class AvaiableVacanciesComponent implements OnInit {
           field: 'rol',
           operator: 'contains',
           value: value,
-          ignoreCase: true
+          ignoreCase: true,
         },
         {
           field: 'equipo',
