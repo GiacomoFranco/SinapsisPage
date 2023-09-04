@@ -8,12 +8,14 @@
   </div>
 </div>
 
-<kendo-grid [kendoGridBinding]="vacancies" [height]="393">
+<kendo-grid #gridVacancie [kendoGridBinding]="vacancies" [height]="393"
+ (cellClick)="gridUserSelectionChange(gridVacancie, $event)">
   <kendo-grid-column
     [headerClass]="'headerCustomClass'"
     [class]="'cellCustomClass rolClass'"
-    field="rol"
-    title="Rol"[width]="210"
+    field="title"
+    title="Rol"
+    [width]="210"
     [minResizableWidth]="200"
 
     ></kendo-grid-column>
@@ -21,17 +23,17 @@
   <kendo-grid-column
     [headerClass]="'headerCustomClass'"
     [class]="'cellCustomClass'"
-    field="equipo"
-    title="Equipo"
-      title="Rol"[width]="210"
+    field="title"
+    title="Área"
+    [width]="210"
     [minResizableWidth]="200"
     ></kendo-grid-column>
 
   <kendo-grid-column
     [headerClass]="'headerCustomClass'"
     [class]="'cellCustomClass '"
-    field="remoto"
-    title="Remoto"
+    field="title"
+    title="Nivel"
     title="Rol"[width]="210"
     [minResizableWidth]="200"
     ></kendo-grid-column>

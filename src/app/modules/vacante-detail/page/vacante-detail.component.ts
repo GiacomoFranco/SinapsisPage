@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./vacante-detail.component.scss'],
 })
 export class VacanteDetailComponent {
-  applyModalState: boolean = true;
+  applyModalState: boolean = false;
 
   toggleModalState(toggledModal: boolean | undefined = undefined): void {
     this.applyModalState = !this.applyModalState;
