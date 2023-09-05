@@ -56,7 +56,7 @@ export class ApplyComponent {
       Validators.required,
       Validators.email
     ]),
-    ubication: new FormControl(null, Validators.required),
+    ubications: new FormControl(null, Validators.required),
     files: new FormControl(null, Validators.required),
     telefono: new FormControl(null, [
       Validators.required,

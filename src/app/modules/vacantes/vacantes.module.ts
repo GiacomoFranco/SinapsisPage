@@ -8,6 +8,7 @@ import { AvaiableVacanciesComponent } from './avaiable-vacancies/avaiable-vacanc
 import { TextBoxModule } from '@progress/kendo-angular-inputs';
 import { ButtonsModule } from '@progress/kendo-angular-buttons';
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
+import { FormsModule } from '@angular/forms';
 
 
 const routes: Routes = [
@@ -26,6 +27,7 @@ const routes: Routes = [
     TextBoxModule,
     ButtonsModule,
     DropDownsModule,
+    FormsModule
   ],
 })
 export class VacantesModule {}
