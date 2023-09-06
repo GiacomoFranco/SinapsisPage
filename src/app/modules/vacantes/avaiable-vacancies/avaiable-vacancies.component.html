@@ -1,20 +1,21 @@
-<kendo-textbox placeholder="Buscar trabajo" rounded="none" class="custom-rounded">
+<kendo-textbox id="nombre" #nombre [(ngModel)]="search" (valueChange)="filterVacancies($event, nombre)" placeholder="Buscar vacante" rounded="none" class="custom-rounded">
 </kendo-textbox>
 
 <div class="dropdown-filter">
-  <div class="dropdown-container" id="rol">
-    <kendo-dropdownlist id="rol"  defaultItem="Área" [data]="rol"></kendo-dropdownlist>
-    <kendo-dropdownlist id="remoto" defaultItem="Tecnología" [data]="remoto"></kendo-dropdownlist>
+  <div class="dropdown-container">
+    <kendo-dropdownlist #area id="areas" defaultItem="Área" [data]="areasName" (valueChange)="filterVacancies($event, area)"></kendo-dropdownlist>
+    <kendo-dropdownlist #tecnologia id="tecnologias" defaultItem="Tecnología" [data]="tecnologiasName" (valueChange)="filterVacancies($event, tecnologia)"></kendo-dropdownlist>
   </div>
 </div>
 
-<kendo-grid #gridVacancie [kendoGridBinding]="vacancies" [height]="393"
- (cellClick)="gridUserSelectionChange(gridVacancie, $event)">
+<kendo-grid #gridVacancie [kendoGridBinding]="vacancies" [loading]="loaderVisible" [height]="393"
+(cellClick)="gridUserSelectionChange($event)">
+
   <kendo-grid-column
     [headerClass]="'headerCustomClass'"
     [class]="'cellCustomClass rolClass'"
     field="title"
-    title="Rol"
+    title="Vacante"
     [width]="210"
     [minResizableWidth]="200"
 
@@ -23,7 +24,7 @@
   <kendo-grid-column
     [headerClass]="'headerCustomClass'"
     [class]="'cellCustomClass'"
-    field="title"
+    field="area[0].name"
     title="Área"
     [width]="210"
     [minResizableWidth]="200"
@@ -32,11 +33,20 @@
   <kendo-grid-column
     [headerClass]="'headerCustomClass'"
     [class]="'cellCustomClass '"
-    field="title"
-    title="Nivel"
-    title="Rol"[width]="210"
+    field="tecnología"
+    title="Tecnología"
+    [width]="210"
     [minResizableWidth]="200"
     ></kendo-grid-column>
 
-
+  <kendo-grid-column
+    [headerClass]="'headerCustomClass'"
+    [class]="'cellCustomClass '"
+    field="nivel[0].name"
+    title="Perfil"
+    [width]="210"
+    [minResizableWidth]="200"
+    ></kendo-grid-column>
 </kendo-grid>
+
+
