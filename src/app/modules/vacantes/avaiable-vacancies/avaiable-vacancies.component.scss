@@ -38,6 +38,8 @@
 
       .k-grid-container {
         .k-grid-content {
+          overflow-y: auto;
+
           &::-webkit-scrollbar {
             height: .8em;
             width: .8em;
@@ -57,6 +59,11 @@
               .k-table-tbody {
                 .k-table-row {
                   cursor: pointer;
+                  .k-table-td{
+                      border-width: 1px 0px 1px 1px;
+                      border-top-color: rgba(0, 0, 0, 0.020);
+                      border-bottom-color: rgba(0, 0, 0, 0.020);
+                  }
                 }
               }
             }

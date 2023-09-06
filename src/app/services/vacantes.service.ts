@@ -16,7 +16,13 @@ export class VacantesService {
 
     return await this.api.get(
       `filter-work?slug=work-with-us${filters.tecnologia ? `&tecnology=${filters.tecnologia}` : ''}${filters.area ? `&area=${filters.area}` : ''} ${filters.search !== '' ? `&search=${filters.search}` : ''}`
-    );
+    )
+    .catch(error => {
+      if (error.response) {
+        console.log(error.response);
+      }
+      return error
+    });
   }
 
   async getAreas() {
@@ -25,5 +31,9 @@ export class VacantesService {
 
   async getTecnologias() {
     return await this.api.get(`tecnologias`);
+  }
+
+  async getVacancy(slug: string){
+    return await this.api.get(`single?post_type=work-with-us&slug=${slug}`);
   }
 }

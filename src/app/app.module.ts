@@ -22,6 +22,8 @@ import { PortafolioDetailModule } from './modules/portafolio-detail/portafolio-d
 import { GridModule } from '@progress/kendo-angular-grid';
 import { InputsModule } from '@progress/kendo-angular-inputs';
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
+import { IndicatorsModule } from '@progress/kendo-angular-indicators';
+
 
 
 @NgModule({
@@ -44,7 +46,8 @@ import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
     PortafolioDetailModule,
     GridModule,
     InputsModule,
-    DropDownsModule
+    DropDownsModule,
+    IndicatorsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

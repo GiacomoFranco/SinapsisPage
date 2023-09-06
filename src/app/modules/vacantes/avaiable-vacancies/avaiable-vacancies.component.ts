@@ -15,10 +15,16 @@ export class AvaiableVacanciesComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.vacantesService.getVacancies().then((resp) => {
-      this.allVacancies = resp.data.post;
-      this.vacancies = resp.data.post;
-      this.mapTechnologies(this.vacancies);
+    this.vacantesService.getVacancies().then((resp: any) => {
+
+      if (resp.status != 200) {
+        this.vacancies = [];
+        this.loaderVisible = false;
+      } else {
+
+        this.vacancies = resp.data.post;
+        this.mapTechnologies(this.vacancies);
+      }
     });
 
     this.vacantesService.getAreas().then((resp) => {
@@ -32,6 +38,7 @@ export class AvaiableVacanciesComponent implements OnInit {
     });
   }
 
+  loaderVisible: boolean = true;
   vacancies: any[];
   allVacancies: any[];
 
@@ -57,7 +64,9 @@ export class AvaiableVacanciesComponent implements OnInit {
   filterVacancies(filterValue: string, input: any) {
     // Tipamos los posibles campos desde donde se ejecuta la función accediendo desde el id del template
 
-    const filterField: 'areas' | 'tecnologias' | 'nombre' = input.hostElement ? input.hostElement.nativeElement.id : input.focusableId;
+    const filterField: 'areas' | 'tecnologias' | 'nombre' = input.hostElement
+      ? input.hostElement.nativeElement.id
+      : input.focusableId;
 
     // Validamos que las opciones elegidas en los campos no sean los campos por default
     if (filterValue === 'Área' || filterValue === 'Tecnología') {
@@ -70,7 +79,6 @@ export class AvaiableVacanciesComponent implements OnInit {
           this.filters.tecnologia = null;
           break;
       }
-
     } else {
       let selectedValueSlug;
 
@@ -97,9 +105,32 @@ export class AvaiableVacanciesComponent implements OnInit {
     }
 
     // Realizamos la consulta con el objeto filters
-    this.vacantesService.getVacancies(this.filters).then((resp) => {
-      this.vacancies = resp.data.post;
-      this.mapTechnologies(this.vacancies);
+    this.vacancies = [];
+    this.loaderVisible = true;
+
+    this.vacantesService.getVacancies(this.filters).then((resp:any) => {
+       if (resp.status != 200) {
+
+        this.vacancies = [];
+        this.loaderVisible = false;
+      } else {
+        this.vacancies = resp.data.post;
+        this.mapTechnologies(this.vacancies);
+      }
+    });
+
+  }
+
+  getVacancies(){
+      this.vacantesService.getVacancies().then((resp: any) => {
+
+      if (resp.status != 200) {
+        this.vacancies = [];
+        this.loaderVisible = false;
+      } else {
+        this.vacancies = resp.data.post;
+        this.mapTechnologies(this.vacancies);
+      }
     });
   }
 
@@ -109,5 +140,6 @@ export class AvaiableVacanciesComponent implements OnInit {
         .map((technology: any) => technology.name)
         .join(', ');
     });
+    this.loaderVisible = false;
   }
 }

@@ -1,25 +1,17 @@
 <app-apply [hidden]="!applyModalState" (toggleEmit)="toggleModalState($event)" [applyModalState]="applyModalState"></app-apply>
-<app-arrow-back></app-arrow-back>
+<app-arrow-back [isVacancies]="true"></app-arrow-back>
 <main class="vacante__container container">
   <div class="vacante__header">
-    <article class="text__content" appScrollReveal y="50" duration=".6" stagger=".1" selectorClassAnimation="text-a">
+    <article class="text__content"  appScrollReveal y="50" duration=".6" stagger=".1" selectorClassAnimation="text-a">
       <div class="text__text-container">
-        <h3 class="text-a">Lorem ipsum is simply text of the printing and.</h3>
-        <p class="text-a">Lorem ipsum is simple texto of the printing and typesetting industry. lorem ipsum has been the
-          Lorem ipsum
-          is
-          simple
-          texto of the printing and typesetting industry. lorem ipsum has been the Lorem ipsum is simple texto of the
-          printing and
-          typesetting industry. Lorem ipsum is simple texto of the printing and typesetting industry. lorem ipsum has
-          been the
-          Lorem ipsum is simple texto of the printing and typesetting industry.
-        </p>
+        <h2 class="text-a">{{ vacancyDetail?.title ?? '' }}</h2>
+        <h3 class="text-a">{{ vacancyDetail?.DescritpionOfferTitle ?? '' }}</h3>
+        <div class="text-a" [innerHTML]="vacancyDetail?.descriptionOffert ?? '' "></div>
       </div>
     </article>
     <article class="beneficios__content beneficios__perk" appScrollReveal y="50" duration=".6" stagger=".1" delay=".2" selectorClassAnimation="beneficios__perk">
       <div class="beneficios__card-container">
-        <app-perks></app-perks>
+        <app-perks [perks]="vacancyDetail.perks"></app-perks>
         <app-button-sinapsis [name_button]="'Aplicar a esta oferta'" [redirects]="false" (click)="toggleModalState()"></app-button-sinapsis>
       </div>
     </article>
@@ -28,55 +20,16 @@
     <div class="vacante__info">
       <article class="text__content">
         <div class="text__text-container">
-          <h3 class="text-a">Lorem ipsum is simply</h3>
-          <p class="text-a">Lorem ipsum is simple texto of the printing and typesetting industry. lorem ipsum has been
-            the Lorem
-            ipsum
-            is simple
-            texto of the printing and typesetting industry. lorem ipsum has been the Lorem ipsum is simple texto of
-            the
-            printing and
-            typesetting industry. Lorem ipsum is simple texto of the printing and typesetting industry. lorem ipsum
-            has
-            been the
-            Lorem ipsum is simple texto of the printing and typesetting industry. lorem ipsum has been the Lorem ipsum
-            is simple
-            texto of the printing and typesetting industry. Lorem ipsum is simple texto of the printing and
-            typesetting
-            industry.
-            lorem ipsum has been the Lorem ipsum is simple texto of the printing and typesetting industry. lorem ipsum
-            has been the
-            Lorem ipsum is simple texto of the printing and typesetting industry.
-          </p>
+          <h3 class="text-a">{{ vacancyDetail?.titleSkills ?? '' }}</h3>
+          <div class="text-a" [innerHTML]="vacancyDetail?.skillList ?? 'Lorem ipsum is simple texto of the printing and typesetting industry. lorem ipsum has been the Lorem ipsum is simple texto of the printing and typesetting industry. lorem ipsum has been the Lorem ipsum is simple texto of the printing and typesetting industry. Lorem ipsum is simple texto of the printing and typesetting industry. lorem ipsum has been the Lorem ipsum is simple texto of the printing and typesetting industry. lorem ipsum has been the Lorem ipsum is simple texto of the printing and typesetting industry. Lorem ipsum is simple texto of the printing and typesetting industry. lorem ipsum has been the Lorem ipsum is simple texto of the printing and typesetting industry. lorem ipsum has been the Lorem ipsum is simple texto of the printing and typesetting industry.'"></div>
         </div>
       </article>
-      <article class="beneficios__content beneficios-a" appScrollReveal x="100" duration=".6" stagger=".2"
-        selectorClassAnimation="beneficios-a">
-        <h3>Beneficios de trabajar con nosotros</h3>
+      <article class="beneficios__content beneficios-a" appScrollReveal x="100" duration=".6" stagger=".2" selectorClassAnimation="beneficios-a" *ngIf="vacancyDetail">
+        <h3>{{ vacancyDetail?.TitleBenefits ?? '' }}</h3>
         <div class="beneficios__container">
-          <div class="beneficio beneficios-a">
-            <img src="assets/vacante/briefcase.svg" alt="">
-            <p>Lorem ipsum is simple texto of the printing.</p>
-          </div>
-          <div class="beneficio beneficios-a">
-            <img src="assets/vacante/briefcase.svg" alt="">
-            <p>Lorem ipsum is simple texto of the printing.</p>
-          </div>
-          <div class="beneficio beneficios-a">
-            <img src="assets/vacante/briefcase.svg" alt="">
-            <p>Lorem ipsum is simple texto of the printing.</p>
-          </div>
-          <div class="beneficio beneficios-a">
-            <img src="assets/vacante/briefcase.svg" alt="">
-            <p>Lorem ipsum is simple texto of the printing.</p>
-          </div>
-          <div class="beneficio beneficios-a">
-            <img src="assets/vacante/briefcase.svg" alt="">
-            <p>Lorem ipsum is simple texto of the printing.</p>
-          </div>
-          <div class="beneficio beneficios-a">
-            <img src="assets/vacante/briefcase.svg" alt="">
-            <p>Lorem ipsum is simple texto of the printing.</p>
+          <div *ngFor="let benefit of vacancyDetail.benefitsList" class="beneficio beneficios-a">
+            <img [src]="benefit?.icon ?? ''" alt="">
+            <p>{{ benefit?.textDescription ?? '' }}</p>
           </div>
         </div>
       </article>
@@ -85,21 +38,14 @@
       <div class="vacante__images-container">
         <img src="assets\icons\purple-logo-icon.svg" alt="Logo Sinapsis" class="logo-icon">
         <div class="employees-image__container" appParallax selectorClassAnimation="employees" [from]="{y: -50, scale: 1.1}" [to]="{y: 50, scale: 1}">
-          <img class="employees" src="assets\vacante\employees.png" alt="Equipo de trabajo">
+          <img class="employees" [src]="vacancyDetail?.imagen" alt="Equipo de trabajo">
         </div>
       </div>
     </div>
   </div>
   <article class="vacante__footer" appScrollReveal x="150" duration=".6" stagger=".1"
-    selectorClassAnimation="vacante-f-a" start="-30% 80%">
-    <p class="vacante-f-a">Lorem ipsum is simple texto of the printing and typesetting industry. lorem ipsum has been
-      the Lorem ipsum is
-      simple
-      texto of the printing and typesetting industry. lorem ipsum has been the Lorem ipsum is simple texto of the
-      printing and
-      typesetting industry. Lorem ipsum is simple texto of the printing and typesetting industry. lorem ipsum has
-      been the
-      Lorem ipsum is simple texto of the printing and typesetting industr</p>
+    selectorClassAnimation="vacante-f-a" start="-30% 80%" *ngIf="vacancyDetail">
+    <p class="vacante-f-a">{{ vacancyDetail?.description ?? '' }}</p>
     <div class="vacante-f-a">
       <app-button-sinapsis [name_button]="'Aplicar a esta oferta'" [redirects]="false" (click)="toggleModalState()"></app-button-sinapsis>
     </div>
