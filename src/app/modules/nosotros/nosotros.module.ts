@@ -9,6 +9,7 @@ import { TimelineComponent } from './timeline/timeline.component';
 import { MisionVisionComponent } from './mision-vision/mision-vision.component';
 import { IntegrantesComponent } from './integrantes/integrantes.component';
 import { WorkoutComponent } from './workout/workout.component';
+import { PagerModule } from "@progress/kendo-angular-pager";
 
 
 register()
@@ -24,7 +25,8 @@ register()
   imports: [
     CommonModule,
     CarouselModule,
-    SharedModule
+    SharedModule,
+    PagerModule
   ]
 })
 export class NosotrosModule { }

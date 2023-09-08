@@ -15,7 +15,7 @@ export class PortafolioComponent implements OnInit, DoCheck {
   dataPagination: Pagination = {
     totalPages: 1,
     currentPage: 1,
-    perPage: 6,
+    perPage: 7,
     totalItems: 0,
   }
   grouped: any[] = []
@@ -54,13 +54,11 @@ export class PortafolioComponent implements OnInit, DoCheck {
   }
 
   private pageData(pagination: Pagination): void {
-    console.log('antes de iniciar: ', pagination.currentPage)
     this.portafolioService.getPagePortafolio(pagination.currentPage, this.pageSize).then(resp => {
       const { data } = resp;
       this.dataPage = data.post
       this.dataPagination = data.pagination
       this.pagedChases = this.dataPage.slice(this.skip, this.skip + this.pageSize);
-      console.log(this.dataPage)
     })
   }
 

@@ -83,6 +83,7 @@
       align-items: center;
       justify-content: start;
       padding-left: 50px;
+      min-height: 240px;
 
       .arrow {
         position: absolute;
@@ -97,6 +98,40 @@
         text-decoration: underline;
       }
     }
+  }
+  ::ng-deep{
+    kendo-datapager{
+    margin-top: 30px;
+    border: none;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:focus{
+      box-shadow: none;
+    }
+  
+    .k-button-text{
+      color: #7042ef;
+      font-size: 1.2rem;
+      transition: all 0.5s ease-out;
+    }
+
+    .k-selected{
+      font-weight: bold;
+      transform: scale(1.2);
+      transition: all 0.5s ease-out;
+    }
+
+    .k-button-flat-primary{
+      color: transparent  ;
+    }
+
+    .k-button{
+      min-width: none;
+    }
+  }
   }
 }
 
