@@ -28,5 +28,15 @@
         >
       </div>
     </div>
+    <kendo-datapager
+      [total]="dataPagination.totalItems"
+      [pageSize]="dataPagination.perPage"
+      [info]="false"
+      [type]="'numeric'"
+      [previousNext]="false"
+      [pageSizeValues]="false"
+      [skip]="skip"
+      (pageChange)="onPageChange($event)"
+    />
   </div>
 </section>

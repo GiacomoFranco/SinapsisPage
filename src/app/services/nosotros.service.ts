@@ -17,7 +17,7 @@ export class NosotrosService {
     return await this.api.get('pages/?slug=nosotros');
   }
 
-  async getIntegrantes(){
-    return await this.api.get('cpt/?slug=team');
+  async getIntegrantes(paged: number, perPage: number){
+    return await this.api.get(`cpt-v2?slug=team&paged=${paged}&per_page=${perPage}`);
   }
 }
