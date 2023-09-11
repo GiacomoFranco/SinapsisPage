@@ -28,7 +28,7 @@ export class CarruselComponent implements OnInit{
     }
   };
 
-  isMobile = false;
+  @Input() isMobile: boolean;
 
   @Input() pageData: nosotrosPage = {
     gallery: [],
@@ -51,10 +51,6 @@ export class CarruselComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.checkWindowSize();
-  }
-
-  checkWindowSize() {
-    this.isMobile = window.innerWidth < 767;
+    
   }
 }

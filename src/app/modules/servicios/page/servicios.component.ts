@@ -54,7 +54,6 @@ export class ServiciosComponent implements OnInit {
 
   @HostListener('window:resize', ['$event'])
   onResize(event: Event): void {
-    console.log(window.innerWidth)
     this.checkWindowSize();
   }
   

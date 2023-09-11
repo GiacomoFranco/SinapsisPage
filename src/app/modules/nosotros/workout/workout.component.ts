@@ -65,6 +65,7 @@ export class WorkoutComponent implements AfterViewInit, OnDestroy {
           start: this.responsiveAnim(),
           pin: '.workout',
           scrub: true,
+          markers: true
         },
       })
       .add(flip)

@@ -10,29 +10,22 @@
 
 .grid-image {
   width: 100%;
-  padding: 0 10px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  display: none;
+  columns: 2;
+  column-gap: 6px;
+  // display: none;
 
   .img-mobile {
-    width: auto;
-    height: 119px;
+    max-width: 100%;
+    margin-bottom: 6px;
   }
 }
 
-@media screen and (max-width: 767px) {
-  .slider-section{
-    width: 100%;
-    min-height: 100px;
-  }
+// @media screen and (max-width: 767px) {
+//   .carrousel{
+//     display: none;
+//   }
 
-  .carrousel{
-    display: none;
-  }
-
-  .grid-image{
-    display: block;
-  }
-}
+//   .grid-image {
+//     display: block;
+//   }
+// }

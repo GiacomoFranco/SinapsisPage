@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { NosotrosService } from '@app/services/nosotros.service';
 import { nosotrosPage } from '@app/models/nosotrosPage.model';
 import { gsap } from 'gsap';
@@ -14,7 +14,6 @@ gsap.registerPlugin(TextPlugin, ScrollTrigger);
 })
 
 export class NosotrosComponent implements OnInit {
-  img_workout = "/assets/img/tablet.png"
   pageData: nosotrosPage = {
     gallery: [],
     ourHistory: {
@@ -34,7 +33,7 @@ export class NosotrosComponent implements OnInit {
       UrlBtn: ''
     }
   }
-  isMobile = false;
+  isMobile: boolean;
 
   constructor(private nosotrosService: NosotrosService, private seoService: SeoService) {
   }
@@ -47,7 +46,7 @@ export class NosotrosComponent implements OnInit {
 
   async getData(){
     try {
-      this.nosotrosService.getNosotrosPage().then((response) => {
+      await this.nosotrosService.getNosotrosPage().then((response) => {
         const { data } = response
         this.pageData = data;
       })
@@ -55,11 +54,8 @@ export class NosotrosComponent implements OnInit {
       console.error(error)
     }
   }
-
-  checkWindowSize() {
-    this.isMobile = window.innerWidth < 767;
-  }
-
+  
+  
   FlagsSEO(){
     this.seoService.generateFlags({
       title: 'Acerca de Nosotros',
@@ -69,5 +65,15 @@ export class NosotrosComponent implements OnInit {
       image: '',
       slug_url: '/nosotros',
     })
+  }
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event): void {
+    console.log(window.innerWidth)
+    this.checkWindowSize();
+  }
+  
+  checkWindowSize() {
+    this.isMobile = window.innerWidth < 767;
+    console.log(this.isMobile)
   }
 }
