@@ -1,6 +1,6 @@
 <main class="about-us">
   
-  <app-carrusel [pageData]="pageData"></app-carrusel>
+  <app-carrusel [pageData]="pageData" [isMobile]="isMobile"></app-carrusel>
   <section class="history my-5">
     <img
       class="logo-sinapsis"
@@ -26,7 +26,7 @@
           id="text-content-history"
         >
           <div class="content-text-hystory">
-            <img class="ic-arrow" src="/assets/icons/arrowUp.svg" alt="" />
+            <img class="ic-arrow" src="/assets/icons/arrowUp.svg" alt="" *ngIf="!isMobile" />
             <h2>{{ pageData.ourHistory.title }}</h2>
             <p class="ourHistoryText">{{ pageData.ourHistory.description }}</p>
           </div>
