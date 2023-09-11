@@ -73,16 +73,10 @@ export class AnimacionPortatilComponent implements AfterViewInit, OnDestroy {
   responsiveAnimation(): string {
     let size = '';
     if (window.innerWidth > 1024) {
-      size = '50px top';
+      size = 'top top';
     }
-    if (window.innerWidth >= 767 && window.innerWidth <= 1024) {
-      size = '-200px top';
-    }
-    if (window.innerWidth < 767) {
-      size = '-400px top';
-    }
-    if (window.innerWidth < 420) {
-      size = '-200px top';
+    if (window.innerWidth <= 1024) {
+      size = 'top 20%';
     }
     return size;
   }

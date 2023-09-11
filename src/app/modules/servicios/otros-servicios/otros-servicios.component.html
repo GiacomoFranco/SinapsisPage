@@ -1,7 +1,12 @@
 <section class="other-service my-5">
   <div class="mobile" *ngIf="isMobile">
     <div class="phone phone_mobile">
-      <img class="cell cell_mobile" src="/assets/img/cell.svg" alt="" />
+      <div class="cell">
+        <app-project-mobile
+          [url_image]="pageData.phoneSection.video"
+          [id]="1"
+        ></app-project-mobile>
+      </div>
       <img class="shad shad_mobile" src="/assets/img/shadow.svg" alt="" />
     </div>
     <div class="w-100 text-center px-3 mt-4">
@@ -15,7 +20,12 @@
         <div class="col-md-6 item-mobile h-100">
           <img class="logo-sinapsis" src="/assets/img/logo_mark.svg" alt="" />
           <div class="phone">
-            <img class="cell" src="/assets/img/cell.svg" alt="" />
+            <div class="cell">
+              <app-project-mobile
+                [url_image]="pageData.phoneSection.video"
+                [id]="2"
+              ></app-project-mobile>
+            </div>
             <img class="shad" src="/assets/img/shadow.svg" alt="" />
           </div>
         </div>
@@ -30,41 +40,23 @@
       </div>
     </div>
   </div>
-  <div class="container mobile" *ngIf="isMobile">
-    <div
-      class="container d-flex justify-content-center align-items-center w-100 p-5"
-    >
-      <img class="img_portatil" src="/assets/img/portatil.png" alt="" />
-    </div>
-    <div class="text-center w-100">
-      <h2 class="h2-black">{{ pageData.laptopSection.title }}</h2>
-      <p class="mt-3" [innerHTML]="pageData.laptopSection.description"></p>
-      <app-button-sinapsis
-        [name_button]="'Lorem ipsum is simple'"
-        [url]="pageData.laptopSection.urlBoton"
-      ></app-button-sinapsis>
-    </div>
-  </div>
-  <div class="other-service-pc desktop" *ngIf="!isMobile">
-    <div class="scroll-right">
-      <div class="row w-100 m-0">
-        <div class="col-md-6 col-12 other-item items-pc px-5">
-          <div class="w-100">
-            <h2 class="h2-black">{{ pageData.laptopSection.title }}</h2>
-            <p
-              class="mt-3"
-              [innerHTML]="pageData.laptopSection.description"
-            ></p>
-            <app-button-sinapsis
-              [name_button]="'Lorem ipsum is simple'"
-              [url]="pageData.laptopSection.urlBoton"
-            ></app-button-sinapsis>
-          </div>
+  <div class="other-service-pc desktop">
+    <div class="row w-100 m-0">
+      <div class="col-md-6 col-12 other-item items-pc px-5">
+        <div class="w-100">
+          <h2 class="h2-black">{{ pageData.laptopSection.title }}</h2>
+          <p class="mt-3" [innerHTML]="pageData.laptopSection.description"></p>
+          <app-button-sinapsis
+            [name_button]="'Lorem ipsum is simple'"
+            [url]="pageData.laptopSection.urlBoton"
+          ></app-button-sinapsis>
         </div>
-        <div
-          class="col-md-6 col-12 other-item d-flex justify-content-end align-items-end position-relative p-0"
-        >
-          <img class="computer" src="/assets/img/computer.png" alt="" />
+      </div>
+      <div
+        class="col-md-6 col-12 other-item d-flex justify-content-end align-items-end position-relative p-0 scroll-right"
+      >
+        <div class="laptop-container">
+          <app-proyect-laptop [idLaptop]="5" [changeUrl]="pageData.laptopSection.video"></app-proyect-laptop>
         </div>
       </div>
     </div>

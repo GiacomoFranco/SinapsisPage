@@ -21,6 +21,7 @@ export interface Stadistics {
 }
 
 export interface Sections {
+    video: string,
     title: string,
     description: string,
     urlBoton: string

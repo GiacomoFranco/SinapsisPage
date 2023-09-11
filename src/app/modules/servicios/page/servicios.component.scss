@@ -16,6 +16,11 @@ span {
 .section-software {
   margin-top: 100px;
 
+  .text-software{
+    width: 100%;
+    min-height: 235px;
+  }
+
   p {
     color: #1a1a1b;
     text-align: center;

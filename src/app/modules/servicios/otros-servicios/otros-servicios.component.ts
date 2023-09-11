@@ -1,4 +1,4 @@
-import { Component, Input, HostListener, OnInit } from '@angular/core';
+import { Component, Input, AfterViewInit } from '@angular/core';
 import { servicePageData } from '@app/models/servicePage.model';
 import ScrollReveal from 'scrollreveal';
 
@@ -7,13 +7,13 @@ import ScrollReveal from 'scrollreveal';
   templateUrl: './otros-servicios.component.html',
   styleUrls: ['./otros-servicios.component.scss']
 })
-export class OtrosServiciosComponent implements OnInit {
+export class OtrosServiciosComponent implements AfterViewInit {
 
   @Input() pageData: servicePageData;
-  isMobile = false;
+  @Input() isMobile: boolean;
 
-  ngOnInit(): void {
-    this.checkWindowSize();
+  ngAfterViewInit(): void {
+    this.initScrollReveal();
   }
 
   initScrollReveal() {
@@ -21,7 +21,7 @@ export class OtrosServiciosComponent implements OnInit {
 
     sr.reveal('.scroll-left', {
       delay: 600,
-      duration: 5000,
+      duration: 3000,
       origin: 'left',
       distance: '100px',
       easing: 'ease-out',
@@ -29,19 +29,10 @@ export class OtrosServiciosComponent implements OnInit {
 
     sr.reveal('.scroll-right', {
       delay: 600,
-      duration: 4000,
+      duration: 3000,
       origin: 'right',
       distance: '100px',
       easing: 'ease-out',
     });
-  }
-
-  @HostListener('window:resize', ['$event'])
-  onResize(event: Event): void {
-    this.checkWindowSize();
-  }
-  
-  checkWindowSize() {
-    this.isMobile = window.innerWidth < 767;
   }
 }
