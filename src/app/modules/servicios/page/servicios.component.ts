@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import ScrollReveal from 'scrollreveal';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { ServiciosService } from 'src/app/services/servicios.service';
 import { servicePageData } from '@app/models/servicePage.model';
 import { SeoService } from '@app/services/seo.service';
@@ -11,6 +10,8 @@ import { SeoService } from '@app/services/seo.service';
 })
 export class ServiciosComponent implements OnInit {
 
+  isMobile = true;
+
   pageData: servicePageData = {
     developSoftware: {
       title: '',
@@ -18,11 +19,13 @@ export class ServiciosComponent implements OnInit {
       secondDescription: ''
     },
     phoneSection: {
+      video: '',
       title: '',
       description: '',
       urlBoton: ''
     },
     laptopSection: {
+      video: '',
       title: '',
       description: '',
       urlBoton: ''
@@ -39,6 +42,7 @@ export class ServiciosComponent implements OnInit {
   ngOnInit(): void {
     this.getPage();
     this.FlagsSeo();
+    this.checkWindowSize();
   }
 
   getPage() {
@@ -46,6 +50,16 @@ export class ServiciosComponent implements OnInit {
       const { data } = resp;
       this.pageData = data;
     });
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event): void {
+    console.log(window.innerWidth)
+    this.checkWindowSize();
+  }
+  
+  checkWindowSize() {
+    this.isMobile = window.innerWidth < 767;
   }
 
   FlagsSeo() {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Servicio } from '@app/models/servicio.model';
 import { ServiciosService } from '@app/services/servicios.service';
 import { OwlOptions } from 'ngx-owl-carousel-o';
@@ -9,14 +9,15 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
   styleUrls: ['./slider.component.scss']
 })
 export class SliderComponent implements OnInit {
-  isMobile = false;
+  @Input()isMobile: boolean;
 
   sliderItems: Servicio[] = [];
 
   customOptions: OwlOptions = {
-    loop: true,
+    // loop: true,
+    freeDrag: true,
     mouseDrag: true,
-    touchDrag: false,
+    touchDrag: true,
     pullDrag: false,
     autoplay: true,
     autoplayTimeout: 10,
@@ -37,7 +38,6 @@ export class SliderComponent implements OnInit {
 
   ngOnInit(): void {
     this.getSlider();
-    this.checkWindowSize();
   }
 
   getSlider() {
@@ -45,9 +45,5 @@ export class SliderComponent implements OnInit {
       const { data } = resp;
       this.sliderItems = data;
     });
-  }
-
-  checkWindowSize() {
-    this.isMobile = window.innerWidth < 767;
   }
 }
