@@ -45,8 +45,8 @@
 
     .k-list {
       .k-selected {
-          background-color: #7042EF !important;
-        }
+        background-color: #7042EF !important;
+      }
     }
   }
 }
@@ -152,18 +152,6 @@
           width: 100%;
           margin-bottom: 20px;
 
-          .k-form-field-checkbox-wrap {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-
-            .k-checkbox-label {
-              label {
-                cursor: pointer;
-              }
-            }
-          }
-
           .textbox,
           .k-picker {
             border: none;
@@ -174,17 +162,17 @@
             width: 100%;
             padding: 0 35px;
 
-            &::placeholder{
+            &::placeholder {
               color: #B7B1B1;
             }
           }
 
-          .k-picker{
+          .k-picker {
             ::ng-deep .k-input-inner {
-                .k-input-value-text {
-                  color: #1A1A1B;
-                }
+              .k-input-value-text {
+                color: #1A1A1B;
               }
+            }
           }
 
           .k-upload {
@@ -222,12 +210,51 @@
           }
         }
 
+        .checkbox-input {
+          align-items: center;
+          display: flex;
+          flex-direction: column;
+
+          .k-form-field-checkbox-wrap {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 10px;
+
+            .k-checkbox-label {
+              font-family: Inter;
+              font-weight: 300;
+
+              ::ng-deep .k-label {
+                cursor: pointer;
+              }
+            }
+
+            ::ng-deep input {
+
+              &:checked {
+                border-color: #7042ef;
+                background-color: #7042ef;
+
+                &:focus {
+                  box-shadow: 0 0 0 2px #7042ef4d;
+                }
+              }
+
+            }
+          }
+
+          .k-form-error {
+            justify-content: center;
+          }
+        }
+
       }
     }
   }
 }
 
-@media (max-width: 530px){
+@media (max-width: 530px) {
   .form-container {
     .form-content {
       .form-wrapper {

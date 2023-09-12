@@ -5,7 +5,6 @@
     <article class="form-wrapper">
       <form [formGroup]="form" class="form">
 
-
         <label class="label-form">Datos</label>
         <kendo-formfield showErrors="initial">
           <input class="textbox" formControlName="fullName" placeholder="Nombre Completo" #fullName required>
@@ -39,30 +38,25 @@
 
         <label class="label-form">Anexa tu Curriculum Vitae</label>
         <kendo-formfield>
-          <kendo-fileselect #files formControlName="files" [multiple]="false" zoneId="myZone">
+          <kendo-fileselect #files formControlName="files" [multiple]="false" zoneId="myZone" (valueChange)="completeUpload()">
             <kendo-fileselect-messages dropFilesHere="Agregar aqui tu curriculum" select="">
             </kendo-fileselect-messages>
           </kendo-fileselect>
 
-          <!-- <kendo-formerror *ngIf="form.controls.files.errors?.required && submitted">Error: Uploading files is
-              required</kendo-formerror> -->
+          <kendo-formerror *ngIf="form.controls['files'].errors?.['required']">Este campo es requerido</kendo-formerror>
         </kendo-formfield>
 
-
-        <!-- <button type="submit" class="k-button k-primary" style="margin: 1em 0;">Submit</button> -->
-
-        <app-button-sinapsis name_button="Enviar y aplicar" [redirects]="false"></app-button-sinapsis>
-
-        <kendo-formfield showHints="initial">
+        <kendo-formfield showHints="initial" class="checkbox-input">
           <div class="k-form-field-checkbox-wrap">
             <input kendoCheckBox id="terms" type="checkbox" formControlName="terms" />
             <kendo-label class="k-checkbox-label" for="terms"
               text="Lorem ipsum is simply Terminos y condiciones"></kendo-label>
           </div>
-
-          <!-- <kendo-formhint>By checking this, you agree to our Terms&Conditions</kendo-formhint> -->
-          <kendo-formerror>Este campo es requerido</kendo-formerror>
+          <kendo-formerror *ngIf="TermsAndConditions.errors?.['required'] && TermsAndConditions.value === null">Este campo es requerido</kendo-formerror>
+          <kendo-formerror *ngIf="TermsAndConditions.value === false"> Debes de marcar el campo de términos y condiciones para poder enviar la postulación</kendo-formerror>
         </kendo-formfield>
+
+        <app-button-sinapsis name_button="Enviar y aplicar" [redirects]="false" (click)="submitForm()"></app-button-sinapsis>
 
       </form>
     </article>
