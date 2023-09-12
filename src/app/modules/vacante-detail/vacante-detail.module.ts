@@ -5,7 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from "../../shared/shared.module";
 import { WorkWithUsModule } from '../work-with-us/work-with-us.module';
 import { ApplyComponent } from './apply/apply.component';
-import { FormFieldModule, TextBoxModule } from '@progress/kendo-angular-inputs';
+import { FormFieldModule, InputsModule, TextBoxModule } from '@progress/kendo-angular-inputs';
 import { LabelModule } from '@progress/kendo-angular-label';
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -28,6 +28,7 @@ const routes: Routes = [{ path: 'vacante:slug', component: VacanteDetailComponen
     FormsModule,
     ReactiveFormsModule,
     UploadsModule,
+    InputsModule,
   ],
 })
 export class VacanteDetailModule {}

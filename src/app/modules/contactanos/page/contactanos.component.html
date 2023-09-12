@@ -36,10 +36,9 @@
           </kendo-formfield>
 
           <kendo-formfield showHints="initial">
-            <kendo-textarea placeholder="Mensaje" [rows]="3" resizable="vertical"></kendo-textarea>
+            <kendo-textarea formControlName="mensaje" placeholder="Mensaje" [rows]="3" resizable="vertical"></kendo-textarea>
+            <kendo-formerror >Este campo es requerido</kendo-formerror>
           </kendo-formfield>
-
-          <!-- <button type="submit" class="k-button k-primary" style="margin: 1em 0;">Submit</button> -->
 
           <div class="submit-container">
             <kendo-formfield showHints="initial">
@@ -48,10 +47,12 @@
                 <kendo-label class="k-checkbox-label" for="terms"
                   text="Lorem ipsum is simply Terminos y condiciones"></kendo-label>
               </div>
-              <kendo-formerror>Este campo es requerido</kendo-formerror>
-            </kendo-formfield>
+              <kendo-formerror *ngIf="TermsAndConditions.errors?.['required'] && TermsAndConditions.value === null">Este campo es
+                requerido</kendo-formerror>
+              <kendo-formerror *ngIf="TermsAndConditions.value === false"> Debes de marcar el campo de términos y condiciones para poder enviar la postulación</kendo-formerror>
+              </kendo-formfield>
 
-            <app-button-sinapsis name_button="Enviar y aplicar" [redirects]="false"></app-button-sinapsis>
+            <app-button-sinapsis name_button="Enviar y aplicar" [redirects]="false" (click)="submitForm()"></app-button-sinapsis>
           </div>
 
         </form>
