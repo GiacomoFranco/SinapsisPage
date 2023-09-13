@@ -118,6 +118,14 @@
       transition: all 0.5s ease-out;
     }
 
+    .k-pager-numbers{
+      display: block !important;
+    }
+
+    .k-dropdown-list{
+      display: none !important;
+    }
+
     .k-selected{
       font-weight: bold;
       transform: scale(1.2);
