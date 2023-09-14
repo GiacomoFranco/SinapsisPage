@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { PortafolioService } from '@app/services/portafolio.service';
 import { portafolioModel } from '@app/models/portafolio.model';
 import { Pagination } from '@app/models/pagination.model';
+import { SeoService } from '@app/services/seo.service';
 
 @Component({
   selector: 'app-portafolio',
@@ -27,11 +28,14 @@ export class PortafolioComponent implements OnInit, DoCheck {
   contentId = 'cards-cont';
   isMobile = false;
 
-  constructor(private router: Router, private portafolioService: PortafolioService) { }
+  constructor(private router: Router, 
+              private portafolioService: PortafolioService,
+              private seoService: SeoService) { }
 
   ngOnInit(): void {
     this.pageData(this.dataPagination);
-    this.validateResponsive()
+    this.validateResponsive();
+    this.FlagsSeo()
   }
 
   ngDoCheck(): void {
@@ -73,5 +77,16 @@ export class PortafolioComponent implements OnInit, DoCheck {
 
   redirect(slug: string) {
     this.router.navigate([`portafolio/${slug}`])
+  }
+
+  FlagsSeo() {
+    this.seoService.generateFlags({
+      title: 'Portafolio de proyectos',
+      description: 'Explora nuestro portafolio de proyectos de desarrollo de software personalizados. Descubre cómo hemos ayudado a diversas empresas a alcanzar sus objetivos a través de soluciones de software innovadoras y de alta calidad.',
+      keywords: 'Desarrollo de software personalizado, Portafolio de proyectos, Soluciones de software innovadoras, Programación a medida, Proyectos de desarrollo web, Aplicaciones personalizadas, Desarrollo de aplicaciones móviles, Casos de éxito en desarrollo de software, Experiencia en desarrollo tecnológico, Implementación de soluciones digitales',
+      site_name: 'Sinapsis',
+      image: '',
+      slug_url: '/portafolio',
+    })
   }
 }

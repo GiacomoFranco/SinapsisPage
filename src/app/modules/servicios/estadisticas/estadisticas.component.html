@@ -6,7 +6,7 @@
         *ngFor="let dataStadistics of pageData.sectionStadistics; let i = index"
       >
         <div class="d-flex">
-          <img class="icon" [src]="dataStadistics.icon" />
+          <img class="icon" [src]="dataStadistics.icon" alt="icono ilustrativo para las estadisticas en Sinapsis"/>
           <div class="content-statistics ms-3">
             <h3 class="m-0">+{{ contadores[i].value }}</h3>
             <h3 class="m-0 title-statistics">

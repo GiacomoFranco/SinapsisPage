@@ -11,8 +11,8 @@
           <div class="text">
             <img class="img-logo" [src]="chase[0].general.logo" alt="" />
             <p>{{ chase[0].general.description }}</p>
-            <button class="view-more">
-              <a (click)="redirect(chase[0].slug)">Ver Más...</a>
+            <button class="view-more" (click)="redirect(chase[0].slug)">
+              Ver Más...
             </button>
           </div>
           <div class="screen">
@@ -31,8 +31,8 @@
               <div class="text">
                 <img class="img-logo" [src]="item.general.logo" alt="" />
                 <p>{{ item.general.description }}</p>
-                <button class="view-more">
-                  <a (click)="redirect(item.slug)">Ver Más...</a>
+                <button class="view-more" (click)="redirect(item.slug)">
+                  Ver Más...
                 </button>
               </div>
             </div>
