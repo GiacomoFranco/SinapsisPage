@@ -2,6 +2,8 @@ import { Component, OnInit, HostListener } from '@angular/core';
 import { ServiciosService } from 'src/app/services/servicios.service';
 import { servicePageData } from '@app/models/servicePage.model';
 import { SeoService } from '@app/services/seo.service';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-servicios',
@@ -37,18 +39,27 @@ export class ServiciosComponent implements OnInit {
     },
   };
 
-  constructor(private service: ServiciosService, private seoService: SeoService) { }
+  safeDescription: SafeHtml;
+
+  constructor(private service: ServiciosService,
+              private seoService: SeoService, 
+              private sanitizer: DomSanitizer,
+              private cookieService: CookieService) { 
+    
+  }
 
   ngOnInit(): void {
     this.getPage();
     this.FlagsSeo();
     this.checkWindowSize();
+    this.cookieService.set('myCookie', 'myValue', { sameSite: 'None', secure: true });
   }
 
   getPage() {
     this.service.getServicesPage().then((resp) => {
       const { data } = resp;
       this.pageData = data;
+      this.safeDescription = this.sanitizer.bypassSecurityTrustHtml(this.pageData.developSoftware.secondDescription);
     });
   }
 
