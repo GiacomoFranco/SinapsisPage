@@ -3,7 +3,9 @@
     <owl-carousel-o [options]="customOptions">
       <ng-container>
         <ng-template carouselSlide *ngFor="let slider of sliderData">
-          <img class="img-slider" [src]="slider.general.logo" alt="" />
+          <div class="item">
+            <img class="img-slider" [src]="slider.general.logo" alt="" />
+          </div>
         </ng-template>
       </ng-container>
     </owl-carousel-o>

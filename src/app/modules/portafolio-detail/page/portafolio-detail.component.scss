@@ -32,13 +32,13 @@
   }
 }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1200px) {
   .firstSection{
     width: 100% !important;
   }
 
   .content-laptop {
-    height: 400px !important;
+    height: 500px !important;
   }
 
   .other-info {
@@ -49,7 +49,7 @@
 @media screen and (max-width: 767px) {
 
   .content-laptop {
-    height: 200px !important;
+    height: 250px !important;
   }
 
 }
