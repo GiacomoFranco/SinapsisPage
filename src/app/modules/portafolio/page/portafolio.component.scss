@@ -163,6 +163,15 @@
       border: none;
       background-color: transparent;
 
+      .k-pager-numbers{
+        display: block !important;
+      }
+  
+      .k-dropdown-list{
+        display: none !important;
+      }
+  
+
       .k-button {
         &::after {
           color: transparent;

@@ -66,14 +66,14 @@ export class PortafolioDetailComponent implements OnInit, OnDestroy {
         start: '-200 center',
       }
     });
-    gsap.from(".item-text-mobile", {
-      x: 100,
+    gsap.from(".row-mobile", {
+      x: -100,
       opacity: 0,
       stagger: 0.3,
       ease: 'expo',
       duration: 5,
       scrollTrigger: {
-        trigger: '.item-text-mobile',
+        trigger: '.row-mobile',
         start: 'top center',
       }
     });
