@@ -42,10 +42,9 @@ export class ServiciosComponent implements OnInit {
   safeDescription: SafeHtml;
 
   constructor(private service: ServiciosService,
-              private seoService: SeoService, 
-              private sanitizer: DomSanitizer,
-              private cookieService: CookieService) { 
-    
+    private seoService: SeoService,
+    private sanitizer: DomSanitizer,
+    private cookieService: CookieService) {
   }
 
   ngOnInit(): void {
@@ -67,7 +66,7 @@ export class ServiciosComponent implements OnInit {
   onResize(event: Event): void {
     this.checkWindowSize();
   }
-  
+
   checkWindowSize() {
     this.isMobile = window.innerWidth < 767;
   }

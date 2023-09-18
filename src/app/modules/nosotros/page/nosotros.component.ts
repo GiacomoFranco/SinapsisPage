@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, OnDestroy } from '@angular/core';
 import { NosotrosService } from '@app/services/nosotros.service';
 import { nosotrosPage } from '@app/models/nosotrosPage.model';
 import { gsap } from 'gsap';
@@ -13,7 +13,7 @@ gsap.registerPlugin(TextPlugin, ScrollTrigger);
   styleUrls: ['./nosotros.component.scss']
 })
 
-export class NosotrosComponent implements OnInit {
+export class NosotrosComponent implements OnInit, OnDestroy {
   pageData: nosotrosPage = {
     gallery: [],
     ourHistory: {
@@ -35,7 +35,8 @@ export class NosotrosComponent implements OnInit {
   }
   isMobile: boolean;
 
-  constructor(private nosotrosService: NosotrosService, private seoService: SeoService) {
+  constructor(private nosotrosService: NosotrosService,
+    private seoService: SeoService) {
   }
 
   ngOnInit(): void {
@@ -44,19 +45,42 @@ export class NosotrosComponent implements OnInit {
     this.FlagsSEO();
   }
 
-  async getData(){
+  ngOnDestroy(): void {
+    this.pageData = {
+      gallery: [],
+      ourHistory: {
+        imagen: '',
+        title: '',
+        description: ''
+      },
+      timeLine: {
+        description: '',
+        data: []
+      },
+      misionVision: [],
+      sectionDesign: {
+        imagen: '',
+        title: '',
+        descripcion: '',
+        UrlBtn: ''
+      }
+    };
+  }
+
+  async getData() {
     try {
       await this.nosotrosService.getNosotrosPage().then((response) => {
         const { data } = response
         this.pageData = data;
+        console.log(this.pageData)
       })
     } catch (error) {
       console.error(error)
     }
   }
-  
-  
-  FlagsSEO(){
+
+
+  FlagsSEO() {
     this.seoService.generateFlags({
       title: 'Acerca de Nosotros',
       description: 'Descubre quiénes somos en Sinapsis. Somos un equipo de expertos en desarrollo de software comprometidos con la entrega de soluciones tecnológicas de vanguardia. Conoce nuestra historia, valores y visión de innovación.',
@@ -68,12 +92,10 @@ export class NosotrosComponent implements OnInit {
   }
   @HostListener('window:resize', ['$event'])
   onResize(event: Event): void {
-    console.log(window.innerWidth)
     this.checkWindowSize();
   }
-  
+
   checkWindowSize() {
     this.isMobile = window.innerWidth < 767;
-    console.log(this.isMobile)
   }
 }

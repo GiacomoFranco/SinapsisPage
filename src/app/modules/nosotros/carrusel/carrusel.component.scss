@@ -4,6 +4,7 @@
 }
 
 .img-slider {
+  width: 100%;
   height: 521px;
   object-fit: cover;
 }
@@ -12,20 +13,9 @@
   width: 100%;
   columns: 2;
   column-gap: 6px;
-  // display: none;
 
   .img-mobile {
     max-width: 100%;
     margin-bottom: 6px;
   }
 }
-
-// @media screen and (max-width: 767px) {
-//   .carrousel{
-//     display: none;
-//   }
-
-//   .grid-image {
-//     display: block;
-//   }
-// }
