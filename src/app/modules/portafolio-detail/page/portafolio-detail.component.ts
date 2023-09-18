@@ -2,6 +2,7 @@ import { AfterViewInit, Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PortafolioDetail } from '@app/models/portafolioDetail.model';
 import { PortafolioService } from '@app/services/portafolio.service';
+import { SeoService } from '@app/services/seo.service';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
@@ -37,13 +38,16 @@ export class PortafolioDetailComponent implements OnInit, OnDestroy {
     }
   }
 
-  constructor(private route: ActivatedRoute, private portafolioService: PortafolioService){}
+  constructor(private route: ActivatedRoute, 
+              private portafolioService: PortafolioService, 
+              private seoService: SeoService){}
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.slug = params['slug']
     })
     this.getPageData();
+    this.flagsSeo();
   }
 
   getPageData(){
@@ -77,6 +81,17 @@ export class PortafolioDetailComponent implements OnInit, OnDestroy {
         start: 'top center',
       }
     });
+  }
+
+  flagsSeo(){
+    this.seoService.generateFlags({
+      title: 'Detalles  del proyecto',
+      description: `Descubre todos los detalles sobre este proyecto desarrollado en Sinapsis. Conoce sus características, beneficios y cómo puede mejorar tu vida. ¡Explora ahora!'`,
+      keywords: 'nosotros, equipo de desarrollo de software, empresa de tecnología, expertos en desarrollo de software, historia de la empresa, visión y valores, innovación tecnológica',
+      site_name: 'Sinapsis',
+      image: '',
+      slug_url: `/portafolio/proyecto`,
+    })
   }
 
   ngOnDestroy(): void {
