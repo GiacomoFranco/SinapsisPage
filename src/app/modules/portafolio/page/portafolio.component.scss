@@ -38,8 +38,10 @@
       }
 
       .img-logo{
-        max-height: 97px;
-        min-width: 65px;
+        width: 97px;
+        height: 97px;
+        object-fit: contain;
+        margin-bottom: 15px;
       }
 
       .pair-cont {
