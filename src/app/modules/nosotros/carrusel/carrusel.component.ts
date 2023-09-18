@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { nosotrosPage } from '@app/models/nosotrosPage.model';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 
@@ -7,7 +7,7 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
   templateUrl: './carrusel.component.html',
   styleUrls: ['./carrusel.component.scss']
 })
-export class CarruselComponent implements OnInit{
+export class CarruselComponent{
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: true,
@@ -48,9 +48,5 @@ export class CarruselComponent implements OnInit{
       descripcion: '',
       UrlBtn: ''
     }
-  }
-
-  ngOnInit(): void {
-    
   }
 }

@@ -40,7 +40,6 @@ export class IntegrantesComponent implements OnInit{
       const { data } = response;
       this.integrantesData = data.post
       this.dataPagination = data.pagination
-      console.log(this.dataPagination)
     })
   }
 }

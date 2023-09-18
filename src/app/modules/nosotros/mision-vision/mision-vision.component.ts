@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Input } from '@angular/core';
 import { nosotrosPage } from '@app/models/nosotrosPage.model';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -8,12 +8,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
   templateUrl: './mision-vision.component.html',
   styleUrls: ['./mision-vision.component.scss']
 })
-export class MisionVisionComponent implements OnInit, AfterViewInit{
+export class MisionVisionComponent implements AfterViewInit{
   @Input() pageData: nosotrosPage;
-
-  ngOnInit(): void {
-    
-  }
 
   ngAfterViewInit(): void {
     this.animateMisionVision();
