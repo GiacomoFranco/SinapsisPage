@@ -1,5 +1,6 @@
 <article class="form-container" kendoUploadDropZone="myZone">
-  <div class="form-content" [class.form-content--dragover]="draggingFile">
+  <div class="form-content" [class.form-content--dragover]="draggingFile" [class.form-content--loader]="isSending">
+    <span [hidden]="!isSending" class="loader"></span>
     <img src="/assets/vacante/close.svg" alt="" class="close-icon" (click)="toggleModalState()">
     <h3>Lorem ipsum is simply text of the printing and.</h3>
     <article class="form-wrapper">
@@ -29,23 +30,24 @@
         </kendo-formfield>
         <kendo-formfield showErrors="initial">
 
-          <kendo-dropdownlist #ubication isRequired="true" formControlName="ubications" [data]="ubications"
+          <kendo-dropdownlist [class.is-placeholder]="selectedUbication === 'Ubicación'" #ubication [(ngModel)]="selectedUbication" isRequired="true" formControlName="ubications" [data]="ubications"
             [value]="'Ubicación'">
           </kendo-dropdownlist>
           <kendo-formerror>Este campo es requerido</kendo-formerror>
         </kendo-formfield>
 
-
         <label class="label-form">Anexa tu Curriculum Vitae</label>
         <kendo-formfield>
-          <kendo-fileselect #files formControlName="files" [multiple]="false" zoneId="myZone" (valueChange)="completeUpload()">
-            <kendo-fileselect-messages dropFilesHere="Agregar aqui tu curriculum" select="">
+          <kendo-fileselect #files formControlName="files" [restrictions]=" fileRestrictions" [multiple]="false" zoneId="myZone" (valueChange)="completeUpload()" (select)="selectFile($event)" (remove)="removeSelectedFile()"
+>
+            <kendo-fileselect-messages dropFilesHere="Agregar aqui tu curriculum en formato PDF" select="">
             </kendo-fileselect-messages>
           </kendo-fileselect>
 
-          <kendo-formerror *ngIf="form.controls['files'].errors?.['required']">Este campo es requerido</kendo-formerror>
+          <kendo-formerror *ngIf="form.controls['files'].errors?.['required'] && selectedFileExtension === null ">Este campo es requerido</kendo-formerror>
+          <kendo-formerror *ngIf="files._restrictions.allowedExtensions![0] !== selectedFileExtension && selectedFileExtension !== null">La extensión del archivo es de tipo {{selectedFileExtension}}, en su lugar adjunta un PDF
+          </kendo-formerror>
         </kendo-formfield>
-
         <kendo-formfield showHints="initial" class="checkbox-input">
           <div class="k-form-field-checkbox-wrap">
             <input kendoCheckBox id="terms" type="checkbox" formControlName="terms" />

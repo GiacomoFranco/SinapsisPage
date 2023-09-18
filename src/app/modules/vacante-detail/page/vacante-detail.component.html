@@ -1,4 +1,4 @@
-<app-apply [hidden]="!applyModalState" (toggleEmit)="toggleModalState($event)" [applyModalState]="applyModalState"></app-apply>
+<app-apply [hidden]="!applyModalState" (toggleEmit)="toggleModalState($event)" [applyModalState]="applyModalState" [vacantName]="vacancyDetail?.title ?? 'Título'"></app-apply>
 <app-arrow-back [isVacancies]="true"></app-arrow-back>
 
 <ng-template #skeleton>

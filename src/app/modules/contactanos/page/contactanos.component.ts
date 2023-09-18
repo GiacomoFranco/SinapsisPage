@@ -40,13 +40,12 @@ export class ContactanosComponent {
     return this.form.get('terms') as FormControl;
   }
 
+  isSending: boolean = false;
   submitForm() {
     this.form.markAllAsTouched();
-    console.log(this.form);
-
     if (this.form.valid) {
+      this.isSending = true;
       const formValue = this.form.value;
-
 
       this.mailService.setMensajeMailContent(formValue);
 
@@ -60,8 +59,11 @@ export class ContactanosComponent {
         Subject: 'santy subject',
         Body: this.mailService.getPlantillaMensaje(),
       }).then((message: any) => {
+        this.isSending = false;
         alert(message);
-        this.form.reset();
+        if (message === 'OK') {
+          this.form.reset();
+        }
       });
     }
   }
