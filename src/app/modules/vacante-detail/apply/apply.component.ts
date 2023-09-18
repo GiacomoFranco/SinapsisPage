@@ -1,9 +1,11 @@
-import { Component, EventEmitter, HostListener, Input, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, Output, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Dragster } from '@matrx/dragster';
-// import { ApplyMail } from 'src/app/core/ApplyMail';
 import '../../../../assets/smtp.js';
 import { MailService } from '@app/services/mail.service';
+import { FileRestrictions } from '@progress/kendo-angular-upload';
+import { ApplyService } from '@app/services/apply.service';
+import { Router } from '@angular/router';
 declare let EmailSMTP: any;
 
 @Component({
@@ -12,17 +14,16 @@ declare let EmailSMTP: any;
   styleUrls: ['./apply.component.scss'],
 })
 export class ApplyComponent {
+  @Input() vacantName: string;
   @Output() toggleEmit = new EventEmitter<boolean>();
-
-  draggingFile: boolean = false;
-  dragster: any;
-  possibleElement: any;
   @Input() set applyModalState(state: boolean) {
     this.possibleElement = document.querySelector('app-apply');
     if (state) {
       this.dragster = new Dragster(this.possibleElement);
     } else {
-      // this.dragster._destroy();
+      if (this.dragster) {
+        this.dragster._destroy();
+      }
       this.resetForm();
     }
   }
@@ -33,8 +34,15 @@ export class ApplyComponent {
     this.dragster.reset(this.possibleElement);
     this.toggleDropFile(event.type);
   }
+  draggingFile: boolean = false;
+  dragster: any;
+  possibleElement: any;
 
-  constructor(private mailService: MailService) {
+  constructor(
+    private mailService: MailService,
+    private applyService: ApplyService,
+    private router: Router
+  ) {
     document.addEventListener(
       'dragster-enter',
       (event) => {
@@ -63,8 +71,6 @@ export class ApplyComponent {
     telefono: new FormControl(null, [
       Validators.required,
       Validators.pattern('[0-9]*'),
-      Validators.minLength(10),
-      Validators.maxLength(10),
     ]),
     terms: new FormControl(null, [
       Validators.required,
@@ -84,6 +90,7 @@ export class ApplyComponent {
     return this.form.get('terms') as FormControl;
   }
 
+  selectedUbication: any = 'Ubicación';
   ubications: any[] = ['Medellín', 'Montería', 'Bogotá', 'Cali'];
 
   toggleModalState() {
@@ -107,47 +114,71 @@ export class ApplyComponent {
     this.form.reset(); // Esto restablecerá los errores del FormGroup
   }
 
-
+  isSending: boolean = false;
   fileBase64URI: string | null;
+  fileRestrictions: FileRestrictions = {
+    allowedExtensions: ['.pdf'],
+  };
 
-  submitForm() {
+  async submitForm() {
     this.form.markAllAsTouched();
     if (this.form.valid) {
-      console.log(this.form.value);
+      this.isSending = true;
 
       const formValue = this.form.value;
+      const metadata = {
+        vacante: this.vacantName,
+        url: this.router.url,
+        cv: this.fileBase64URI
+      };
 
       this.mailService.setApplyMailContent(formValue);
 
-      EmailSMTP.send({
-        Host: 'smtp.elasticemail.com',
-        // SecureToken: 'c3b93799-a3b1-43ce-86bb-9347c06ec419',
-        Username: 'passiflora.freelance@gmail.com',
-        Password: '5708CF1810F3B65FFFCDEA0D960485DE7BAB',
-        To: 'santiagogilfranco30@gmail.com',
-        From: 'passiflora.freelance@gmail.com',
-        Subject: 'santy subject',
-        Body: this.mailService.getPlantillaApply(),
-        Attachments: [
-          {
-            name: this.mailService.getFilename(),
-            data: this.fileBase64URI,
-          },
-        ],
-      }).then((message: any) => {
-        alert(message);
+      await this.applyService.postApply(formValue, metadata).then( async () => {
         this.form.reset();
+
+        await EmailSMTP.send({
+          Host: 'smtp.elasticemail.com',
+          Username: 'passiflora.freelance@gmail.com',
+          Password: '5708CF1810F3B65FFFCDEA0D960485DE7BAB',
+          To: 'santiagogilfranco30@gmail.com',
+          From: 'passiflora.freelance@gmail.com',
+          Subject: 'santy subject',
+          Body: this.mailService.getPlantillaApply(),
+          Attachments: [
+            {
+              name: this.mailService.getFilename(),
+              data: this.fileBase64URI,
+            },
+          ],
+        }).then(async (message: any) => {
+          this.isSending = false;
+          alert(message);
+          if (message === 'OK') {
+            this.form.reset();
+          }
+        });
       });
     }
   }
 
-  completeUpload(){
+  selectedFileExtension: any = null;
+
+  selectFile(event: any) {
+    this.selectedFileExtension = event.files[0].extension;
+  }
+
+  removeSelectedFile() {
+    this.selectedFileExtension = null;
+  }
+
+  completeUpload() {
     const formFiles: File[] | null = this.form.value.files;
 
     if (!formFiles) {
       this.fileBase64URI = formFiles;
     } else {
-      this.convertFileToURI(formFiles[0])
+      this.convertFileToURI(formFiles[0]);
     }
   }
 
@@ -156,8 +187,6 @@ export class ApplyComponent {
 
     reader.onload = () => {
       this.fileBase64URI = reader.result as string;
-      console.log(this.fileBase64URI);
-
     };
 
     reader.readAsDataURL(file);

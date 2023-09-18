@@ -1,13 +1,20 @@
 import { Injectable } from '@angular/core';
 import plantillaApply from '@app/core/plantillaApply';
-import { plantillaApplyModel } from '@app/models/plantillaApply.model';
 import plantillaMensaje from 'src/app/core/plantillaMensaje';
-
+import { plantillaApplyModel } from '@app/models/plantillaApply.model';
+import { environment } from 'src/environment';
+import axios from 'axios';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MailService {
+  private apiUrl = environment.SENDGRID_API_URL;
+
+  api = axios.create({
+    baseURL: this.apiUrl,
+  });
+
   constructor() {}
 
   applyMailContent: any;
@@ -20,7 +27,6 @@ export class MailService {
 
   setMensajeMailContent(formContent: plantillaApplyModel) {
     this.mensajeMailContent = formContent;
-
   }
 
   getPlantillaApply(): string {
@@ -53,4 +59,36 @@ export class MailService {
   getFile(): any {
     return this.applyMailContent.files[0];
   }
+
+  /* ---------------------------- */
+
+  // async sendGridRequest(URIFile: string | null = null) {
+
+  //   const mailStructure: any = {
+  //     to: 'santiagogilfranco30@gmail.com',
+  //     from: 'german.otalvaro@sinapsis.global',
+  //     subject: 'This should be the subject',
+  //     text: 'This is the text',
+  //     html: URIFile ? this.getPlantillaApply() : this.getPlantillaMensaje(),
+  //   };
+
+  //   if (URIFile) {
+  //     mailStructure.attachments = [
+  //       {
+  //         filename: this.getFilename(),
+  //         content: URIFile,
+  //       },
+  //     ]
+  //   }
+
+  //   console.log(mailStructure);
+
+
+  //   const headers = {
+  //     "Content-Type": "application/json",
+  //     "Authorization": "Bearer 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"
+  //   }
+
+  //   return await this.api.post(`/v3/mail/send`, mailStructure, {headers: headers})
+  // }
 }
