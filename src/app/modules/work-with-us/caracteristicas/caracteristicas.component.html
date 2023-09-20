@@ -1,7 +1,7 @@
-<div class="section-content__container caracteristicas-a" [class.section-content__container--contacto]="isContacto">
+<div class="section-content__container" [class.section-content__container--contacto]="isContacto">
   <h3 class="caracteristicas__title-a">{{ title }}</h3>
   <p *ngIf="isContacto">Lorem ipsum is simple texto of the printing and typesetting industry.</p>
-  <div class="caracterticas__cards" *ngIf="isContacto ; else workWithUs">
+  <div class="caracterticas__cards" *ngIf="isContacto ; else workWithUs" appScrollReveal selectorClassAnimation="caracteristicas__card" y="100%" ease="expo" duration="1" stagger="0.3">
     <app-caracteristica [isContacto]="isContacto" [icon]="'assets/contactanos/call.svg'" [title]="'Teléfono'" [text]="'500 000 0000'"></app-caracteristica>
     <app-caracteristica [isContacto]="isContacto" [icon]="'assets/contactanos/location.svg'" [title]="'Medellín'" [text]="'Cr 00 #00 int 00'"></app-caracteristica>
     <app-caracteristica [isContacto]="isContacto" [icon]="'assets/contactanos/instagram.svg'" [title]="'Instagram'" [text]="'@sinapsis'"></app-caracteristica>

@@ -11,6 +11,7 @@ import { Proyecto } from '@app/models/proyect.model';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { TestimoniosService } from '@app/services/testimonios.service';
 import { Testimonio } from '@app/models/testimonio.model';
+import { SeoService } from '@app/services/seo.service';
 
 
 
@@ -21,6 +22,7 @@ import { Testimonio } from '@app/models/testimonio.model';
 })
 export class HomeComponent implements AfterViewInit, DoCheck, OnDestroy {
   constructor(
+    private seoService: SeoService,
     private renderer2: Renderer2,
     private servicioService: ServiciosService,
     private proyectosService: ProyectosService,
@@ -100,19 +102,18 @@ export class HomeComponent implements AfterViewInit, DoCheck, OnDestroy {
         duration: 2,
       });
 
-
-      // this.animation.eventCallback('onComplete', () => {
-      //   gsap.to('.banner-principal', {
-      //     scrollTrigger: {
-      //       trigger: '.banner-principal',
-      //       start: 'top bottom', // Fija el elemento cuando su parte superior toca la parte inferior de la ventana
-      //       end: '+=500', // Permanece fijado durante 500 unidades de desplazamiento hacia abajo
-      //       pin: true, // "Fija" el elemento en la pantalla
-      //       pinSpacing: false, // No agrega espaciado extra después de que el elemento se "fija"
-      //       markers: true, // (opcional) Muestra marcadores de ScrollTrigger para depuración
-      //     },
-      //   });
-      // });
+    // this.animation.eventCallback('onComplete', () => {
+    //   gsap.to('.banner-principal', {
+    //     scrollTrigger: {
+    //       trigger: '.banner-principal',
+    //       start: 'top bottom', // Fija el elemento cuando su parte superior toca la parte inferior de la ventana
+    //       end: '+=500', // Permanece fijado durante 500 unidades de desplazamiento hacia abajo
+    //       pin: true, // "Fija" el elemento en la pantalla
+    //       pinSpacing: false, // No agrega espaciado extra después de que el elemento se "fija"
+    //       markers: true, // (opcional) Muestra marcadores de ScrollTrigger para depuración
+    //     },
+    //   });
+    // });
   }
 
   isPendingServicios: boolean = true;
@@ -241,12 +242,10 @@ export class HomeComponent implements AfterViewInit, DoCheck, OnDestroy {
 
   ngOnInit(): void {
     this.checkWindowSize();
-    this.servicioService
-      .getServicios()
-      .then((resp) => {
-        this.servicios = resp.data
-        this.isPendingServicios = false;
-      });
+    this.servicioService.getServicios().then((resp) => {
+      this.servicios = resp.data;
+      this.isPendingServicios = false;
+    });
 
     this.proyectosService.getProductosDestacados().then((resp) => {
       this.projects = resp.data;
@@ -261,6 +260,8 @@ export class HomeComponent implements AfterViewInit, DoCheck, OnDestroy {
       this.testimonios = resp.data;
       this.isPendingTestimonios = false;
     });
+
+    this.FlagsSEO();
   }
 
   ngAfterViewInit(): void {
@@ -278,5 +279,18 @@ export class HomeComponent implements AfterViewInit, DoCheck, OnDestroy {
   @HostListener('window:resize', ['$event'])
   onResize() {
     this.checkWindowSize();
+  }
+
+  FlagsSEO() {
+    this.seoService.generateFlags({
+      title: 'Sinapsis',
+      description:
+        'En Sinapsis, estamos en la vanguardia de la tecnología. Descubre cómo nuestro equipo de expertos en desarrollo de software está transformando el futuro con soluciones tecnológicas innovadoras. Únete a nosotros en este viaje hacia la excelencia tecnológica.',
+      keywords:
+        'Sinapsis, tecnología vanguardia, equipo expertos desarrollo software, soluciones tecnológicas innovadoras, transformación tecnológica, excelencia tecnológica, innovación en desarrollo de software, futuro tecnológico, viaje hacia la excelencia, unirse a Sinapsis, equipo Sinapsis',
+      site_name: 'Sinapsis',
+      image: '',
+      slug_url: '/',
+    });
   }
 }

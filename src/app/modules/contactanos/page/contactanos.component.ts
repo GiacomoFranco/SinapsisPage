@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import '../../../../assets/smtp.js';
 import { MailService } from '@app/services/mail.service';
+import { SeoService } from '@app/services/seo.service';
 declare let EmailSMTP: any;
 
 @Component({
@@ -9,8 +10,16 @@ declare let EmailSMTP: any;
   templateUrl: './contactanos.component.html',
   styleUrls: ['./contactanos.component.scss'],
 })
-export class ContactanosComponent {
-  constructor(private mailService: MailService) {}
+export class ContactanosComponent implements OnInit{
+
+  constructor(
+    private mailService: MailService,
+    private seoService: SeoService
+  ) {}
+
+  ngOnInit(): void {
+    this.FlagsSEO();
+  }
 
   public form: FormGroup = new FormGroup({
     fullName: new FormControl(null, Validators.required),
@@ -66,6 +75,19 @@ export class ContactanosComponent {
         }
       });
     }
+  }
+
+  FlagsSEO() {
+    this.seoService.generateFlags({
+      title: 'Contáctanos',
+      description:
+        '¿Tienes alguna pregunta o consulta? ¡Estamos aquí para ayudarte! Ponte en contacto con nosotros en la sección de Contáctanos y descubre cómo podemos colaborar en tu próximo proyecto tecnológico.',
+      keywords:
+        'contacto Sinapsis, preguntas, consultas, colaboración tecnológica, contacto equipo Sinapsis, comunicación, proyecto tecnológico',
+      site_name: 'Sinapsis',
+      image: '',
+      slug_url: '/',
+    });
   }
 }
 
