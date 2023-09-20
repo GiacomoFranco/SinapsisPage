@@ -15,6 +15,7 @@ export class ScrollRevealDirective implements AfterViewInit {
   @Input() stagger: number | string | any = 0.2;
   @Input() selectorClassAnimation: string;
   @Input() markers: boolean = false;
+  @Input() ease: string = 'power';
 
   @Input() set isPending(state: boolean) {
     if (!state) {
@@ -32,7 +33,7 @@ export class ScrollRevealDirective implements AfterViewInit {
           x: this.x,
           y: this.y,
           opacity: 0,
-          ease: 'power',
+          ease: this.ease,
           duration: this.duration,
           stagger: this.stagger,
           delay: this.delay,

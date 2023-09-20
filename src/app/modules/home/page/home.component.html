@@ -11,7 +11,7 @@
         industry.
         lorem ipsum has been the</p>
       <div class="section__actions">
-        <app-button-sinapsis [name_button]="'Lorem ipsum is simple'"></app-button-sinapsis>
+        <app-button-sinapsis [name_button]="'Lorem ipsum is simple'" [url]="'/nosotros'"></app-button-sinapsis>
       </div>
     </div>
   </article>
@@ -32,7 +32,7 @@
     <div class="nuestros-servicios__images-container">
       <img src="assets\icons\purple-logo-icon.svg" alt="Logo Sinapsis" class="logo-icon">
       <div class="team-work-container">
-        <img class="team-work" src="assets\home\team-working.jpg" alt="Equipo de trabajo">
+        <img class="team-work" src="assets\home\team-working.webp" alt="Equipo de trabajo">
       </div>
     </div>
   </article>
@@ -45,7 +45,7 @@
           <p>{{ servicio.description }}</p>
         </div>
       </div>
-      <app-button-sinapsis class="button" [name_button]="'Lorem ipsum is simple'"></app-button-sinapsis>
+      <app-button-sinapsis class="button" [name_button]="'Lorem ipsum is simple'" url="servicios" ></app-button-sinapsis>
     </div>
     <ng-template #nuestrosServiciosMovile class="nuestros-servicios__movile">
       <section class="grid-mobile">
@@ -111,7 +111,7 @@
     </div>
   </article>
   <article appParallax selectorClassAnimation="employee-wwu-a" class="trabaja-con-nosotros__graphic">
-    <img src="/assets/home/employee.png" alt="Empleada Sinapsis" class="employee-wwu-a">
+    <img src="/assets/home/employee.webp" alt="Empleada Sinapsis" class="employee-wwu-a">
   </article>
 </section>
 <ng-template #WWUMovile>
@@ -152,12 +152,12 @@
         <h3>{{ project.title}}</h3>
         <p>{{ project ? project.general.description : 'Lorem ipsum' }}</p>
       </div>
-      <a routerLink="/projects/{{project.slug }}" class="action">Botón</a>
+      <a routerLink="/portafolio/{{project.slug }}" class="action">Botón</a>
     </div>
   </article>
   <div class="controller">
-    <button *ngFor="let slide of projects; let i = index" (click)="selectProyect(i)" class="slide"
-      [ngClass]="{'active': isSlideActive(i)}"></button>
+    <div *ngFor="let slide of projects; let i = index" (click)="selectProyect(i)" class="slide"
+      [ngClass]="{'active': isSlideActive(i)}"></div>
   </div>
 </section>
 <section class="testimonios">
@@ -208,7 +208,7 @@
       <img src="assets/icons/arrowdown-right.svg" alt="">
       <h2>Explora <span class="servicios-span">nuestro Blog</span></h2>
     </div>
-    <a href="#">Botón</a>
+    <a routerLink="/blog">Botón</a>
   </article>
   <article class="blog__posts">
     <app-postcarrousel [setBreakpoint]="1400"></app-postcarrousel>

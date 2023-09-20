@@ -4,7 +4,7 @@
   min-height: 565px;
   overflow: hidden;
   position: relative;
-  background-image: url('/assets/workWithUs/portrait-employee.png');
+  background-image: url('/assets/workWithUs/portrait-employee.webp');
   background-position: center 60px;
   background-repeat: no-repeat;
   background-size: cover;
@@ -159,16 +159,6 @@
   }
 }
 
-
-@media (max-width: 1590px) {
-  // .banner-principal {
-  //   padding: 0 20px;
-  // }
-  // .info-text{
-  //   padding: 0 20px;
-  // }
-}
-
 @media (max-width: 1400px) {
   .beneficios {
     justify-content: center;
@@ -195,13 +185,10 @@
 
 }
 
-@media screen and (min-width: 763px) and (max-width: 1023px) {}
-
 @media screen and (max-width: 763px) {
   .banner-principal {
     .section-content{
         text-align: center;
-
     }
   }
 }
