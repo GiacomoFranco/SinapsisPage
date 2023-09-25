@@ -1,0 +1,38 @@
+<section class="nuestros-servicios">
+  <article class="nuestros-servicios__graphics">
+    <div class="nuestros-servicios__title">
+      <h2>
+        <img src="assets/icons/arrowdown-right.svg" alt="">Nuestros <span class="servicios-span">servicios</span>
+      </h2>
+    </div>
+    <div class="nuestros-servicios__images-container">
+      <img src="assets\icons\purple-logo-icon.svg" alt="Logo Sinapsis" class="logo-icon">
+      <div class="team-work-container">
+        <img class="team-work" src="assets\home\team-working.webp" alt="Equipo de trabajo">
+      </div>
+    </div>
+  </article>
+  <article class="nuestros-servicios__container container" appScrollReveal y="100" selectorClassAnimation="service"
+    [isPending]="isPendingServicios">
+    <div *ngIf="!isServiciosResponsive; else nuestrosServiciosMovile" class="nuestros-servicios-grid">
+      <div *ngFor="let servicio of servicios" class="service">
+        <img class="service__icon" [src]="servicio.icon" alt="ícono Servicio">
+        <div class="service__content">
+          <h4>{{ servicio.title }}</h4>
+          <p>{{ servicio.description }}</p>
+        </div>
+      </div>
+      <app-button-sinapsis class="button" [name_button]="'Lorem ipsum is simple'" url="servicios"></app-button-sinapsis>
+    </div>
+    <ng-template #nuestrosServiciosMovile class="nuestros-servicios__movile">
+      <section class="grid-mobile">
+        <div class="row d-flex justify-content-center align-items-center">
+          <div class="col-6 item-mobile" *ngFor="let servicio of servicios">
+            <img class="icon-slider" [src]="servicio.icon" alt="" />
+            <p>{{ servicio.title }}</p>
+          </div>
+        </div>
+      </section>
+    </ng-template>
+  </article>
+</section>

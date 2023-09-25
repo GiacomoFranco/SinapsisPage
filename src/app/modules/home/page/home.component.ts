@@ -3,7 +3,6 @@ import { Servicio } from '@app/models/servicio.model';
 import { SliderAbout } from '@app/models/sliderUs.model';
 import { ServiciosService } from '@app/services/servicios.service';
 import { ProyectosService } from '@app/services/proyectos.service';
-import { sliderUsData } from 'src/app/core/sliderUs.mock';
 import { gsap } from 'gsap';
 import { Flip } from 'gsap/Flip';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -20,11 +19,10 @@ import { SeoService } from '@app/services/seo.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements AfterViewInit, DoCheck, OnDestroy {
+export class HomeComponent implements AfterViewInit, OnDestroy {
   constructor(
     private seoService: SeoService,
     private renderer2: Renderer2,
-    private servicioService: ServiciosService,
     private proyectosService: ProyectosService,
     private testimoniosService: TestimoniosService
   ) {}
@@ -116,46 +114,10 @@ export class HomeComponent implements AfterViewInit, DoCheck, OnDestroy {
     // });
   }
 
-  isPendingServicios: boolean = true;
-  servicios: Servicio[];
-  isServiciosResponsive: Boolean;
-  servicioItems: Servicio[] = [];
-
-  sliderImg: SliderAbout[] = sliderUsData;
-  usOptions: OwlOptions = {
-    loop: true,
-    mouseDrag: true,
-    touchDrag: false,
-    nav: false,
-    pullDrag: false,
-    margin: 5,
-    autoplay: true,
-    items: 1,
-    autoplayTimeout: 5,
-    autoHeight: false,
-    dots: false,
-    responsive: {
-      900: {
-        items: 3,
-      },
-      620: {
-        items: 2,
-      },
-    },
-  };
-  manualSlideAnimation() {
-    gsap.fromTo(
-      '.proyect-content',
-      { x: 10, opacity: 0 },
-      { x: 0, opacity: 1, duration: 1 }
-    );
-  }
-
   isWWUResponsive: Boolean;
   isMobile: Boolean;
   checkWindowSize() {
     this.isMobile = window.innerWidth < 767;
-    this.isServiciosResponsive = window.innerWidth < 600;
     this.isWWUResponsive = window.innerWidth < 1025;
   }
 
@@ -173,6 +135,7 @@ export class HomeComponent implements AfterViewInit, DoCheck, OnDestroy {
     let proyectIndex = this.projects.indexOf(this.project);
     return proyectIndex === i;
   }
+
   setProjectsInterval() {
     this.projectCicle = setInterval(() => {
       let indexOfProject = this.projects.indexOf(this.project);
@@ -184,68 +147,18 @@ export class HomeComponent implements AfterViewInit, DoCheck, OnDestroy {
       }
     }, 5000);
   }
+
   stopProjectsInterval() {
     clearInterval(this.projectCicle);
   }
+
   restartProjectInterval() {
     this.stopProjectsInterval();
     this.setProjectsInterval();
   }
 
-  isPendingTestimonios: boolean = true;
-  testimonios: Testimonio[];
-  testimonyOptions: OwlOptions = {
-    loop: true,
-    mouseDrag: true,
-    touchDrag: false,
-    nav: false,
-    pullDrag: false,
-    margin: 20,
-    autoplay: true,
-    items: 1,
-    autoplayTimeout: 10,
-    dots: true,
-    responsive: {
-      1146: {
-        items: 3,
-      },
-      746: {
-        items: 2,
-      },
-    },
-  };
-  starsLogic(score: Number | String): number[] {
-    let stars: number[] = [];
-    let parsedScore = Number(score);
-    let totalStars = Math.ceil(parsedScore);
-    for (let index = 0; index < totalStars; index++) {
-      if (parsedScore < 1) {
-        stars[index] = Number(parsedScore.toFixed(2));
-      } else {
-        stars[index] = 1;
-        parsedScore--;
-      }
-    }
-    return stars;
-  }
-  starClipped(decimal: number): string {
-    let operation = 20 * decimal;
-    return operation.toString();
-  }
-
-  ngDoCheck(): void {
-    if (this.project !== this.projectBefore) {
-      this.projectBefore = this.project;
-      this.manualSlideAnimation();
-    }
-  }
-
   ngOnInit(): void {
     this.checkWindowSize();
-    this.servicioService.getServicios().then((resp) => {
-      this.servicios = resp.data;
-      this.isPendingServicios = false;
-    });
 
     this.proyectosService.getProductosDestacados().then((resp) => {
       this.projects = resp.data;
@@ -254,11 +167,6 @@ export class HomeComponent implements AfterViewInit, DoCheck, OnDestroy {
       this.lenghtprojects = this.projects.length;
       this.setProjectsInterval();
       this.isPendingProjects = false;
-    });
-
-    this.testimoniosService.getTestimonios().then((resp) => {
-      this.testimonios = resp.data;
-      this.isPendingTestimonios = false;
     });
 
     this.FlagsSEO();
@@ -274,11 +182,6 @@ export class HomeComponent implements AfterViewInit, DoCheck, OnDestroy {
   ngOnDestroy(): void {
     this.animation!.kill();
     this.animation = null;
-  }
-
-  @HostListener('window:resize', ['$event'])
-  onResize() {
-    this.checkWindowSize();
   }
 
   FlagsSEO() {

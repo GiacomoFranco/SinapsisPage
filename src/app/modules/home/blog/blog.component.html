@@ -1,0 +1,12 @@
+<section class="blog">
+  <article class="blog__title">
+    <div class="blog__title-container" appScrollReveal x="-100">
+      <img src="assets/icons/arrowdown-right.svg" alt="">
+      <h2>Explora <span class="servicios-span">nuestro Blog</span></h2>
+    </div>
+    <a routerLink="/blog">Botón</a>
+  </article>
+  <article class="blog__posts">
+    <app-postcarrousel [setBreakpoint]="1400"></app-postcarrousel>
+  </article>
+</section>
