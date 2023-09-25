@@ -1,4 +1,5 @@
-<app-apply [hidden]="!applyModalState" (toggleEmit)="toggleModalState($event)" [applyModalState]="applyModalState" [vacantName]="vacancyDetail?.title ?? 'Título'"></app-apply>
+<app-modal-state *ngIf="modalState" (modalState)="updateModalState($event)" [updateModalMessage]="modalError"></app-modal-state>
+<app-apply [hidden]="!applyModalState" (toggleEmit)="toggleModalState($event)" [applyModalState]="applyModalState" [vacantName]="vacancyDetail?.title ?? 'Título'" (modalState)="updateModalState($event)"></app-apply>
 <app-arrow-back [isVacancies]="true"></app-arrow-back>
 
 <ng-template #skeleton>

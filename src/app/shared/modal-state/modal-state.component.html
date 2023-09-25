@@ -1,0 +1,6 @@
+<div class="modal-container">
+  <h3 class="modal-text">{{modalMessage ? 'Ha habido un error: ' + modalMessage :'Has aplicado con éxito a la vacante, pronto nos comunicaremos contigo al correo que ingresaste'}}</h3>
+  <img [src]="modalMessage ? 'assets/icons/error-circle-icon.svg' : 'assets/icons/checked-circle-icon.svg'" alt="" class="modal-icon">
+  <span class="modal-button" (click)="emitModalClose()">Cerrar</span>
+</div>
+

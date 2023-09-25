@@ -1,0 +1,46 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #00000085;
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+}
+
+.modal-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 20px;
+  max-width: 826px;
+  min-height: 394px;
+  margin: 0 20px 0 20px;
+  text-align: center;
+  text-wrap: balance;
+  gap: 38px;
+  padding: 85px 31px 35px 31px;
+  flex-basis: 100%;
+
+  .modal-text{
+
+  }
+
+  .modal-icon{
+    width: 102px;
+    height: 102px;
+  }
+
+  .modal-button{
+    align-items: end;
+    font-size: 16px;
+    text-decoration: underline;
+    align-self: end;
+    cursor: pointer;
+  }
+}

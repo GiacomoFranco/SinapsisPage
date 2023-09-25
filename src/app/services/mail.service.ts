@@ -30,7 +30,6 @@ export class MailService {
   }
 
   getPlantillaApply(): string {
-    console.log(this.applyMailContent);
 
     return plantillaApply(this.applyMailContent, 'Angular Frontend', 'Germán');
   }

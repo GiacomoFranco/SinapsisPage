@@ -24,6 +24,17 @@ export class VacanteDetailComponent implements OnInit {
     });
   }
 
+  modalState: boolean = false;
+  modalError: string | undefined;
+  updateModalState(event: string | undefined = undefined){
+    this.modalState = !this.modalState
+    if (event) {
+      this.modalError = event
+    } else {
+      this.modalError = undefined;
+    }
+  }
+
   isPendingVacancyDetail: boolean = true;
   vacancyDetail: any;
 
