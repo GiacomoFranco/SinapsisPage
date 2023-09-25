@@ -1,4 +1,4 @@
-import { AfterViewInit, Directive, ElementRef, EventEmitter, HostListener, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { AfterViewInit, Directive, ElementRef, Input } from '@angular/core';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 
@@ -17,7 +17,9 @@ export class ScrollRevealDirective implements AfterViewInit {
   @Input() markers: boolean = false;
   @Input() ease: string = 'power';
 
-  @Input() set isPending(state: boolean) {
+  pendingState: boolean
+    @Input() set isPending(state: boolean) {
+    this.pendingState = state
     if (!state) {
       this.animation();
     }
@@ -48,7 +50,7 @@ export class ScrollRevealDirective implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    if (!this.isPending) {
+    if (!this.pendingState) {
       this.animation();
     }
   }

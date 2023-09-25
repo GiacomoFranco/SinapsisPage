@@ -2,6 +2,31 @@
   position: relative;
 }
 
+.section__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-basis: 50%;
+  flex-shrink: 3;
+
+  .section__text-container {
+    max-width: 646px;
+    flex-basis: 646px;
+    min-width: 596px;
+    padding: 20px;
+
+    h1 {
+      margin-bottom: 20px;
+      max-width: 585px;
+    }
+
+    p {
+      margin-bottom: 28px;
+    }
+  }
+
+}
+
 .nosotros {
   display: flex;
   flex-wrap: wrap;

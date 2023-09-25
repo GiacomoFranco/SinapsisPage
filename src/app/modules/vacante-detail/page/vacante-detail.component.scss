@@ -68,6 +68,7 @@
 }
 
 .vacante__container {
+  visibility: hidden;
   display: flex;
   flex-direction: column;
   gap: 30px;

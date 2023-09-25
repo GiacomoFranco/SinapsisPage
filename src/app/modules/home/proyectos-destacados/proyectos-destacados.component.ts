@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Proyecto } from '@app/models/proyect.model';
 import { ProyectosService } from '@app/services/proyectos.service';
+import { gsap } from 'gsap';
 
 @Component({
   selector: 'app-proyectos-destacados',

@@ -1,15 +1,7 @@
-import { AfterViewInit, Component, ElementRef, Renderer2, ViewChild, DoCheck, HostListener, OnDestroy } from '@angular/core';
-import { Servicio } from '@app/models/servicio.model';
-import { SliderAbout } from '@app/models/sliderUs.model';
-import { ServiciosService } from '@app/services/servicios.service';
-import { ProyectosService } from '@app/services/proyectos.service';
+import { AfterViewInit, Component, ElementRef, Renderer2, ViewChild, OnDestroy } from '@angular/core';
 import { gsap } from 'gsap';
 import { Flip } from 'gsap/Flip';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Proyecto } from '@app/models/proyect.model';
-import { OwlOptions } from 'ngx-owl-carousel-o';
-import { TestimoniosService } from '@app/services/testimonios.service';
-import { Testimonio } from '@app/models/testimonio.model';
 import { SeoService } from '@app/services/seo.service';
 
 
@@ -23,8 +15,6 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   constructor(
     private seoService: SeoService,
     private renderer2: Renderer2,
-    private proyectosService: ProyectosService,
-    private testimoniosService: TestimoniosService
   ) {}
 
   @ViewChild('laptop') laptop: ElementRef<HTMLElement>;
@@ -114,61 +104,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     // });
   }
 
-  isWWUResponsive: Boolean;
-  isMobile: Boolean;
-  checkWindowSize() {
-    this.isMobile = window.innerWidth < 767;
-    this.isWWUResponsive = window.innerWidth < 1025;
-  }
-
-  isPendingProjects: boolean = true;
-  projects: Proyecto[];
-  lenghtprojects: number;
-  project: Proyecto;
-  projectBefore: Proyecto;
-  projectCicle: any;
-  selectProyect(i: number) {
-    this.project = this.projects[i];
-    this.restartProjectInterval();
-  }
-  isSlideActive(i: number): boolean {
-    let proyectIndex = this.projects.indexOf(this.project);
-    return proyectIndex === i;
-  }
-
-  setProjectsInterval() {
-    this.projectCicle = setInterval(() => {
-      let indexOfProject = this.projects.indexOf(this.project);
-
-      if (indexOfProject + 1 < this.lenghtprojects) {
-        this.project = this.projects[indexOfProject + 1];
-      } else {
-        this.project = this.projects[0];
-      }
-    }, 5000);
-  }
-
-  stopProjectsInterval() {
-    clearInterval(this.projectCicle);
-  }
-
-  restartProjectInterval() {
-    this.stopProjectsInterval();
-    this.setProjectsInterval();
-  }
-
   ngOnInit(): void {
-    this.checkWindowSize();
-
-    this.proyectosService.getProductosDestacados().then((resp) => {
-      this.projects = resp.data;
-      this.project = this.projects[1];
-      this.projectBefore = this.project;
-      this.lenghtprojects = this.projects.length;
-      this.setProjectsInterval();
-      this.isPendingProjects = false;
-    });
-
     this.FlagsSEO();
   }
 
