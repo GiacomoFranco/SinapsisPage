@@ -23,6 +23,15 @@
   }
 }
 
+.tablet-img-mobile{
+  width: 90%;
+  margin: auto;
+}
+
+.item-movil{
+  margin-top: 40px;
+}
+
 @media screen and (max-width: 1023px) {
   .workout {
     height: 1000px;
@@ -58,24 +67,6 @@
   .workout {
     .tablet-img {
       left: 7% !important;
-    }
-  }
-}
-
-@media screen and (max-width: 767px) {
-  .workout {
-    .tablet-img {
-      width: 100% !important;
-      left: 0 !important;
-    }
-
-    #column-image {
-      height: 470px;
-      padding: 0;
-
-      .tablet-img {
-        margin-top: 50px !important;
-      }
     }
   }
 }

@@ -2,7 +2,8 @@ export interface servicePageData {
     developSoftware: {
         title: string,
         description: string,
-        secondDescription: string
+        secondDescription: string,
+        video?: string
     },
     phoneSection: Sections,
     laptopSection: Sections,

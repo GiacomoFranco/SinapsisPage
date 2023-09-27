@@ -1,0 +1,21 @@
+.animation{
+    width: 100%;
+    min-height: 800px;
+}
+
+@media screen and (max-width: 1023px) {
+    .animation-json{
+        transform: scale(1.5);
+    }
+
+    .animation{
+        width: 100%;
+        min-height: 1000px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .animation{
+        min-height: 520px !important;
+    }
+}

@@ -18,7 +18,8 @@ export class ServiciosComponent implements OnInit {
     developSoftware: {
       title: '',
       description: '',
-      secondDescription: ''
+      secondDescription: '',
+      video: ''
     },
     phoneSection: {
       video: '',
@@ -51,7 +52,15 @@ export class ServiciosComponent implements OnInit {
     this.getPage();
     this.FlagsSeo();
     this.checkWindowSize();
-    this.cookieService.set('myCookie', 'myValue', { sameSite: 'None', secure: true });
+    this.cookiesConfig();
+  }
+  
+  cookiesConfig(){
+    this.cookieService.set('myCookie', 'myValue', { 
+      sameSite: 'None', 
+      secure: true,
+      expires: 30000
+     });
   }
 
   getPage() {
