@@ -10,7 +10,7 @@ gsap.registerPlugin(Flip, ScrollTrigger);
   templateUrl: './workout.component.html',
   styleUrls: ['./workout.component.scss']
 })
-export class WorkoutComponent implements AfterViewInit, OnDestroy {
+export class WorkoutComponent implements AfterViewInit {
   @ViewChild('contentAbsolute') contentAbsolute: ElementRef<HTMLElement>;
   @ViewChild('tablet') tablet: ElementRef<HTMLElement>;
   @ViewChild('contentRelative') contentRelative: ElementRef<HTMLElement>;
@@ -35,12 +35,14 @@ export class WorkoutComponent implements AfterViewInit, OnDestroy {
     }
   }
 
-  animation: gsap.core.Tween;
+  @Input() isMobile: boolean;
 
   constructor(private renderer2: Renderer2) { }
 
   ngAfterViewInit(): void {
-    this.startAnimation()
+    if(!this.isMobile){
+      this.startAnimation()
+    }
   }
 
   startAnimation() {
@@ -62,7 +64,7 @@ export class WorkoutComponent implements AfterViewInit, OnDestroy {
       .timeline({
         scrollTrigger: {
           trigger: '.workout',
-          start: this.responsiveAnim(),
+          start: '-50px top',
           pin: '.workout',
           scrub: true,
         },
@@ -73,22 +75,5 @@ export class WorkoutComponent implements AfterViewInit, OnDestroy {
         opacity: 0,
         duration: 2,
       });
-  }
-
-  responsiveAnim():string{
-    let size = '';
-    if(window.innerWidth > 1024){
-      size = '-50px top';
-    }
-    if(window.innerWidth >= 767 && window.innerWidth <= 1024){
-      size = '-100px top';
-    }
-    return size;
-  }
-
-  ngOnDestroy(): void {
-    if (this.animation) {
-      this.animation.kill();
-    }
   }
 }

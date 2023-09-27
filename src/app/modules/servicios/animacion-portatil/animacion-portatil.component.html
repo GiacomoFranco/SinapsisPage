@@ -1,10 +1,12 @@
-<div class="w-100 content-animation">
-  <div class="container d-flex justify-content-center align-items-center">
-    <div #lottiContainer>
-      <ng-lottie
-        [options]="options"
-        (animationCreated)="animationCreated($event)"
-      ></ng-lottie>
+<section class="animation">
+  <div class="w-100 content-animation">
+    <div class="container d-flex justify-content-center align-items-center">
+      <div #lottiContainer class="animation-json">
+        <ng-lottie
+          [options]="options"
+          (animationCreated)="animationCreated($event)"
+        ></ng-lottie>
+      </div>
     </div>
-  </div>
-</div>
+  </div>  
+</section>
