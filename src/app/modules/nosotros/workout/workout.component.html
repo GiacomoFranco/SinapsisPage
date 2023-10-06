@@ -1,4 +1,4 @@
-<div class="workout section-work-anim" #contentAbsolute>
+<div class="workout section-work-anim" #contentAbsolute *ngIf="!isMobile; else elsebloq">
   <img
     class="tablet-img"
     #tablet
@@ -27,3 +27,22 @@
     </div>
   </div>
 </div>
+<ng-template class="work-movil" #elsebloq>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 item-movil d-flex">
+        <img class="tablet-img-mobile" [src]="pageData.sectionDesign.imagen" alt="" />
+      </div>
+      <div class="col-12 item-movil text-center">
+        <div class="content-info">
+          <h2>{{ pageData.sectionDesign.title }}</h2>
+          <p class="my-3" [innerHTML]="pageData.sectionDesign.descripcion"></p>
+          <app-button-sinapsis
+            [name_button]="'Lorem ipsum is simple'"
+            [url]="pageData.sectionDesign.UrlBtn"
+          ></app-button-sinapsis>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

@@ -155,86 +155,87 @@
 @media screen and (max-width: 767px) {
   .layer-1 {
     img{
-      height: 60px !important;
-      width: 80px !important;
+      height: 73px !important;
+      width: 43px !important;
     }
     img:nth-child(1) {
-      top: 32px;
-      left: 0;
+      top: 62px !important;
+      left: 29px !important;
     }
     img:nth-child(2) {
-      top: 30px;
-      right: 0;
+      top: 82px !important;
+      right: 44px !important;
     }
     img:nth-child(3) {
-      left: 0;
-      bottom: 12px !important;
+      left: 29px !important;
+      bottom: 79px !important;
     }
     img:nth-child(4) {
-      right: 0;
-      bottom: 12px;
+      right: 61px !important;
+      bottom: 12px !important;
     }
     img:nth-child(5) {
-      top: 50%;
-      left: 50%;
+      top: 50% !important;
+      left: 43% !important;
     }
   }
 
   .layer-2 {
     img{
-      height: 50px;
-      width: 55px;
+      height: 50px !important;
+      width: 55px !important;
     }
     img:nth-child(1) {
-      top: 111px;
-      left: 23%;
+      top: 148px !important;
+      left: 17% !important;
     }
     img:nth-child(2) {
-      top: 123px;
-      right: 18% !important;
+      top: 183px !important;
+      right: 10% !important;
     }
     img:nth-child(3) {
-      top: 340px !important;
-      left: 19%;
+      top: 285px !important;
+      left: 19% !important;
     }
     img:nth-child(4) {
-      top: 358px;
-      right: 15%;
+      top: 354px !important;
+      right: 13% !important;
     }
     img:nth-child(5) {
       bottom: 21px !important;
-      left: 56% !important;
+      left: 34% !important;
     }
   }
 
   .layer-3 {
     img{
-      height: 65px;
-      width: 50px;
+      height: 65px !important;
+      width: 50px !important;
     }
     img:nth-child(1) {
-      right: 27% !important;
-      top: 23px !important;
+      right: 42% !important;
+      top: 78px !important;
     }
     img:nth-child(2) {
-      left: 40%;
-      top: 168px !important;
+      left: 47% !important;
+      top: 155px !important;
     }
     img:nth-child(3) {
       bottom: 105px !important;
       left: 44% !important;
     }
     img:nth-child(4) {
-      top: 223px !important;
-      right: 49% !important;
+      top: 218px !important;
+      right: 66% !important;
     }
     img:nth-child(5) {
-      bottom: 148px !important;
-      right: 7%;
+      bottom: 158px !important;
+      right: 13% !important;
     }
   }
 
   .layer-4 {
+    display: none;
     img{
       height: 60px;
       width: 50px;

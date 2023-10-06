@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, ViewChild, ElementRef, AfterViewInit, OnDestroy, Input } from '@angular/core';
 import { AnimationItem } from 'lottie-web';
 import { AnimationOptions } from 'ngx-lottie';
 import { gsap } from 'gsap';
@@ -15,7 +15,9 @@ export class AnimacionPortatilComponent implements AfterViewInit, OnDestroy {
   animationItem: any;
   @ViewChild('lottiContainer', { static: true })
 
+  
   lottiContainer!: ElementRef<HTMLDivElement>;
+  @Input()urlAnim: any;
 
   options: AnimationOptions = {
     path: '/assets/Animation/animation_pc.json',
