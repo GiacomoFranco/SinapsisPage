@@ -1,0 +1,145 @@
+:host {
+position: relative;
+}
+
+
+.blog {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 1051px;
+  padding: 0 116px;
+  background-color: #FCFCFC;
+
+  .blog__title {
+    position: relative;
+    width: 100%;
+    max-width: 1520px;
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+
+    .blog__title-container {
+      position: relative;
+
+      img {
+        position: absolute;
+        top: -87px;
+        left: -39px;
+      }
+
+      h2 {
+        width: 300px;
+        margin-left: 82px;
+        margin-bottom: 70px;
+
+        span {
+          margin-left: 40px;
+        }
+      }
+    }
+
+    a {
+      align-self: flex-end;
+      margin-bottom: 70px;
+      color: #7042EF;
+      font-family: Inter;
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      text-decoration-line: underline;
+    }
+  }
+
+  .blog__posts {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    width: 100%;
+    max-width: 1520px;
+    flex-grow: 1;
+
+    .post {
+      max-width: 483px;
+      max-height: 702px;
+      flex-basis: 680px;
+      box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.10);
+
+      .post__image {
+        width: 100%;
+        height: 393px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .post__content {
+        padding: 28px 27px;
+
+        .post__info {
+          .post__state {
+            color: #0085FF;
+          }
+        }
+
+        .post__text {
+          h4 {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+          }
+
+          p {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 6;
+            -webkit-box-orient: vertical;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1590px) {
+  .blog {
+    padding: 0 30px;
+
+    .blog__posts {
+      .post {
+        max-width: 429px;
+        max-height: 668px;
+
+        .post__content {
+          .post__text {
+            p {
+              -webkit-line-clamp: 5;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media(max-width:767px) {
+  .blog {
+    .blog__title {
+      .blog__title-container {
+
+        h2 {
+          width: 210px;
+        }
+
+      }
+    }
+
+  }
+}

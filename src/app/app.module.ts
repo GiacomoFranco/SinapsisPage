@@ -25,7 +25,6 @@ import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 import { IndicatorsModule } from '@progress/kendo-angular-indicators';
 
 
-
 @NgModule({
   declarations: [AppComponent],
   imports: [

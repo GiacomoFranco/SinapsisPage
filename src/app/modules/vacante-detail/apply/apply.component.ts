@@ -1,4 +1,11 @@
-import { Component, EventEmitter, HostListener, Input, Output, ViewChild } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  HostListener,
+  Input,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Dragster } from '@matrx/dragster';
 import '../../../../assets/smtp.js';
@@ -16,6 +23,7 @@ declare let EmailSMTP: any;
 export class ApplyComponent {
   @Input() vacantName: string;
   @Output() toggleEmit = new EventEmitter<boolean>();
+  @Output() modalState = new EventEmitter();
   @Input() set applyModalState(state: boolean) {
     this.possibleElement = document.querySelector('app-apply');
     if (state) {
@@ -54,7 +62,6 @@ export class ApplyComponent {
     document.addEventListener(
       'dragster-leave',
       (event) => {
-        console.log(event);
 
         this.toggleDropFile(event.type);
         this.dragster.reset(this.possibleElement);
@@ -129,36 +136,43 @@ export class ApplyComponent {
       const metadata = {
         vacante: this.vacantName,
         url: this.router.url,
-        cv: this.fileBase64URI
+        cv: this.fileBase64URI,
       };
 
       this.mailService.setApplyMailContent(formValue);
 
-      await this.applyService.postApply(formValue, metadata).then( async () => {
-        this.form.reset();
-
-        await EmailSMTP.send({
-          Host: 'smtp.elasticemail.com',
-          Username: 'passiflora.freelance@gmail.com',
-          Password: '5708CF1810F3B65FFFCDEA0D960485DE7BAB',
-          To: 'santiagogilfranco30@gmail.com',
-          From: 'passiflora.freelance@gmail.com',
-          Subject: 'santy subject',
-          Body: this.mailService.getPlantillaApply(),
-          Attachments: [
-            {
-              name: this.mailService.getFilename(),
-              data: this.fileBase64URI,
-            },
-          ],
-        }).then(async (message: any) => {
-          this.isSending = false;
-          alert(message);
-          if (message === 'OK') {
+      try {
+        await this.applyService
+          .postApply(formValue, metadata)
+          .then(async () => {
+            await EmailSMTP.send({
+              Host: 'smtp.elasticemail.com',
+              Username: 'passiflora.freelance@gmail.com',
+              Password: '5708CF1810F3B65FFFCDEA0D960485DE7BAB',
+              To: 'santiagogilfranco30@gmail.com',
+              From: 'passiflora.freelance@gmail.com',
+              Subject: 'santy subject',
+              Body: this.mailService.getPlantillaApply(),
+              Attachments: [
+                {
+                  name: this.mailService.getFilename(),
+                  data: this.fileBase64URI,
+                },
+              ],
+            }).then(async (message: any) => {
+              this.isSending = false;
+              if (message === 'OK') {
+                this.modalState.emit();
+                this.form.reset();
+              }
+            });
+            this.modalState.emit();
             this.form.reset();
-          }
-        });
-      });
+          });
+      } catch (error: any) {
+        this.isSending = false;
+        this.modalState.emit(error.response.data.message);
+      }
     }
   }
 

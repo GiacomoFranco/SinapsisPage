@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SeoService } from '@app/services/seo.service';
 import { VacantesService } from '@app/services/vacantes.service';
+import { gsap } from 'gsap';
 
 @Component({
   selector: 'app-vacante-detail',
@@ -20,8 +21,21 @@ export class VacanteDetailComponent implements OnInit {
     this.vacantesService.getVacancy(slug).then((res) => {
       this.vacancyDetail = res.data;
       this.isPendingVacancyDetail = false;
+      // Al agregar en la clase la propiedad visibility: hidden en conjunto de la siguiente linea de código podremos evitar el blink al usar GSAP
+      gsap.from('.vacante__container', { autoAlpha: 0 });
       this.FlagsSEO();
     });
+  }
+
+  modalState: boolean = false;
+  modalError: string | undefined;
+  updateModalState(event: string | undefined = undefined){
+    this.modalState = !this.modalState
+    if (event) {
+      this.modalError = event
+    } else {
+      this.modalError = undefined;
+    }
   }
 
   isPendingVacancyDetail: boolean = true;

@@ -1,0 +1,31 @@
+<section class="nosotros" appScrollReveal x="-100" selectorClassAnimation="nosotros-a">
+  <article class="section__content">
+    <div class="section__text-container">
+      <div class="nosotros-a">
+        <span class=".sup-title">Nosotros</span>
+        <h2>Lorem ipsum is simply text of the printing</h2>
+      </div>
+      <p class="nosotros-a">Lorem ipsum is simple texto of the printing and typesetting industry. lorem ipsum has been
+        the Lorem ipsum is
+        simple
+        texto of the printing and typesetting industry. lorem ipsum has been the Lorem ipsum is simple texto of the
+        printing and
+        typesetting industry. lorem ipsum has been the Lorem ipsum is simple texto of the printing and typesetting
+        industry.
+        lorem ipsum has been the</p>
+      <div class="section__actions nosotros-a">
+        <app-button-sinapsis [name_button]="'Lorem ipsum is simple'"
+          [url]="'trabaja-con-nosotros'"></app-button-sinapsis>
+      </div>
+    </div>
+  </article>
+  <owl-carousel-o class="carrousel carrousel-section" [options]="usOptions">
+    <ng-container class="carrousel-slide" *ngFor="let photo of sliderImg">
+      <ng-template carouselSlide>
+        <div class="card-item text-center">
+          <img class="img-slider" [src]="photo.imagen" alt="" />
+        </div>
+      </ng-template>
+    </ng-container>
+  </owl-carousel-o>
+</section>

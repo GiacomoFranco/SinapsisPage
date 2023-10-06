@@ -1,0 +1,120 @@
+:host {
+  position: relative;
+}
+
+.section__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-basis: 50%;
+  flex-shrink: 3;
+
+  .section__text-container {
+    max-width: 646px;
+    flex-basis: 646px;
+    min-width: 596px;
+    padding: 20px;
+
+    h1 {
+      margin-bottom: 20px;
+      max-width: 585px;
+    }
+
+    p {
+      margin-bottom: 28px;
+    }
+  }
+
+}
+
+.nosotros {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 69px 0 116px 0;
+  background-color: #FCFCFC;
+
+  .section__content {
+    flex-basis: 43%;
+    min-width: 636px;
+
+    .section__text-container {
+      flex-basis: 596px;
+    }
+  }
+
+  .carrousel-section {
+    width: 57%;
+    min-width: 558px;
+    height: 503px;
+    overflow: hidden;
+    z-index: 0;
+    flex-grow: 1;
+
+
+    .card-item {
+      height: 503px;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        width: auto;
+        height: 100%;
+      }
+    }
+
+    .carrousel-slide {
+      .card-item {
+        height: 503px;
+        overflow: hidden;
+        object-fit: contain;
+        display: flex;
+        justify-content: center;
+      }
+    }
+
+    .swiper-slide {
+      width: 566px;
+    }
+  }
+
+}
+
+@media (max-width:1606px) {
+  .nosotros {
+    justify-content: center;
+    padding: 0 0 40px 0;
+
+    .section__content {
+      flex-basis: 800px;
+      max-width: 800px;
+      min-width: 0;
+      margin-bottom: 20px;
+
+      .section__text-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex-basis: 800px;
+        max-width: 800px;
+        min-width: 0;
+
+        h2 {
+          text-align: center;
+          margin-bottom: 20px;
+        }
+
+        p {
+          display: flex;
+          text-align: center;
+          justify-content: center;
+          align-self: center;
+          text-wrap: balance;
+        }
+      }
+    }
+  }
+}

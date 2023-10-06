@@ -23,6 +23,8 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { ScrollRevealDirective } from './directives/scroll-reveal.directive';
 import { ParallaxDirective } from './directives/parallax.directive';
 import { RequiredValidator } from './directives/required.directive';
+import { ModalStateComponent } from './modal-state/modal-state.component';
+import { LoadingOverlayComponent } from './loading-overlay/loading-overlay.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +48,8 @@ import { RequiredValidator } from './directives/required.directive';
     ScrollRevealDirective,
     ParallaxDirective,
     RequiredValidator,
+    ModalStateComponent,
+    LoadingOverlayComponent,
   ],
   imports: [CommonModule, RouterModule, PagerModule, CarouselModule],
   exports: [
@@ -68,6 +72,8 @@ import { RequiredValidator } from './directives/required.directive';
     NuestrasTecnologiasComponent,
     ScrollRevealDirective,
     ParallaxDirective,
+    ModalStateComponent,
+    LoadingOverlayComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

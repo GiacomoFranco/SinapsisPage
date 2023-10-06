@@ -1,0 +1,279 @@
+
+:host {
+  position: relative;
+}
+
+.nuestros-servicios {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  gap: 70px;
+  min-height: 985px;
+  padding: 0 116px;
+  background-color: #FCFCFC;
+
+  .nuestros-servicios__graphics {
+    position: relative;
+    flex-basis: 440px;
+
+    .nuestros-servicios__title {
+
+
+      h2 {
+        img {
+          position: absolute;
+          top: -89px;
+          left: -4px;
+        }
+
+        text-align: center;
+        width: 204px;
+        margin-left: 82px;
+        margin-bottom: 39px;
+
+        span {
+          margin-left: 40px;
+        }
+      }
+    }
+
+    .nuestros-servicios__images-container {
+      position: relative;
+
+      .team-work-container {
+        position: relative;
+        max-width: 440px;
+        z-index: 1;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+        }
+      }
+
+      .logo-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-55%, -50%);
+        z-index: 0;
+      }
+    }
+
+  }
+
+  .nuestros-servicios__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 590px;
+    flex-basis: 590px;
+    flex-grow: 1;
+
+    .nuestros-servicios-grid {
+      display: grid;
+      gap: 40px 42px;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 160px);
+      grid-template-areas:
+        'item1 item2 item3'
+        'item4 item5 item6'
+        'button item7 item8';
+      flex-basis: 998px;
+      padding: 100px 20px 20px 20px;
+
+      .service {
+        display: flex;
+        flex-direction: row;
+        gap: 18px;
+
+        .service__icon {
+          height: 30px;
+        }
+      }
+
+      .button {
+        grid-area: button;
+        justify-self: center;
+      }
+    }
+  }
+}
+
+.nuestros-servicios__movile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  min-height: 495px;
+  background-image: url('/assets/home/work-with-us-section-image.webp');
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: cover;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    min-height: 495px;
+    background-color: #11161ac7;
+  }
+
+  .section__content {
+    flex-basis: 100%;
+
+    .section__text-container {
+      min-width: 0;
+      max-width: 800px;
+    }
+  }
+
+  .section__content--white {
+    background-color: transparent;
+    z-index: 2;
+
+    .content__container {
+      .section__text-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        h2,
+        p {
+          text-align: center;
+        }
+      }
+
+      a {
+        color: #FFF;
+        font-size: 16px;
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+.grid-mobile {
+  padding: 0 20px;
+
+  .item-mobile {
+    border: 1px solid #b6b8dc;
+    height: 220px;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    background-color: #efefef;
+  }
+}
+
+@media (max-width: 1590px) {
+  .nuestros-servicios {
+    padding: 0 30px;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 1440px) {
+  .nuestros-servicios {
+
+    .nuestros-servicios__container {
+      align-self: flex-end;
+
+      .nuestros-servicios-grid {
+        align-self: flex-end;
+        flex-grow: 1;
+        gap: 40px 42px;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(5, 160px);
+        grid-template-areas:
+          'item1 item2'
+          'item3 item4'
+          'item5 item6'
+          'item7 item8'
+          'button item';
+        flex-basis: 998px;
+        padding: 100px 20px 20px 20px;
+
+        .button {
+          justify-self: start;
+        }
+      }
+
+    }
+  }
+}
+
+@media (max-width: 1180px) {
+  .nuestros-servicios {
+    .nuestros-servicios__graphics {
+      margin-top: 70px;
+    }
+
+    .nuestros-servicios__container {
+      align-self: flex-end;
+
+      .nuestros-servicios-grid {
+        align-self: flex-end;
+        flex-grow: 1;
+        gap: 40px 42px;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(5, 160px);
+        grid-template-areas:
+          'item1 item2'
+          'item3 item4'
+          'item5 item6'
+          'item7 item8'
+          'button button';
+        flex-basis: 998px;
+        padding: 100px 20px 20px 20px;
+
+        .button {
+          justify-self: start;
+        }
+      }
+
+    }
+  }
+}
+
+@media (max-width: 1147px) {
+  .nuestros-servicios {
+    .nuestros-servicios__graphics {
+      .nuestros-servicios__title {
+        img {
+          left: -68px;
+        }
+
+        h2 {
+          margin-left: auto;
+          margin-right: auto;
+          width: 340px;
+
+          span {
+            margin: 0;
+          }
+        }
+      }
+    }
+
+    .nuestros-servicios__container {
+      .nuestros-servicios-grid {
+        .button {
+          justify-self: center;
+        }
+      }
+    }
+  }
+}
+
+@media(max-width: 600px) {
+  .nuestros-servicios {
+    padding: 0;
+
+    .nuestros-servicios__container {
+      min-width: 0;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+.faq {
+  background: var(--footerbackground);
+  padding: 50px 0px;
+
+  &-content {
+    max-width: 60%;
+    margin: auto;
+  }
+
+  &__title {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  &__btn {
+    text-align: center;
+  }
+
+}
+
+@media(max-width:780px) {
+  .faq-content {
+    max-width: 95%;
+  }
+}

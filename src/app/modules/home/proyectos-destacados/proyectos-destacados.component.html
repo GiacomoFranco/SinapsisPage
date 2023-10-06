@@ -1,0 +1,23 @@
+<section class="proyectos-destacados">
+  <div class="proyectos-destacados__title-section project-a">
+    <h2>Lorem ipsum is simply text of the printing</h2>
+  </div>
+  <article *ngIf="project" class="proyect container">
+    <div class="proyect-preview project-a">
+      <img src="assets\icons\white-logo-icon.svg" alt="Logo Sinapsis" class="logo-icon">
+      <app-proyect-laptop class="preview-image" [changeUrl]="project.general.screenshot"></app-proyect-laptop>
+    </div>
+    <div class="proyect-content project-a">
+      <img [src]="project.general.logo" alt="Logo del clientes" class="proyect-logo">
+      <div class="proyects-content__text-container">
+        <h3>{{ project.title}}</h3>
+        <p>{{ project ? project.general.description : 'Lorem ipsum' }}</p>
+      </div>
+      <a routerLink="/portafolio/{{project.slug }}" class="action">Botón</a>
+    </div>
+  </article>
+  <div class="controller">
+    <div *ngFor="let slide of projects; let i = index" (click)="selectProyect(i)" class="slide"
+      [ngClass]="{'active': isSlideActive(i)}"></div>
+  </div>
+</section>
