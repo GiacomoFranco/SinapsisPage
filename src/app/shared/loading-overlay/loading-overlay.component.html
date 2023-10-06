@@ -1,0 +1,15 @@
+<div class="loading-container">
+  <div [ngClass]="[initialRender ? 'loading-screen-black' : 'loading-screen-purple']" class="loading-screen">
+    <div class="rounded-div-wrap rounded-div-wrap-top">
+      <div class="rounded-div"></div>
+    </div>
+      <img *ngIf="initialRender ; else sectionTitle" src="/assets/img/white-logo.svg" alt="logo sinapsis" class="overlay-logo">
+      <ng-template #sectionTitle>
+        <h1 class="page-name">{{actualRoute}}</h1>
+      </ng-template>
+
+    <div class="rounded-div-wrap rounded-div-wrap-bottom">
+      <div class="rounded-div"></div>
+    </div>
+  </div>
+</div>

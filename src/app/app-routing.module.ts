@@ -14,36 +14,57 @@ import { InternalProjectComponent } from './shared/internal-project/internal-pro
 import { VacantesComponent } from './modules/vacantes/page/vacantes.component';
 import { VacanteDetailComponent } from './modules/vacante-detail/page/vacante-detail.component';
 import { ContactanosComponent } from './modules/contactanos/page/contactanos.component';
+import { DelayGuard } from './shared/delay.guard';
 
 const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
+    canActivate: [DelayGuard],
+    data: { title: 'Inicio' },
+    title: 'Inicio',
   },
   {
     path: 'servicios',
     component: ServiciosComponent,
+    canActivate: [DelayGuard],
+    data: { title: 'Servicios' },
   },
   {
     path: 'nosotros',
     component: NosotrosComponent,
+    data: { title: 'Nosotros' },
+    canActivate: [DelayGuard],
   },
   {
     path: 'portafolio',
     component: PortafolioComponent,
+    data: { title: 'Portafolio' },
+    canActivate: [DelayGuard],
   },
-  { path: 'bancolombia', component: InternalProjectComponent },
+  {
+    path: 'bancolombia',
+    component: InternalProjectComponent,
+    canActivate: [DelayGuard],
+  },
   {
     path: 'faq',
     component: PagefaqComponent,
+    canActivate: [DelayGuard],
+    data: { title: 'FAQ' },
+    title: 'FAQ',
   },
   {
     path: 'trabaja-con-nosotros',
     component: WorkWithUsComponent,
+    canActivate: [DelayGuard],
+    data: { title: 'Trabaja con nosotros' },
   },
   {
     path: 'trabaja-con-nosotros/vacantes',
     component: VacantesComponent,
+    canActivate: [DelayGuard],
+    data: { title: 'Vacantes' },
     loadChildren: () =>
       import('./modules/vacantes/vacantes.module').then(
         (m) => m.VacantesModule
@@ -52,6 +73,7 @@ const routes: Routes = [
   {
     path: 'trabaja-con-nosotros/vacantes/vacante/:slug',
     component: VacanteDetailComponent,
+    canActivate: [DelayGuard],
     loadChildren: () =>
       import('./modules/vacante-detail/vacante-detail.module').then(
         (m) => m.VacanteDetailModule
@@ -60,14 +82,17 @@ const routes: Routes = [
   {
     path: 'blog',
     component: BlogComponent,
+    canActivate: [DelayGuard],
   },
   {
     path: 'blog/:slug',
     component: BlogsingleComponent,
+    canActivate: [DelayGuard],
   },
   {
     path: 'portafolio/:slug',
     component: PortafolioDetailComponent,
+    canActivate: [DelayGuard],
   },
   {
     path: 'contacto',
@@ -76,6 +101,8 @@ const routes: Routes = [
       import('./modules/contactanos/contactanos.module').then(
         (m) => m.ContactanosModule
       ),
+    canActivate: [DelayGuard],
+    data: { title: 'Contacto' },
   },
   {
     path: '**',
