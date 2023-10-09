@@ -48,16 +48,18 @@ export class ServiciosComponent implements OnInit {
     private cookieService: CookieService) {
   }
 
+  initialRender = false;
+
   ngOnInit(): void {
     this.getPage();
     this.FlagsSeo();
     this.checkWindowSize();
     this.cookiesConfig();
   }
-  
+
   cookiesConfig(){
-    this.cookieService.set('myCookie', 'myValue', { 
-      sameSite: 'None', 
+    this.cookieService.set('myCookie', 'myValue', {
+      sameSite: 'None',
       secure: true,
       expires: 30000
      });
@@ -68,6 +70,7 @@ export class ServiciosComponent implements OnInit {
       const { data } = resp;
       this.pageData = data;
       this.safeDescription = this.sanitizer.bypassSecurityTrustHtml(this.pageData.developSoftware.secondDescription);
+      this.initialRender = true;
     });
   }
 

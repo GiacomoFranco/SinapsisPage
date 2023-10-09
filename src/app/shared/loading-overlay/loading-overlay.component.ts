@@ -34,8 +34,12 @@ export class LoadingOverlayComponent {
   }
 
   executeAnimation() {
+    const component = this
+
     if (this.firstNavigation) {
-      this.overlayAnimation.fromTo('.loading-screen', {top: '-100%', duration: .5, ease: 'power4.in'}, {top: '0'} );
+      this.overlayAnimation.fromTo('.loading-screen', {top: '-100%', duration: .5, ease: 'power4.in'}, {top: '0', onComplete(){
+        component.loadingOverlayService;
+      }} );
       this.overlayAnimation.fromTo('.rounded-div-wrap-bottom', {height: '20vh', duration: .5, ease: 'power4.in'}, {height: '0'});
       this.overlayAnimation.fromTo('.page-name', { y: '50%', opacity: 0 }, { y: '0', opacity: 1 }, '-=.5');
       this.overlayAnimation.to('.loading-screen', {top: '100%', duration: .5, delay: .5, ease: 'power4.in'} );

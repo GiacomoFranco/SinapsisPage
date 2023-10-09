@@ -12,6 +12,8 @@ export class WorkWithUsComponent implements AfterViewInit, OnDestroy, OnInit {
   constructor(private seoService: SeoService) {}
   parallaxAnimation: GSAPAnimation | null;
 
+  initialRender = false;
+
   initializeAnimations() {
     this.parallaxAnimation = gsap
       .timeline({
@@ -31,6 +33,10 @@ export class WorkWithUsComponent implements AfterViewInit, OnDestroy, OnInit {
   }
 
   ngOnInit(): void {
+    setTimeout(() => {
+        this.initialRender = true
+    }, 1000);
+
     this.FlagsSEO();
   }
 
