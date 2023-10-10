@@ -1,5 +1,4 @@
-<main class="about-us">
-  
+<main class="about-us" *ngIf="initialRender">
   <app-carrusel [pageData]="pageData" [isMobile]="isMobile"></app-carrusel>
   <section class="history my-5">
     <img

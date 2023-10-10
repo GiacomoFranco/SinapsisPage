@@ -34,9 +34,8 @@ export class WorkWithUsComponent implements AfterViewInit, OnDestroy, OnInit {
 
   ngOnInit(): void {
     setTimeout(() => {
-        this.initialRender = true
+      this.initialRender = true
     }, 1000);
-
     this.FlagsSEO();
   }
 

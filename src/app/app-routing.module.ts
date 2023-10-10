@@ -74,6 +74,7 @@ const routes: Routes = [
     path: 'trabaja-con-nosotros/vacantes/vacante/:slug',
     component: VacanteDetailComponent,
     canActivate: [DelayGuard],
+    data: { title: 'Vacante' },
     loadChildren: () =>
       import('./modules/vacante-detail/vacante-detail.module').then(
         (m) => m.VacanteDetailModule
@@ -83,6 +84,7 @@ const routes: Routes = [
     path: 'blog',
     component: BlogComponent,
     canActivate: [DelayGuard],
+    data: { title: 'Blog' },
   },
   {
     path: 'blog/:slug',
@@ -97,12 +99,12 @@ const routes: Routes = [
   {
     path: 'contacto',
     component: ContactanosComponent,
+    canActivate: [DelayGuard],
+    data: { title: 'Contacto' },
     loadChildren: () =>
       import('./modules/contactanos/contactanos.module').then(
         (m) => m.ContactanosModule
       ),
-    canActivate: [DelayGuard],
-    data: { title: 'Contacto' },
   },
   {
     path: '**',
