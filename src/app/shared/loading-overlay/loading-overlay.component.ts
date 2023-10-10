@@ -34,12 +34,16 @@ export class LoadingOverlayComponent {
   }
 
   executeAnimation() {
-    const component = this
+
+
+    this.initialRender = false;
+
+    console.log(this.firstNavigation);
 
     if (this.firstNavigation) {
       this.overlayAnimation.fromTo('.loading-screen', {top: '-100%', duration: .5, ease: 'power4.in'}, {top: '0'});
       this.overlayAnimation.fromTo('.rounded-div-wrap-bottom', {height: '20vh', duration: .5, ease: 'power4.in'}, {height: '0'});
-      this.overlayAnimation.fromTo('.page-name', { y: '50%', opacity: 0 }, { y: '0', opacity: 1}, '-=.5')
+      this.overlayAnimation.fromTo('.page-name', { y: '50%', opacity: 0 }, { y: '0', opacity: 1}, '-=.5');
       this.overlayAnimation.to('.loading-screen', {top: '100%', duration: .5, delay: .5, ease: 'power4.in'} );
       this.overlayAnimation.fromTo('.rounded-div-wrap-top', {height: '80vh', duration: 1, ease: 'power4.out', overwrite: true}, {height: '0'}, '-=.5');
       this.firstNavigation = false;
@@ -52,10 +56,16 @@ export class LoadingOverlayComponent {
 
     const component = this
 
-    this.firstLoadAnimation.to('.loading-screen', {top: '-100%', ease: 'power4.out', duration: 1, delay: 1})
-    this.firstLoadAnimation.fromTo('.rounded-div-wrap-bottom', {height: '60vh'}, {height: '0', duration: 1, ease: 'power4.out', onComplete(){
-      component.initialRender = false;
-    }}, '-=1');
+    this.firstLoadAnimation.to('.loading-screen', {
+      top: '-100%',
+      ease: 'power4.out',
+      duration: 1,
+      delay: 1,
+      // onComplete() {
+      //   component.changeInitialRender()
+      // },
+    });
+    this.firstLoadAnimation.fromTo('.rounded-div-wrap-bottom', {height: '60vh'}, {height: '0', duration: 1, ease: 'power4.out'}, '-=1');
   }
 
   ngOnInit() {
