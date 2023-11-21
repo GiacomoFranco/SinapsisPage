@@ -14,7 +14,6 @@ export class SliderComponent implements OnInit {
   sliderItems: Servicio[] = [];
 
   customOptions: OwlOptions = {
-    // loop: true,
     freeDrag: true,
     mouseDrag: true,
     touchDrag: true,
