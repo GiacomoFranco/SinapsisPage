@@ -1,24 +1,36 @@
-<section class="section-slider mt-4" *ngIf="!isMobile">
-  <owl-carousel-o [options]="customOptions">
-    <ng-container *ngFor="let slider of sliderItems">
-      <ng-template carouselSlide>
-        <div class="card-item text-center">
-          <img class="icon-slider" [src]="slider.icon" alt="" />
-          <p class="title_item">{{ slider.title }}</p>
-        </div>
-      </ng-template>
-    </ng-container>
-  </owl-carousel-o>
-  <div class="container d-flex justify-content-end mt-3">
-    <p class="mb-0 me-3 parr_slide">Desliza para conocer todos los servicios</p>
-    <img class="slider-icon" src="/assets/icons/arrangehorizontal.svg" alt="icono informativo para deslizar la sección" />
+<div *ngIf="sliderItems.length !== 0">
+  <div class="text-center mt-5">
+    <span class="text-center">Trabajamos todos nuestros desarrollos con</span>
+    <h2 class="h2-black">Metodologías <b>Scrum y kanban.</b></h2>
   </div>
-</section>
-<section class="grid-mobile" *ngIf="isMobile">
-  <div class="row d-flex justify-content-center align-items-center">
-    <div class="col-6 item-mobile" *ngFor="let item of sliderItems">
-      <img class="icon-slider" [src]="item.icon" alt="" />
-      <p>{{ item.title }}</p>
+  <section class="section-slider mt-4" *ngIf="!isMobile">
+    <owl-carousel-o [options]="customOptions">
+      <ng-container *ngFor="let slider of sliderItems">
+        <ng-template carouselSlide>
+          <div class="card-item text-center">
+            <img class="icon-slider" [src]="slider.icon" alt="" />
+            <p class="title_item">{{ slider.title }}</p>
+          </div>
+        </ng-template>
+      </ng-container>
+    </owl-carousel-o>
+    <div class="container d-flex justify-content-end mt-3">
+      <p class="mb-0 me-3 parr_slide">
+        Desliza para conocer todos los servicios
+      </p>
+      <img
+        class="slider-icon"
+        src="/assets/icons/arrangehorizontal.svg"
+        alt="icono informativo para deslizar la sección"
+      />
     </div>
-  </div>
-</section>
+  </section>
+  <section class="grid-mobile" *ngIf="isMobile">
+    <div class="row d-flex justify-content-center align-items-center">
+      <div class="col-6 item-mobile" *ngFor="let item of sliderItems">
+        <img class="icon-slider" [src]="item.icon" alt="" />
+        <p>{{ item.title }}</p>
+      </div>
+    </div>
+  </section>
+</div>

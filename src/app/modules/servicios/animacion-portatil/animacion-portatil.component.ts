@@ -15,16 +15,18 @@ export class AnimacionPortatilComponent implements AfterViewInit, OnDestroy {
   animationItem: any;
   @ViewChild('lottiContainer', { static: true })
 
-  
-  lottiContainer!: ElementRef<HTMLDivElement>;
-  @Input()urlAnim: any;
 
-  options: AnimationOptions = {
-    path: '/assets/Animation/animation_pc.json',
-    autoplay: false,
-  };
+  lottiContainer!: ElementRef<HTMLDivElement>;
+  @Input() urlAnim: any;
+
+  options: AnimationOptions;
 
   ngAfterViewInit(): void {
+    this.options = {
+      path: this.urlAnim,
+      autoplay: false,
+    };
+    console.log(this.options)
     this.initAnimation();
   }
 
@@ -84,7 +86,7 @@ export class AnimacionPortatilComponent implements AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    if(this.animationItem){
+    if (this.animationItem) {
       this.animationItem.destroy();
     }
   }
