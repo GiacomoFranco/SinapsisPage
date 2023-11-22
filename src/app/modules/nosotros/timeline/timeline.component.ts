@@ -41,6 +41,7 @@ export class TimelineComponent implements AfterViewInit {
         start: 'top center',
         end: 'bottom center',
         scrub: true,
+        markers: true
       }
     });
 

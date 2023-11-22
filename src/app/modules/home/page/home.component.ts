@@ -3,8 +3,8 @@ import { gsap } from 'gsap';
 import { Flip } from 'gsap/Flip';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SeoService } from '@app/services/seo.service';
-
-
+import { HomeService } from '@app/services/home.service';
+import { HomePage } from '@app/models/homePage.model';
 
 @Component({
   selector: 'app-home',
@@ -12,14 +12,49 @@ import { SeoService } from '@app/services/seo.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements AfterViewInit, OnDestroy {
+  dataPage: HomePage;
+
   constructor(
     private seoService: SeoService,
     private renderer2: Renderer2,
+    private homeService: HomeService
   ) {}
 
   @ViewChild('laptop') laptop: ElementRef<HTMLElement>;
   @ViewChild('absoluteLaptop') absoluteLaptop: ElementRef<HTMLElement>;
   @ViewChild('relativeLaptop') relativeLaptop: ElementRef<HTMLElement>;
+
+  ngOnInit(): void {
+    this.FlagsSEO();
+    this.getDataPage();
+  }
+
+  ngAfterViewInit(): void {
+    this.bannerAnimations();
+    this.animations();
+
+    setTimeout(() => ScrollTrigger.refresh(), 1);
+  }
+
+  async getDataPage(){
+    this.homeService.getHomePage().then(response => {
+      const {data} = response
+      this.dataPage = data
+    })
+  }
+
+  FlagsSEO() {
+    this.seoService.generateFlags({
+      title: 'Sinapsis',
+      description:
+        'En Sinapsis, estamos en la vanguardia de la tecnología. Descubre cómo nuestro equipo de expertos en desarrollo de software está transformando el futuro con soluciones tecnológicas innovadoras. Únete a nosotros en este viaje hacia la excelencia tecnológica.',
+      keywords:
+        'Sinapsis, tecnología vanguardia, equipo expertos desarrollo software, soluciones tecnológicas innovadoras, transformación tecnológica, excelencia tecnológica, innovación en desarrollo de software, futuro tecnológico, viaje hacia la excelencia, unirse a Sinapsis, equipo Sinapsis',
+      site_name: 'Sinapsis',
+      image: '',
+      slug_url: '/',
+    });
+  }
 
   animations() {
     const serviciosTitleAnimation = gsap.from('.nuestros-servicios__title', {
@@ -104,32 +139,8 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     // });
   }
 
-  ngOnInit(): void {
-    this.FlagsSEO();
-  }
-
-  ngAfterViewInit(): void {
-    this.bannerAnimations();
-    this.animations();
-
-    setTimeout(() => ScrollTrigger.refresh(), 1);
-  }
-
   ngOnDestroy(): void {
     this.animation!.kill();
     this.animation = null;
-  }
-
-  FlagsSEO() {
-    this.seoService.generateFlags({
-      title: 'Sinapsis',
-      description:
-        'En Sinapsis, estamos en la vanguardia de la tecnología. Descubre cómo nuestro equipo de expertos en desarrollo de software está transformando el futuro con soluciones tecnológicas innovadoras. Únete a nosotros en este viaje hacia la excelencia tecnológica.',
-      keywords:
-        'Sinapsis, tecnología vanguardia, equipo expertos desarrollo software, soluciones tecnológicas innovadoras, transformación tecnológica, excelencia tecnológica, innovación en desarrollo de software, futuro tecnológico, viaje hacia la excelencia, unirse a Sinapsis, equipo Sinapsis',
-      site_name: 'Sinapsis',
-      image: '',
-      slug_url: '/',
-    });
   }
 }
