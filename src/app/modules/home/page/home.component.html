@@ -2,16 +2,11 @@
   <img #laptop class="laptop-graphic--absolute" src="/assets/img/portatil-home-mockup.svg" alt="laptop">
   <article class="section__content">
     <div class="section__text-container">
-      <h1>Lorem ipsum is simply text of the printing</h1>
-      <p>Lorem ipsum is simple texto of the printing and typesetting industry. lorem ipsum has been the Lorem ipsum is
-        simple
-        texto of the printing and typesetting industry. lorem ipsum has been the Lorem ipsum is simple texto of the
-        printing and
-        typesetting industry. lorem ipsum has been the Lorem ipsum is simple texto of the printing and typesetting
-        industry.
-        lorem ipsum has been the</p>
+      <h1>{{dataPage.homeBanner.titulo}}</h1>
+      <p>{{dataPage.homeBanner.descriptionText}}</p>
       <div class="section__actions">
-        <app-button-sinapsis [name_button]="'Lorem ipsum is simple'" [url]="'/nosotros'"></app-button-sinapsis>
+        <app-button-sinapsis [name_button]="dataPage.homeBanner.nombre_boton_principal" [url]="'/nosotros'"></app-button-sinapsis>
+        <app-link-sinapsis [name_link]="dataPage.homeBanner.nombre_boton_secundario"></app-link-sinapsis>
       </div>
     </div>
   </article>

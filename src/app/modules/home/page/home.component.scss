@@ -2,6 +2,13 @@
   position: relative;
 }
 
+.section__actions{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 30px;
+}
+
 .section__content {
   display: flex;
   align-items: center;

@@ -8,6 +8,6 @@ import { Component, Input } from '@angular/core';
 
 export class ButtonSinapsisComponent {
   @Input() url = '';
-  @Input() name_button = '';
+  @Input() name_button: String;
   @Input() redirects = true;
 }

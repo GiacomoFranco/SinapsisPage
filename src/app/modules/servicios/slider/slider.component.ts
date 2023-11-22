@@ -14,15 +14,13 @@ export class SliderComponent implements OnInit {
   sliderItems: Servicio[] = [];
 
   customOptions: OwlOptions = {
+    loop: true,
     freeDrag: true,
     mouseDrag: true,
     touchDrag: true,
-    pullDrag: false,
     autoplay: true,
-    autoplayTimeout: 10,
+    autoplaySpeed: 1000,
     dots: false,
-    navSpeed: 10,
-    autoplaySpeed: 10000,
     responsive: {
       1024: {
         items: 5,

@@ -25,6 +25,7 @@ import { ParallaxDirective } from './directives/parallax.directive';
 import { RequiredValidator } from './directives/required.directive';
 import { ModalStateComponent } from './modal-state/modal-state.component';
 import { LoadingOverlayComponent } from './loading-overlay/loading-overlay.component';
+import { LinkSinapsisComponent } from './link-sinapsis/link-sinapsis.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { LoadingOverlayComponent } from './loading-overlay/loading-overlay.compo
     RequiredValidator,
     ModalStateComponent,
     LoadingOverlayComponent,
+    LinkSinapsisComponent,
   ],
   imports: [CommonModule, RouterModule, PagerModule, CarouselModule],
   exports: [
@@ -73,7 +75,8 @@ import { LoadingOverlayComponent } from './loading-overlay/loading-overlay.compo
     ScrollRevealDirective,
     ParallaxDirective,
     ModalStateComponent,
-    LoadingOverlayComponent
+    LoadingOverlayComponent,
+    LinkSinapsisComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
