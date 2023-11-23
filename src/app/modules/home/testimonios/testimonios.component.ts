@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Testimonio } from '@app/models/testimonio.model';
 import { TestimoniosService } from '@app/services/testimonios.service';
 import { OwlOptions } from 'ngx-owl-carousel-o';
@@ -9,13 +9,10 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
   styleUrls: ['./testimonios.component.scss'],
 })
 export class TestimoniosComponent implements OnInit {
-  constructor(private testimoniosService: TestimoniosService) {}
 
-  ngOnInit(): void {
-    this.testimoniosService.getTestimonios().then((resp) => {
-      this.testimonios = resp.data;
-      this.isPendingTestimonios = false;
-    });
+  @Input() dataSection = {
+    titulo_testimonios: '',
+    descripcion_testimonio: ''
   }
   isPendingTestimonios: boolean = true;
   testimonios: Testimonio[];
@@ -39,6 +36,16 @@ export class TestimoniosComponent implements OnInit {
       },
     },
   };
+  
+  constructor(private testimoniosService: TestimoniosService) {}
+
+  ngOnInit(): void {
+    this.testimoniosService.getTestimonios().then((resp) => {
+      this.testimonios = resp.data;
+      this.isPendingTestimonios = false;
+    });
+  }
+
   starsLogic(score: Number | String): number[] {
     let stars: number[] = [];
     let parsedScore = Number(score);

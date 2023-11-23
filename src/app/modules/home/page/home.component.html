@@ -17,11 +17,11 @@
   </article>
 </section>
 <app-casos-de-exito></app-casos-de-exito>
-<app-nuestros-servicios></app-nuestros-servicios>
-<app-nosotros></app-nosotros>
-<app-work-with-us></app-work-with-us>
+<app-nuestros-servicios [dataOurService]="dataPage.ourServices"></app-nuestros-servicios>
+<app-nosotros [dataUs]="dataPage.aboutUs"></app-nosotros>
+<app-work-with-us [dataWorkUs]="dataPage.section"></app-work-with-us>
 <app-nuestras-tecnologias></app-nuestras-tecnologias>
-<app-testimonios> </app-testimonios>
-<app-proyectos-destacados></app-proyectos-destacados>
+<app-testimonios [dataSection]="dataPage.testimonios"> </app-testimonios>
+<app-proyectos-destacados [tituloProyectos]="dataPage.proyectos_destacados.titulo_proyectos_destacados"></app-proyectos-destacados>
 <app-blog></app-blog>
-<app-faq-home></app-faq-home>
+<app-faq-home [tituloPreguntas]="dataPage.preguntas_frecuentes.titulo_preguntas_frecuentes"></app-faq-home>

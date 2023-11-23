@@ -1,28 +1,36 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { Tecnologias } from '@app/core/tecnologias.mock';
+import { Tecnologies } from '@app/core/tecnologias.mock';
+import { Tecnologias } from '@app/models/tecnologias.model';
+import { TecnologiesService } from '@app/services/tecnologies.service';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-
 @Component({
   selector: 'app-nuestras-tecnologias',
   templateUrl: './nuestras-tecnologias.component.html',
   styleUrls: ['./nuestras-tecnologias.component.scss']
 })
 export class NuestrasTecnologiasComponent implements OnInit, AfterViewInit{
+
+  dataTecnologies: Tecnologias
+
   tecnoImg: string[] = [];
   
+  constructor(private tecnologiesService: TecnologiesService){}
   
   ngOnInit(): void {
-    this.tecnoImg = Tecnologias;
+    this.tecnoImg = Tecnologies;
+    this.getData();
   }
   
   ngAfterViewInit(): void {
     this.animationTec()
   }
-  
-  refrescarAnim(){
-    ScrollTrigger.refresh();
+
+  getData(){
+    this.tecnologiesService.getDataTecnologias().then(resp => {
+      const {data} = resp;
+      this.dataTecnologies = data;
+    })
   }
   
   animationTec(){

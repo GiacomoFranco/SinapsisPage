@@ -1,8 +1,11 @@
 <div class="c-faq">
-  <div class="c-faq-question" [ngClass]="{'has-show-accordion': FAQ.isActive}"
-    *ngFor="let FAQ of FAQs.slice(0, numbers)">
-    <div class="c-faq-question__click" (click)="showAccordion(FAQ)">
-      <h4 class="c-faq-question__title">{{FAQ.title}}</h4>
+  <div
+    class="c-faq-question"
+    [ngClass]="{ 'has-show-accordion': FAQ.isActive }"
+    *ngFor="let FAQ of FAQs; let i = index"
+  >
+    <div class="c-faq-question__click" (click)="showAccordion(i)">
+      <h4 class="c-faq-question__title">{{ FAQ.title }}</h4>
     </div>
     <div class="c-faq-question__answers">
       <div class="c-faq-question__info" [innerHTML]="FAQ.content"></div>

@@ -17,9 +17,9 @@ export class FaqComponent {
     title: '',
     date: '',
     content: '',
-    isActive:  false
+    isActive: false
   }]
-
+  
   @Input() numbers:number = 4;
 
   constructor(
@@ -29,17 +29,25 @@ export class FaqComponent {
 
   ngOnInit(): void {
     this.CPTList.getFAQ().then(response => {
-      this.FAQs = response.data
+      this.FAQs = response.data;
+      this.FAQs.sort((a, b) => {
+        const titleA = a.title.toLowerCase();
+        const titleB = b.title.toLowerCase();
+        return titleA.localeCompare(titleB);
+      });
     })
-
   }
 
-  showAccordion(faq: FaqInterface) {
-    this.FAQs.forEach(item => item.isActive = false);
-    faq.isActive = true;
+  showAccordion(index: number) {
+    this.FAQs.forEach((faq, i) => {
+      if (i === index) {
+        faq.isActive = !faq.isActive;
+      } else {
+        faq.isActive = false;
+      }
+    });
   }
 
-  /** Animation event */
   detectScroll():void {
 
     const getFAQAccordion = document.documentElement.querySelector('.c-faq')

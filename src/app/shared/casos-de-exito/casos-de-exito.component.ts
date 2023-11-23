@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { SliderPortafolio } from '@app/models/portafolioSlider.model';
+import { PortafolioService } from '@app/services/portafolio.service';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { CasosDeExito } from 'src/app/core/casosDeExito.mock';
 import Swiper from 'swiper';
@@ -8,9 +10,8 @@ import Swiper from 'swiper';
   templateUrl: './casos-de-exito.component.html',
   styleUrls: ['./casos-de-exito.component.scss'],
 })
-export class CasosDeExitoComponent {
-  casosExito = CasosDeExito;
-
+export class CasosDeExitoComponent implements OnInit{
+  casosExito: SliderPortafolio[] = [];
 
   casosExitoOptions: OwlOptions = {
     loop: true,
@@ -36,4 +37,13 @@ export class CasosDeExitoComponent {
 
     },
   };
+
+  constructor(private portafolioService: PortafolioService){} 
+
+  ngOnInit(): void {
+    this.portafolioService.getAll().then(resp => {
+      const {data} = resp;
+      this.casosExito = data
+    })
+  }
 }

@@ -1,29 +1,36 @@
-<section *ngIf="!isWWUResponsive; else WWUMovile" class="trabaja-con-nosotros" appScrollReveal y="100"
-  selectorClassAnimation="wwu-a">
+<section
+  *ngIf="!isWWUResponsive; else WWUMovile"
+  class="trabaja-con-nosotros"
+  appScrollReveal
+  y="100"
+  selectorClassAnimation="wwu-a"
+>
   <article class="section__content section__content--white">
     <div class="content__container">
       <div class="section__text-container">
         <div class="wwu-a">
           <span class=".sup-title">Trabaja con nosotros</span>
-          <h2>Lorem ipsum is simply text of the printing</h2>
+          <h2>{{ dataWorkUs.title }}</h2>
         </div>
-        <p class="wwu-a">Lorem ipsum is simple texto of the printing and typesetting industry. lorem ipsum has been the
-          Lorem ipsum is
-          simple
-          texto of the printing and typesetting industry. lorem ipsum has been the Lorem ipsum is simple texto of the
-          printing and
-          typesetting industry. lorem ipsum has been the Lorem ipsum is simple texto of the printing and typesetting
-          industry.
-          lorem ipsum has been the</p>
+        <p class="wwu-a" [innerHTML]="dataWorkUs.description"></p>
       </div>
     </div>
     <div class="section__action">
-      <a routerLink="/trabaja-con-nosotros" class="redirect-button" href="#">Lorem ipsum is simply text of the
-        printing</a>
+      <a routerLink="/trabaja-con-nosotros" class="redirect-button">
+        {{ dataWorkUs.extraText }}
+      </a>
     </div>
   </article>
-  <article appParallax selectorClassAnimation="employee-wwu-a" class="trabaja-con-nosotros__graphic">
-    <img src="/assets/home/employee.webp" alt="Empleada Sinapsis" class="employee-wwu-a">
+  <article
+    appParallax
+    selectorClassAnimation="employee-wwu-a"
+    class="trabaja-con-nosotros__graphic"
+  >
+    <img
+      [src]="dataWorkUs.imagen"
+      alt="Empleada Sinapsis"
+      class="employee-wwu-a"
+    />
   </article>
 </section>
 <ng-template #WWUMovile>
@@ -31,19 +38,19 @@
     <article class="section__content section__content--white">
       <div class="content__container">
         <div class="section__text-container">
-          <div appScrollReveal y="100" selectorClassAnimation="wwu-a" class="wwu-a">
+          <div
+            appScrollReveal
+            y="100"
+            selectorClassAnimation="wwu-a"
+            class="wwu-a"
+          >
             <span class=".sup-title">Trabaja con nosotros</span>
-            <h2>Lorem ipsum is simply text of the printing</h2>
+            <h2>{{ dataWorkUs.title }}</h2>
           </div>
-          <p class="wwu-a">Lorem ipsum is simple texto of the printing and typesetting industry. lorem ipsum has been
-            the Lorem ipsum is
-            simple
-            texto of the printing and typesetting industry. lorem ipsum has been the Lorem ipsum is simple texto of the
-            printing and
-            typesetting industry. lorem ipsum has been the Lorem ipsum is simple texto of the printing and typesetting
-            industry.
-            lorem ipsum has been the</p>
-          <a class="redirect-button" href="#">Lorem ipsum is simply text of the printing</a>
+          <p class="wwu-a" [innerHTML]="dataWorkUs.description"></p>
+          <a class="redirect-button" href="#">
+            {{ dataWorkUs.extraText }}
+          </a>
         </div>
       </div>
     </article>

@@ -1,5 +1,5 @@
 import { Component, OnInit, DoCheck } from '@angular/core';
-import { Tecnologias } from 'src/app/core/tecnologias.mock';
+import { Tecnologies } from 'src/app/core/tecnologias.mock';
 import Swiper from 'swiper';
 
 @Component({
@@ -11,7 +11,7 @@ export class TecnologiasComponent implements OnInit, DoCheck {
   animIndex = 0
   animIndexCpy = -1
   swiper: Swiper | any;
-  tecnologias = Tecnologias;
+  tecnologias = Tecnologies;
   ngOnInit(): void {
   }
 

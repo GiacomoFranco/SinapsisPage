@@ -40,13 +40,15 @@
     justify-content: center;
     align-items: center;
     img{
-      object-fit: contain;
-      width: auto;
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
     }
   }
 
   .post__content {
     padding: 28px 27px;
+    height: 287px;
 
     .post__info {
       .post__state {

@@ -1,14 +1,7 @@
 <section class="tecnologies-comp">
   <div class="container text-center">
-    <h3 class="tecnologias-title" (click)="refrescarAnim()">Algunas de nuestras tecnologías.</h3>
-    <p class="tecnologias-desc">
-      Lorem ipsum is simple texto of the printing and typesetting industry.
-      lorem ipsum has been the Lorem ipsum is simple texto of the printing and
-      typesetting industry. lorem ipsum has been the Lorem ipsum is simple texto
-      of the printing and typesetting industry. lorem ipsum has been the Lorem
-      ipsum is simple texto of the printing and typesetting industry. lorem
-      ipsum has been the
-    </p>
+    <h3 class="tecnologias-title">{{dataTecnologies.titulo}}</h3>
+    <p class="tecnologias-desc" [innerHTML]="dataTecnologies.descripcion"></p>
     <div class="content-icons animacion-nuestras-tecnologias">
       <div class="content-items layer-1">
         <img *ngFor="let img of tecnoImg.slice(0, 5)" [src]="img" alt="" />

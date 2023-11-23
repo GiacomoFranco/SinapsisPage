@@ -10,6 +10,7 @@
         <div class="each-alone container">
           <div class="text">
             <img class="img-logo" [src]="chase[0].general.logo" alt="" />
+            <h3>{{chase[0].title}}</h3>
             <p>{{ chase[0].general.description }}</p>
             <button class="view-more" (click)="redirect(chase[0].slug)">
               Ver Más...
@@ -30,6 +31,7 @@
               </div>
               <div class="text">
                 <img class="img-logo" [src]="item.general.logo" alt="" />
+                <h3>{{item.title}}</h3>
                 <p>{{ item.general.description }}</p>
                 <button class="view-more" (click)="redirect(item.slug)">
                   Ver Más...
@@ -42,6 +44,7 @@
               </div>
               <div class="text">
                 <img class="img-logo" [src]="item.general.logo" alt="" />
+                <h3>{{item.title}}</h3>
                 <p>{{ item.general.description }}</p>
                 <button class="view-more" (click)="redirect(item.slug)">
                   Ver Más...

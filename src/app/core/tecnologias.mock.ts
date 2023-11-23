@@ -1,4 +1,4 @@
-export const Tecnologias: string[] = [
+export const Tecnologies: string[] = [
     "../../assets/tecnologias/Js.svg",
     "../../assets/tecnologias/Js.svg",
     "../../assets/tecnologias/Js.svg",
