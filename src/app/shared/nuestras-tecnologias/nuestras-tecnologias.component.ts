@@ -30,6 +30,7 @@ export class NuestrasTecnologiasComponent implements OnInit, AfterViewInit{
     this.tecnologiesService.getDataTecnologias().then(resp => {
       const {data} = resp;
       this.dataTecnologies = data;
+      console.log(this.dataTecnologies)
     })
   }
   
