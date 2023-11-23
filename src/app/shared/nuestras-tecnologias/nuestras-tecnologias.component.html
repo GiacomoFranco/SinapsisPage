@@ -4,16 +4,16 @@
     <p class="tecnologias-desc" [innerHTML]="dataTecnologies.descripcion"></p>
     <div class="content-icons animacion-nuestras-tecnologias">
       <div class="content-items layer-1">
-        <img *ngFor="let img of tecnoImg.slice(0, 5)" [src]="img" alt="" />
+        <img *ngFor="let img of dataTecnologies.tecnologias.slice(0, 5)" [src]="img.imagen" alt="" />
       </div>
       <div class="content-items layer-2">
-        <img *ngFor="let img of tecnoImg.slice(5, 10)" [src]="img" alt="" />
+        <img *ngFor="let img of dataTecnologies.tecnologias.slice(5, 10)" [src]="img.imagen" alt="" />
       </div>
       <div class="content-items layer-3">
-        <img *ngFor="let img of tecnoImg.slice(10, 15)" [src]="img" alt="" />
+        <img *ngFor="let img of dataTecnologies.tecnologias.slice(10, 15)" [src]="img.imagen" alt="" />
       </div>
       <div class="content-items layer-4">
-        <img *ngFor="let img of tecnoImg.slice(15, 20)" [src]="img" alt="" />
+        <img *ngFor="let img of dataTecnologies.tecnologias.slice(15, 20)" [src]="img.imagen" alt="" />
       </div>
     </div>
   </div>
