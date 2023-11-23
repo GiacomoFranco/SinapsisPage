@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { Servicio } from '@app/models/servicio.model';
 import { ServiciosService } from '@app/services/servicios.service';
 
@@ -14,6 +14,11 @@ export class NuestrosServiciosComponent implements OnInit {
   servicios: Servicio[];
   isServiciosResponsive: Boolean;
   servicioItems: Servicio[] = [];
+  @Input() dataOurService = {
+    titulo_seccion: '',
+    imagen: '',
+    titulo_boton: ''
+  }
 
   isMobile: Boolean;
 

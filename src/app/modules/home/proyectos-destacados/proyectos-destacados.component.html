@@ -1,6 +1,6 @@
 <section class="proyectos-destacados">
   <div class="proyectos-destacados__title-section project-a">
-    <h2>Lorem ipsum is simply text of the printing</h2>
+    <h2>{{tituloProyectos}}</h2>
   </div>
   <article *ngIf="project" class="proyect container">
     <div class="proyect-preview project-a">
@@ -13,7 +13,7 @@
         <h3>{{ project.title}}</h3>
         <p>{{ project ? project.general.description : 'Lorem ipsum' }}</p>
       </div>
-      <a routerLink="/portafolio/{{project.slug }}" class="action">Botón</a>
+      <a routerLink="/portafolio/{{project.slug }}" class="action">Ver más</a>
     </div>
   </article>
   <div class="controller">

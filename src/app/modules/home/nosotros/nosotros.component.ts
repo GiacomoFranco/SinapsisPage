@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { SliderAbout } from '@app/models/sliderUs.model';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { sliderUsData } from 'src/app/core/sliderUs.mock';
@@ -10,6 +10,14 @@ import { sliderUsData } from 'src/app/core/sliderUs.mock';
 })
 export class NosotrosComponent {
   sliderImg: SliderAbout[] = sliderUsData;
+
+  @Input() dataUs = {
+    title: '',
+    description: '',
+    UrlMainBtn: '',
+    UrlSecondBtn: '',
+    gallery: []
+  }
 
   usOptions: OwlOptions = {
     loop: true,

@@ -2,13 +2,13 @@
   <article class="nuestros-servicios__graphics">
     <div class="nuestros-servicios__title">
       <h2>
-        <img src="assets/icons/arrowdown-right.svg" alt="">Nuestros <span class="servicios-span">servicios</span>
+        <img src="assets/icons/arrowdown-right.svg" alt="">{{dataOurService.titulo_seccion}}
       </h2>
     </div>
     <div class="nuestros-servicios__images-container">
       <img src="assets\icons\purple-logo-icon.svg" alt="Logo Sinapsis" class="logo-icon">
       <div class="team-work-container">
-        <img class="team-work" src="assets\home\team-working.webp" alt="Equipo de trabajo">
+        <img class="team-work" [src]="dataOurService.imagen" alt="Equipo de trabajo">
       </div>
     </div>
   </article>
@@ -22,7 +22,7 @@
           <p>{{ servicio.description }}</p>
         </div>
       </div>
-      <app-button-sinapsis class="button" [name_button]="'Lorem ipsum is simple'" url="/servicios"></app-button-sinapsis>
+      <app-button-sinapsis class="button" [name_button]="dataOurService.titulo_boton" url="/servicios"></app-button-sinapsis>
     </div>
     <ng-template #nuestrosServiciosMovile class="nuestros-servicios__movile">
       <section class="grid-mobile">

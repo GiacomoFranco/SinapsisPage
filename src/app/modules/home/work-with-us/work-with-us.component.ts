@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-work-with-us',
@@ -8,6 +8,14 @@ import { Component, HostListener, OnInit } from '@angular/core';
 export class WorkWithUsComponent implements OnInit {
   isWWUResponsive: Boolean;
   isMobile: Boolean;
+
+  @Input() dataWorkUs = {
+    title: '',
+    description: '',
+    extraText: '',
+    imagen: ''
+  }
+
   checkWindowSize() {
     this.isMobile = window.innerWidth < 767;
     this.isWWUResponsive = window.innerWidth < 1025;

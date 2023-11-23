@@ -3,27 +3,21 @@
     <div class="section__text-container">
       <div class="nosotros-a">
         <span class=".sup-title">Nosotros</span>
-        <h2>Lorem ipsum is simply text of the printing</h2>
+        <h2>{{dataUs.title}}</h2>
       </div>
-      <p class="nosotros-a">Lorem ipsum is simple texto of the printing and typesetting industry. lorem ipsum has been
-        the Lorem ipsum is
-        simple
-        texto of the printing and typesetting industry. lorem ipsum has been the Lorem ipsum is simple texto of the
-        printing and
-        typesetting industry. lorem ipsum has been the Lorem ipsum is simple texto of the printing and typesetting
-        industry.
-        lorem ipsum has been the</p>
+      <p class="nosotros-a" [innerHTML]="dataUs.description"></p>
       <div class="section__actions nosotros-a">
-        <app-button-sinapsis [name_button]="'Lorem ipsum is simple'"
-          [url]="'trabaja-con-nosotros'"></app-button-sinapsis>
+        <app-button-sinapsis [name_button]="dataUs.UrlMainBtn"
+          [url]="'/trabaja-con-nosotros'"></app-button-sinapsis>
+          <app-link-sinapsis [name_link]="dataUs.UrlSecondBtn"></app-link-sinapsis>
       </div>
     </div>
   </article>
   <owl-carousel-o class="carrousel carrousel-section" [options]="usOptions">
-    <ng-container class="carrousel-slide" *ngFor="let photo of sliderImg">
+    <ng-container class="carrousel-slide" *ngFor="let photo of dataUs.gallery">
       <ng-template carouselSlide>
         <div class="card-item text-center">
-          <img class="img-slider" [src]="photo.imagen" alt="" />
+          <img class="img-slider" [src]="photo" alt="Equipo Sinapsis" />
         </div>
       </ng-template>
     </ng-container>

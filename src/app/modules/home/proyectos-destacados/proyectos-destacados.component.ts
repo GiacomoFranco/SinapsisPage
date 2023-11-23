@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Proyecto } from '@app/models/proyect.model';
 import { ProyectosService } from '@app/services/proyectos.service';
 import { gsap } from 'gsap';
@@ -10,6 +10,8 @@ import { gsap } from 'gsap';
 })
 export class ProyectosDestacadosComponent implements OnInit {
   constructor(private proyectosService: ProyectosService) {}
+
+  @Input() tituloProyectos = '';
 
   ngOnInit(): void {
     this.proyectosService.getProductosDestacados().then((resp) => {
