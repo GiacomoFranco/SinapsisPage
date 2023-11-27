@@ -10,17 +10,25 @@
   flex-shrink: 3;
 
   .section__text-container {
-    max-width: 646px;
+    max-width: 609px;
     flex-basis: 646px;
     min-width: 596px;
     padding: 20px;
 
-    h1 {
-      margin-bottom: 20px;
+    img{
+      width: 84px;
+      height: 84px;
+      float: right;
+      transform: translateY(-90px) translateX(-60px);
+    }
+
+    h2 {
       max-width: 585px;
+      margin-top: 16px;
     }
 
     p {
+      margin-top: 16px;
       margin-bottom: 28px;
     }
   }

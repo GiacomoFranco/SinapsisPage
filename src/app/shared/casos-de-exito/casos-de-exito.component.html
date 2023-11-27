@@ -1,13 +1,17 @@
 <div class="casos--container">
   <p class="casos-title">Conocer algunos de nuestros cados de exito</p>
-      <owl-carousel-o class="carrousel" [options]="casosExitoOptions">
-        <ng-container *ngFor="let caso of casosExito">
-          <ng-template carouselSlide>
-            <div class="logo--container">
-              <img class="caso-exito-logo" [src]="caso.general.logo" alt="casos de exito" />
-            </div>
-          </ng-template>
-        </ng-container>
-      </owl-carousel-o>
-
+  <owl-carousel-o class="carrousel" [options]="casosExitoOptions">
+    <ng-container *ngFor="let caso of casosExito">
+      <ng-template carouselSlide>
+        <div class="logo--container">
+          <img
+            class="caso-exito-logo"
+            (click)="redirectDetail(caso.slug)"
+            [src]="caso.general.logo"
+            alt="casos de exito"
+          />
+        </div>
+      </ng-template>
+    </ng-container>
+  </owl-carousel-o>
 </div>

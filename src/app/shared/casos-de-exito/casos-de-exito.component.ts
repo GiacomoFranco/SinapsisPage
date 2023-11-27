@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SliderPortafolio } from '@app/models/portafolioSlider.model';
 import { PortafolioService } from '@app/services/portafolio.service';
 import { OwlOptions } from 'ngx-owl-carousel-o';
-import { CasosDeExito } from 'src/app/core/casosDeExito.mock';
-import Swiper from 'swiper';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-casos-de-exito',
@@ -38,12 +37,17 @@ export class CasosDeExitoComponent implements OnInit{
     },
   };
 
-  constructor(private portafolioService: PortafolioService){} 
+  constructor(private router: Router ,private portafolioService: PortafolioService){} 
 
   ngOnInit(): void {
     this.portafolioService.getAll().then(resp => {
       const {data} = resp;
       this.casosExito = data
+      console.log(this.casosExito)
     })
+  }
+
+  redirectDetail(slug: string){
+    this.router.navigate([`portafolio/${slug}`]);
   }
 }
