@@ -7,4 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class LinkSinapsisComponent {
   @Input() name_link: String;
+  @Input() redirectionUrl: String;
 }

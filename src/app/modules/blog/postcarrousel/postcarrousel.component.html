@@ -1,11 +1,28 @@
-<div class="c-post-featured" appScrollReveal y="-100" selectorClassAnimation="post-card-a" [isPending]="isPending">
+<div
+  class="c-post-featured"
+  appScrollReveal
+  y="-100"
+  selectorClassAnimation="post-card-a"
+  [isPending]="isPending"
+>
   <div class="c-post-featured__slider">
-    <owl-carousel-o [options]="customOptions">
+    <owl-carousel-o
+      [options]="customOptions"
+      *ngIf="BlogPosts.length !== 0; else state"
+    >
       <ng-container *ngFor="let post of BlogPosts.slice(0, 4)">
         <ng-template carouselSlide>
           <app-card-post class="post-card-a" [postInfo]="post"></app-card-post>
         </ng-template>
       </ng-container>
     </owl-carousel-o>
+    <ng-template #state>
+      <div id="msg-post" class="container">
+        <h3>
+          Pronto lanzaremos nuevos contenidos en nuestro sitio. 🚀 ¡No te
+          pierdas las últimas actualizaciones y descúbrelos primero!
+        </h3>
+      </div>
+    </ng-template>
   </div>
 </div>
