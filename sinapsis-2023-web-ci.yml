@@ -1,0 +1,97 @@
+# Copyright (c) 2023 Sinapsis Enterprise Architecture <nicolas.viviescas@sinapsis.global>
+
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+# EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+# MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+# IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+# DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+# OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
+# OR OTHER DEALINGS IN THE SOFTWARE.
+
+# Node.js with Angular
+# Build a Node.js project that uses Angular.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+# ╔═╗┬  ┌─┐┌─┐┌─┐┌─┐  ┌┬┐┌─┐┌┐┌┌┬┐  ┌─┐┬ ┬┌─┐┌┐┌┌─┐┌─┐
+# ╠═╝│  ├┤ ├─┤└─┐├┤    │││ ││││ │   │  ├─┤├─┤││││ ┬├┤ 
+# ╩  ┴─┘└─┘┴ ┴└─┘└─┘  ─┴┘└─┘┘└┘ ┴   └─┘┴ ┴┴ ┴┘└┘└─┘└─┘
+
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+
+# ╔═╗┬  ┌─┐┌─┐┌─┐┌─┐  ┌┬┐┌─┐┌┐┌┌┬┐  ┌─┐┬ ┬┌─┐┌┐┌┌─┐┌─┐  ┌┬┐┬ ┬┬┌─┐  ┌─┐┌┬┐┌─┐┌─┐
+# ╠═╝│  ├┤ ├─┤└─┐├┤    │││ ││││ │   │  ├─┤├─┤││││ ┬├┤    │ ├─┤│└─┐  └─┐ │ ├┤ ├─┘
+# ╩  ┴─┘└─┘┴ ┴└─┘└─┘  ─┴┘└─┘┘└┘ ┴   └─┘┴ ┴┴ ┴┘└┘└─┘└─┘   ┴ ┴ ┴┴└─┘  └─┘ ┴ └─┘┴  
+
+- checkout: self
+  fetchDepth: 0
+
+# ╔═╗┬  ┌─┐┌─┐┌─┐┌─┐  ┌┬┐┌─┐┌┐┌┌┬┐  ┌─┐┬ ┬┌─┐┌┐┌┌─┐┌─┐  ┌┬┐┬ ┬┬┌─┐  ┌─┐┌┬┐┌─┐┌─┐
+# ╠═╝│  ├┤ ├─┤└─┐├┤    │││ ││││ │   │  ├─┤├─┤││││ ┬├┤    │ ├─┤│└─┐  └─┐ │ ├┤ ├─┘
+# ╩  ┴─┘└─┘┴ ┴└─┘└─┘  ─┴┘└─┘┘└┘ ┴   └─┘┴ ┴┴ ┴┘└┘└─┘└─┘   ┴ ┴ ┴┴└─┘  └─┘ ┴ └─┘┴  
+
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'sonarconnection-web'
+    organization: 'sinapsis-innovation'
+    scannerMode: 'CLI'
+    configMode: 'file'
+  displayName: 'Prepare analysis on SonarCloud'
+
+# ╔═╗┬  ┌─┐┌─┐┌─┐┌─┐  ┌┬┐┌─┐┌┐┌┌┬┐  ┌─┐┬ ┬┌─┐┌┐┌┌─┐┌─┐  ┌┬┐┬ ┬┬┌─┐  ┌─┐┌┬┐┌─┐┌─┐
+# ╠═╝│  ├┤ ├─┤└─┐├┤    │││ ││││ │   │  ├─┤├─┤││││ ┬├┤    │ ├─┤│└─┐  └─┐ │ ├┤ ├─┘
+# ╩  ┴─┘└─┘┴ ┴└─┘└─┘  ─┴┘└─┘┘└┘ ┴   └─┘┴ ┴┴ ┴┘└┘└─┘└─┘   ┴ ┴ ┴┴└─┘  └─┘ ┴ └─┘┴  
+
+- task: NodeTool@0
+  inputs:
+    versionSpec: '10.x'
+  displayName: 'Install Node.js'
+
+- script: |
+    npm install -g @angular/cli
+    npm install
+    ng build --prod
+  displayName: 'npm install and build'
+
+# ╔═╗┬  ┌─┐┌─┐┌─┐┌─┐  ┌┬┐┌─┐┌┐┌┌┬┐  ┌─┐┬ ┬┌─┐┌┐┌┌─┐┌─┐  ┌┬┐┬ ┬┬┌─┐  ┌─┐┌┬┐┌─┐┌─┐
+# ╠═╝│  ├┤ ├─┤└─┐├┤    │││ ││││ │   │  ├─┤├─┤││││ ┬├┤    │ ├─┤│└─┐  └─┐ │ ├┤ ├─┘
+# ╩  ┴─┘└─┘┴ ┴└─┘└─┘  ─┴┘└─┘┘└┘ ┴   └─┘┴ ┴┴ ┴┘└┘└─┘└─┘   ┴ ┴ ┴┴└─┘  └─┘ ┴ └─┘┴  
+
+- task: SonarCloudAnalyze@1
+  displayName: 'Run Code Analysis'
+
+# ╔═╗┬  ┌─┐┌─┐┌─┐┌─┐  ┌┬┐┌─┐┌┐┌┌┬┐  ┌─┐┬ ┬┌─┐┌┐┌┌─┐┌─┐  ┌┬┐┬ ┬┬┌─┐  ┌─┐┌┬┐┌─┐┌─┐
+# ╠═╝│  ├┤ ├─┤└─┐├┤    │││ ││││ │   │  ├─┤├─┤││││ ┬├┤    │ ├─┤│└─┐  └─┐ │ ├┤ ├─┘
+# ╩  ┴─┘└─┘┴ ┴└─┘└─┘  ─┴┘└─┘┘└┘ ┴   └─┘┴ ┴┴ ┴┘└┘└─┘└─┘   ┴ ┴ ┴┴└─┘  └─┘ ┴ └─┘┴  
+
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
+  displayName: 'Publish Quality Gate Result'
+
+# ╔═╗┬  ┌─┐┌─┐┌─┐┌─┐  ┌┬┐┌─┐┌┐┌┌┬┐  ┌─┐┬ ┬┌─┐┌┐┌┌─┐┌─┐  ┌┬┐┬ ┬┬┌─┐  ┌─┐┌┬┐┌─┐┌─┐
+# ╠═╝│  ├┤ ├─┤└─┐├┤    │││ ││││ │   │  ├─┤├─┤││││ ┬├┤    │ ├─┤│└─┐  └─┐ │ ├┤ ├─┘
+# ╩  ┴─┘└─┘┴ ┴└─┘└─┘  ─┴┘└─┘┘└┘ ┴   └─┘┴ ┴┴ ┴┘└┘└─┘└─┘   ┴ ┴ ┴┴└─┘  └─┘ ┴ └─┘┴  
+
+- task: WhiteSource@21
+  inputs:
+    cwd: '$(System.DefaultWorkingDirectory)'
+    projectName: '{project-name}-mb'
+  displayName: 'Scan open-source components with WhiteSource Bolt'
+

@@ -1,5 +1,4 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { Tecnologies } from '@app/core/tecnologias.mock';
 import { Tecnologias } from '@app/models/tecnologias.model';
 import { TecnologiesService } from '@app/services/tecnologies.service';
 import { gsap } from 'gsap';
@@ -9,40 +8,40 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
   templateUrl: './nuestras-tecnologias.component.html',
   styleUrls: ['./nuestras-tecnologias.component.scss']
 })
-export class NuestrasTecnologiasComponent implements OnInit, AfterViewInit{
+export class NuestrasTecnologiasComponent implements OnInit, AfterViewInit {
 
   dataTecnologies: Tecnologias
 
-  tecnoImg: string[] = [];
-  
-  constructor(private tecnologiesService: TecnologiesService){}
-  
+  constructor(private tecnologiesService: TecnologiesService) { }
+
   ngOnInit(): void {
-    this.tecnoImg = Tecnologies;
     this.getData();
   }
-  
+
   ngAfterViewInit(): void {
     this.animationTec()
   }
 
-  getData(){
+  getData() {
     this.tecnologiesService.getDataTecnologias().then(resp => {
-      const {data} = resp;
+      const { data } = resp;
       this.dataTecnologies = data;
-      console.log(this.dataTecnologies)
     })
   }
-  
-  animationTec(){
+
+  animationTec() {
     gsap.registerPlugin(ScrollTrigger);
-    gsap.to(".animacion-nuestras-tecnologias", {
+    gsap.to(".content-items", {
       scale: 1.2,
       duration: 5,
       scrollTrigger: {
         trigger: '.animacion-nuestras-tecnologias',
         start: 'top center',
-      }
+      },
+      stagger: {
+        amount: 1.4,
+        from: "start",
+      },
     });
   }
 }
