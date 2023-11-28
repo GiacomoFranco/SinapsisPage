@@ -92,6 +92,6 @@ steps:
 - task: WhiteSource@21
   inputs:
     cwd: '$(System.DefaultWorkingDirectory)'
-    projectName: '{project-name}-mb'
+    projectName: 'sinapsis-2023-web-mb'
   displayName: 'Scan open-source components with WhiteSource Bolt'
 
