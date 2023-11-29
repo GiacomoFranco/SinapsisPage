@@ -33,7 +33,7 @@
           <h2>{{ pageData.phoneSection.title }}</h2>
           <p [innerHTML]="pageData.phoneSection.description"></p>
           <app-button-sinapsis
-            [name_button]="'Lorem ipsum is simple'"
+            [name_button]="pageData.phoneSection.buttonName"
             [url]="pageData.phoneSection.urlBoton"
           ></app-button-sinapsis>
         </div>
@@ -47,7 +47,7 @@
           <h2 class="h2-black">{{ pageData.laptopSection.title }}</h2>
           <p class="mt-3" [innerHTML]="pageData.laptopSection.description"></p>
           <app-button-sinapsis
-            [name_button]="'Lorem ipsum is simple'"
+            [name_button]="pageData.laptopSection.buttonName"
             [url]="pageData.laptopSection.urlBoton"
           ></app-button-sinapsis>
         </div>

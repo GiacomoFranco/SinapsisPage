@@ -10,7 +10,8 @@ export interface servicePageData {
     sectionStadistics: Stadistics[],
     SectionWorkWithUs: {
         Title: string,
-        urlBoton: string
+        urlBoton: string,
+        buttonName: string
     },
 }
 
@@ -25,5 +26,6 @@ export interface Sections {
     video: string,
     title: string,
     description: string,
-    urlBoton: string
+    urlBoton: string,
+    buttonName: string
 }
