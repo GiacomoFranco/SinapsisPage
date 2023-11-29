@@ -43,7 +43,6 @@ export class CasosDeExitoComponent implements OnInit{
     this.portafolioService.getAll().then(resp => {
       const {data} = resp;
       this.casosExito = data
-      console.log(this.casosExito)
     })
   }
 

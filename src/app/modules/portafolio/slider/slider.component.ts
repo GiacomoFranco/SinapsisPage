@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SliderPortafolio } from '@app/models/portafolioSlider.model';
 import { PortafolioService } from '@app/services/portafolio.service';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-slider',
@@ -32,12 +33,16 @@ export class SliderComponent implements OnInit{
 
   sliderData: SliderPortafolio[]
 
-  constructor(private portafolioService: PortafolioService){}
+  constructor(private portafolioService: PortafolioService, private router: Router){}
 
   ngOnInit(): void {
     this.portafolioService.getAll().then(resp => {
       const {data} = resp;
-      this.sliderData = data
+      this.sliderData = data;
     })
+  }
+
+  goToSingle(slug: string){
+    this.router.navigate([`portafolio/${slug}`]);
   }
 }

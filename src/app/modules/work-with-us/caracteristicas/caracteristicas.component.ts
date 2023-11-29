@@ -6,6 +6,15 @@ import { Component, Input, ViewChild } from '@angular/core';
   styleUrls: ['./caracteristicas.component.scss']
 })
 export class CaracteristicasComponent {
-  @Input() title: String = 'Lorem ipsum';
+  @Input() title: String = '';
+  @Input() description: String = '';
   @Input() isContacto: Boolean;
+  @Input() contact: {
+    phone: string;
+    city: string;
+    adress: string;
+    social_network: string;
+    profile: string;
+    url_profile: string;
+  }
 }

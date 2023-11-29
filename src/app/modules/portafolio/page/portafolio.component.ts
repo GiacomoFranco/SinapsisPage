@@ -72,7 +72,7 @@ export class PortafolioComponent implements OnInit, DoCheck {
   }
 
   validateResponsive() {
-    this.isMobile = window.innerWidth < 767;
+    this.isMobile = window.innerWidth < 1024;
   }
 
   redirect(slug: string) {

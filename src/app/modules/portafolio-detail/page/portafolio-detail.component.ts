@@ -54,7 +54,6 @@ export class PortafolioDetailComponent implements OnInit, OnDestroy {
     this.portafolioService.getDetail(this.slug).then(resp => {
       const {data} = resp
       this.dataPage = data;
-      console.log(this.dataPage)
       this.getAnimations();
     })
   }

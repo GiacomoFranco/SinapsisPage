@@ -13,7 +13,7 @@
   display: flex;
   flex-direction: column;
   // justify-content: space-between;
-  gap: 35px;
+  gap: 10px;
   max-width: 333px;
   min-width: 231px;
   min-height: 202px;
@@ -30,7 +30,7 @@
       .caracteristicas__card-content {
         display: flex;
         flex-direction: column;
-        align-items: start;
+        align-items: center;
       }
     }
 
