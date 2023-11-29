@@ -7,8 +7,6 @@ import { FormFieldModule, InputsModule, TextBoxModule } from '@progress/kendo-an
 import { LabelModule } from '@progress/kendo-angular-label';
 import { SharedModule } from '@app/shared/shared.module';
 
-
-
 @NgModule({
   declarations: [ContactanosComponent],
   imports: [

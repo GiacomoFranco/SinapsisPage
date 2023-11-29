@@ -3,6 +3,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import '../../../../assets/smtp.js';
 import { MailService } from '@app/services/mail.service';
 import { SeoService } from '@app/services/seo.service';
+import { ContactUs } from '@app/models/contactUs.model';
+import { ContactUsService } from '@app/services/contact-us.service';
 declare let EmailSMTP: any;
 
 @Component({
@@ -12,13 +14,24 @@ declare let EmailSMTP: any;
 })
 export class ContactanosComponent implements OnInit{
 
+  dataPage: ContactUs;
+
   constructor(
     private mailService: MailService,
-    private seoService: SeoService
+    private seoService: SeoService,
+    private contactUsService: ContactUsService
   ) {}
 
   ngOnInit(): void {
+    this.getData();
     this.FlagsSEO();
+  }
+
+  private getData(){
+    this.contactUsService.getContactUsPage().then(resp => {
+      const {data} = resp;
+      this.dataPage = data;
+    })
   }
 
   public form: FormGroup = new FormGroup({

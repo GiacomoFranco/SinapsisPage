@@ -1,69 +1,226 @@
 <section class="contacto-title">
-  <app-caracteristicas [isContacto]="true"></app-caracteristicas>
+  <app-caracteristicas
+    [isContacto]="true"
+    [title]="dataPage.title"
+    [description]="dataPage.description"
+    [contact]="dataPage.contacts"
+  ></app-caracteristicas>
 </section>
 <section class="contacto-formulario">
   <div class="contacto-formulario-container">
     <div class="container">
       <article class="formulario_text__container">
-        <h2 class="formulario_text__content-a">Lorem ipsum is simply text of the printing.</h2>
-        <p class="formulario_text__content-a">Lorem ipsum is simple texto of the printing and industry. ipsum been the</p>
+        <h2 class="formulario_text__content-a">
+          {{ dataPage.section_form.title }}
+        </h2>
+        <p
+          class="formulario_text__content-a"
+          [innerHTML]="dataPage.section_form.description"
+        ></p>
       </article>
 
       <article class="form-wrapper">
         <form [formGroup]="form" class="form">
-
           <kendo-formfield showErrors="initial">
-            <input class="textbox" formControlName="fullName" placeholder="Nombre Completo" #fullName required>
+            <input
+              class="textbox"
+              formControlName="fullName"
+              placeholder="Nombre Completo"
+              #fullName
+              required
+            />
 
             <kendo-formerror>Este campo es requerido</kendo-formerror>
           </kendo-formfield>
           <kendo-formfield showErrors="initial">
-            <input class="textbox" formControlName="email" placeholder="Correo electrónico" #email required>
+            <input
+              class="textbox"
+              formControlName="email"
+              placeholder="Correo electrónico"
+              #email
+              required
+            />
 
-            <kendo-formerror *ngIf="Email.errors?.['required'] && (Email.dirty || Email.touched )">Este campo es
-              requerido</kendo-formerror>
-            <kendo-formerror *ngIf="Email.errors?.['email'] && (Email.dirty || Email.touched )">Ingresa un correo
-              electrónico
-              válido</kendo-formerror>
+            <kendo-formerror
+              *ngIf="Email.errors?.['required'] && (Email.dirty || Email.touched )"
+              >Este campo es requerido</kendo-formerror
+            >
+            <kendo-formerror
+              *ngIf="Email.errors?.['email'] && (Email.dirty || Email.touched )"
+              >Ingresa un correo electrónico válido</kendo-formerror
+            >
           </kendo-formfield>
           <kendo-formfield showErrors="initial">
-            <input class="textbox" formControlName="telefono" placeholder="Teléfono" #telefono required type="tel">
+            <input
+              class="textbox"
+              formControlName="telefono"
+              placeholder="Teléfono"
+              #telefono
+              required
+              type="tel"
+            />
 
-            <kendo-formerror *ngIf="Telefono.errors?.['required'] && (Telefono.dirty || Telefono.touched )">Este campo
-              es
-              requerido</kendo-formerror>
-            <kendo-formerror *ngIf="Telefono.errors?.['pattern']">Ingresa un número de teléfono válido</kendo-formerror>
+            <kendo-formerror
+              *ngIf="Telefono.errors?.['required'] && (Telefono.dirty || Telefono.touched )"
+              >Este campo es requerido</kendo-formerror
+            >
+            <kendo-formerror *ngIf="Telefono.errors?.['pattern']"
+              >Ingresa un número de teléfono válido</kendo-formerror
+            >
           </kendo-formfield>
 
           <kendo-formfield showHints="initial">
-            <kendo-textarea formControlName="mensaje" placeholder="Mensaje" [rows]="3" resizable="vertical"></kendo-textarea>
-            <kendo-formerror >Este campo es requerido</kendo-formerror>
+            <kendo-textarea
+              formControlName="mensaje"
+              placeholder="Mensaje"
+              [rows]="3"
+              resizable="vertical"
+            ></kendo-textarea>
+            <kendo-formerror>Este campo es requerido</kendo-formerror>
           </kendo-formfield>
+          <!-- <span id="terms-condicion">Terminos y condiciones</span> -->
 
           <div class="submit-container">
             <kendo-formfield showHints="initial">
               <div class="k-form-field-checkbox-wrap">
-                <input kendoCheckBox id="terms" type="checkbox" formControlName="terms" />
+                <input
+                  kendoCheckBox
+                  id="terms"
+                  type="checkbox"
+                  formControlName="terms"
+                />
                 <kendo-label class="k-checkbox-label" for="terms"
-                  text="Lorem ipsum is simply Terminos y condiciones"></kendo-label>
+                  >Aceptar
+                  <span
+                    id="terms-condicion"
+                    data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop"
+                    >Terminos y condiciones</span
+                  ></kendo-label
+                >
               </div>
-              <kendo-formerror *ngIf="TermsAndConditions.errors?.['required'] && TermsAndConditions.value === null">Este campo es
-                requerido</kendo-formerror>
-              <kendo-formerror *ngIf="TermsAndConditions.value === false"> Debes de marcar el campo de términos y condiciones para poder enviar la postulación</kendo-formerror>
-              </kendo-formfield>
+              <kendo-formerror
+                *ngIf="TermsAndConditions.errors?.['required'] && TermsAndConditions.value === null"
+                >Este campo es requerido</kendo-formerror
+              >
+              <kendo-formerror *ngIf="TermsAndConditions.value === false">
+                Debes de marcar el campo de términos y condiciones para poder
+                enviar la postulación</kendo-formerror
+              >
+            </kendo-formfield>
 
-            <app-button-sinapsis name_button="Enviar y aplicar" [redirects]="false" (click)="submitForm()"></app-button-sinapsis>
+            <app-button-sinapsis
+              name_button="Enviar y aplicar"
+              [redirects]="false"
+              (click)="submitForm()"
+            ></app-button-sinapsis>
           </div>
-
         </form>
       </article>
     </div>
-
   </div>
 </section>
 <section class="maps-container">
   <iframe
-    title="SinapsisMap" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d991.7048943173266!2d-75.6130461374102!3d6.154913599999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e4683da5776c54f%3A0xd8ca51445e3a4d96!2sSinapsis!5e0!3m2!1ses!2sco!4v1693593985709!5m2!1ses!2sco"
-    width="100%" height="600" style="border:0;" allowfullscreen="true" loading="lazy"
-    referrerpolicy="no-referrer-when-downgrade"></iframe>
+    title="SinapsisMap"
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d991.7048943173266!2d-75.6130461374102!3d6.154913599999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e4683da5776c54f%3A0xd8ca51445e3a4d96!2sSinapsis!5e0!3m2!1ses!2sco!4v1693593985709!5m2!1ses!2sco"
+    width="100%"
+    height="600"
+    style="border: 0"
+    allowfullscreen="true"
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+  ></iframe>
 </section>
+<div
+  class="modal fade"
+  id="staticBackdrop"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div id="content-btn">
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <h3>Terminos y condiciones</h3>
+        <div id="text-content">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
+            molestiae in quod maiores eos nulla, minus consequatur excepturi
+            exercitationem, dolore quis vero officia deserunt repellendus
+            eveniet alias quam dolorum quia!Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Deleniti molestiae in quod maiores eos
+            nulla, minus consequatur excepturi exercitationem, dolore quis vero
+            officia deserunt repellendus eveniet alias quam dolorum quia!Lorem
+            ipsum dolor sit amet consectetur adipisicing elit. Deleniti
+            molestiae in quod maiores eos nulla, minus consequatur excepturi
+            exercitationem, dolore quis vero officia deserunt repellendus
+            eveniet alias quam dolorum quia!Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Deleniti molestiae in quod maiores eos
+            nulla, minus consequatur excepturi exercitationem, dolore quis vero
+            officia deserunt repellendus eveniet alias quam dolorum quia!Lorem
+            ipsum dolor sit amet consectetur adipisicing elit. Deleniti
+            molestiae in quod maiores eos nulla, minus consequatur excepturi
+            exercitationem, dolore quis vero officia deserunt repellendus
+            eveniet alias quam dolorum quia!Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Deleniti molestiae in quod maiores eos
+            nulla, minus consequatur excepturi exercitationem, dolore quis vero
+            officia deserunt repellendus eveniet alias quam dolorum quia! Lorem
+            ipsum dolor sit amet consectetur adipisicing elit. Deleniti
+            molestiae in quod maiores eos nulla, minus consequatur excepturi
+            exercitationem, dolore quis vero officia deserunt repellendus
+            eveniet alias quam dolorum quia!Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Deleniti molestiae in quod maiores eos
+            nulla, minus consequatur excepturi exercitationem, dolore quis vero
+            officia deserunt repellendus eveniet alias quam dolorum quia!Lorem
+            ipsum dolor sit amet consectetur adipisicing elit. Deleniti
+            molestiae in quod maiores eos nulla, minus consequatur excepturi
+            exercitationem, dolore quis vero officia deserunt repellendus
+            eveniet alias quam dolorum quia!Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Deleniti molestiae in quod maiores eos
+            nulla, minus consequatur excepturi exercitationem, dolore quis vero
+            officia deserunt repellendus eveniet alias quam dolorum quia!Lorem
+            ipsum dolor sit amet consectetur adipisicing elit. Deleniti
+            molestiae in quod maiores eos nulla, minus consequatur excepturi
+            exercitationem, dolore quis vero officia deserunt repellendus
+            eveniet alias quam dolorum quia!Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Deleniti molestiae in quod maiores eos
+            nulla, minus consequatur excepturi exercitationem, dolore quis vero
+            officia deserunt repellendus eveniet alias quam dolorum quia! Lorem
+            ipsum dolor sit amet consectetur adipisicing elit. Deleniti
+            molestiae in quod maiores eos nulla, minus consequatur excepturi
+            exercitationem, dolore quis vero officia deserunt repellendus
+            eveniet alias quam dolorum quia!Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Deleniti molestiae in quod maiores eos
+            nulla, minus consequatur excepturi exercitationem, dolore quis vero
+            officia deserunt repellendus eveniet alias quam dolorum quia!Lorem
+            ipsum dolor sit amet consectetur adipisicing elit. Deleniti
+            molestiae in quod maiores eos nulla, minus consequatur excepturi
+            exercitationem, dolore quis vero officia deserunt repellendus
+            eveniet alias quam dolorum quia!Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Deleniti molestiae in quod maiores eos
+            nulla, minus consequatur excepturi exercitationem, dolore quis vero
+            officia deserunt repellendus eveniet alias quam dolorum quia!Lorem
+            ipsum dolor sit amet consectetur adipisicing elit. Deleniti
+            molestiae in quod maiores eos nulla, minus consequatur excepturi
+            exercitationem, dolore quis vero officia deserunt repellendus
+            eveniet alias quam dolorum quia!Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Deleniti molestiae in quod maiores eos
+            nulla, minus consequatur excepturi exercitationem, dolore quis vero
+            officia deserunt repellendus eveniet alias quam dolorum quia!
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

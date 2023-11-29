@@ -4,7 +4,7 @@
       <ng-container>
         <ng-template carouselSlide *ngFor="let slider of sliderData">
           <div class="item">
-            <img class="img-slider" [src]="slider.general.logo" alt="" />
+            <img class="img-slider" (click)="goToSingle(slider.slug)" [src]="slider.general.logo" [alt]="'logo '+ slider.slug" />
           </div>
         </ng-template>
       </ng-container>

@@ -92,8 +92,8 @@
 
             .content-mobile {
               width: 50%;
-              height: 475px;
-              transform: translateY(-105px);
+              height: 100%;
+              padding-top: 30px;
             }
 
             .text {
@@ -213,5 +213,17 @@
         }
       }
     }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .contentLaptoMobile{
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .contentLaptoMobile{
+    width: 100%;
   }
 }
