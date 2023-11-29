@@ -5,6 +5,7 @@ import { MailService } from '@app/services/mail.service';
 import { SeoService } from '@app/services/seo.service';
 import { ContactUs } from '@app/models/contactUs.model';
 import { ContactUsService } from '@app/services/contact-us.service';
+import { TermsAndConditions } from '@app/models/terms.model.js';
 declare let EmailSMTP: any;
 
 @Component({
@@ -15,6 +16,7 @@ declare let EmailSMTP: any;
 export class ContactanosComponent implements OnInit{
 
   dataPage: ContactUs;
+  dataTerms: TermsAndConditions;
 
   constructor(
     private mailService: MailService,
@@ -23,14 +25,22 @@ export class ContactanosComponent implements OnInit{
   ) {}
 
   ngOnInit(): void {
-    this.getData();
+    this.getPageData();
+    this.getTermsAndConditions();
     this.FlagsSEO();
   }
 
-  private getData(){
+  private getPageData(){
     this.contactUsService.getContactUsPage().then(resp => {
       const {data} = resp;
       this.dataPage = data;
+    });
+  }
+
+  private getTermsAndConditions(){
+    this.contactUsService.getTermsAndConditions().then(resp => {
+      const {data} = resp;
+      this.dataTerms = data
     })
   }
 

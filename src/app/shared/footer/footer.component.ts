@@ -1,6 +1,8 @@
 import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { Menus } from '@app/models/menu';
 import { MenuService } from '@app/services/menu.service';
+import { FooterService } from '@app/services/footer.service';
+import { Footer } from '@app/models/footer.model';
 
 @Component({
   selector: 'app-footer',
@@ -15,6 +17,8 @@ export class FooterComponent {
   linkedin = '../../assets/icons/social/linkedin.svg'
   instagram = '../../assets/icons/social/instagram.svg'
 
+  footerData: Footer[];
+
   @Input() navRouters: Menus[] = [{
     title: '',
     url: '',
@@ -23,12 +27,21 @@ export class FooterComponent {
 
   constructor(
     private MenuService: MenuService,
+    private footerService: FooterService
   ) { }
 
   ngOnInit(): void {
     this.MenuService.getMenu(24).then(response => {
       this.navRouters = response.data
     })
+    this.getDataFooter();
   }
 
+  getDataFooter(){
+    this.footerService.getFooter().then(resp => {
+      const {data} = resp;
+      this.footerData = data
+    })
+  }
 }
+

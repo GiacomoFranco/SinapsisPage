@@ -4,7 +4,6 @@ import { servicePageData } from '@app/models/servicePage.model';
 import { SeoService } from '@app/services/seo.service';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { CookieService } from 'ngx-cookie-service';
-import { Subscription } from 'rxjs';
 import { LoadingOverlayNotificationService } from '@app/services/loadingOverlayNotification.service';
 
 @Component({
@@ -15,31 +14,7 @@ import { LoadingOverlayNotificationService } from '@app/services/loadingOverlayN
 export class ServiciosComponent implements OnInit {
   isMobile = true;
 
-  pageData: servicePageData = {
-    developSoftware: {
-      title: '',
-      description: '',
-      secondDescription: '',
-      video: '',
-    },
-    phoneSection: {
-      video: '',
-      title: '',
-      description: '',
-      urlBoton: '',
-    },
-    laptopSection: {
-      video: '',
-      title: '',
-      description: '',
-      urlBoton: '',
-    },
-    sectionStadistics: [],
-    SectionWorkWithUs: {
-      Title: '',
-      urlBoton: '',
-    },
-  };
+  pageData: servicePageData;
 
   safeDescription: SafeHtml;
 
