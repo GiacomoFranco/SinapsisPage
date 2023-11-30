@@ -64,10 +64,12 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-    npm install -g @angular/cli@^15.2.9
     npm install
-    ng build
-  displayName: 'npm install and build'
+  displayName: 'npm install'
+
+- script: |
+    npm run build
+  displayName: 'npm build'
 
 # ╔═╗┬  ┌─┐┌─┐┌─┐┌─┐  ┌┬┐┌─┐┌┐┌┌┬┐  ┌─┐┬ ┬┌─┐┌┐┌┌─┐┌─┐  ┌┬┐┬ ┬┬┌─┐  ┌─┐┌┬┐┌─┐┌─┐
 # ╠═╝│  ├┤ ├─┤└─┐├┤    │││ ││││ │   │  ├─┤├─┤││││ ┬├┤    │ ├─┤│└─┐  └─┐ │ ├┤ ├─┘
