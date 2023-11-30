@@ -4,17 +4,23 @@ export interface nosotrosPage {
         imagen: string;
         title: string;
         description: string;
-    };
-    timeLine: {
-        description: string;
-        data: Timeline[]
-    };
+    },
     misionVision: MisionVision[];
     sectionDesign: {
         imagen: string;
         title: string;
         descripcion: string;
         UrlBtn: string;
+        name_button: string;
+    },
+    timeLine: {
+        description: string;
+        data: Timeline[]
+    },
+    team: {
+        title: string;
+        subtitle: string;
+        workWithUs: string;
     }
 }
 

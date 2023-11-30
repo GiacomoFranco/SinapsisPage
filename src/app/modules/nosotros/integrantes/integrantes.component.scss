@@ -70,8 +70,9 @@
       grid-column: 5/7;
       grid-row-start: 1;
       display: grid;
-      place-content: center;
       padding: 0 10px;
+      place-content: start;
+      align-self: center;
     }
 
     .work-card {

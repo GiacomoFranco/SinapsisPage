@@ -10,25 +10,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 })
 export class TimelineComponent implements AfterViewInit {
 
-  @Input() pageData: nosotrosPage = {
-    gallery: [],
-    ourHistory: {
-      imagen: '',
-      title: '',
-      description: ''
-    },
-    timeLine: {
-      description: '',
-      data: []
-    },
-    misionVision: [],
-    sectionDesign: {
-      imagen: '',
-      title: '',
-      descripcion: '',
-      UrlBtn: ''
-    }
-  }
+  @Input() pageData: nosotrosPage;
 
   @ViewChildren('containerText') containerTextElements: QueryList<ElementRef>;
 
