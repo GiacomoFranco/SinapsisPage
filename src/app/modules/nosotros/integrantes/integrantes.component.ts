@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { PageChangeEvent } from '@progress/kendo-angular-pager';
 import { IntegranteModel } from '@app/models/integrante.model';
 import { Pagination } from '@app/models/pagination.model';
@@ -10,6 +10,12 @@ import { NosotrosService } from '@app/services/nosotros.service';
   styleUrls: ['./integrantes.component.scss']
 })
 export class IntegrantesComponent implements OnInit{
+
+  @Input() textSection = {
+    title: '',
+    subtitle: '',
+    workWithUs: ''
+  }
 
   integrantesData: IntegranteModel[] = [];
   dataPagination: Pagination = {

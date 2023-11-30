@@ -23,25 +23,7 @@ export class NosotrosComponent implements OnInit, OnDestroy {
 
   initialRender = false;
 
-  pageData: nosotrosPage = {
-    gallery: [],
-    ourHistory: {
-      imagen: '',
-      title: '',
-      description: '',
-    },
-    timeLine: {
-      description: '',
-      data: [],
-    },
-    misionVision: [],
-    sectionDesign: {
-      imagen: '',
-      title: '',
-      descripcion: '',
-      UrlBtn: '',
-    },
-  };
+  pageData: nosotrosPage;
   isMobile: boolean;
 
   ngOnInit(): void {
@@ -58,17 +40,23 @@ export class NosotrosComponent implements OnInit, OnDestroy {
         title: '',
         description: '',
       },
-      timeLine: {
-        description: '',
-        data: [],
-      },
       misionVision: [],
       sectionDesign: {
         imagen: '',
         title: '',
         descripcion: '',
         UrlBtn: '',
+        name_button: ''
       },
+      timeLine: {
+        description: '',
+        data: [],
+      },
+      team: {
+        title: '',
+        subtitle: '',
+        workWithUs: ''
+      }
     };
   }
 
