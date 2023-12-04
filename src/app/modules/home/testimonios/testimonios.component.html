@@ -6,8 +6,7 @@
       <p>{{dataSection.descripcion_testimonio}}</p>
     </div>
   </article>
-  <article class="testimonios__reviews" appScrollReveal y="100" selectorClassAnimation="testimonio"
-    [isPending]="isPendingTestimonios">
+  <article class="testimonios__reviews" appScrollReveal y="100" selectorClassAnimation="testimonio">
     <owl-carousel-o class="carrousel" [options]="testimonyOptions">
       <ng-container *ngFor="let testimonio of testimonios">
         <ng-template carouselSlide>

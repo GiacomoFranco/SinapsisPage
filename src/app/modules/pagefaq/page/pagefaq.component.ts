@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FaqInterface } from '@app/models/faq.model';
+import { FaqServices } from '@app/services/faq.service';
 import { SeoService } from '@app/services/seo.service';
 
 @Component({
@@ -8,12 +10,20 @@ import { SeoService } from '@app/services/seo.service';
 })
 export class PagefaqComponent implements OnInit {
 
-  constructor(private seoService:SeoService){
+  questions: FaqInterface[]
 
-  }
+  constructor(private seoService: SeoService, private faqServices: FaqServices) { }
 
   ngOnInit(): void {
     this.FlagsSEO();
+    this.getQuestions();
+  }
+
+  async getQuestions() {
+    await this.faqServices.getFAQ().then(resp => {
+      const {data} = resp;
+      this.questions = data;
+    })
   }
 
   FlagsSEO() {
