@@ -2,6 +2,7 @@ import { Component, Input, AfterViewInit, ElementRef, QueryList, ViewChildren  }
 import { nosotrosPage } from '@app/models/nosotrosPage.model';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 
 @Component({
   selector: 'app-timeline',
@@ -15,7 +16,6 @@ export class TimelineComponent implements AfterViewInit {
   @ViewChildren('containerText') containerTextElements: QueryList<ElementRef>;
 
   ngAfterViewInit(): void {
-    gsap.registerPlugin(ScrollTrigger);
     gsap.to('.timeline-line', {
       height: '100%',
       scrollTrigger: {
@@ -26,9 +26,7 @@ export class TimelineComponent implements AfterViewInit {
       }
     });
 
-    this.containerTextElements.changes.subscribe(() => {
-      this.initTimelineAnimations();
-    });
+    this.initTimelineAnimations();
   }
 
   initTimelineAnimations(): void {

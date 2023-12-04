@@ -16,4 +16,8 @@ export class FaqServices{
   async getFAQ(){
     return await this.api.get('cpt?slug=faq')
   }
+
+  async getFeaturedFAQ(){
+    return await this.api.get('cpt?slug=faq&taxonomy=category&term=destacados')
+  }
 }

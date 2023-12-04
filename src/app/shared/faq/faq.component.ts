@@ -1,6 +1,5 @@
 import { Component, Input, ViewContainerRef, HostListener  } from '@angular/core';
 import { FaqInterface } from '@app/models/faq.model';
-import { FaqServices } from '@app/services/faq.service';
 
 @Component({
   selector: 'app-faq',
@@ -12,30 +11,16 @@ export class FaqComponent {
   isScrolled: boolean = false;
   activateAccordion: boolean = false;
 
-  @Input() FAQs: FaqInterface[] = [{
-    id: 0,
-    title: '',
-    date: '',
-    content: '',
-    isActive: false
-  }]
+  @Input() FAQs: FaqInterface[];
   
   @Input() numbers:number = 4;
 
-  constructor(
-    private CPTList: FaqServices,
-    private viewContainerRef: ViewContainerRef
-  ) { }
-
   ngOnInit(): void {
-    this.CPTList.getFAQ().then(response => {
-      this.FAQs = response.data;
-      this.FAQs.sort((a, b) => {
-        const titleA = a.title.toLowerCase();
-        const titleB = b.title.toLowerCase();
-        return titleA.localeCompare(titleB);
-      });
-    })
+    this.FAQs.sort((a, b) => {
+      const titleA = a.title.toLowerCase();
+      const titleB = b.title.toLowerCase();
+      return titleA.localeCompare(titleB);
+    });
   }
 
   showAccordion(index: number) {
@@ -49,10 +34,8 @@ export class FaqComponent {
   }
 
   detectScroll():void {
-
     const getFAQAccordion = document.documentElement.querySelector('.c-faq')
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
-
   }
 
   @HostListener('window:scroll', ['$event']) onWindowScroll(event: Event) {
