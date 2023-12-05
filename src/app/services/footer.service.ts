@@ -16,4 +16,8 @@ export class FooterService {
   async getFooter(){
     return await this.api.get('footer')
   }
+  
+  async getSocialNetwork(){
+    return await this.api.get('socials')
+  }
 }

@@ -1,46 +1,39 @@
 <footer class="o-footer">
   <div class="o-footer-content">
-
     <div class="group-text" *ngFor="let footer of footerData">
-      <h3 class="footer-title">{{footer.title}}</h3>
-      <p class="footer-description">{{footer.subTitle}}</p>
-      <app-button-sinapsis [url]="'/contacto'" [name_button]="footer.boton"></app-button-sinapsis>
+      <h3 class="footer-title">{{ footer.title }}</h3>
+      <p class="footer-description">{{ footer.subTitle }}</p>
+      <app-button-sinapsis
+        [url]="'/contacto'"
+        [name_button]="footer.boton"
+      ></app-button-sinapsis>
     </div>
-
     <div class="o-footer__group-routes">
       <div class="footer__logos">
         <app-logo></app-logo>
         <ul class="o-social">
-          <li class="o-social__item o-social--twitter">
-            <a href="https://www.linkedin.com/company/sinapsis-innovation/" target="_blank" class="o-social__anchor">
-              <img [src]="twitter" class="o-social-img" alt="social sinapsis">
+          <li
+            class="o-social__item"
+            *ngFor="let network of iconsSocial"
+          >
+            <a [href]="network.url" target="_blank" class="o-social__anchor">
+              <img
+                [src]="network.icon"
+                class="o-social-img"
+                alt="social sinapsis"
+              />
             </a>
-          </li>
-          <li class="o-social__item o-social--facebook">
-            <a href="https://www.linkedin.com/company/sinapsis-innovation/" target="_blank" class="o-social__anchor">
-              <img [src]="facebook" class="o-social-img" alt="social sinapsis">
-            </a>
-          </li>
-          <li class="o-social__item o-social--linkedin">
-            <a href="https://www.linkedin.com/company/sinapsis-innovation/" target="_blank" class="o-social__anchor">
-              <img [src]="linkedin" class="o-social-img" alt="social sinapsis">
-            </a>
-          </li>
-          <li class="o-social__item o-social--instagram">
-            <a href="https://www.linkedin.com/company/sinapsis-innovation/" target="_blank" class="o-social__anchor">
-              <img [src]="instagram" class="o-social-img" alt="social sinapsis"></a>
           </li>
         </ul>
       </div>
-
       <div class="footer-menu">
         <app-navmenu></app-navmenu>
       </div>
-
     </div>
-
   </div>
   <div class="o-footer-bottom">
-    <p class="o-footer-bottom__text">© 2023 Copyrights by <b>Sinapsis.com</b> </p>
+    <p class="o-footer-bottom__text">
+      © 2023 Copyrights by <b>Sinapsis.com</b>
+    </p>
   </div>
 </footer>
