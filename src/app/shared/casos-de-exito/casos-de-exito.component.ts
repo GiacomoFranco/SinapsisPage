@@ -33,7 +33,6 @@ export class CasosDeExitoComponent implements OnInit{
       522: {
         items: 3
       }
-
     },
   };
 
