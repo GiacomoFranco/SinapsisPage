@@ -3,7 +3,6 @@ import { ServiciosService } from 'src/app/services/servicios.service';
 import { servicePageData } from '@app/models/servicePage.model';
 import { SeoService } from '@app/services/seo.service';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { CookieService } from 'ngx-cookie-service';
 import { LoadingOverlayNotificationService } from '@app/services/loadingOverlayNotification.service';
 
 @Component({
@@ -22,8 +21,6 @@ export class ServiciosComponent implements OnInit {
     private service: ServiciosService,
     private seoService: SeoService,
     private sanitizer: DomSanitizer,
-    private cookieService: CookieService,
-    private loadingOverlayService: LoadingOverlayNotificationService
   ) {}
 
   initialRender = false;
@@ -32,15 +29,6 @@ export class ServiciosComponent implements OnInit {
     this.getPage();
     this.FlagsSeo();
     this.checkWindowSize();
-    this.cookiesConfig();
-  }
-
-  cookiesConfig() {
-    this.cookieService.set('myCookie', 'myValue', {
-      sameSite: 'None',
-      secure: true,
-      expires: 30000,
-    });
   }
 
   getPage() {
