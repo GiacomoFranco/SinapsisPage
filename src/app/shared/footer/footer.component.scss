@@ -29,6 +29,13 @@
   .o-social-img {
     width: 19px;
     height: 20px;
+    transition: all 0.5s ease-out;
+
+    &:hover{
+      filter: invert(30%) sepia(76%) saturate(4809%) hue-rotate(248deg) brightness(95%) contrast(97%);
+      transform: scale(1.2);
+      transition: all 0.5s ease-out;
+    }
   }
 }
 
