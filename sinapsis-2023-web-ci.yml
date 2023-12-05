@@ -64,6 +64,8 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
+    npm config set registry https://npm.greensock.com/
+    npm config set //npm.greensock.com/:_authToken 5dc2b542-971b-47ce-938d-b12e9b97e5e8
     npm install
   displayName: 'npm install'
 
