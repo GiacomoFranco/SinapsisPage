@@ -3,6 +3,10 @@
   flex-direction: column;
 }
 
+.contacto-title{
+  padding-top: 40px;
+}
+
 .contacto-formulario {
   background-image: url("/assets/contactanos/fondo-abstracto-textura.png");
   display: flex;
@@ -146,11 +150,13 @@
           }
 
           #terms-condicion {
-            color: white;
+            color: #7042ef;
             cursor: pointer;
+            transition: all 0.5s ease-out;
 
             &:hover {
-              color: #7042ef;
+              color: #4406f0;
+              transition: all 0.5s ease-out;
             }
           }
         }

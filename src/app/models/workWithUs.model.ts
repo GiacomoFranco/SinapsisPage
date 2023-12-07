@@ -13,13 +13,18 @@ export interface WorkWithUsPage {
         imagen: string;
         title: string;
         description: string;
+        addOptions: featuresWork[]
     },
-    addOptions: featuresWork[],
-    otherAdvantages: Advantages[]
+    otherAdvantages: {
+        titulo: string;
+        otherAdvantages: Advantages[];
+        buttonTitle: string;
+    }
 }
 
 export interface featuresWork {
     icon: string;
+    title: string;
     description: string;
 }
 

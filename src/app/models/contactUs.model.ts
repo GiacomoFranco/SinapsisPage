@@ -5,6 +5,7 @@ export interface ContactUs {
         phone: string;
         city: string;
         adress: string;
+        officeUbication: string;
         social_network: string;
         profile: string;
         url_profile: string;
