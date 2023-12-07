@@ -5,7 +5,7 @@ import { environment } from 'src/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class ContactUsService {
+export class HomeService {
 
   private apiUrl = environment.API_URL;
 
@@ -13,11 +13,7 @@ export class ContactUsService {
     baseURL: this.apiUrl
   })
 
-  async getTermsAndConditions(){
-    return await this.api.get('pages/?slug=terminos-y-condiciones');
-  }
-
-  async getContactUsPage(){
-    return await this.api.get('pages/?slug=contactanos');
+  async getHomePage(){
+    return await this.api.get('pages/?slug=home')
   }
 }

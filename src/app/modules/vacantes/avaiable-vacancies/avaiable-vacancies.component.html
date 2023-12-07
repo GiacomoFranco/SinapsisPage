@@ -1,16 +1,40 @@
-<kendo-textbox id="nombre" #nombre [(ngModel)]="search" (valueChange)="filterVacancies($event, nombre)" placeholder="Buscar vacante" rounded="none" class="custom-rounded">
+<kendo-textbox
+  id="nombre"
+  #nombre
+  [(ngModel)]="search"
+  (valueChange)="filterVacancies($event, nombre)"
+  placeholder="Buscar vacante"
+  rounded="none"
+  class="custom-rounded"
+>
 </kendo-textbox>
 
 <div class="dropdown-filter">
   <div class="dropdown-container">
-    <kendo-dropdownlist #area id="areas" defaultItem="Área" [data]="areasName" (valueChange)="filterVacancies($event, area)"></kendo-dropdownlist>
-    <kendo-dropdownlist #tecnologia id="tecnologias" defaultItem="Tecnología" [data]="tecnologiasName" (valueChange)="filterVacancies($event, tecnologia)"></kendo-dropdownlist>
+    <kendo-dropdownlist
+      #area
+      id="areas"
+      defaultItem="Área"
+      [data]="areasName"
+      (valueChange)="filterVacancies($event, area)"
+    ></kendo-dropdownlist>
+    <kendo-dropdownlist
+      #tecnologia
+      id="tecnologias"
+      defaultItem="Tecnología"
+      [data]="tecnologiasName"
+      (valueChange)="filterVacancies($event, tecnologia)"
+    ></kendo-dropdownlist>
   </div>
 </div>
 
-<kendo-grid #gridVacancie [kendoGridBinding]="vacancies" [loading]="loaderVisible" [height]="393"
-(cellClick)="gridUserSelectionChange($event)">
-
+<kendo-grid
+  #gridVacancie
+  [kendoGridBinding]="vacancies"
+  [loading]="loaderVisible"
+  [height]="393"
+  (cellClick)="gridUserSelectionChange($event)"
+>
   <kendo-grid-column
     [headerClass]="'headerCustomClass'"
     [class]="'cellCustomClass rolClass'"
@@ -18,8 +42,7 @@
     title="Vacante"
     [width]="210"
     [minResizableWidth]="200"
-
-    ></kendo-grid-column>
+  ></kendo-grid-column>
 
   <kendo-grid-column
     [headerClass]="'headerCustomClass'"
@@ -28,7 +51,7 @@
     title="Área"
     [width]="210"
     [minResizableWidth]="200"
-    ></kendo-grid-column>
+  ></kendo-grid-column>
 
   <kendo-grid-column
     [headerClass]="'headerCustomClass'"
@@ -37,7 +60,7 @@
     title="Tecnología"
     [width]="210"
     [minResizableWidth]="200"
-    ></kendo-grid-column>
+  ></kendo-grid-column>
 
   <kendo-grid-column
     [headerClass]="'headerCustomClass'"
@@ -46,7 +69,5 @@
     title="Perfil"
     [width]="210"
     [minResizableWidth]="200"
-    ></kendo-grid-column>
+  ></kendo-grid-column>
 </kendo-grid>
-
-

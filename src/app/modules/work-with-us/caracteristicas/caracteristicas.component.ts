@@ -1,4 +1,5 @@
 import { Component, Input, ViewChild } from '@angular/core';
+import { Advantages } from '@app/models/workWithUs.model';
 
 @Component({
   selector: 'app-caracteristicas',
@@ -13,8 +14,12 @@ export class CaracteristicasComponent {
     phone: string;
     city: string;
     adress: string;
+    officeUbication: string;
     social_network: string;
     profile: string;
     url_profile: string;
   }
+
+  @Input() characteristics : Advantages[];
+  @Input() nameButton: string;
 }

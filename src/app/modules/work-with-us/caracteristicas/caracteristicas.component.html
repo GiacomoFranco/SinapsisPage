@@ -1,20 +1,54 @@
-<div class="section-content__container" [class.section-content__container--contacto]="isContacto">
+<div
+  class="section-content__container"
+  [class.section-content__container--contacto]="isContacto"
+>
   <h3 class="caracteristicas__title-a">{{ title }}</h3>
   <p *ngIf="isContacto" [innerHTML]="description"></p>
-  <div class="caracterticas__cards" *ngIf="isContacto ; else workWithUs" appScrollReveal selectorClassAnimation="caracteristicas__card" y="100%" ease="expo" duration="1" stagger="0.3">
-    <app-caracteristica [isContacto]="isContacto" [icon]="'assets/contactanos/call.svg'" [title]="'Teléfono'" [text]="contact.phone"></app-caracteristica>
-    <app-caracteristica [isContacto]="isContacto" [icon]="'assets/contactanos/location.svg'" [title]="contact.city" [text]="contact.adress"></app-caracteristica>
-    <app-caracteristica [isContacto]="isContacto" [icon]="'assets/contactanos/instagram.svg'" [title]="contact.social_network" [text]="contact.profile"></app-caracteristica>
+  <div
+    class="caracterticas__cards"
+    *ngIf="isContacto; else workWithUs"
+    appScrollReveal
+    selectorClassAnimation="caracteristicas__card"
+    y="100%"
+    ease="expo"
+    duration="1"
+    stagger="0.3"
+  >
+    <app-caracteristica
+      [isContacto]="isContacto"
+      [icon]="'assets/contactanos/call.svg'"
+      [title]="'Teléfono'"
+      [text]="contact.phone"
+      [accion]="'tel:+57' + contact.phone"
+    ></app-caracteristica>
+    <app-caracteristica
+      [isContacto]="isContacto"
+      [icon]="'assets/contactanos/location.svg'"
+      [title]="contact.city"
+      [text]="contact.adress"
+      [accion]="contact.officeUbication"
+    ></app-caracteristica>
+    <app-caracteristica
+      [isContacto]="isContacto"
+      [icon]="'assets/contactanos/instagram.svg'"
+      [title]="contact.social_network"
+      [text]="contact.profile"
+      [accion]="contact.url_profile"
+    ></app-caracteristica>
   </div>
   <ng-template #workWithUs>
-      <div class="caracterticas__cards">
-        <app-caracteristica [icon]="'assets/workWithUs/trophy.svg'" [title]="'Lorem ipsum is'"
-          [text]="'Lorem ipsum is simple texto of the printing and typesetting industry. lorem'"></app-caracteristica>
-        <app-caracteristica [icon]="'assets/workWithUs/graphic.svg'" [title]="'Lorem ipsum is'"
-          [text]="'Lorem ipsum is simple texto of the printing and typesetting industry. lorem'"></app-caracteristica>
-        <app-caracteristica [icon]="'assets/workWithUs/feedback.svg'" [title]="'Lorem ipsum is'"
-          [text]="'Lorem ipsum is simple texto of the printing and typesetting industry. lorem'"></app-caracteristica>
-      </div>
+    <div class="caracterticas__cards">
+      <app-caracteristica
+        *ngFor="let character of characteristics"
+        [icon]="character.icon"
+        [title]="character.titulo"
+        [text]="character.description"
+      />
+    </div>
   </ng-template>
-  <app-button-sinapsis *ngIf="!isContacto" [url]="'trabaja-con-nosotros/vacantes'" [name_button]="'Lorem ipsum is simple'"></app-button-sinapsis>
+  <app-button-sinapsis
+    *ngIf="!isContacto"
+    [url]="'vacantes'"
+    [name_button]="nameButton"
+  ></app-button-sinapsis>
 </div>

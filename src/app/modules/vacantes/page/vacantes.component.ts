@@ -1,16 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import { SeoService } from '@app/services/seo.service';
+import { GetPageDataService } from '@app/services/get-page-data.service';
 
 @Component({
   selector: 'app-vacantes',
   templateUrl: './vacantes.component.html',
   styleUrls: ['./vacantes.component.scss'],
 })
-export class VacantesComponent implements OnInit{
-  constructor(private seoService: SeoService) {}
+export class VacantesComponent implements OnInit {
+  constructor(private seoService: SeoService,
+    private getPagaDataService: GetPageDataService,
+  ) { }
+
+  title_section: string;
 
   ngOnInit(): void {
     this.FlagsSEO();
+    this.getDataPage();
+  }
+
+  private getDataPage(){
+    this.getPagaDataService.getServicesPage('vacantes').then(resp => {
+      const {data} = resp;
+      this.title_section = data.titulo;
+    })
   }
 
   FlagsSEO() {

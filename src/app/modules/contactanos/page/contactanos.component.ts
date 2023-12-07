@@ -4,8 +4,9 @@ import '../../../../assets/smtp.js';
 import { MailService } from '@app/services/mail.service';
 import { SeoService } from '@app/services/seo.service';
 import { ContactUs } from '@app/models/contactUs.model';
-import { ContactUsService } from '@app/services/contact-us.service';
 import { TermsAndConditions } from '@app/models/terms.model.js';
+import { GetPageDataService } from '@app/services/get-page-data.service';
+
 declare let EmailSMTP: any;
 
 @Component({
@@ -21,24 +22,24 @@ export class ContactanosComponent implements OnInit{
   constructor(
     private mailService: MailService,
     private seoService: SeoService,
-    private contactUsService: ContactUsService
+    private getPagaDataService: GetPageDataService
   ) {}
 
   ngOnInit(): void {
     this.getPageData();
-    this.getTermsAndConditions();
+    this.getPrivacyPolitics();
     this.FlagsSEO();
   }
 
   private getPageData(){
-    this.contactUsService.getContactUsPage().then(resp => {
+    this.getPagaDataService.getServicesPage('contactanos').then(resp => {
       const {data} = resp;
       this.dataPage = data;
     });
   }
 
-  private getTermsAndConditions(){
-    this.contactUsService.getTermsAndConditions().then(resp => {
+  private getPrivacyPolitics(){
+    this.getPagaDataService.getServicesPage('politicas-de-privacidad').then(resp => {
       const {data} = resp;
       this.dataTerms = data
     })

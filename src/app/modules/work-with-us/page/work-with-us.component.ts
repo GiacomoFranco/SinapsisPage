@@ -2,6 +2,8 @@ import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { SeoService } from '@app/services/seo.service';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { GetPageDataService } from '@app/services/get-page-data.service';
+import { WorkWithUsPage } from '@app/models/workWithUs.model';
 
 @Component({
   selector: 'app-work-with-us',
@@ -9,7 +11,13 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
   styleUrls: ['./work-with-us.component.scss'],
 })
 export class WorkWithUsComponent implements AfterViewInit, OnDestroy, OnInit {
-  constructor(private seoService: SeoService) {}
+
+  constructor(private seoService: SeoService,
+    private getPagaDataService: GetPageDataService,
+  ) { }
+
+  pageWorkWithUs: WorkWithUsPage;
+
   parallaxAnimation: GSAPAnimation | null;
 
   initialRender = false;
@@ -37,6 +45,15 @@ export class WorkWithUsComponent implements AfterViewInit, OnDestroy, OnInit {
       this.initialRender = true
     }, 1000);
     this.FlagsSEO();
+    this.getPageData();
+  }
+
+  private getPageData(){
+    this.getPagaDataService.getServicesPage('trabaja-con-nosotros').then(resp => {
+      const {data} = resp;
+      this.pageWorkWithUs = data;
+      console.log(this.pageWorkWithUs)
+    })
   }
 
   FlagsSEO() {

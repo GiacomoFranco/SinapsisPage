@@ -1,20 +1,5 @@
 <section class="other-service my-5">
-  <div class="mobile" *ngIf="isMobile">
-    <div class="phone phone_mobile">
-      <div class="cell">
-        <app-project-mobile
-          [url_image]="pageData.phoneSection.video"
-          [id]="1"
-        ></app-project-mobile>
-      </div>
-      <img class="shad shad_mobile" src="/assets/img/shadow.svg" alt="" />
-    </div>
-    <div class="w-100 text-center px-3 mt-4">
-      <h2>{{ pageData.phoneSection.title }}</h2>
-      <p [innerHTML]="pageData.phoneSection.description"></p>
-    </div>
-  </div>
-  <div class="section-service-mobile desktop" *ngIf="!isMobile">
+  <div class="section-service-mobile desktop">
     <div class="container h-100">
       <div class="row content-mobile h-100 position-relative scroll-left">
         <div class="col-md-6 item-mobile h-100">
