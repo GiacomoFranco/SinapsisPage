@@ -3,8 +3,8 @@ import { gsap } from 'gsap';
 import { Flip } from 'gsap/Flip';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SeoService } from '@app/services/seo.service';
-import { HomeService } from '@app/services/home.service';
 import { HomePage } from '@app/models/homePage.model';
+import { GetPageDataService } from '@app/services/get-page-data.service';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +17,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   constructor(
     private seoService: SeoService,
     private renderer2: Renderer2,
-    private homeService: HomeService
+    private getPagaDataService: GetPageDataService,
   ) {}
 
   @ViewChild('laptop') laptop: ElementRef<HTMLElement>;
@@ -37,10 +37,9 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   }
 
   async getDataPage(){
-    this.homeService.getHomePage().then(response => {
+    this.getPagaDataService.getServicesPage('home').then(response => {
       const {data} = response
-      this.dataPage = data
-      console.log(this.dataPage)
+      this.dataPage = data;
     })
   }
 
@@ -84,11 +83,11 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
 
   animation: GSAPAnimation | null;
   bannerAnimations(): void {
-    const state = Flip.getState(this.laptop.nativeElement);
+    const state = Flip.getState(this.laptop?.nativeElement);
 
     this.renderer2.appendChild(
-      this.relativeLaptop.nativeElement,
-      this.laptop.nativeElement
+      this.relativeLaptop?.nativeElement,
+      this.laptop?.nativeElement
     );
 
     const flip = Flip.from(state, {

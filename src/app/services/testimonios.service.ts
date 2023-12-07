@@ -15,7 +15,6 @@ export class TestimoniosService {
 
   async getTestimonios() {
     return this.api.get(`cpt?slug=testimonials&_fields=title,logoCompany,slug.companyName,companyPosition,testimonial,comment,score`);
-
   }
 }
 

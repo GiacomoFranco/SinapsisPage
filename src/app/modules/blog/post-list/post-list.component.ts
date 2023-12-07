@@ -12,8 +12,8 @@ import { Pagination } from '@app/models/pagination.model';
 })
 export class PostListComponent {
 
-  paged:number = 1
-  currentPage:number = 1
+  paged: number = 1
+  currentPage: number = 1
   perPage: number = 6
 
   @Input() BlogPosts = []
@@ -29,12 +29,10 @@ export class PostListComponent {
   ) { }
 
   getData(BlogPagination: Pagination) {
-
     this.postsList.getPostTypeData('post', BlogPagination.currentPage, BlogPagination.perPage).then(response => {
       this.BlogPosts = response.data.post
       this.BlogPagination = response.data.pagination
     })
-
   }
 
   ngOnInit(): void {

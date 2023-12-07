@@ -1,9 +1,8 @@
 import { Component, OnInit, HostListener, OnDestroy } from '@angular/core';
-import { ServiciosService } from 'src/app/services/servicios.service';
 import { servicePageData } from '@app/models/servicePage.model';
 import { SeoService } from '@app/services/seo.service';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { LoadingOverlayNotificationService } from '@app/services/loadingOverlayNotification.service';
+import { GetPageDataService } from '@app/services/get-page-data.service';
 
 @Component({
   selector: 'app-servicios',
@@ -18,7 +17,7 @@ export class ServiciosComponent implements OnInit {
   safeDescription: SafeHtml;
 
   constructor(
-    private service: ServiciosService,
+    private getPagaDataService: GetPageDataService,
     private seoService: SeoService,
     private sanitizer: DomSanitizer,
   ) {}
@@ -32,7 +31,7 @@ export class ServiciosComponent implements OnInit {
   }
 
   getPage() {
-    this.service.getServicesPage().then((resp) => {
+    this.getPagaDataService.getServicesPage('servicios').then((resp) => {
       const { data } = resp;
       this.pageData = data;
       this.safeDescription = this.sanitizer.bypassSecurityTrustHtml(
