@@ -25,12 +25,5 @@
       />
     </div>
   </section>
-  <section class="grid-mobile" *ngIf="isMobile">
-    <div class="row d-flex justify-content-center align-items-center">
-      <div class="col-6 item-mobile" *ngFor="let item of sliderItems">
-        <img class="icon-slider" [src]="item.icon" alt="" />
-        <p>{{ item.title }}</p>
-      </div>
-    </div>
-  </section>
+  <app-services-mobile *ngIf="isMobile" [servicios]="sliderItems"></app-services-mobile>
 </div>

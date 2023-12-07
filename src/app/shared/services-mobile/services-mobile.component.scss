@@ -1,0 +1,26 @@
+.grid-mobile {
+  width: 100%;
+  padding: 0 20px;
+  min-height: 880px;
+
+  .item-mobile {
+    border: 1px solid #b6b8dc;
+    height: 220px;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    background-color: #efefef;
+
+    .icon-slider {
+        width: 75px;
+        height: 83px;
+        transition: transform 0.5s ease;
+      
+        &:hover {
+          filter: invert(28%) sepia(44%) saturate(7491%) hue-rotate(250deg)
+            brightness(98%) contrast(91%);
+          transform: scale(1.2);
+        }
+      }
+  }
+}

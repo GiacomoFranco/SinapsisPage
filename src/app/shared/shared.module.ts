@@ -26,6 +26,7 @@ import { RequiredValidator } from './directives/required.directive';
 import { ModalStateComponent } from './modal-state/modal-state.component';
 import { LoadingOverlayComponent } from './loading-overlay/loading-overlay.component';
 import { LinkSinapsisComponent } from './link-sinapsis/link-sinapsis.component';
+import { ServicesMobileComponent } from './services-mobile/services-mobile.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { LinkSinapsisComponent } from './link-sinapsis/link-sinapsis.component';
     ModalStateComponent,
     LoadingOverlayComponent,
     LinkSinapsisComponent,
+    ServicesMobileComponent,
   ],
   imports: [CommonModule, RouterModule, PagerModule, CarouselModule],
   exports: [
@@ -76,7 +78,8 @@ import { LinkSinapsisComponent } from './link-sinapsis/link-sinapsis.component';
     ParallaxDirective,
     ModalStateComponent,
     LoadingOverlayComponent,
-    LinkSinapsisComponent
+    LinkSinapsisComponent,
+    ServicesMobileComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

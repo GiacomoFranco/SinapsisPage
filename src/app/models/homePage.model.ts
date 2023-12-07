@@ -32,5 +32,8 @@ export interface HomePage {
     },
     preguntas_frecuentes: {
         titulo_preguntas_frecuentes: string;
+    },
+    casos_de_exito: {
+        titulo_casos_de_exito: string;
     }
 }

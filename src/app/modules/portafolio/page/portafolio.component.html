@@ -1,8 +1,6 @@
 <div class="casos-port-container">
-  <h3 class="title">Explora nuestro portafolio</h3>
-  <p class="desc">
-    Lorem ipsum is simple text of the printing and typesetting industry.
-  </p>
+  <h3 class="title">{{infoPage.titulo_casos_de_exito}}</h3>
+  <p class="desc" [innerHTML]="infoPage.descripcion_casos_de_exito"></p>
   <app-slider></app-slider>
   <div [id]="contentId">
     <div *ngIf="!isMobile; else elsebloq">
