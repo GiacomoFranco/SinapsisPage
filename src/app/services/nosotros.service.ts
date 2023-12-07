@@ -13,10 +13,6 @@ export class NosotrosService {
     baseURL: this.apiUrl
   })
 
-  async getNosotrosPage(){
-    return await this.api.get('pages/?slug=nosotros');
-  }
-
   async getIntegrantes(paged: number, perPage: number){
     return await this.api.get(`cpt-v2?slug=team&paged=${paged}&per_page=${perPage}`);
   }

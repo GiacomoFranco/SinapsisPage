@@ -5,15 +5,15 @@ import { environment } from 'src/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class HomeService {
+export class GetPageDataService {
 
   private apiUrl = environment.API_URL;
 
   api = axios.create({
     baseURL: this.apiUrl
-  })
+  });
 
-  async getHomePage(){
-    return await this.api.get('pages/?slug=home')
+  async getServicesPage(slug: string){
+    return await this.api.get(`pages/?slug=${slug}`)
   }
 }

@@ -1,11 +1,27 @@
 <div class="c-post-list">
   <h2 class="c-post-list__title">Más publicaciones</h2>
-  <p class="c-post-list__description">Lorem ipsum is simple texto of the printing and typesetting industry.</p>
-  <div class="c-post-list__content">
-    <div class="c-post-list__item" *ngFor="let post of BlogPosts">
-      <app-card-post [postInfo]="post"></app-card-post>
+  <p class="c-post-list__description">
+    Lorem ipsum is simple texto of the printing and typesetting industry.
+  </p>
+  <div *ngIf="BlogPosts.length !== 0; else blogError">
+    <div class="c-post-list__content">
+      <div class="c-post-list__item" *ngFor="let post of BlogPosts">
+        <app-card-post [postInfo]="post"></app-card-post>
+      </div>
     </div>
+    <app-pagination
+      *ngIf="BlogPagination.totalItems != 0"
+      [PaginationData]="BlogPagination"
+      (updateData)="getData($event)"
+    ></app-pagination>
   </div>
-  <app-pagination *ngIf="BlogPagination.totalItems != 0" [PaginationData]="BlogPagination"
-    (updateData)="getData($event)"></app-pagination>
+  <ng-template #blogError>
+    <div id="content-no-data">
+      <h3>
+        📢 Próximamente, lanzaremos nuevas publicaciones en la sección de blogs.
+        ¡Estén atentos para obtener información actualizada y contenido
+        relevante! 📝🔍
+      </h3>
+    </div>
+  </ng-template>
 </div>

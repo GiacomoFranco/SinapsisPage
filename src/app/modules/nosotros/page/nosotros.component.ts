@@ -1,12 +1,10 @@
 import { Component, OnInit, HostListener, OnDestroy } from '@angular/core';
-import { NosotrosService } from '@app/services/nosotros.service';
 import { nosotrosPage } from '@app/models/nosotrosPage.model';
 import { gsap } from 'gsap';
 import { TextPlugin } from 'gsap/TextPlugin';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SeoService } from '@app/services/seo.service';
-import { LoadingOverlayNotificationService } from '@app/services/loadingOverlayNotification.service';
-import { Subscription } from 'rxjs';
+import { GetPageDataService } from '@app/services/get-page-data.service';
 gsap.registerPlugin(TextPlugin, ScrollTrigger);
 
 @Component({
@@ -16,9 +14,8 @@ gsap.registerPlugin(TextPlugin, ScrollTrigger);
 })
 export class NosotrosComponent implements OnInit, OnDestroy {
   constructor(
-    private nosotrosService: NosotrosService,
+    private getPagaDataService: GetPageDataService,
     private seoService: SeoService,
-    private loadingOverlayService: LoadingOverlayNotificationService
   ) {}
 
   initialRender = false;
@@ -62,7 +59,7 @@ export class NosotrosComponent implements OnInit, OnDestroy {
 
   async getData() {
     try {
-      await this.nosotrosService.getNosotrosPage().then((response) => {
+      await this.getPagaDataService.getServicesPage('nosotros').then((response) => {
         const { data } = response;
         this.pageData = data;
         this.initialRender = true

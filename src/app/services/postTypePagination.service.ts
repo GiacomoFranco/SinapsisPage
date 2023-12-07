@@ -14,7 +14,7 @@ export class postTypeData {
   })
 
   async getPostTypeData( slug: string = 'post',currentPage: number = 1, perPage: number = 12) {
-    return await this.api.get(`pagination/?slug=${slug}&paged=${currentPage}&per_page=${perPage}`)
+    return await this.api.get(`cpt-v2?slug=${slug}&paged=${currentPage}&per_page=${perPage}`)
   }
 
 }

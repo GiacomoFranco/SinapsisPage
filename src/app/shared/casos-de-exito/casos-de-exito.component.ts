@@ -44,8 +44,7 @@ export class CasosDeExitoComponent implements OnInit{
     this.portafolioService.getAll().then(resp => {
       const {data} = resp;
       this.casosExito = data
-    })
-    console.log(this.titulo_casos_de_exito)
+    });
   }
 
   redirectDetail(slug: string){

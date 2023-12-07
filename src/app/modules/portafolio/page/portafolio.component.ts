@@ -6,6 +6,7 @@ import { portafolioModel } from '@app/models/portafolio.model';
 import { Pagination } from '@app/models/pagination.model';
 import { SeoService } from '@app/services/seo.service';
 import { infoPortafolio } from '@app/models/portafolioSlider.model';
+import { GetPageDataService } from '@app/services/get-page-data.service';
 
 @Component({
   selector: 'app-portafolio',
@@ -33,7 +34,9 @@ export class PortafolioComponent implements OnInit, DoCheck {
 
   constructor(private router: Router, 
               private portafolioService: PortafolioService,
-              private seoService: SeoService) { }
+              private seoService: SeoService,
+              private getPagaDataService: GetPageDataService,
+              ) { }
 
   ngOnInit(): void {
     this.pageData(this.dataPagination);
@@ -71,7 +74,7 @@ export class PortafolioComponent implements OnInit, DoCheck {
   }
 
   private getInfoPage(){
-    this.portafolioService.getInfoPagePortafolio().then(resp => {
+    this.getPagaDataService.getServicesPage('portafolio').then(resp => {
       const {data} = resp;
       this.infoPage = data;
     })

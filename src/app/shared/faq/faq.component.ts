@@ -1,4 +1,4 @@
-import { Component, Input, ViewContainerRef, HostListener  } from '@angular/core';
+import { Component, Input, ViewContainerRef, HostListener } from '@angular/core';
 import { FaqInterface } from '@app/models/faq.model';
 
 @Component({
@@ -12,15 +12,17 @@ export class FaqComponent {
   activateAccordion: boolean = false;
 
   @Input() FAQs: FaqInterface[];
-  
-  @Input() numbers:number = 4;
+
+  @Input() numbers: number = 4;
 
   ngOnInit(): void {
-    this.FAQs.sort((a, b) => {
-      const titleA = a.title.toLowerCase();
-      const titleB = b.title.toLowerCase();
-      return titleA.localeCompare(titleB);
-    });
+    if (this.FAQs) {
+      this.FAQs.sort((a, b) => {
+        const titleA = a.title.toLowerCase();
+        const titleB = b.title.toLowerCase();
+        return titleA.localeCompare(titleB);
+      });
+    }
   }
 
   showAccordion(index: number) {
@@ -33,7 +35,7 @@ export class FaqComponent {
     });
   }
 
-  detectScroll():void {
+  detectScroll(): void {
     const getFAQAccordion = document.documentElement.querySelector('.c-faq')
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
   }
