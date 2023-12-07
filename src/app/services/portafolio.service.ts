@@ -24,4 +24,8 @@ export class PortafolioService {
   async getPagePortafolio(paged:number, perPage: number){
     return await this.api.get(`cpt-v2?slug=casos-exito&paged=${paged}&per_page=${perPage}`)
   }
+
+  async getInfoPagePortafolio(){
+    return await this.api.get('pages/?slug=portafolio')
+  }
 }

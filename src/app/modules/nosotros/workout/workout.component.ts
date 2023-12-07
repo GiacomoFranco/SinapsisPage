@@ -46,7 +46,7 @@ export class WorkoutComponent implements AfterViewInit {
       .timeline({
         scrollTrigger: {
           trigger: '.workout',
-          start: '-50px top',
+          start: '-100px top',
           pin: '.workout',
           scrub: true,
         },

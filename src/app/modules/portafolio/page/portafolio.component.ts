@@ -5,6 +5,7 @@ import { PortafolioService } from '@app/services/portafolio.service';
 import { portafolioModel } from '@app/models/portafolio.model';
 import { Pagination } from '@app/models/pagination.model';
 import { SeoService } from '@app/services/seo.service';
+import { infoPortafolio } from '@app/models/portafolioSlider.model';
 
 @Component({
   selector: 'app-portafolio',
@@ -28,12 +29,15 @@ export class PortafolioComponent implements OnInit, DoCheck {
   contentId = 'cards-cont';
   isMobile = false;
 
+  infoPage: infoPortafolio
+
   constructor(private router: Router, 
               private portafolioService: PortafolioService,
               private seoService: SeoService) { }
 
   ngOnInit(): void {
     this.pageData(this.dataPagination);
+    this.getInfoPage();
     this.validateResponsive();
     this.FlagsSeo()
   }
@@ -63,6 +67,13 @@ export class PortafolioComponent implements OnInit, DoCheck {
       this.dataPage = data.post
       this.dataPagination = data.pagination
       this.pagedChases = this.dataPage.slice(this.skip, this.skip + this.pageSize);
+    })
+  }
+
+  private getInfoPage(){
+    this.portafolioService.getInfoPagePortafolio().then(resp => {
+      const {data} = resp;
+      this.infoPage = data;
     })
   }
 

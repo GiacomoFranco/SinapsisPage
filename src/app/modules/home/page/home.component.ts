@@ -40,6 +40,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     this.homeService.getHomePage().then(response => {
       const {data} = response
       this.dataPage = data
+      console.log(this.dataPage)
     })
   }
 

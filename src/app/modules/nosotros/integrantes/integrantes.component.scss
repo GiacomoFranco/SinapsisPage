@@ -90,57 +90,60 @@
         position: absolute;
         right: 0;
         top: 0;
+        width: 15%;
       }
 
-      a {
-        width: 50%;
-        font-size: 25px;
-        color: #fff;
-        text-decoration: underline;
+      #redirection-work {
+        width: 85%;
+        a {
+          font-size: 25px;
+          color: #fff;
+          text-decoration: underline;
+        }
       }
     }
   }
-  ::ng-deep{
-    kendo-datapager{
-    margin-top: 30px;
-    border: none;
-    background-color: transparent;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  ::ng-deep {
+    kendo-datapager {
+      margin-top: 30px;
+      border: none;
+      background-color: transparent;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
-    &:focus{
-      box-shadow: none;
-    }
-  
-    .k-button-text{
-      color: #7042ef;
-      font-size: 1.2rem;
-      transition: all 0.5s ease-out;
-    }
+      &:focus {
+        box-shadow: none;
+      }
 
-    .k-pager-numbers{
-      display: block !important;
-    }
+      .k-button-text {
+        color: #7042ef;
+        font-size: 1.2rem;
+        transition: all 0.5s ease-out;
+      }
 
-    .k-dropdown-list{
-      display: none !important;
-    }
+      .k-pager-numbers {
+        display: block !important;
+      }
 
-    .k-selected{
-      font-weight: bold;
-      transform: scale(1.2);
-      transition: all 0.5s ease-out;
-    }
+      .k-dropdown-list {
+        display: none !important;
+      }
 
-    .k-button-flat-primary{
-      color: transparent  ;
-    }
+      .k-selected {
+        font-weight: bold;
+        transform: scale(1.2);
+        transition: all 0.5s ease-out;
+      }
 
-    .k-button{
-      min-width: none;
+      .k-button-flat-primary {
+        color: transparent;
+      }
+
+      .k-button {
+        min-width: none;
+      }
     }
-  }
   }
 }
 
@@ -183,8 +186,7 @@
     .content-team {
       grid-template-columns: repeat(1, 1fr);
 
-      
-      .flip-card{
+      .flip-card {
         width: 70%;
         height: 310px;
         margin: auto;
@@ -198,12 +200,12 @@
         grid-column: 1/2;
         grid-row-start: 10;
         padding: 10px !important;
-        
-        .arrow{
+
+        .arrow {
           display: none;
         }
 
-        a{
+        a {
           width: 100%;
         }
       }

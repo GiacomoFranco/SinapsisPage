@@ -44,6 +44,7 @@
   display: flex;
   max-height: 834px;
   min-height: 833px;
+  margin-bottom: 60px;
 
   .section__content {
     display: flex;
@@ -90,5 +91,19 @@
       object-fit: cover;
       width: 100%;
     }
+  }
+}
+
+.nuestros-servicios__movile{
+  margin-bottom: 60px;
+
+  a{
+    color: white;
+    text-decoration: underline;
+  }
+
+  .section__text-container{
+    max-width: 100%;
+    min-width: 50%;
   }
 }

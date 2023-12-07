@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { SliderPortafolio } from '@app/models/portafolioSlider.model';
 import { PortafolioService } from '@app/services/portafolio.service';
 import { OwlOptions } from 'ngx-owl-carousel-o';
@@ -36,6 +36,8 @@ export class CasosDeExitoComponent implements OnInit{
     },
   };
 
+  @Input() titulo_casos_de_exito:string;
+
   constructor(private router: Router ,private portafolioService: PortafolioService){} 
 
   ngOnInit(): void {
@@ -43,6 +45,7 @@ export class CasosDeExitoComponent implements OnInit{
       const {data} = resp;
       this.casosExito = data
     })
+    console.log(this.titulo_casos_de_exito)
   }
 
   redirectDetail(slug: string){

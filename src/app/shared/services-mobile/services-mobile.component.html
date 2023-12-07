@@ -1,0 +1,8 @@
+<section class="grid-mobile">
+    <div class="row d-flex justify-content-center align-items-center">
+      <div class="col-6 item-mobile" *ngFor="let item of servicios">
+        <img class="icon-slider" [src]="item.icon" alt="" />
+        <p>{{ item.title }}</p>
+      </div>
+    </div>
+  </section>

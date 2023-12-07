@@ -13,6 +13,9 @@ export interface servicePageData {
         urlBoton: string,
         buttonName: string
     },
+    casos_de_exito: {
+        titulo_casos_de_exito: string;
+    }
 }
 
 export interface Stadistics {
