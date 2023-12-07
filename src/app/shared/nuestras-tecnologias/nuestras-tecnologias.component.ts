@@ -3,6 +3,7 @@ import { Tecnologias } from '@app/models/tecnologias.model';
 import { TecnologiesService } from '@app/services/tecnologies.service';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 @Component({
   selector: 'app-nuestras-tecnologias',
   templateUrl: './nuestras-tecnologias.component.html',
@@ -30,13 +31,13 @@ export class NuestrasTecnologiasComponent implements OnInit, AfterViewInit {
   }
 
   animationTec() {
-    gsap.registerPlugin(ScrollTrigger);
     gsap.to(".content-items", {
       scale: 1.2,
       duration: 5,
       scrollTrigger: {
         trigger: '.animacion-nuestras-tecnologias',
         start: 'top center',
+        markers: true
       },
       stagger: {
         amount: 1.4,
