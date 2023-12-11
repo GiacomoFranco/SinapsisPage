@@ -30,6 +30,10 @@
   .k-grid {
     width: 100%;
 
+    .k-grid-norecords{
+      display: none;
+    }
+
     .k-grid-aria-root {
       .k-grid-header {
         padding-right: 0 !important;
@@ -129,6 +133,12 @@
     }
   }
 
+}
+
+#no-data{
+  h2{
+    color: #7042EF;
+  }
 }
 
 .dropdown-filter {

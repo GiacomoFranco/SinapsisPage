@@ -27,6 +27,7 @@ import { ModalStateComponent } from './modal-state/modal-state.component';
 import { LoadingOverlayComponent } from './loading-overlay/loading-overlay.component';
 import { LinkSinapsisComponent } from './link-sinapsis/link-sinapsis.component';
 import { ServicesMobileComponent } from './services-mobile/services-mobile.component';
+import { ModalPoliticasComponent } from './modal-politicas/modal-politicas.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { ServicesMobileComponent } from './services-mobile/services-mobile.compo
     LoadingOverlayComponent,
     LinkSinapsisComponent,
     ServicesMobileComponent,
+    ModalPoliticasComponent,
   ],
   imports: [CommonModule, RouterModule, PagerModule, CarouselModule],
   exports: [
@@ -79,7 +81,8 @@ import { ServicesMobileComponent } from './services-mobile/services-mobile.compo
     ModalStateComponent,
     LoadingOverlayComponent,
     LinkSinapsisComponent,
-    ServicesMobileComponent
+    ServicesMobileComponent,
+    ModalPoliticasComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

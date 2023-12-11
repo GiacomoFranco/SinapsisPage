@@ -132,31 +132,4 @@
     referrerpolicy="no-referrer-when-downgrade"
   ></iframe>
 </section>
-<div
-  class="modal fade"
-  id="staticBackdrop"
-  data-bs-backdrop="static"
-  data-bs-keyboard="false"
-  tabindex="-1"
-  aria-labelledby="staticBackdropLabel"
-  aria-hidden="true"
->
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-body">
-        <div id="content-btn">
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
-        </div>
-        <h3>{{dataTerms.title}}</h3>
-        <div id="text-content">
-          <p [innerHTML]="dataTerms.content"></p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<app-modal-politicas/>

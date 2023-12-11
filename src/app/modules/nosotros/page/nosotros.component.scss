@@ -1,6 +1,6 @@
 .history {
   position: relative;
-  height: 800px;
+  min-height: 800px;
   overflow: hidden;
 
   .logo-sinapsis {
@@ -9,69 +9,59 @@
     right: -64%;
     width: 50%;
     height: auto;
-    z-index: -1;
     transform: translateX(-50%);
   }
 
-  .img-office {
-    width: 505px;
-    height: 768px;
-  }
+  .content-history {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
 
-  .content-text-hystory {
-    width: 90%;
-    height: 500px;
-    position: relative;
-
-    .ic-arrow {
-      width: 85px;
-      height: 85px;
-      position: absolute;
-      top: -70px;
-      left: -80px;
-    }
-  }
-}
-
-@media screen and (max-width: 1023px) {
-  .history {
-    height: 1150px;
-    
-    .item-history {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    .history-image {
+      max-width: 500px;
 
       .img-office {
-        width: 505px;
+        width: 100%;
       }
     }
 
     #text-content-history {
-      margin-top: 1.5rem;
+      width: 730px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding-left: 90px;
+      position: relative;
 
-      .content-text-hystory {
-        width: 100%;
-        height: 350px;
-        text-align: center;
+      .ic-arrow {
+        width: 85px;
+        height: 85px;
+        position: absolute;
+        top: -60px;
+        right: 40%;
+        transform: rotateY(180deg);
+      }
+
+      .ourHistoryText {
+        margin-top: 30px;
       }
     }
   }
 }
 
-@media screen and (max-width: 767px) {
-  .history {
-    height: 500px;
+@media screen and (max-width: 1400px) {
+  #text-content-history {
+    width: 90% !important;
+    padding-left: 0 !important;
+    text-align: center;
+    margin-top: 40px;
 
-    .content-text-hystory {
-      height: 500px !important;
+    .ic-arrow {
+      right: 0 !important;
     }
-  }
-}
-
-@media screen and (max-width: 420px) {
-  .history {
-    height: 550px;
   }
 }

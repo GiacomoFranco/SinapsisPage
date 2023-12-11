@@ -4,7 +4,6 @@ import '../../../../assets/smtp.js';
 import { MailService } from '@app/services/mail.service';
 import { SeoService } from '@app/services/seo.service';
 import { ContactUs } from '@app/models/contactUs.model';
-import { TermsAndConditions } from '@app/models/terms.model.js';
 import { GetPageDataService } from '@app/services/get-page-data.service';
 
 declare let EmailSMTP: any;
@@ -17,7 +16,6 @@ declare let EmailSMTP: any;
 export class ContactanosComponent implements OnInit{
 
   dataPage: ContactUs;
-  dataTerms: TermsAndConditions;
 
   constructor(
     private mailService: MailService,
@@ -27,7 +25,6 @@ export class ContactanosComponent implements OnInit{
 
   ngOnInit(): void {
     this.getPageData();
-    this.getPrivacyPolitics();
     this.FlagsSEO();
   }
 
@@ -36,13 +33,6 @@ export class ContactanosComponent implements OnInit{
       const {data} = resp;
       this.dataPage = data;
     });
-  }
-
-  private getPrivacyPolitics(){
-    this.getPagaDataService.getServicesPage('politicas-de-privacidad').then(resp => {
-      const {data} = resp;
-      this.dataTerms = data
-    })
   }
 
   public form: FormGroup = new FormGroup({

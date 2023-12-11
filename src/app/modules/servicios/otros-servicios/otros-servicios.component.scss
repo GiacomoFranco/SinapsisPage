@@ -1,4 +1,5 @@
 .other-service {
+  padding: 60px 0;
   .phone_mobile {
     height: 755px;
     padding-top: 0 !important;
@@ -47,7 +48,7 @@
     width: 100%;
     min-height: 700px;
     overflow: hidden;
-    transform: translateY(30%);
+    transform: translateY(43%);
 
     .items-pc {
       display: grid;
@@ -69,7 +70,7 @@
 }
 .phone {
   width: 100%;
-  height: 890px;
+  min-height: 890px;
   padding-top: 120px;
   display: flex;
   flex-direction: column;
@@ -137,14 +138,20 @@
   .phone {
     height: auto !important;
     padding: 0 !important;
-    
+
     .cell {
       width: 100%;
       height: 730px;
     }
   }
+
   .section-service-mobile {
     height: auto !important;
+
+    .logo-sinapsis {
+      bottom: -10px !important;
+    }
+
     .content-mobile {
       flex-direction: column-reverse;
 
@@ -171,7 +178,7 @@
   }
 
   .other-service-pc {
-    padding: 80px 0;
+    padding-bottom: 80px;
     transform: translateY(12%) !important;
 
     .row {
@@ -192,22 +199,25 @@
         .laptop-container {
           width: 80%;
           margin: auto;
-          height: 500px;
+          height: 600px;
           transform: translateX(0);
         }
       }
     }
   }
 
+  @media screen and (max-width: 1024px) {
+    .laptop-container {
+      height: 500px !important;
+    }
+  }
+
   @media screen and (max-width: 767px) {
     .other-service-pc {
-      padding-top: 0 !important;
-
       .other-item {
         padding: 0 1rem !important;
         .laptop-container {
           height: 315px !important;
-          margin-top: 60px !important;
           width: 100% !important;
         }
       }

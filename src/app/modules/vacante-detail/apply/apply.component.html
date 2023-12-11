@@ -1,65 +1,146 @@
 <article class="form-container" kendoUploadDropZone="myZone">
-  <div class="form-content" [class.form-content--dragover]="draggingFile" [class.form-content--loader]="isSending">
+  <div
+    class="form-content"
+    [class.form-content--dragover]="draggingFile"
+    [class.form-content--loader]="isSending"
+  >
     <span [hidden]="!isSending" class="loader"></span>
-    <img src="/assets/vacante/close.svg" alt="" class="close-icon" (click)="toggleModalState()">
-    <h3>Lorem ipsum is simply text of the printing and.</h3>
+    <img
+      src="/assets/vacante/close.svg"
+      alt=""
+      class="close-icon"
+      (click)="toggleModalState()"
+    />
+    <h3>Ingresa los datos para aplicar a la oferta</h3>
     <article class="form-wrapper">
       <form [formGroup]="form" class="form">
-
         <label class="label-form">Datos</label>
         <kendo-formfield showErrors="initial">
-          <input class="textbox" formControlName="fullName" placeholder="Nombre Completo" #fullName required>
+          <input
+            class="textbox"
+            formControlName="fullName"
+            placeholder="Nombre Completo"
+            #fullName
+            required
+          />
 
           <kendo-formerror>Este campo es requerido</kendo-formerror>
         </kendo-formfield>
         <kendo-formfield showErrors="initial">
-          <input class="textbox" formControlName="email" placeholder="Correo electrónico" #email required>
+          <input
+            class="textbox"
+            formControlName="email"
+            placeholder="Correo electrónico"
+            #email
+            required
+          />
 
-          <kendo-formerror *ngIf="Email.errors?.['required'] && (Email.dirty || Email.touched )">Este campo es
-            requerido</kendo-formerror>
-          <kendo-formerror *ngIf="Email.errors?.['email'] && (Email.dirty || Email.touched )">Ingresa un correo electrónico válido</kendo-formerror>
+          <kendo-formerror
+            *ngIf="Email.errors?.['required'] && (Email.dirty || Email.touched )"
+            >Este campo es requerido</kendo-formerror
+          >
+          <kendo-formerror
+            *ngIf="Email.errors?.['email'] && (Email.dirty || Email.touched )"
+            >Ingresa un correo electrónico válido</kendo-formerror
+          >
         </kendo-formfield>
         <kendo-formfield showErrors="initial">
-          <input class="textbox" formControlName="telefono" placeholder="Teléfono" #telefono required type="tel">
+          <input
+            class="textbox"
+            formControlName="telefono"
+            placeholder="Teléfono"
+            #telefono
+            required
+            type="tel"
+          />
 
-          <kendo-formerror *ngIf="Telefono.errors?.['required'] && (Telefono.dirty || Telefono.touched )">Este campo es
-            requerido</kendo-formerror>
-          <kendo-formerror *ngIf="Telefono.errors?.['pattern']">Ingresa un número de teléfono válido</kendo-formerror>
-
-
+          <kendo-formerror
+            *ngIf="Telefono.errors?.['required'] && (Telefono.dirty || Telefono.touched )"
+            >Este campo es requerido</kendo-formerror
+          >
+          <kendo-formerror *ngIf="Telefono.errors?.['pattern']"
+            >Ingresa un número de teléfono válido</kendo-formerror
+          >
         </kendo-formfield>
         <kendo-formfield showErrors="initial">
-
-          <kendo-dropdownlist [class.is-placeholder]="selectedUbication === 'Ubicación'" #ubication [(ngModel)]="selectedUbication" isRequired="true" formControlName="ubications" [data]="ubications"
-            [value]="'Ubicación'">
+          <kendo-dropdownlist
+            [class.is-placeholder]="selectedUbication === 'Ubicación'"
+            #ubication
+            [(ngModel)]="selectedUbication"
+            isRequired="true"
+            formControlName="ubications"
+            [data]="ubications"
+            [value]="'Ubicación'"
+          >
           </kendo-dropdownlist>
           <kendo-formerror>Este campo es requerido</kendo-formerror>
         </kendo-formfield>
 
         <label class="label-form">Anexa tu Curriculum Vitae</label>
         <kendo-formfield>
-          <kendo-fileselect #files formControlName="files" [restrictions]=" fileRestrictions" [multiple]="false" zoneId="myZone" (valueChange)="completeUpload()" (select)="selectFile($event)" (remove)="removeSelectedFile()"
->
-            <kendo-fileselect-messages dropFilesHere="Agregar aqui tu curriculum en formato PDF" select="">
+          <kendo-fileselect
+            #files
+            formControlName="files"
+            [restrictions]="fileRestrictions"
+            [multiple]="false"
+            zoneId="myZone"
+            (valueChange)="completeUpload()"
+            (select)="selectFile($event)"
+            (remove)="removeSelectedFile()"
+          >
+            <kendo-fileselect-messages
+              dropFilesHere="Agregar aqui tu curriculum en formato PDF"
+              select=""
+            >
             </kendo-fileselect-messages>
           </kendo-fileselect>
 
-          <kendo-formerror *ngIf="form.controls['files'].errors?.['required'] && selectedFileExtension === null ">Este campo es requerido</kendo-formerror>
-          <kendo-formerror *ngIf="files._restrictions.allowedExtensions![0] !== selectedFileExtension && selectedFileExtension !== null">La extensión del archivo es de tipo {{selectedFileExtension}}, en su lugar adjunta un PDF
+          <kendo-formerror
+            *ngIf="form.controls['files'].errors?.['required'] && selectedFileExtension === null "
+            >Este campo es requerido</kendo-formerror
+          >
+          <kendo-formerror
+            *ngIf="
+              files._restrictions.allowedExtensions![0] !==
+                selectedFileExtension && selectedFileExtension !== null
+            "
+            >La extensión del archivo es de tipo {{ selectedFileExtension }}, en
+            su lugar adjunta un PDF
           </kendo-formerror>
         </kendo-formfield>
         <kendo-formfield showHints="initial" class="checkbox-input">
           <div class="k-form-field-checkbox-wrap">
-            <input kendoCheckBox id="terms" type="checkbox" formControlName="terms" />
-            <kendo-label class="k-checkbox-label" for="terms"
-              text="Lorem ipsum is simply Terminos y condiciones"></kendo-label>
+            <input
+              kendoCheckBox
+              id="terms"
+              type="checkbox"
+              formControlName="terms"
+            />
+            <kendo-label class="k-checkbox-label" for="terms" text="Aceptar">
+              <span
+                id="terms-condicion"
+                data-bs-toggle="modal"
+                data-bs-target="#staticBackdrop"
+                >Terminos y condiciones</span
+              >
+            </kendo-label>
           </div>
-          <kendo-formerror *ngIf="TermsAndConditions.errors?.['required'] && TermsAndConditions.value === null">Este campo es requerido</kendo-formerror>
-          <kendo-formerror *ngIf="TermsAndConditions.value === false"> Debes de marcar el campo de términos y condiciones para poder enviar la postulación</kendo-formerror>
+          <kendo-formerror
+            *ngIf="TermsAndConditions.errors?.['required'] && TermsAndConditions.value === null"
+            >Este campo es requerido</kendo-formerror
+          >
+          <kendo-formerror *ngIf="TermsAndConditions.value === false">
+            Debes de marcar el campo de términos y condiciones para poder enviar
+            la postulación</kendo-formerror
+          >
         </kendo-formfield>
 
-        <app-button-sinapsis name_button="Enviar y aplicar" [redirects]="false" (click)="submitForm()"></app-button-sinapsis>
-
+        <app-button-sinapsis
+          name_button="Enviar y aplicar"
+          [redirects]="false"
+          (click)="submitForm()"
+        ></app-button-sinapsis>
+        <app-modal-politicas/>
       </form>
     </article>
   </div>

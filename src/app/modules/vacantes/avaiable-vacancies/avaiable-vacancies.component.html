@@ -25,10 +25,20 @@
       [data]="tecnologiasName"
       (valueChange)="filterVacancies($event, tecnologia)"
     ></kendo-dropdownlist>
+    <app-button-sinapsis
+      [name_button]="'Limpiar filtros'"
+      [redirects]="false"
+      (click)="limpiarFiltros()"
+    />
   </div>
 </div>
 
-<kendo-grid
+<div id="no-data" *ngIf="vacancies.length === 0 && loaderVisible !== true; else dataBloq">
+  <h2>No hay resultados</h2>
+</div>
+
+<ng-template #dataBloq>
+  <kendo-grid
   #gridVacancie
   [kendoGridBinding]="vacancies"
   [loading]="loaderVisible"
@@ -71,3 +81,4 @@
     [minResizableWidth]="200"
   ></kendo-grid-column>
 </kendo-grid>
+</ng-template>

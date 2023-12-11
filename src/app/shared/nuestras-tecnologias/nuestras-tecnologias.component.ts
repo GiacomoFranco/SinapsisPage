@@ -37,7 +37,6 @@ export class NuestrasTecnologiasComponent implements OnInit, AfterViewInit {
       scrollTrigger: {
         trigger: '.animacion-nuestras-tecnologias',
         start: 'top center',
-        markers: true
       },
       stagger: {
         amount: 1.4,
