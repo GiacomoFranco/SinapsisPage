@@ -1,11 +1,12 @@
 <footer class="o-footer">
   <div class="o-footer-content">
     <div class="group-text" *ngFor="let footer of footerData">
-      <h3 class="footer-title">{{ footer.title }}</h3>
-      <p class="footer-description">{{ footer.subTitle }}</p>
+      <h3 class="footer-title" i18n>{{ footer.title }}</h3>
+      <p class="footer-description" i18n>{{ footer.subTitle }}</p>
       <app-button-sinapsis
         [url]="'/contacto'"
         [name_button]="footer.boton"
+        i18n
       ></app-button-sinapsis>
     </div>
     <div class="o-footer__group-routes">

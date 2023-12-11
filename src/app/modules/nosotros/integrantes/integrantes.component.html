@@ -7,21 +7,21 @@
             <img class="img-card" [src]="item.photo" alt="" />
           </div>
           <div class="flip-card-back">
-            <span class="font-card">{{ item.name }} {{ item.lastName }}</span>
+            <span class="font-card" i18n>{{ item.name }} {{ item.lastName }}</span>
             <div class="cargo-content">
-              <span>{{ item.cargo }}</span>
+              <span i18n>{{ item.cargo }}</span>
             </div>
           </div>
         </div>
       </div>
       <div class="card-section">
-        <div class="p">{{ textSection.title }}</div>
-        <h4>{{ textSection.subtitle }}</h4>
+        <div class="p" i18n>{{ textSection.title }}</div>
+        <h4 i18n>{{ textSection.subtitle }}</h4>
       </div>
       <div class="work-card">
         <img class="arrow" src="/assets/icons/arrowdown.svg" alt="" />
         <div id="redirection-work">
-          <a href="/trabaja-con-nosotros">{{ textSection.workWithUs }}</a>
+          <a href="/trabaja-con-nosotros" i18n>{{ textSection.workWithUs }}</a>
         </div>
       </div>
     </div>

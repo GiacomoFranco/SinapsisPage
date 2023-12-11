@@ -15,11 +15,12 @@
           </div>
         </div>
         <div class="col-md-6 item-mobile item_service h-100">
-          <h2>{{ pageData.phoneSection.title }}</h2>
-          <p [innerHTML]="pageData.phoneSection.description"></p>
+          <h2 i18n>{{ pageData.phoneSection.title }}</h2>
+          <p [innerHTML]="pageData.phoneSection.description" i18n></p>
           <app-button-sinapsis
             [name_button]="pageData.phoneSection.buttonName"
             [url]="pageData.phoneSection.urlBoton"
+            i18n
           ></app-button-sinapsis>
         </div>
       </div>
@@ -29,11 +30,12 @@
     <div class="row w-100 m-0">
       <div class="col-md-6 col-12 other-item items-pc px-5">
         <div class="w-100">
-          <h2 class="h2-black">{{ pageData.laptopSection.title }}</h2>
-          <p class="mt-3" [innerHTML]="pageData.laptopSection.description"></p>
+          <h2 class="h2-black" i18n>{{ pageData.laptopSection.title }}</h2>
+          <p class="mt-3" [innerHTML]="pageData.laptopSection.description" i18n></p>
           <app-button-sinapsis
             [name_button]="pageData.laptopSection.buttonName"
             [url]="pageData.laptopSection.urlBoton"
+            i18n
           ></app-button-sinapsis>
         </div>
       </div>

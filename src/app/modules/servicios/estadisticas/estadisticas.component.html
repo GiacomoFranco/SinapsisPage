@@ -9,10 +9,10 @@
           <img class="icon" [src]="dataStadistics.icon" alt="icono ilustrativo para las estadisticas en Sinapsis"/>
           <div class="content-statistics ms-3">
             <h3 class="m-0">+{{ contadores[i].value }}</h3>
-            <h3 class="m-0 title-statistics">
+            <h3 class="m-0 title-statistics" i18n>
               {{ dataStadistics.title }}
             </h3>
-            <p [innerHTML]="dataStadistics.description" class="m-0"></p>
+            <p [innerHTML]="dataStadistics.description" class="m-0" i18n></p>
           </div>
         </div>
       </div>
