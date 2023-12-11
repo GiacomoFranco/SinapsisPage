@@ -11,11 +11,12 @@
         class="col-12 col-md-6 columna-item d-flex justify-content-center align-items-center pe-0"
       >
         <div class="content-info content-text-anim">
-          <h2>{{ pageData.sectionDesign.title }}</h2>
-          <p class="my-3" [innerHTML]="pageData.sectionDesign.descripcion"></p>
+          <h2 i18n>{{ pageData.sectionDesign.title }}</h2>
+          <p class="my-3" [innerHTML]="pageData.sectionDesign.descripcion" i18n></p>
           <app-button-sinapsis
             [name_button]="pageData.sectionDesign.name_button"
             [url]="pageData.sectionDesign.UrlBtn"
+            i18n
           ></app-button-sinapsis>
         </div>
       </div>
@@ -35,11 +36,12 @@
       </div>
       <div class="col-12 item-movil text-center">
         <div class="content-info">
-          <h2>{{ pageData.sectionDesign.title }}</h2>
-          <p class="my-3" [innerHTML]="pageData.sectionDesign.descripcion"></p>
+          <h2 i18n>{{ pageData.sectionDesign.title }}</h2>
+          <p class="my-3" [innerHTML]="pageData.sectionDesign.descripcion" i18n></p>
           <app-button-sinapsis
             [name_button]="pageData.sectionDesign.name_button"
             [url]="pageData.sectionDesign.UrlBtn"
+            i18n
           ></app-button-sinapsis>
         </div>
       </div>

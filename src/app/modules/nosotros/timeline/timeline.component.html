@@ -7,9 +7,9 @@
       <img [src]="item.icon" alt="">
     </div>
     <div class="text-box" #containerText>
-      <h2>{{item.title}}</h2>
+      <h2 i18n>{{item.title}}</h2>
       <small>{{item.year}}</small>
-      <p [innerHTML]="item.descripcion"></p>
+      <p [innerHTML]="item.descripcion" i18n></p>
       <span class="{{ i % 2 === 0 ? 'left-container-arrow' : 'right-container-arrow'}}"></span>
     </div>
   </div>

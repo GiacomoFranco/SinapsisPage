@@ -2,8 +2,8 @@
   <article class="testimonios__title-section" appScrollReveal y="100">
     <div class="section-text-container">
       <img class="graphic-logo-part" src="assets\icons\graphic-logo-part.svg" alt="Parte del logo">
-      <h3>{{dataSection.titulo_testimonios}}</h3>
-      <p>{{dataSection.descripcion_testimonio}}</p>
+      <h3 i18n>{{dataSection.titulo_testimonios}}</h3>
+      <p i18n>{{dataSection.descripcion_testimonio}}</p>
     </div>
   </article>
   <article class="testimonios__reviews" appScrollReveal y="100" selectorClassAnimation="testimonio">
@@ -16,14 +16,14 @@
                 <img [src]="testimonio.logoCompany" alt="logo-cliente">
               </div>
               <div class="testimonio__info">
-                <p class="testimonio__cliente">{{testimonio.title}}</p>
-                <span class="testimonio__persona">
+                <p class="testimonio__cliente" i18n>{{testimonio.title}}</p>
+                <span class="testimonio__persona" i18n>
                   <p class="testimonio__nombre-persona"><span
                       class="testimonio__cargo">{{testimonio.companyPosition}}</span> {{testimonio.testimonial}}</p>
                 </span>
               </div>
             </div>
-            <p class="testimonio__feedback" [innerHTML]="testimonio.comment"></p>
+            <p class="testimonio__feedback" [innerHTML]="testimonio.comment" i18n></p>
             <div class="testimonio__ratings">
               <span class="testimonio__stars">
                 <div #star *ngFor="let item of starsLogic(testimonio.score)" [ngStyle]="{'width.px': starClipped(item)}"
@@ -31,7 +31,7 @@
                   <img src="assets\icons\star.svg" alt="Nivel del rating">
                 </div>
               </span>
-              <p class="testimonio__rating-value">{{testimonio.score}}</p>
+              <p class="testimonio__rating-value" i18n>{{testimonio.score}}</p>
             </div>
           </div>
         </ng-template>

@@ -1,7 +1,7 @@
 <div *ngIf="sliderItems.length !== 0">
   <div class="text-center mt-5">
-    <span class="text-center">Trabajamos todos nuestros desarrollos con</span>
-    <h2 class="h2-black">Metodologías <b>Scrum y kanban.</b></h2>
+    <span class="text-center" i18n>Trabajamos todos nuestros desarrollos con</span>
+    <h2 class="h2-black" i18n>Metodologías <b>Scrum y kanban.</b></h2>
   </div>
   <section class="section-slider mt-4" *ngIf="!isMobile">
     <owl-carousel-o [options]="customOptions">
@@ -9,13 +9,13 @@
         <ng-template carouselSlide>
           <div class="card-item text-center">
             <img class="icon-slider" [src]="slider.icon" alt="" />
-            <p class="title_item">{{ slider.title }}</p>
+            <p class="title_item" i18n>{{ slider.title }}</p>
           </div>
         </ng-template>
       </ng-container>
     </owl-carousel-o>
     <div class="container d-flex justify-content-end mt-3">
-      <p class="mb-0 me-3 parr_slide">
+      <p class="mb-0 me-3 parr_slide" i18n>
         Desliza para conocer todos los servicios
       </p>
       <img

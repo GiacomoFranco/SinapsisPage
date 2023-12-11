@@ -4,6 +4,14 @@
   "newProjectRoot": "projects",
   "projects": {
     "sinapsis-web": {
+      "i18n": {
+        "sourceLocale": "es",
+        "locales": {
+          "en-US" : {
+            "translation": "src/locale/messages.en.xlf"
+          }
+        }
+      },
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,6 +25,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "localize" : [
+              "en-US"
+            ],
             "outputPath": "dist/sinapsis-web/browser",
             "index": "src/index.html",
             "main": "src/main.ts",

@@ -10,12 +10,13 @@
         selectorClassAnimation="banner-wwu-a"
         ease="expo"
       >
-        <h1 class="banner-wwu-a">
+        <h1 class="banner-wwu-a" i18n>
           {{ pageWorkWithUs.mainBanner.titleSection }}
         </h1>
         <a
           routerLink="/trabaja-con-nosotros/vacantes"
           class="button-banner banner-wwu-a"
+          i18n
           >{{ pageWorkWithUs.mainBanner.descriptionText
           }}<img src="assets/icons/arrow-top-left.png" alt=""
         /></a>
@@ -33,10 +34,10 @@
         duration="1"
         stagger="0.3"
       >
-        <h2 class="info-a">
+        <h2 class="info-a" i18n>
           {{pageWorkWithUs.descriptionSection.title}}
         </h2>
-        <p class="info-a" [innerHTML]="pageWorkWithUs.descriptionSection.descriptionField"></p>
+        <p class="info-a" [innerHTML]="pageWorkWithUs.descriptionSection.descriptionField" i18n></p>
       </div>
     </div>
     <img
@@ -81,10 +82,10 @@
         duration="1"
         stagger="0.3"
       >
-        <h3 class="beneficios__content-a">
+        <h3 class="beneficios__content-a" i18n>
           {{pageWorkWithUs.advantagesWorkingWithUs.title}}
         </h3>
-        <p class="beneficios__content-a">
+        <p class="beneficios__content-a" i18n>
           {{pageWorkWithUs.advantagesWorkingWithUs.description}}
         </p>
       </div>

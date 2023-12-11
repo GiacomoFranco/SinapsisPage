@@ -6,8 +6,8 @@
       *ngFor="let data of pageData.misionVision"
     >
       <div class="content-info mision-content">
-        <h2>{{ data.title }}</h2>
-        <p [innerHTML]="data.description"></p>
+        <h2 i18n>{{ data.title }}</h2>
+        <p [innerHTML]="data.description" i18n></p>
       </div>
     </div>
   </div>

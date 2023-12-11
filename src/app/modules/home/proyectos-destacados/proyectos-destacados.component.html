@@ -1,6 +1,6 @@
 <section class="proyectos-destacados">
   <div class="proyectos-destacados__title-section project-a">
-    <h2>{{tituloProyectos}}</h2>
+    <h2 i18n>{{tituloProyectos}}</h2>
   </div>
   <article *ngIf="project" class="proyect container">
     <div class="proyect-preview project-a">
@@ -10,10 +10,10 @@
     <div class="proyect-content project-a">
       <img [src]="project.general.logo" alt="Logo del clientes" class="proyect-logo">
       <div class="proyects-content__text-container">
-        <h3>{{ project.title}}</h3>
-        <p>{{ project ? project.general.description : 'Lorem ipsum' }}</p>
+        <h3 i18n>{{ project.title}}</h3>
+        <p i18n>{{ project ? project.general.description : 'Lorem ipsum' }}</p>
       </div>
-      <a routerLink="/portafolio/{{project.slug }}" class="action">Ver más</a>
+      <a routerLink="/portafolio/{{project.slug }}" class="action" i18n>Ver más</a>
     </div>
   </article>
   <div class="controller">
