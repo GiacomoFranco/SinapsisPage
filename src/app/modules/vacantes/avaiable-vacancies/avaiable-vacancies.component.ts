@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { VacantesService } from '@app/services/vacantes.service';
 import { Router } from '@angular/router';
 import { CellClickEvent } from '@progress/kendo-angular-grid';
+import { DropDownListComponent } from '@progress/kendo-angular-dropdowns';
 
 @Component({
   selector: 'app-avaiable-vacancies',
@@ -13,6 +14,9 @@ export class AvaiableVacanciesComponent implements OnInit {
     private vacantesService: VacantesService,
     private router: Router
   ) {}
+
+  @ViewChild('area', { static: false }) areaDropDown: DropDownListComponent;
+  @ViewChild('tecnologia', { static: false }) tecnologiaDropDown: DropDownListComponent;
 
   ngOnInit(): void {
     this.vacantesService.getVacancies().then((resp: any) => {
@@ -141,5 +145,13 @@ export class AvaiableVacanciesComponent implements OnInit {
         .join(', ');
     });
     this.loaderVisible = false;
+  }
+
+  limpiarFiltros() {
+    this.search = '';
+    this.filters = { area: null, tecnologia: null, search: '' };
+    this.areaDropDown.writeValue(null);
+    this.tecnologiaDropDown.writeValue(null);
+    this.getVacancies(); // Recargar los datos sin filtros
   }
 }

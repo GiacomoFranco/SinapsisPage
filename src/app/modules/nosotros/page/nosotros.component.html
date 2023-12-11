@@ -5,27 +5,23 @@
       class="logo-sinapsis"
       src="/assets/img/logo_mark.svg"
       alt=""
-      *ngIf="!isMobile"
-      />
+    />
     <div class="container">
-      <div class="row d-flex justify-content-center align-items-center">
-        <div
-          class="col-md-5 col-12 item-history history-image"
-          *ngIf="!isMobile"
-        >
+      <div class="content-history">
+        <div class="history-image">
           <img
-            *ngIf="pageData.ourHistory.imagen"
             class="img-office"
             [src]="pageData.ourHistory.imagen"
-            alt=""
+            alt="Oficina Sinapsis"
           />
         </div>
-        <div
-          class="col-md-7 col-12 d-flex justify-content-end item-history"
-          id="text-content-history"
-        >
+        <div id="text-content-history">
           <div class="content-text-hystory">
-            <img class="ic-arrow" src="/assets/icons/arrowUp.svg" alt="" *ngIf="!isMobile" />
+            <img
+              class="ic-arrow"
+              src="/assets/icons/arrowUp.svg"
+              alt="Icono flecha apuntando a nuestra historia"
+            />
             <h2>{{ pageData.ourHistory.title }}</h2>
             <p class="ourHistoryText">{{ pageData.ourHistory.description }}</p>
           </div>
