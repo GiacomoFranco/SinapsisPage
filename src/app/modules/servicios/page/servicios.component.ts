@@ -30,44 +30,33 @@ export class ServiciosComponent implements OnInit {
     this.checkWindowSize();
   }
 
-  getPage() {
-    const cachedData = this.getCachedDataFromLocalStorage('servicesPageData');
+  async getPage(): Promise<void> {
+    const cacheKey = 'servicesPageData';
 
-    if (cachedData) {
-      // Si hay datos en el localStorage, usa esos datos
-      this.pageData = cachedData;
-      this.safeDescription = this.sanitizer.bypassSecurityTrustHtml(
-        this.pageData.developSoftware.secondDescription
-      );
-      this.initialRender = true;
-    } else {
-      // Si no hay datos en el localStorage, realiza la solicitud HTTP
-      this.getPagaDataService.getServicesPage('servicios').then((resp) => {
+    try {
+      const cache = await caches.open('ServiciosPage'); // Cambia 'myCacheName' por el nombre que desees
+      const response = await cache.match(cacheKey);
+
+      if (response) {
+        const data = await response.json();
+        this.pageData = data;
+        this.safeDescription = this.sanitizer.bypassSecurityTrustHtml(
+          this.pageData.developSoftware.secondDescription
+        );
+        this.initialRender = true;
+      } else {
+        const resp = await this.getPagaDataService.getServicesPage('servicios');
         const { data } = resp;
         this.pageData = data;
         this.safeDescription = this.sanitizer.bypassSecurityTrustHtml(
           this.pageData.developSoftware.secondDescription
         );
         this.initialRender = true;
-
-        // Guarda los datos en el localStorage
-        this.saveDataToLocalStorage('servicesPageData', this.pageData);
-      });
+        await cache.put(cacheKey, new Response(JSON.stringify(this.pageData)));
+      }
+    } catch (error) {
+      console.error('Error al obtener datos desde la caché:', error);
     }
-  }
-
-  private saveDataToLocalStorage(key: string, data: any) {
-    localStorage.setItem(key, JSON.stringify(data));
-  }
-
-  private getCachedDataFromLocalStorage(key: string): any {
-    const cachedData = localStorage.getItem(key);
-
-    if (cachedData) {
-      return JSON.parse(cachedData);
-    }
-
-    return null;
   }
 
   @HostListener('window:resize', ['$event'])
