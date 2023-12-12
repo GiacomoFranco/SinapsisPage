@@ -2,9 +2,9 @@
   <article class="blog__title">
     <div class="blog__title-container" appScrollReveal x="-100">
       <img src="assets/icons/arrowdown-right.svg" alt="">
-      <h2>Explora <span class="servicios-span">nuestro Blog</span></h2>
+      <h2>{{subTitle1}}<span class="servicios-span">{{subTitle2}}</span></h2>
     </div>
-    <a routerLink="/blog">Ir al Blog</a>
+    <a routerLink="/blog">{{blogRoute}}</a>
   </article>
   <article class="blog__posts">
     <app-postcarrousel [setBreakpoint]="1400"></app-postcarrousel>

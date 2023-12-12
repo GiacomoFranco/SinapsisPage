@@ -13,5 +13,12 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.hasRendered = true;
+    const browserLanguage = window.navigator.language;
+    const codeLanguage = browserLanguage.split('-')[0];
+    const storedLanguage = localStorage.getItem('language');
+
+    if (!storedLanguage) {
+      localStorage.setItem('language', codeLanguage);
+    }
   }
 }

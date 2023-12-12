@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { SliderAbout } from '@app/models/sliderUs.model';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { sliderUsData } from 'src/app/core/sliderUs.mock';
@@ -8,8 +8,9 @@ import { sliderUsData } from 'src/app/core/sliderUs.mock';
   templateUrl: './nosotros.component.html',
   styleUrls: ['./nosotros.component.scss'],
 })
-export class NosotrosComponent {
+export class NosotrosComponent implements OnInit {
   sliderImg: SliderAbout[] = sliderUsData;
+  supTitle = '';
 
   @Input() dataUs = {
     title: '',
@@ -40,4 +41,9 @@ export class NosotrosComponent {
       },
     },
   };
+
+  ngOnInit(): void {
+    const language = localStorage.getItem('language');
+    this.supTitle = language === 'es' ? 'Nosotros' : 'About Us'
+  }
 }

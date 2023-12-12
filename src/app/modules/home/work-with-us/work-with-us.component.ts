@@ -8,6 +8,7 @@ import { Component, HostListener, OnInit, Input } from '@angular/core';
 export class WorkWithUsComponent implements OnInit {
   isWWUResponsive: Boolean;
   isMobile: Boolean;
+  supTitle = '';
 
   @Input() dataWorkUs = {
     title: '',
@@ -22,6 +23,8 @@ export class WorkWithUsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    const language = localStorage.getItem('language');
+    this.supTitle = language === 'es' ? 'Trabaja con nosotros' : 'Work with us'
     this.checkWindowSize();
   }
   @HostListener('window:resize', ['$event'])
