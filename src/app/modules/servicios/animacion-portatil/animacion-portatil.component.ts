@@ -22,7 +22,7 @@ export class AnimacionPortatilComponent implements AfterViewInit, OnDestroy {
   options: AnimationOptions = {
     path: '/assets/Animation/animation_pc.json',
     autoplay: false,
-  };;
+  };
 
   ngAfterViewInit(): void {
     this.initAnimation();

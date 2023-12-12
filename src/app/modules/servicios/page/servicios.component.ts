@@ -20,7 +20,7 @@ export class ServiciosComponent implements OnInit {
     private getPagaDataService: GetPageDataService,
     private seoService: SeoService,
     private sanitizer: DomSanitizer,
-  ) {}
+  ) { }
 
   initialRender = false;
 
@@ -31,14 +31,43 @@ export class ServiciosComponent implements OnInit {
   }
 
   getPage() {
-    this.getPagaDataService.getServicesPage('servicios').then((resp) => {
-      const { data } = resp;
-      this.pageData = data;
+    const cachedData = this.getCachedDataFromLocalStorage('servicesPageData');
+
+    if (cachedData) {
+      // Si hay datos en el localStorage, usa esos datos
+      this.pageData = cachedData;
       this.safeDescription = this.sanitizer.bypassSecurityTrustHtml(
         this.pageData.developSoftware.secondDescription
       );
       this.initialRender = true;
-    });
+    } else {
+      // Si no hay datos en el localStorage, realiza la solicitud HTTP
+      this.getPagaDataService.getServicesPage('servicios').then((resp) => {
+        const { data } = resp;
+        this.pageData = data;
+        this.safeDescription = this.sanitizer.bypassSecurityTrustHtml(
+          this.pageData.developSoftware.secondDescription
+        );
+        this.initialRender = true;
+
+        // Guarda los datos en el localStorage
+        this.saveDataToLocalStorage('servicesPageData', this.pageData);
+      });
+    }
+  }
+
+  private saveDataToLocalStorage(key: string, data: any) {
+    localStorage.setItem(key, JSON.stringify(data));
+  }
+
+  private getCachedDataFromLocalStorage(key: string): any {
+    const cachedData = localStorage.getItem(key);
+
+    if (cachedData) {
+      return JSON.parse(cachedData);
+    }
+
+    return null;
   }
 
   @HostListener('window:resize', ['$event'])
