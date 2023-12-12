@@ -37,7 +37,8 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   }
 
   async getDataPage(){
-    this.getPagaDataService.getServicesPage('home').then(response => {
+    const language = localStorage.getItem('language');
+    this.getPagaDataService.getServicesPage(language === 'es' ? 'home' : `home-${language}`).then(response => {
       const {data} = response
       this.dataPage = data;
     })
