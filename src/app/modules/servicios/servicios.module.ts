@@ -10,6 +10,7 @@ import { SliderComponent } from './slider/slider.component';
 import { AnimacionPortatilComponent } from './animacion-portatil/animacion-portatil.component';
 import { OtrosServiciosComponent } from './otros-servicios/otros-servicios.component';
 import { EstadisticasComponent } from './estadisticas/estadisticas.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 export function playerFactory() {
   return player;
@@ -30,6 +31,7 @@ export function playerFactory() {
     SharedModule,
     CarouselModule,
     LottieModule.forRoot({player: playerFactory}),
+    TranslateModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
