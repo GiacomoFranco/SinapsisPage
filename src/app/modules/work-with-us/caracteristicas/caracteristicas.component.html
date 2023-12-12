@@ -2,8 +2,8 @@
   class="section-content__container"
   [class.section-content__container--contacto]="isContacto"
 >
-  <h3 class="caracteristicas__title-a" i18n>{{ title }}</h3>
-  <p *ngIf="isContacto" [innerHTML]="description" i18n></p>
+  <h3 class="caracteristicas__title-a">{{ title }}</h3>
+  <p *ngIf="isContacto" [innerHTML]="description"></p>
   <div
     class="caracterticas__cards"
     *ngIf="isContacto; else workWithUs"

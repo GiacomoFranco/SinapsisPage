@@ -10,13 +10,12 @@
         selectorClassAnimation="banner-wwu-a"
         ease="expo"
       >
-        <h1 class="banner-wwu-a" i18n>
+        <h1 class="banner-wwu-a">
           {{ pageWorkWithUs.mainBanner.titleSection }}
         </h1>
         <a
           routerLink="/trabaja-con-nosotros/vacantes"
           class="button-banner banner-wwu-a"
-          i18n
           >{{ pageWorkWithUs.mainBanner.descriptionText
           }}<img src="assets/icons/arrow-top-left.png" alt=""
         /></a>
@@ -34,10 +33,13 @@
         duration="1"
         stagger="0.3"
       >
-        <h2 class="info-a" i18n>
-          {{pageWorkWithUs.descriptionSection.title}}
+        <h2 class="info-a">
+          {{ pageWorkWithUs.descriptionSection.title }}
         </h2>
-        <p class="info-a" [innerHTML]="pageWorkWithUs.descriptionSection.descriptionField" i18n></p>
+        <p
+          class="info-a"
+          [innerHTML]="pageWorkWithUs.descriptionSection.descriptionField"
+        ></p>
       </div>
     </div>
     <img
@@ -82,14 +84,16 @@
         duration="1"
         stagger="0.3"
       >
-        <h3 class="beneficios__content-a" i18n>
-          {{pageWorkWithUs.advantagesWorkingWithUs.title}}
+        <h3 class="beneficios__content-a">
+          {{ pageWorkWithUs.advantagesWorkingWithUs.title }}
         </h3>
-        <p class="beneficios__content-a" i18n>
-          {{pageWorkWithUs.advantagesWorkingWithUs.description}}
+        <p class="beneficios__content-a">
+          {{ pageWorkWithUs.advantagesWorkingWithUs.description }}
         </p>
       </div>
-      <app-perks [perks]="pageWorkWithUs.advantagesWorkingWithUs.addOptions"></app-perks>
+      <app-perks
+        [perks]="pageWorkWithUs.advantagesWorkingWithUs.addOptions"
+      ></app-perks>
     </article>
   </section>
   <section class="carateristicas">

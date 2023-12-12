@@ -4,16 +4,16 @@
 >
   <img [src]="icon" alt="" />
   <div class="caracteristicas__card-content">
-    <h4 i18n>{{ title }}</h4>
-    <a href="{{accion}}" target="_blank" i18n>{{ text }}</a>
+    <h4>{{ title }}</h4>
+    <a href="{{ accion }}" target="_blank">{{ text }}</a>
   </div>
 </div>
 <ng-template #noContact>
   <div class="caracteristicas__card">
     <img [src]="icon" alt="" />
     <div class="caracteristicas__card-content">
-      <h4 i18n>{{ title }}</h4>
-      <p i18n>{{ text }}</p>
+      <h4>{{ title }}</h4>
+      <p>{{ text }}</p>
     </div>
   </div>
 </ng-template>

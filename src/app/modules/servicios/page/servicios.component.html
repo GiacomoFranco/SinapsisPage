@@ -1,21 +1,27 @@
 <main *ngIf="initialRender">
   <app-slider [isMobile]="isMobile"></app-slider>
-  <section class="section-software pb-5" appScrollReveal selectorClassAnimation="desarrollo-a" y="100">
+  <section
+    class="section-software pb-5"
+    appScrollReveal
+    selectorClassAnimation="desarrollo-a"
+    y="100"
+  >
     <div class="text-software">
       <div class="mt-3 text-center container">
-        <h2 class="h2-black desarrollo-a" i18n>
+        <h2 class="h2-black desarrollo-a">
           {{ pageData.developSoftware.title }}
         </h2>
         <p
           [innerHTML]="pageData.developSoftware.description"
-          i18n
           class="mt-4 desarrollo-a"
         ></p>
       </div>
     </div>
-    <app-animacion-portatil [urlAnim]="pageData.developSoftware.video"></app-animacion-portatil>
+    <app-animacion-portatil
+      [urlAnim]="pageData.developSoftware.video"
+    ></app-animacion-portatil>
     <div class="container info-software text-center">
-      <p [innerHTML]="safeDescription" i18n></p>
+      <p [innerHTML]="safeDescription"></p>
     </div>
   </section>
   <app-otros-servicios
@@ -27,10 +33,14 @@
     <div class="info-contact">
       <div class="content">
         <img src="/assets/icons/arrowdown.svg" alt="" />
-        <h2 i18n>{{ pageData.SectionWorkWithUs.Title }}</h2>
-        <a [href]="pageData.SectionWorkWithUs.urlBoton" i18n>{{pageData.SectionWorkWithUs.buttonName}}</a>
+        <h2>{{ pageData.SectionWorkWithUs.Title }}</h2>
+        <a [href]="pageData.SectionWorkWithUs.urlBoton">{{
+          pageData.SectionWorkWithUs.buttonName
+        }}</a>
       </div>
     </div>
   </section>
-  <app-casos-de-exito [titulo_casos_de_exito]="pageData.casos_de_exito.titulo_casos_de_exito" />
+  <app-casos-de-exito
+    [titulo_casos_de_exito]="pageData.casos_de_exito.titulo_casos_de_exito"
+  />
 </main>

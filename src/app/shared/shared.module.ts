@@ -4,7 +4,6 @@ import { headerComponent } from './header/header.component';
 import { RouterModule } from '@angular/router';
 import { ButtonSinapsisComponent } from './button-sinapsis/button-sinapsis.component';
 import { CasosDeExitoComponent } from './casos-de-exito/casos-de-exito.component';
-import { TecnologiasComponent } from './tecnologias/tecnologias.component';
 import { FooterComponent } from './footer/footer.component';
 import { FaqComponent } from './faq/faq.component';
 import { ProyectLaptopComponent } from './proyect-laptop/proyect-laptop.component';
@@ -34,7 +33,6 @@ import { ModalPoliticasComponent } from './modal-politicas/modal-politicas.compo
     headerComponent,
     ButtonSinapsisComponent,
     CasosDeExitoComponent,
-    TecnologiasComponent,
     FooterComponent,
     FaqComponent,
     ProyectLaptopComponent,
@@ -62,7 +60,6 @@ import { ModalPoliticasComponent } from './modal-politicas/modal-politicas.compo
     headerComponent,
     ButtonSinapsisComponent,
     CasosDeExitoComponent,
-    TecnologiasComponent,
     FooterComponent,
     FaqComponent,
     ProyectLaptopComponent,
