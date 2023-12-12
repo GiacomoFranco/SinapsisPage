@@ -10,13 +10,12 @@
   <div class="contacto-formulario-container">
     <div class="container">
       <article class="formulario_text__container">
-        <h2 class="formulario_text__content-a" i18n>
+        <h2 class="formulario_text__content-a">
           {{ dataPage.section_form.title }}
         </h2>
         <p
           class="formulario_text__content-a"
           [innerHTML]="dataPage.section_form.description"
-          i18n
         ></p>
       </article>
 
@@ -29,10 +28,10 @@
               placeholder="Nombre Completo"
               #fullName
               required
-              i18n-placeholder
+              -placeholder
             />
 
-            <kendo-formerror i18n>Este campo es requerido</kendo-formerror>
+            <kendo-formerror>Este campo es requerido</kendo-formerror>
           </kendo-formfield>
           <kendo-formfield showErrors="initial">
             <input
@@ -41,17 +40,15 @@
               placeholder="Correo electrónico"
               #email
               required
-              i18n-placeholder
+              -placeholder
             />
 
             <kendo-formerror
               *ngIf="Email.errors?.['required'] && (Email.dirty || Email.touched )"
-              i18n
               >Este campo es requerido</kendo-formerror
             >
             <kendo-formerror
               *ngIf="Email.errors?.['email'] && (Email.dirty || Email.touched )"
-              i18n
               >Ingresa un correo electrónico válido</kendo-formerror
             >
           </kendo-formfield>
@@ -63,16 +60,14 @@
               #telefono
               required
               type="tel"
-              i18n-placeholder
+              -placeholder
             />
 
             <kendo-formerror
               *ngIf="Telefono.errors?.['required'] && (Telefono.dirty || Telefono.touched )"
-              i18n
               >Este campo es requerido</kendo-formerror
             >
             <kendo-formerror *ngIf="Telefono.errors?.['pattern']"
-            i18n
               >Ingresa un número de teléfono válido</kendo-formerror
             >
           </kendo-formfield>
@@ -84,7 +79,7 @@
               [rows]="3"
               resizable="vertical"
             ></kendo-textarea>
-            <kendo-formerror i18n>Este campo es requerido</kendo-formerror>
+            <kendo-formerror>Este campo es requerido</kendo-formerror>
           </kendo-formfield>
           <!-- <span id="terms-condicion">Terminos y condiciones</span> -->
 
@@ -96,10 +91,9 @@
                   id="terms"
                   type="checkbox"
                   formControlName="terms"
-                  i18n-placeholder
+                  -placeholder
                 />
                 <kendo-label class="k-checkbox-label" for="terms"
-                i18n
                   >Aceptar
                   <span
                     id="terms-condicion"
@@ -111,10 +105,9 @@
               </div>
               <kendo-formerror
                 *ngIf="TermsAndConditions.errors?.['required'] && TermsAndConditions.value === null"
-                i18n
                 >Este campo es requerido</kendo-formerror
               >
-              <kendo-formerror *ngIf="TermsAndConditions.value === false" i18n>
+              <kendo-formerror *ngIf="TermsAndConditions.value === false">
                 Debes de marcar el campo de términos y condiciones para poder
                 enviar la postulación</kendo-formerror
               >
@@ -124,7 +117,6 @@
               name_button="Enviar y aplicar"
               [redirects]="false"
               (click)="submitForm()"
-              i18n
             ></app-button-sinapsis>
           </div>
         </form>
@@ -144,4 +136,4 @@
     referrerpolicy="no-referrer-when-downgrade"
   ></iframe>
 </section>
-<app-modal-politicas/>
+<app-modal-politicas />

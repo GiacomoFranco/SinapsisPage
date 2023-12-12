@@ -2,14 +2,14 @@
   <article class="section__content">
     <div class="section__text-container">
       <div class="nosotros-a">
-        <span class=".sup-title" i18n>Nosotros</span>
-        <h2 i18n>{{dataUs.title}}</h2>
+        <span class=".sup-title">Nosotros</span>
+        <h2>{{dataUs.title}}</h2>
       </div>
-      <p class="nosotros-a" [innerHTML]="dataUs.description" i18n></p>
+      <p class="nosotros-a" [innerHTML]="dataUs.description"></p>
       <div class="section__actions nosotros-a">
         <app-button-sinapsis [name_button]="dataUs.UrlMainBtn"
-          [url]="'/nosotros'" i18n></app-button-sinapsis>
-          <app-link-sinapsis i18n [name_link]="dataUs.UrlSecondBtn" [redirectionUrl]="'/trabaja-con-nosotros'"></app-link-sinapsis>
+          [url]="'/nosotros'"></app-button-sinapsis>
+          <app-link-sinapsis [name_link]="dataUs.UrlSecondBtn" [redirectionUrl]="'/trabaja-con-nosotros'"></app-link-sinapsis>
       </div>
     </div>
   </article>

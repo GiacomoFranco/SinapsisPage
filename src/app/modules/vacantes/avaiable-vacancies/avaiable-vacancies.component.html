@@ -4,7 +4,6 @@
   [(ngModel)]="search"
   (valueChange)="filterVacancies($event, nombre)"
   placeholder="Buscar vacante"
-  i18n-placeholder
   rounded="none"
   class="custom-rounded"
 >
@@ -16,7 +15,6 @@
       #area
       id="areas"
       defaultItem="Área"
-      i18n-placeholder
       [data]="areasName"
       (valueChange)="filterVacancies($event, area)"
     ></kendo-dropdownlist>
@@ -24,7 +22,6 @@
       #tecnologia
       id="tecnologias"
       defaultItem="Tecnología"
-      i18n-placeholder
       [data]="tecnologiasName"
       (valueChange)="filterVacancies($event, tecnologia)"
     ></kendo-dropdownlist>
@@ -37,7 +34,7 @@
 </div>
 
 <div id="no-data" *ngIf="vacancies.length === 0 && loaderVisible !== true; else dataBloq">
-  <h2 i18n>No hay resultados</h2>
+  <h2>No hay resultados</h2>
 </div>
 
 <ng-template #dataBloq>

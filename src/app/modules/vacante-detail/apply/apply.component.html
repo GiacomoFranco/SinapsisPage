@@ -11,7 +11,7 @@
       class="close-icon"
       (click)="toggleModalState()"
     />
-    <h3 i18n>Ingresa los datos para aplicar a la oferta</h3>
+    <h3>Ingresa los datos para aplicar a la oferta</h3>
     <article class="form-wrapper">
       <form [formGroup]="form" class="form">
         <label class="label-form">Datos</label>
@@ -22,10 +22,9 @@
             placeholder="Nombre Completo"
             #fullName
             required
-            i18n-placeholder
           />
 
-          <kendo-formerror i18n>Este campo es requerido</kendo-formerror>
+          <kendo-formerror>Este campo es requerido</kendo-formerror>
         </kendo-formfield>
         <kendo-formfield showErrors="initial">
           <input
@@ -34,17 +33,14 @@
             placeholder="Correo electrónico"
             #email
             required
-            i18n-placeholder
           />
 
           <kendo-formerror
             *ngIf="Email.errors?.['required'] && (Email.dirty || Email.touched )"
-            i18n
             >Este campo es requerido</kendo-formerror
           >
           <kendo-formerror
             *ngIf="Email.errors?.['email'] && (Email.dirty || Email.touched )"
-            i18n
             >Ingresa un correo electrónico válido</kendo-formerror
           >
         </kendo-formfield>
@@ -56,16 +52,13 @@
             #telefono
             required
             type="tel"
-            i18n-placeholder
           />
 
           <kendo-formerror
             *ngIf="Telefono.errors?.['required'] && (Telefono.dirty || Telefono.touched )"
-            i18n
             >Este campo es requerido</kendo-formerror
           >
           <kendo-formerror *ngIf="Telefono.errors?.['pattern']"
-          i18n
             >Ingresa un número de teléfono válido</kendo-formerror
           >
         </kendo-formfield>
@@ -78,13 +71,12 @@
             formControlName="ubications"
             [data]="ubications"
             [value]="'Ubicación'"
-            i18n-placeholder
           >
           </kendo-dropdownlist>
-          <kendo-formerror i18n>Este campo es requerido</kendo-formerror>
+          <kendo-formerror>Este campo es requerido</kendo-formerror>
         </kendo-formfield>
 
-        <label class="label-form" i18n>Anexa tu Curriculum Vitae</label>
+        <label class="label-form">Anexa tu Curriculum Vitae</label>
         <kendo-formfield>
           <kendo-fileselect
             #files
@@ -99,14 +91,12 @@
             <kendo-fileselect-messages
               dropFilesHere="Agregar aqui tu curriculum en formato PDF"
               select=""
-              i18n
             >
             </kendo-fileselect-messages>
           </kendo-fileselect>
 
           <kendo-formerror
             *ngIf="form.controls['files'].errors?.['required'] && selectedFileExtension === null "
-            i18n
             >Este campo es requerido</kendo-formerror
           >
           <kendo-formerror
@@ -114,7 +104,6 @@
               files._restrictions.allowedExtensions![0] !==
                 selectedFileExtension && selectedFileExtension !== null
             "
-            i18n
             >La extensión del archivo es de tipo {{ selectedFileExtension }}, en
             su lugar adjunta un PDF
           </kendo-formerror>
@@ -127,7 +116,7 @@
               type="checkbox"
               formControlName="terms"
             />
-            <kendo-label class="k-checkbox-label" for="terms" text="Aceptar" i18n>
+            <kendo-label class="k-checkbox-label" for="terms" text="Aceptar">
               <span
                 id="terms-condicion"
                 data-bs-toggle="modal"
@@ -138,10 +127,9 @@
           </div>
           <kendo-formerror
             *ngIf="TermsAndConditions.errors?.['required'] && TermsAndConditions.value === null"
-            i18n
             >Este campo es requerido</kendo-formerror
           >
-          <kendo-formerror *ngIf="TermsAndConditions.value === false" i18n>
+          <kendo-formerror *ngIf="TermsAndConditions.value === false">
             Debes de marcar el campo de términos y condiciones para poder enviar
             la postulación</kendo-formerror
           >
@@ -152,7 +140,7 @@
           [redirects]="false"
           (click)="submitForm()"
         ></app-button-sinapsis>
-        <app-modal-politicas/>
+        <app-modal-politicas />
       </form>
     </article>
   </div>

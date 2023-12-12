@@ -1,27 +1,46 @@
-<section #absoluteLaptop class="banner-principal">
-  <img #laptop class="laptop-graphic--absolute" src="/assets/img/portatil-home-mockup.svg" alt="laptop">
+<section *ngIf="dataPage?.homeBanner" #absoluteLaptop class="banner-principal">
+  <img
+    #laptop
+    class="laptop-graphic--absolute"
+    src="/assets/img/portatil-home-mockup.svg"
+    alt="laptop"
+  />
   <article class="section__content">
     <div class="section__text-container">
-      <h1 i18n>{{dataPage.homeBanner.titulo}}</h1>
-      <p i18n>{{dataPage.homeBanner.descriptionText}}</p>
+      <h1>{{ dataPage.homeBanner.titulo }}</h1>
+      <p>{{ dataPage.homeBanner.descriptionText }}</p>
       <div class="section__actions">
-        <app-button-sinapsis [name_button]="dataPage.homeBanner.nombre_boton_principal" [url]="'/nosotros'" i18n></app-button-sinapsis>
-        <app-link-sinapsis [name_link]="dataPage.homeBanner.nombre_boton_secundario" [redirectionUrl]="'/servicios'" i18n></app-link-sinapsis>
+        <app-button-sinapsis
+          [name_button]="dataPage.homeBanner.nombre_boton_principal"
+          [url]="'/nosotros'"
+        ></app-button-sinapsis>
+        <app-link-sinapsis
+          [name_link]="dataPage.homeBanner.nombre_boton_secundario"
+          [redirectionUrl]="'/servicios'"
+        ></app-link-sinapsis>
       </div>
     </div>
   </article>
   <article class="banner-principal__graphics">
     <div #relativeLaptop class="banner-principal__images-container">
-      <img class="phone-graphic" src="/assets/img/celular.svg" alt="">
+      <img class="phone-graphic" src="/assets/img/celular.svg" alt="" />
     </div>
   </article>
 </section>
-<app-casos-de-exito [titulo_casos_de_exito]="dataPage.casos_de_exito.titulo_casos_de_exito"></app-casos-de-exito>
-<app-nuestros-servicios [dataOurService]="dataPage.ourServices"></app-nuestros-servicios>
+<app-casos-de-exito
+  [titulo_casos_de_exito]="dataPage.casos_de_exito.titulo_casos_de_exito"
+></app-casos-de-exito>
+<app-nuestros-servicios
+  [dataOurService]="dataPage.ourServices"
+></app-nuestros-servicios>
 <app-nosotros [dataUs]="dataPage.aboutUs"></app-nosotros>
 <app-work-with-us [dataWorkUs]="dataPage.section"></app-work-with-us>
 <app-nuestras-tecnologias></app-nuestras-tecnologias>
 <app-testimonios [dataSection]="dataPage.testimonios"> </app-testimonios>
-<app-proyectos-destacados [tituloProyectos]="dataPage.proyectos_destacados.titulo_proyectos_destacados"></app-proyectos-destacados>
+<app-proyectos-destacados
+  [tituloProyectos]="dataPage.proyectos_destacados.titulo_proyectos_destacados"
+></app-proyectos-destacados>
 <app-blog></app-blog>
-<app-faq-home [tituloPreguntas]="dataPage.preguntas_frecuentes.titulo_preguntas_frecuentes"></app-faq-home>
+<app-faq-home
+  [tituloPreguntas]="dataPage.preguntas_frecuentes.titulo_preguntas_frecuentes"
+></app-faq-home>

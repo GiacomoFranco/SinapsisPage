@@ -1,7 +1,7 @@
 <section class="nuestros-servicios">
   <article class="nuestros-servicios__graphics">
     <div class="nuestros-servicios__title">
-      <h2 i18n>
+      <h2>
         <img src="assets/icons/arrowdown-right.svg" alt="" />{{
           dataOurService.titulo_seccion
         }}
@@ -36,15 +36,14 @@
       <div *ngFor="let servicio of servicios" class="service">
         <img class="service__icon" [src]="servicio.icon" alt="ícono Servicio" />
         <div class="service__content">
-          <h4 i18n>{{ servicio.title }}</h4>
-          <p i18n>{{ servicio.description }}</p>
+          <h4>{{ servicio.title }}</h4>
+          <p>{{ servicio.description }}</p>
         </div>
       </div>
       <app-button-sinapsis
         class="button"
         [name_button]="dataOurService.titulo_boton"
         url="/servicios"
-        i18n
       ></app-button-sinapsis>
     </div>
     <ng-template #nuestrosServiciosMovile>
