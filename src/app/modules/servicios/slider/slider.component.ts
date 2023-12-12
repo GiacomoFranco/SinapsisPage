@@ -2,7 +2,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Servicio } from '@app/models/servicio.model';
 import { ServiciosService } from '@app/services/servicios.service';
 import { OwlOptions } from 'ngx-owl-carousel-o';
-
 @Component({
   selector: 'app-slider',
   templateUrl: './slider.component.html',
@@ -37,10 +36,24 @@ export class SliderComponent implements OnInit {
     this.getSlider();
   }
 
-  getSlider() {
-    this.service.getServicios().then((resp) => {
-      const { data } = resp;
-      this.sliderItems = data;
-    });
+  async getSlider() {
+    const cacheKey = 'SliderService';
+
+    try {
+      const cache = await caches.open('SliderService');
+      const response = await cache.match(cacheKey);
+
+      if (response) {
+        const data = await response.json();
+        this.sliderItems = data;
+      }else{
+        const resp = await this.service.getServicios();
+        const { data } = resp;
+        this.sliderItems = data;
+        await cache.put(cacheKey, new Response(JSON.stringify(this.sliderItems)));
+      }
+    } catch (error) {
+      console.error('Error al obtener datos desde la caché:', error);
+    }
   }
 }
